@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Slip - KLK Ventures Pvt Ltd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .salary-slip {
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .header {
+            background-color: #4a6fa5; /* Dark blue/teal for a professional look */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 18px;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            background-color: #e0f2f7; /* Light blue/cyan similar to the image */
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .logo-section .logo {
+            width: 80px;
+            height: auto;
+            margin-right: 20px;
+            /* In a real scenario, replace this with an actual image tag:
+               <img src="path/to/your/logo.png" alt="KLK Logo" style="width:80px;"> */
+            border: 1px solid #000; /* Placeholder border for logo */
+            text-align: center;
+            line-height: 80px;
+            font-size: 10px;
+            background-color: #fff;
+        }
+        .employee-details {
+            padding: 10px 20px;
+            background-color: #e0f2f7; /* Matching the top section */
+            border-bottom: 1px solid #ccc;
+        }
+        .employee-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .employee-details strong {
+            display: inline-block;
+            width: 120px; /* Aligns the colons */
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .details-table th, .details-table td {
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        .details-table th {
+            background-color: #f9f9f9;
+            width: 50%;
+        }
+        .details-table .category-header {
+            background-color: #ffebcd; /* Light yellow/orange similar to the image */
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .details-table .total-row {
+            background-color: #ffebcd; /* Light yellow/orange similar to the image */
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .net-salary {
+            background-color: #ffe0b2; /* Slightly darker yellow/orange for emphasis */
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer {
+            padding: 20px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .footer .signature-line {
+            display: inline-block;
+            width: 250px;
+            border-bottom: 1px solid #000;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="salary-slip">
+    <div class="header">
+        <h1>KLK Ventures Pvt Ltd</h1>
+        <p>Salary Slip</p>
+    </div>
+
+    <div class="logo-section">
+        <div class="logo">KLK Logo Placeholder</div>
+    </div>
+
+    <div class="employee-details">
+        <p><strong>Employee Name</strong> : vipin</p>
+        <p><strong>Employee ID</strong> : #53</p>
+        <p><strong>Email</strong> : vipin@etsnetworks.in</p>
+        <p><strong>Pay Period</strong> : 14 Oct 2025 - 14 Nov 2025</p>
+    </div>
+
+    <table class="details-table">
+        <thead>
+            <tr class="category-header">
+                <th>Earnings</th>
+                <th>Amount ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Basic & DA</td>
+                <td>500.00</td>
+            </tr>
+            <tr>
+                <td>Medical Allowance</td>
+                <td>1,500.00</td>
+            </tr>
+            <tr>
+                <td>Transport Allowance</td>
+                <td>2,000.00</td>
+            </tr>
+            <tr class="total-row">
+                <td>Total Earnings</td>
+                <td>4,000.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="details-table">
+        <thead>
+            <tr class="category-header">
+                <th>Deductions</th>
+                <th>Amount ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Loan Deduction</td>
+                <td>1,400.00</td>
+            </tr>
+            <tr>
+                <td>Professional Tax</td>
+                <td>200.00</td>
+            </tr>
+            <tr class="total-row">
+                <td>Total Deductions</td>
+                <td>1,600.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="net-salary">
+        <span>Net Salary</span>
+        <span>2,400.00</span>
+    </div>
+
+    <div class="footer">
+        <p>Date: <span class="signature-line"></span></p>
+        <p>Signature: <span class="signature-line"></span></p>
+    </div>
+</div>
+
+</body>
+</html>

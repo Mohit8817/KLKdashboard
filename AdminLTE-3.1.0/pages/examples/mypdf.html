@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill PDF</title>
+
+</head>
+
+<body
+  style="margin: 0; padding: 0; font-family: Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+
+  <!-- Page 1 -->
+  <div class="page" style="width: 210mm; height: 297mm; position: relative; margin: 0 auto; background-color: white;">
+    <!-- Background Layer -->
+    <div
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./bgimg.webp'); background-size: 100% auto; background-repeat: no-repeat; background-position: top center; z-index: 0;">
+    </div>
+
+    <!-- Content Container with Fixed Height -->
+    <div style="position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column;">
+
+      <!-- Main Content Area with Max Height -->
+      <div style="flex: 0 1 auto; padding: 70px 30px 0 40px; max-height: calc(297mm - 150px); overflow: hidden;">
+
+        <!-- Title Section -->
+        <div style="padding: 150px 0 0 25px;">
+          <h2 style="margin: 0; font-size: 22px; font-weight: bold;">BILL OF ELECTRICITY SUPPLY</h2>
+          <p style="margin: 3px 0 0 0; font-size: 13px; font-weight: bold;">ORIGINAL COPY</p>
+        </div>
+
+        <!-- Billing Information -->
+        <div style="padding: 10px 25px; display: table; width: 100%; box-sizing: border-box;">
+          <div style="display: table-cell; width: 58%; vertical-align: top;">
+            <p style="margin: 0 0 2px 0; font-size: 12px;">To,</p>
+            <p style="margin: 0 0 2px 0; font-size: 12px; font-weight: bold;">Meerut Development Authority Meerut</p>
+            <p style="margin: 0 0 10px 0; font-size: 12px;">Uttar Pradesh</p>
+
+            <h3 style="margin: 15px 0 10px 0; font-size: 13px; font-weight: bold;">Billing Period Information</h3>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0;"><span style="font-weight: bold;">Invoice
+                Number:</span> KLK/MDA/2025/08-09</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">Invoice
+                Date:</span> 18-Sept-2025</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">Billing
+                Period:</span> 31-July-2025 to 18-Sept-25</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">Due
+                Date:</span> 28-Sept-2025</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">Service
+                Agreement ID:</span> IN-UP51957342167975W</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">System
+                Capacity:</span> 250 KWp</p>
+            <p style="margin: 1px 0; font-size: 12px; padding: 5px 0 0 0"><span style="font-weight: bold;">Installation
+                Date:</span> 1-Jun-2025</p>
+          </div>
+
+          <div style="display: table-cell; width: 40%; vertical-align: top; padding-left: 15px;">
+            <div
+              style="background-color: #E8763B; color: white; padding: 12px; text-align: center; border: 2px solid black; margin-bottom: 10px; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+              <p style="margin: 0 0 6px 0; font-size: 14px; font-weight: bold;">DUE DATE:</p>
+              <p style="margin: 0; font-size: 24px; font-weight: bold;">28-Sept-2025</p>
+            </div>
+            <div
+              style="background-color: #E8763B; color: white; padding: 12px; text-align: center; border: 2px solid black; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+              <p style="margin: 0 0 6px 0; font-size: 14px; font-weight: bold;">AMOUNT DUE</p>
+              <p style="margin: 0; font-size: 24px; font-weight: bold;">₹ 1,94,000/-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Section with Fixed Height -->
+        <div style="padding: 12px 20px;">
+          <h3 style="margin: 5px 0 8px 0; font-size: 13px; font-weight: bold;">Energy Generation & Consumption Summary
+          </h3>
+
+          <table
+            style="margin: 10px 0 8px 0; width: 100%; border-collapse: collapse; border: 2px solid #333; font-size: 10px;">
+            <thead>
+              <tr
+                style="background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Billing Period</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Description</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Inverter Capacity & Serial Number</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Previous Current</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Current Previous</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Unit Generated (kWH)</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Rate in ₹</th>
+                <th
+                  style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Amount in ₹</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="border: 1px solid #333; padding: 4px; text-align: center; font-weight: bold;">
+                  Jun-25 to Jul-25</td>
+                <td rowspan="2" style="border: 1px solid #333; padding: 4px; text-align: center; font-weight: bold;">
+                  Solar Electricity Generation Charge</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">125 KW<br>(MA-18941032025)</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">22,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">40,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">18,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: right;">87,300/- ₹</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">125KW<br>(MA-18942032025)</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">28,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">50,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">22,000</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: center;">4.85 ₹</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: right;">1,06,700/-₹</td>
+              </tr>
+              <tr>
+                <td colspan="7" style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold;">
+                  Round off</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold;">1,94,000/-₹</td>
+              </tr>
+              <tr>
+                <td colspan="7" style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold;">
+                  Total This Period</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold;">1,94,000/-₹</td>
+              </tr>
+                  Payment Surcharge</td>
+                <td style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold;">0.00</td>
+              </tr>
+              <tr>
+                <td colspan="7"
+                  style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold; background-color: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  Total</td>
+                <td
+                  style="border: 1px solid #333; padding: 5px; text-align: right; font-weight: bold; background-color: #f0f0f0; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+                  1,94,000/- ₹</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p style="margin: 13px 0 0 0; font-size: 13px; line-height: 1.3;">Detailed breakup of Solar Generation Units
+            can be found in the Joint Meter Reading attached.</p>
+          <p style="margin: 5px 0 0 0; font-size: 13px; line-height: 1.4;"><span style="font-weight: bold;">Note:</span>
+            In case of late payment, a late payment surcharge shall be payable at the rate of 1.50% per month calculated
+            on a day-to-day basis as per Power Purchase Agreement.</p>
+        </div>
+      </div>
+
+      <!-- Footer Section - Fixed at Bottom -->
+      <div style="margin-top: auto; padding: 0 30px 60px 40px;">
+        <!-- Complaint Section -->
+        <div style="padding: 20px 20px;">
+          <h3 style="margin: 0 0 5px 0; font-size: 13px; font-weight: bold;">CUSTOMER COMPLAINT MANAGEMENT</h3>
+          <p style="margin: 0; font-size: 12px;">For any query/complaint, you may contact us with the following options:
+            Visit <a href="http://www.klkerp.com/CRM"
+              style="color: #0066cc; text-decoration: none;">www.klkerp.com/CRM</a> <span
+              style="font-weight: bold;">Toll Free Number: 0120-4549038</span></p>
+        </div>
+
+        <!-- Account Details -->
+        <div style="padding: 6px 20px 20px 20px;">
+          <h3 style="margin: 0 0 5px 0; font-size: 13px; font-weight: bold;">ACCOUNT DETAILS</h3>
+          <p style="margin: 4px 0; font-size: 12px;"><span style="font-weight: bold;">Name:</span> KLK Ventures Pvt Ltd
+            Collection Account</p>
+          <p style="margin: 4px 0; font-size: 12px;"><span style="font-weight: bold;">Bank Name:</span> HDFC Bank Ltd.
+          </p>
+          <p style="margin: 4px 0; font-size: 12px;"><span style="font-weight: bold;">Account Number:</span>
+            50200107463070</p>
+          <p style="margin: 4px 0; font-size: 12px;"><span style="font-weight: bold;">IFSC:</span> HDFC0001374</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 2 - For overflow content -->
+  <div class="page" style="width: 210mm; height: 297mm; position: relative; margin: 0 auto; background-color: white;">
+    <!-- Background Layer -->
+    <div
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('./bgimg.webp'); background-size: 100% auto; background-repeat: no-repeat; background-position: top center; z-index: 0;">
+    </div>
+
+    <!-- Content Container -->
+    <div style="position: relative; z-index: 1; padding: 180px 30px 20px 40px;">
+      <h3 style="margin: 20px 0 10px 25px; font-size: 13px; font-weight: bold;">Energy Generation & Consumption Summary
+        (Continued)</h3>
+
+      <!-- Additional table rows that overflow from page 1 -->
+      <table
+        style="margin: 10px 25px; width: calc(100% - 50px); border-collapse: collapse; border: 2px solid #333; font-size: 10px;">
+        <thead>
+          <tr
+            style="background-color: #E8763B; color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Inverter Capacity & Serial Number</th>
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Previous Current</th>
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Current Previous</th>
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Unit Generated (kWH)</th>
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Rate in ₹</th>
+            <th
+              style="border: 1px solid #333; padding: 5px; text-align: center; font-weight: bold; background-color: #E8763B; color: white;">
+              Amount in ₹</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">125KW<br>(MA-18942032025)</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">28,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">50,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">22,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">4.85 ₹</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: right;">1,06,700/-₹</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">125KW<br>(MA-18942032025)</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">28,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">50,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">22,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">4.85 ₹</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: right;">1,06,700/-₹</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">125KW<br>(MA-18942032025)</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">28,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">50,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">22,000</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: center;">4.85 ₹</td>
+            <td style="border: 1px solid #333; padding: 5px; text-align: right;">1,06,700/-₹</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

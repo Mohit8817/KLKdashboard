@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="../../plugins/fontawesome-free/css/all.min.css"
+    />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- Bootstrap 4 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #16a7b8;
+        --primary-dark: #138a99;
+        --primary-light: #4cc4d4;
+        --secondary: #6c757d;
+        --success: #28a745;
+        --info: #17a2b8;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --turquoise-gradient: linear-gradient(135deg, #16a7b8 0%, #4cc4d4 100%);
+        --turquoise-gradient-reverse: linear-gradient(
+          135deg,
+          #4cc4d4 0%,
+          #16a7b8 100%
+        );
+        --dark-turquoise-gradient: linear-gradient(
+          135deg,
+          #138a99 0%,
+          #16a7b8 100%
+        );
+      }
+
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .main-header {
+        background: white;
+        border-bottom: 1px solid #dee2e6;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        color: var(--primary-dark) !important;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .welcome-banner {
+        background: var(--turquoise-gradient);
+        color: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(22, 167, 184, 0.2);
+      }
+
+      .employee-profile {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(22, 167, 184, 0.1);
+      }
+
+      .profile-header {
+        background: var(--turquoise-gradient);
+        color: white;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .profile-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: var(--primary);
+        border: 3px solid white;
+      }
+
+      .small-box {
+        border-radius: 15px;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        min-height: 120px;
+      }
+
+      .small-box::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(45deg);
+        transition: all 0.5s ease;
+      }
+
+      .small-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .small-box:hover::before {
+        right: -30%;
+      }
+
+      .small-box .inner h3 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .small-box .inner p {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      .small-box .icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 50px;
+        opacity: 0.3;
+      }
+
+      .bg-info {
+        background: var(--turquoise-gradient);
+      }
+      .bg-success {
+        background: linear-gradient(135deg, #16a7b8 0%, #28a745 100%);
+      }
+      .bg-warning {
+        background: linear-gradient(135deg, #16a7b8 0%, #ffc107 100%);
+      }
+      .bg-danger {
+        background: linear-gradient(135deg, #16a7b8 0%, #dc3545 100%);
+      }
+
+      .card {
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(22, 167, 184, 0.1);
+        border: none;
+        overflow: hidden;
+      }
+
+      .card-header {
+        background: var(--turquoise-gradient);
+        color: white;
+        border-radius: 15px 15px 0 0 !important;
+        border: none;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .form-control {
+        border-radius: 10px;
+        border: 2px solid #e9ecef;
+        /* padding: 12px 15px; */
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 10px rgba(22, 167, 184, 0.2);
+      }
+
+      .btn {
+        border-radius: 10px;
+        font-weight: 500;
+        padding: 10px 25px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: var(--turquoise-gradient);
+        border: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: px;
+        margin-top: 15px;
+      }
+
+      .calendar-day {
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .calendar-header {
+        background: var(--primary-light);
+        color: white;
+        font-weight: 600;
+      }
+
+      .calendar-day.present {
+        background: #28a745;
+        color: white;
+      }
+
+      .calendar-day.absent {
+        background: #dc3545;
+        color: white;
+      }
+
+      .calendar-day.leave {
+        background: #ffc107;
+        color: #333;
+      }
+
+      .calendar-day.today {
+        border: 2px solid var(--primary);
+        font-weight: bold;
+      }
+
+      .calendar-day:hover {
+        transform: scale(1.1);
+      }
+
+      .ticket-item {
+        border-left: 4px solid var(--primary);
+        background: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 2px 10px rgba(22, 167, 184, 0.1);
+      }
+
+      .ticket-priority {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 15px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .priority-high {
+        background: #dc3545;
+        color: white;
+      }
+
+      .priority-medium {
+        background: #ffc107;
+        color: #333;
+      }
+
+      .priority-low {
+        background: #28a745;
+        color: white;
+      }
+
+      @media (max-width: 576px) {
+        .small-box .inner h3 {
+          font-size: 24px;
+        }
+
+        .calendar-grid {
+          gap: 3px;
+        }
+
+        .calendar-day {
+          font-size: 10px;
+        }
+
+        .profile-avatar {
+          width: 60px;
+          height: 60px;
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
+              ><i class="fas fa-bars"></i
+            ></a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="../../index3.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Navbar Search -->
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-widget="navbar-search"
+              href="#"
+              role="button"
+            >
+              <i class="fas fa-search"></i>
+            </a>
+            <div class="navbar-search-block">
+              <form class="form-inline">
+                <div class="input-group input-group-sm">
+                  <input
+                    class="form-control form-control-navbar"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                    <button
+                      class="btn btn-navbar"
+                      type="button"
+                      data-widget="navbar-search"
+                    >
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+
+          <!-- Messages Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <i class="far fa-comments"></i>
+              <span class="badge badge-danger navbar-badge">3</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="../../dist/img/user1-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 mr-3 img-circle"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Brad Diesel
+                      <span class="float-right text-sm text-danger"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">Call me whenever you can...</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="../../dist/img/user8-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 img-circle mr-3"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      John Pierce
+                      <span class="float-right text-sm text-muted"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">I got your message bro</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <!-- Message Start -->
+                <div class="media">
+                  <img
+                    src="../../dist/img/user3-128x128.jpg"
+                    alt="User Avatar"
+                    class="img-size-50 img-circle mr-3"
+                  />
+                  <div class="media-body">
+                    <h3 class="dropdown-item-title">
+                      Nora Silvester
+                      <span class="float-right text-sm text-warning"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </h3>
+                    <p class="text-sm">The subject goes here</p>
+                    <p class="text-sm text-muted">
+                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
+                    </p>
+                  </div>
+                </div>
+                <!-- Message End -->
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer"
+                >See All Messages</a
+              >
+            </div>
+          </li>
+          <!-- Notifications Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+              <i class="far fa-bell"></i>
+              <span class="badge badge-warning navbar-badge">15</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <span class="dropdown-item dropdown-header"
+                >15 Notifications</span
+              >
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-users mr-2"></i> 8 friend requests
+                <span class="float-right text-muted text-sm">12 hours</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-file mr-2"></i> 3 new reports
+                <span class="float-right text-muted text-sm">2 days</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item dropdown-footer"
+                >See All Notifications</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              data-widget="control-sidebar"
+              data-slide="true"
+              href="#"
+              role="button"
+            >
+              <i class="fas fa-th-large"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="../../index3.html" class="brand-link">
+          <img
+            src="../../dist/img/AdminLTELogo.png"
+            alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: 0.8"
+          />
+          <span class="brand-text font-weight-light">AdminLTE 3</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+              <img
+                src="../../dist/img/user2-160x160.jpg"
+                class="img-circle elevation-2"
+                alt="User Image"
+              />
+            </div>
+            <div class="info">
+              <a href="#" class="d-block">Alexander Pierce</a>
+            </div>
+          </div>
+
+          <!-- SidebarSearch Form -->
+          <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+              <input
+                class="form-control form-control-sidebar"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                  <i class="fas fa-search fa-fw"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul
+              class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview"
+              role="menu"
+              data-accordion="false"
+            >
+              <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../../index.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard v1</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../../index2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard v2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../../index3.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard v3</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="../widgets.html" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Widgets
+                    <span class="right badge badge-danger">New</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Layout Options
+                    <i class="fas fa-angle-left right"></i>
+                    <span class="badge badge-info right">6</span>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../layout/top-nav.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Top Navigation</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/top-nav-sidebar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Top Navigation + Sidebar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/boxed.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Boxed</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/fixed-sidebar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Fixed Sidebar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="../layout/fixed-sidebar-custom.html"
+                      class="nav-link"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Fixed Sidebar <small>+ Custom Area</small></p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/fixed-topnav.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Fixed Navbar</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/fixed-footer.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Fixed Footer</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Collapsed Sidebar</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Charts
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../charts/chartjs.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>ChartJS</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../charts/flot.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Flot</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../charts/inline.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Inline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../charts/uplot.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>uPlot</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tree"></i>
+                  <p>
+                    UI Elements
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../UI/general.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>General</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/icons.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Icons</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/buttons.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Buttons</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/sliders.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sliders</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/modals.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Modals & Alerts</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/navbar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Navbar & Tabs</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/timeline.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Timeline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../UI/ribbons.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Ribbons</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Forms
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../forms/general.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>General Elements</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../forms/advanced.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Advanced Elements</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../forms/editors.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Editors</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../forms/validation.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Validation</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-table"></i>
+                  <p>
+                    Tables
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../tables/simple.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Simple Tables</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../tables/data.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>DataTables</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../tables/jsgrid.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>jsGrid</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-header">EXAMPLES</li>
+              <li class="nav-item">
+                <a href="../calendar.html" class="nav-link">
+                  <i class="nav-icon far fa-calendar-alt"></i>
+                  <p>
+                    Calendar
+                    <span class="badge badge-info right">2</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../gallery.html" class="nav-link">
+                  <i class="nav-icon far fa-image"></i>
+                  <p>Gallery</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../kanban.html" class="nav-link">
+                  <i class="nav-icon fas fa-columns"></i>
+                  <p>Kanban Board</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-envelope"></i>
+                  <p>
+                    Mailbox
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../mailbox/mailbox.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Inbox</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../mailbox/compose.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Compose</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../mailbox/read-mail.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Read</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-book"></i>
+                  <p>
+                    Pages
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../examples/invoice.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Invoice</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/profile.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/e-commerce.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>E-commerce</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/projects.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Projects</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/project-add.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Add</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/project-edit.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Edit</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/project-detail.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Project Detail</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/contacts.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Contacts</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/faq.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>FAQ</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/contact-us.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Contact us</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon far fa-plus-square"></i>
+                  <p>
+                    Extras
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Login & Register v1
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="../examples/login.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Login v1</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="../examples/register.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Register v1</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="../examples/forgot-password.html"
+                          class="nav-link"
+                        >
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Forgot Password v1</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="../examples/recover-password.html"
+                          class="nav-link"
+                        >
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Recover Password v1</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Login & Register v2
+                        <i class="fas fa-angle-left right"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="../examples/login-v2.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Login v2</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="../examples/register-v2.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Register v2</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="../examples/forgot-password-v2.html"
+                          class="nav-link"
+                        >
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Forgot Password v2</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="../examples/recover-password-v2.html"
+                          class="nav-link"
+                        >
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Recover Password v2</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/lockscreen.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Lockscreen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="../examples/legacy-user-menu.html"
+                      class="nav-link"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Legacy User Menu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/language-menu.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Language Menu</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/404.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Error 404</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/500.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Error 500</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/pace.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Pace</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../examples/blank.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Blank Page</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a
+                      href="../examples/Empdashboard.html"
+                      class="nav-link active"
+                    >
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>User Dashboard</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="../examples/hrmdashboard.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>HRM Dashboard</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="../examples/srt.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>SRT Main page</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="../examples/Srtdashboard.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>SRT Dashboard</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="../../starter.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Starter Page</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-search"></i>
+                  <p>
+                    Search
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="../search/simple.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Simple Search</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="../search/enhanced.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Enhanced</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-header">MISCELLANEOUS</li>
+              <li class="nav-item">
+                <a href="../../iframe.html" class="nav-link">
+                  <i class="nav-icon fas fa-ellipsis-h"></i>
+                  <p>Tabbed IFrame Plugin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                  <i class="nav-icon fas fa-file"></i>
+                  <p>Documentation</p>
+                </a>
+              </li>
+              <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Level 1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-circle"></i>
+                  <p>
+                    Level 1
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Level 2</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Level 2
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>Level 3</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>Level 3</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="far fa-dot-circle nav-icon"></i>
+                          <p>Level 3</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Level 2</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-circle nav-icon"></i>
+                  <p>Level 1</p>
+                </a>
+              </li>
+              <li class="nav-header">LABELS</li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-circle text-danger"></i>
+                  <p class="text">Important</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-circle text-warning"></i>
+                  <p>Warning</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon far fa-circle text-info"></i>
+                  <p>Informational</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Main Content -->
+        <div class="container-fluid py-4">
+          <!-- Welcome Banner -->
+          <div class="welcome-banner p-4 mb-4">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h2><i class="fas fa-sun mr-2"></i>Good Morning, Mohit!</h2>
+                <p class="mb-0">
+                  Welcome back to your dashboard. Have a productive day ahead!
+                </p>
+              </div>
+              <div class="col-md-4 text-md-right">
+                <p class="mb-1">
+                  <i class="fas fa-calendar mr-2"></i>Today:
+                  <strong id="currentDate"></strong>
+                </p>
+                <p class="mb-0">
+                  <i class="fas fa-clock mr-2"></i>Time:
+                  <strong id="currentTime"></strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Employee Profile Section -->
+          <div class="employee-profile mb-4">
+            <div class="profile-header p-3">
+              <h5 class="mb-0">
+                <i class="fas fa-id-card mr-2"></i>Employee Information
+              </h5>
+            </div>
+            <div class="p-4">
+              <div class="row align-items-center">
+                <div class="col-md-2 col-sm-3 text-center mb-3 mb-md-0">
+                  <div class="profile-avatar mx-auto">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <p class="mb-2"><strong>Name:</strong> Manish Yadav</p>
+                      <p class="mb-2"><strong>Employee ID:</strong> EMP001</p>
+                      <p class="mb-2">
+                        <strong>Email:</strong> manish.yadav@klk.com
+                      </p>
+                    </div>
+                    <div class="col-lg-6">
+                      <p class="mb-2">
+                        <strong>Contact:</strong> +91 9876543210
+                      </p>
+                      <p class="mb-2"><strong>State:</strong> Jammu</p>
+                      <p class="mb-2">
+                        <strong>Department:</strong> IT Department
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics Cards -->
+          <div class="row mb-4">
+            <div class="col-lg-3 col-md-6 mb-3">
+              <div class="small-box bg-success p-3">
+                <div class="inner">
+                  <h3>22</h3>
+                  <p>Present Days</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+              <div class="small-box bg-danger p-3">
+                <div class="inner">
+                  <h3>1</h3>
+                  <p>Absent Days</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-calendar-times"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+              <div class="small-box bg-warning p-3">
+                <div class="inner">
+                  <h3>3</h3>
+                  <p>Leaves Remaining</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-umbrella-beach"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-3">
+              <div class="small-box bg-info p-3">
+                <div class="inner">
+                  <h3>2</h3>
+                  <p>Active Tickets</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-ticket-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <!-- Daily Work Report -->
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-clipboard-list mr-2"></i>
+                    Daily Work Report
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <form id="workReportForm">
+                    <div class="form-group">
+                      <label for="workDate">Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="workDate"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="workDescription">Work Description</label>
+                      <textarea
+                        class="form-control"
+                        id="workDescription"
+                        rows="4"
+                        placeholder="Describe your work activities for today..."
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="workHours">Hours Worked</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="workHours"
+                        min="1"
+                        max="12"
+                        placeholder="8"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                      <i class="fas fa-paper-plane mr-2"></i>Submit Report
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Monthly Attendance Calendar -->
+            <!-- <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-calendar mr-2"></i>
+                    September 2025 - Attendance
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="text-center mb-3">
+                    <span class="badge badge-success mr-2">
+                      <i class="fas fa-circle"></i> Present
+                    </span>
+                    <span class="badge badge-danger mr-2">
+                      <i class="fas fa-circle"></i> Absent
+                    </span>
+                    <span class="badge badge-warning">
+                      <i class="fas fa-circle"></i> Leave
+                    </span>
+                  </div>
+                  <div class="calendar-grid">
+                    <div class="calendar-day calendar-header">Sun</div>
+                    <div class="calendar-day calendar-header">Mon</div>
+                    <div class="calendar-day calendar-header">Tue</div>
+                    <div class="calendar-day calendar-header">Wed</div>
+                    <div class="calendar-day calendar-header">Thu</div>
+                    <div class="calendar-day calendar-header">Fri</div>
+                    <div class="calendar-day calendar-header">Sat</div>
+
+                    <div class="calendar-day present">1</div>
+                    <div class="calendar-day present">2</div>
+                    <div class="calendar-day present">3</div>
+                    <div class="calendar-day present">4</div>
+                    <div class="calendar-day present">5</div>
+                    <div class="calendar-day present">6</div>
+                    <div class="calendar-day leave">7</div>
+                    <div class="calendar-day present">8</div>
+                    <div class="calendar-day present">9</div>
+                    <div class="calendar-day present">10</div>
+                    <div class="calendar-day present today">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- Monthly Attendance Calendar -->
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div
+                  class="card-header d-flex justify-content-between align-items-center"
+                >
+                  <button id="prevMonth" class="btn btn-sm btn-primary">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <h3 class="card-title mb-0" id="calendarTitle">
+                    <i class="fas fa-calendar mr-2"></i>
+                    September 2025 - Attendance
+                  </h3>
+                  <button id="nextMonth" class="btn btn-sm btn-primary">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <div class="text-center mb-3">
+                    <span class="badge badge-success mr-2">
+                      <i class="fas fa-circle"></i> Present
+                    </span>
+                    <span class="badge badge-danger mr-2">
+                      <i class="fas fa-circle"></i> Absent
+                    </span>
+                    <span class="badge badge-warning">
+                      <i class="fas fa-circle"></i> Leave
+                    </span>
+                  </div>
+                  <div
+                    class="calendar-grid d-grid"
+                    style="grid-template-columns: repeat(7, 1fr); gap: 5px"
+                  >
+                    <!-- Calendar days will be injected here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+            <!-- Leave Management -->
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-umbrella-beach mr-2"></i>
+                    Leave Management
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="row text-center mb-3">
+                    <div class="col-4">
+                      <h4 class="text-info">15</h4>
+                      <small>Total Leave</small>
+                    </div>
+                    <div class="col-4">
+                      <h4 class="text-success">12</h4>
+                      <small>Used</small>
+                    </div>
+                    <div class="col-4">
+                      <h4 class="text-warning">3</h4>
+                      <small>Remaining</small>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-primary btn-block mb-3"
+                    data-toggle="modal"
+                    data-target="#leaveModal"
+                  >
+                    <i class="fas fa-calendar-plus mr-2"></i>Apply for Leave
+                  </button>
+                  <hr />
+                  <h6>Recent Leave Requests:</h6>
+                  <div class="list-group">
+                    <div class="list-group-item">
+                      <div class="d-flex justify-content-between">
+                        <small>Sept 7, 2025</small>
+                        <span class="badge badge-success">Approved</span>
+                      </div>
+                      <small class="text-muted">Sick Leave</small>
+                    </div>
+                    <div class="list-group-item">
+                      <div class="d-flex justify-content-between">
+                        <small>Aug 15, 2025</small>
+                        <span class="badge badge-success">Approved</span>
+                      </div>
+                      <small class="text-muted">Casual Leave</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Support Tickets -->
+            <div class="col-lg-6 mb-4">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <i class="fas fa-ticket-alt mr-2"></i>
+                    Support Tickets
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <button
+                    class="btn btn-primary btn-block mb-3"
+                    data-toggle="modal"
+                    data-target="#ticketModal"
+                  >
+                    <i class="fas fa-plus mr-2"></i>Raise New Ticket
+                  </button>
+
+                  <h6>Active Tickets:</h6>
+                  <div class="ticket-item">
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-1"
+                    >
+                      <strong>#TK001</strong>
+                      <span class="ticket-priority priority-high">High</span>
+                    </div>
+                    <p class="mb-1">System access issue</p>
+                    <small class="text-muted">Created: Sept 10, 2025</small>
+                  </div>
+
+                  <div class="ticket-item">
+                    <div
+                      class="d-flex justify-content-between align-items-center mb-1"
+                    >
+                      <strong>#TK002</strong>
+                      <span class="ticket-priority priority-medium"
+                        >Medium</span
+                      >
+                    </div>
+                    <p class="mb-1">Email configuration problem</p>
+                    <small class="text-muted">Created: Sept 9, 2025</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block"><b>Version</b> 3.1.0</div>
+        <strong
+          >Copyright &copy; 2014-2021
+          <a href="https://adminlte.io">AdminLTE.io</a>.</strong
+        >
+        All rights reserved.
+      </footer>
+      <!-- Leave Application Modal -->
+      <div class="modal fade" id="leaveModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div
+              class="modal-header"
+              style="background: var(--turquoise-gradient); color: white"
+            >
+              <h5 class="modal-title">
+                <i class="fas fa-calendar-plus mr-2"></i>Apply for Leave
+              </h5>
+              <button
+                type="button"
+                class="close text-white"
+                data-dismiss="modal"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="leaveForm">
+                <div class="form-group">
+                  <label for="leaveType">Leave Type</label>
+                  <select class="form-control" id="leaveType" required>
+                    <option value="">Select Leave Type</option>
+                    <option value="casual">Casual Leave</option>
+                    <option value="sick">Sick Leave</option>
+                    <option value="emergency">Emergency Leave</option>
+                    <option value="annual">Annual Leave</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="leaveFrom">From Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="leaveFrom"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="leaveTo">To Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="leaveTo"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="leaveReason">Reason</label>
+                  <textarea
+                    class="form-control"
+                    id="leaveReason"
+                    rows="3"
+                    placeholder="Please provide reason for leave..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="leaveDocument"
+                    />
+                    <label class="custom-file-label" for="leaveDocument"
+                      >Choose supporting document (optional)</label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="submit" form="leaveForm" class="btn btn-primary">
+                <i class="fas fa-paper-plane mr-2"></i>Submit Application
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Ticket Modal -->
+      <div class="modal fade" id="ticketModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div
+              class="modal-header"
+              style="background: var(--turquoise-gradient); color: white"
+            >
+              <h5 class="modal-title">
+                <i class="fas fa-ticket-alt mr-2"></i>Raise Support Ticket
+              </h5>
+              <button
+                type="button"
+                class="close text-white"
+                data-dismiss="modal"
+              >
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="ticketForm">
+                <div class="form-group">
+                  <label for="ticketCategory">Category</label>
+                  <select class="form-control" id="ticketCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="technical">Technical Support</option>
+                    <option value="hr">HR Related</option>
+                    <option value="payroll">Payroll Issue</option>
+                    <option value="system">System Access</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="ticketPriority">Priority</label>
+                  <select class="form-control" id="ticketPriority" required>
+                    <option value="">Select Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="ticketSubject">Subject</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="ticketSubject"
+                    placeholder="Brief description of the issue"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="ticketDescription">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="ticketDescription"
+                    rows="4"
+                    placeholder="Provide detailed description of the issue..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="ticketAttachment"
+                    />
+                    <label class="custom-file-label" for="ticketAttachment"
+                      >Attach file (optional)</label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="submit" form="ticketForm" class="btn btn-primary">
+                <i class="fas fa-paper-plane mr-2"></i>Submit Ticket
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Update current date and time
+      function updateDateTime() {
+        const now = new Date();
+        const dateOptions = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        const timeOptions = {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+
+        document.getElementById("currentDate").textContent =
+          now.toLocaleDateString("en-US", dateOptions);
+        document.getElementById("currentTime").textContent =
+          now.toLocaleTimeString("en-US", timeOptions);
+      }
+
+      // Update time every second
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+
+      // Set current date in work report form
+      document.getElementById("workDate").valueAsDate = new Date();
+
+      // Work Report Form Submission
+      document
+        .getElementById("workReportForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const workDate = document.getElementById("workDate").value;
+          const workDescription =
+            document.getElementById("workDescription").value;
+          const workHours = document.getElementById("workHours").value;
+
+          if (workDate && workDescription && workHours) {
+            alert("Work report submitted successfully!");
+            this.reset();
+            document.getElementById("workDate").valueAsDate = new Date();
+          }
+        });
+
+      // Leave Application Form Submission
+      document
+        .getElementById("leaveForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const leaveType = document.getElementById("leaveType").value;
+          const leaveFrom = document.getElementById("leaveFrom").value;
+          const leaveTo = document.getElementById("leaveTo").value;
+          const leaveReason = document.getElementById("leaveReason").value;
+
+          if (leaveType && leaveFrom && leaveTo && leaveReason) {
+            alert("Leave application submitted successfully!");
+            bootstrap.Modal.getInstance(
+              document.getElementById("leaveModal")
+            ).hide();
+            this.reset();
+          }
+        });
+
+      // Ticket Form Submission
+      document
+        .getElementById("ticketForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const category = document.getElementById("ticketCategory").value;
+          const priority = document.getElementById("ticketPriority").value;
+          const subject = document.getElementById("ticketSubject").value;
+          const description =
+            document.getElementById("ticketDescription").value;
+
+          if (category && priority && subject && description) {
+            alert(
+              "Support ticket raised successfully! Ticket ID: #TK" +
+                String(Date.now()).slice(-3)
+            );
+            bootstrap.Modal.getInstance(
+              document.getElementById("ticketModal")
+            ).hide();
+            this.reset();
+          }
+        });
+
+      // Calendar day click events
+      // document.querySelectorAll(".calendar-day").forEach((day) => {
+      //   if (!day.classList.contains("calendar-header")) {
+      //     day.addEventListener("click", function () {
+      //       if (this.textContent && !isNaN(this.textContent)) {
+      //         const dayNum = this.textContent;
+      //         let status = "No data";
+
+      //         if (this.classList.contains("present")) status = "Present";
+      //         else if (this.classList.contains("absent")) status = "Absent";
+      //         else if (this.classList.contains("leave")) status = "On Leave";
+      //         else status = "Future Date";
+
+      //         alert(`September ${dayNum}, 2025\nStatus: ${status}`);
+      //       }
+      //     });
+      //   }
+      // });
+
+      const calendarGrid = document.querySelector(".calendar-grid");
+      const calendarTitle = document.getElementById("calendarTitle");
+
+      let currentDate = new Date(2025, 8); // September 2025 (0-based index: 8 = September)
+
+      function renderCalendar(date) {
+        calendarGrid.innerHTML = "";
+
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        // Month names
+        const monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        // Set header
+        calendarTitle.innerHTML = `<i class="fas fa-calendar mr-2"></i> ${monthNames[month]} ${year} - Attendance`;
+
+        // Add week headers
+        const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        weekDays.forEach((d) => {
+          const header = document.createElement("div");
+          header.classList.add("calendar-day", "calendar-header");
+          header.textContent = d;
+          calendarGrid.appendChild(header);
+        });
+
+        // Find first day of month
+        const firstDay = new Date(year, month, 1).getDay();
+        const totalDays = new Date(year, month + 1, 0).getDate();
+
+        // Empty slots before first day
+        for (let i = 0; i < firstDay; i++) {
+          const empty = document.createElement("div");
+          empty.classList.add("calendar-day");
+          calendarGrid.appendChild(empty);
+        }
+
+        // Fill days
+        for (let day = 1; day <= totalDays; day++) {
+          const dayDiv = document.createElement("div");
+          dayDiv.classList.add("calendar-day");
+
+          // Example: mark some random statuses
+          if (day % 7 === 0) dayDiv.classList.add("leave");
+          else if (day % 5 === 0) dayDiv.classList.add("absent");
+          else if (
+            day <= new Date().getDate() &&
+            month === new Date().getMonth() &&
+            year === new Date().getFullYear()
+          ) {
+            dayDiv.classList.add("today", "present");
+          } else dayDiv.classList.add("present");
+
+          dayDiv.textContent = day;
+
+          // Add click event
+          dayDiv.addEventListener("click", function () {
+            let status = "No data";
+            if (this.classList.contains("present")) status = "Present";
+            else if (this.classList.contains("absent")) status = "Absent";
+            else if (this.classList.contains("leave")) status = "On Leave";
+            else status = "Future Date";
+
+            alert(`${monthNames[month]} ${day}, ${year}\nStatus: ${status}`);
+          });
+
+          calendarGrid.appendChild(dayDiv);
+        }
+      }
+
+      // Buttons
+      document.getElementById("prevMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar(currentDate);
+      });
+
+      document.getElementById("nextMonth").addEventListener("click", () => {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar(currentDate);
+      });
+
+      // Initial render
+      renderCalendar(currentDate);
+    </script>
+  </body>
+</html>
