@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales vs. Target Chart</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .chart-header {
+        background: linear-gradient(135deg, #605ca8 0%, #7c78b8 100%);
+      }
+      .chart-area {
+        position: relative;
+        height: 350px;
+        background: linear-gradient(
+          to bottom,
+          #efeef6 0%,
+          rgba(239, 238, 246, 0.3) 100%
+        );
+      }
+      .y-axis,
+      .x-axis {
+        position: absolute;
+        font-size: 11px;
+      }
+      .y-axis {
+        left: 10px;
+        top: 30px;
+        bottom: 50px;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-right: 8px;
+      }
+      .x-axis {
+        bottom: 15px;
+        left: 70px;
+        right: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .grid-lines {
+        position: absolute;
+        left: 70px;
+        right: 20px;
+        top: 30px;
+        bottom: 50px;
+        pointer-events: none;
+      }
+      .grid-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(102, 99, 155, 0.1);
+      }
+      .legend-color {
+        width: 30px;
+        height: 3px;
+      }
+    </style>
+  </head>
+  <body class="bg-light min-vh-100">
+    <div class="container-fluid px-3 px-md-4 py-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+          <div class="card shadow-sm">
+            <div class="chart-header text-white p-3 rounded-top">
+              <h5 class="mb-0 text-uppercase fw-semibold small">
+                <i class="fas fa-chart-line me-2"></i>Sales vs. Target Over Time
+              </h5>
+            </div>
+
+            <div class="card-body p-4">
+              <div class="row mb-4">
+                <div class="col-6 col-md-3">
+                  <div class="border-start border-primary border-4 ps-3 mb-3">
+                    <h2 class="text-primary fw-bold mb-1">₹8.5K</h2>
+                    <p class="text-muted text-uppercase small fw-semibold mb-0">
+                      Current Sales
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div
+                    class="border-start border-4 ps-3 mb-3"
+                    style="border-color: #b3b0d4 !important"
+                  >
+                    <h2 class="fw-bold mb-1" style="color: #b3b0d4">₹10K</h2>
+                    <p class="text-muted text-uppercase small fw-semibold mb-0">
+                      Target
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="position-relative w-100 mt-4">
+                <div class="chart-area rounded position-relative">
+                  <div class="y-axis text-muted fw-medium">
+                    <span>15K</span>
+                    <span>10K</span>
+                    <span>5K</span>
+                    <span>0K</span>
+                  </div>
+
+                  <div class="grid-lines">
+                    <div class="grid-line" style="top: 0%"></div>
+                    <div class="grid-line" style="top: 33.33%"></div>
+                    <div class="grid-line" style="top: 66.66%"></div>
+                    <div class="grid-line" style="top: 100%"></div>
+                  </div>
+
+                  <canvas id="salesChart" class="d-block w-100 h-100"></canvas>
+
+                  <div class="x-axis text-muted fw-medium">
+                    <span>Jan</span>
+                    <span>Feb</span>
+                    <span>Mar</span>
+                    <span>Apr</span>
+                    <span>May</span>
+                    <span>Jun</span>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex justify-content-center gap-4 mt-4 pt-3 border-top"
+                >
+                  <div
+                    class="d-flex align-items-center gap-2 small text-secondary"
+                  >
+                    <div
+                      class="legend-color rounded"
+                      style="background: #605ca8"
+                    ></div>
+                    <span>Actual Sales</span>
+                  </div>
+                  <div
+                    class="d-flex align-items-center gap-2 small text-secondary"
+                  >
+                    <div
+                      class="legend-color rounded"
+                      style="background: #b3b0d4"
+                    ></div>
+                    <span>Target</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const canvas = document.getElementById("salesChart");
+      const ctx = canvas.getContext("2d");
+
+      function drawChart() {
+        // Set canvas size with proper DPI
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+
+        // Calculate drawing area (accounting for axis labels)
+        const leftMargin = 70;
+        const rightMargin = 20;
+        const topMargin = 30;
+        const bottomMargin = 50;
+
+        const width = rect.width - leftMargin - rightMargin;
+        const height = rect.height - topMargin - bottomMargin;
+
+        // Sample data
+        const targetData = [
+          4500, 5000, 6500, 7500, 8500, 7000, 7500, 6000, 6500, 8000, 7000,
+          10000, 8500, 7500, 8000,
+        ];
+        const salesData = [
+          1500, 1800, 2000, 2200, 3500, 3800, 2500, 1800, 5000, 5500, 7000,
+          5500, 7500, 12000, 8500, 7000, 6000, 5000, 7500, 7000, 10000, 13000,
+          6500, 5000, 5500, 7000, 9500, 9000, 7500, 7000, 8000, 9000,
+        ];
+
+        const maxVal = 15000;
+
+        // Draw target line (light purple)
+        ctx.beginPath();
+        ctx.strokeStyle = "#b3b0d4";
+        ctx.lineWidth = 2.5;
+
+        targetData.forEach((val, i) => {
+          const x = leftMargin + (i / (targetData.length - 1)) * width;
+          const y = topMargin + height - (val / maxVal) * height;
+
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+
+        ctx.stroke();
+
+        // Fill under target line
+        const lastTargetX = leftMargin + width;
+        const lastTargetY =
+          topMargin +
+          height -
+          (targetData[targetData.length - 1] / maxVal) * height;
+        ctx.lineTo(lastTargetX, topMargin + height);
+        ctx.lineTo(leftMargin, topMargin + height);
+        ctx.closePath();
+        ctx.fillStyle = "rgba(179, 176, 212, 0.15)";
+        ctx.fill();
+
+        // Draw sales line (dark purple)
+        ctx.beginPath();
+        ctx.strokeStyle = "#605ca8";
+        ctx.lineWidth = 2.5;
+
+        salesData.forEach((val, i) => {
+          const x = leftMargin + (i / (salesData.length - 1)) * width;
+          const y = topMargin + height - (val / maxVal) * height;
+
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+
+        ctx.stroke();
+
+        // Fill under sales line
+        const lastSalesX = leftMargin + width;
+        const lastSalesY =
+          topMargin +
+          height -
+          (salesData[salesData.length - 1] / maxVal) * height;
+        ctx.lineTo(lastSalesX, topMargin + height);
+        ctx.lineTo(leftMargin, topMargin + height);
+        ctx.closePath();
+        ctx.fillStyle = "rgba(96, 92, 168, 0.1)";
+        ctx.fill();
+      }
+
+      // Initial draw
+      drawChart();
+
+      // Redraw on window resize
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(drawChart, 100);
+      });
+
+      // Animate on load
+      canvas.style.opacity = "0";
+      setTimeout(() => {
+        canvas.style.transition = "opacity 0.5s";
+        canvas.style.opacity = "1";
+      }, 100);
+    </script>
+  </body>
+</html>
