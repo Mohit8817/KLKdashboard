@@ -146,100 +146,61 @@
     }
 
     /* table css ------------------- */
-
-    .dashboard-table-wrapper {
-      background: white !important;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(96, 92, 168, 0.08);
-    }
-
     .table-title {
       background: linear-gradient(135deg, #605ca8 0%, #645e9d 100%);
-      padding: 20px 24px;
       color: white;
-      display: flex;
-
-      align-items: center;
-      gap: 10px;
     }
 
-    .table-title span {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
+    .tab-button {
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      border-bottom: 3px solid transparent;
     }
 
-    .modern-table {
-      margin: 0;
+    .tab-button:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-button.active {
+      color: white;
+      border-bottom-color: white;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .modern-table thead th {
       background: #605ca8;
-      color: white;
-      font-weight: 500;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 16px 12px;
-      border: none;
-      white-space: nowrap;
-    }
-
-    .modern-table tbody td {
-      padding: 14px 12px;
-      font-size: 14px;
-      color: #374151;
-      vertical-align: middle;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .modern-table tbody tr {
-      transition: all 0.2s ease;
-    }
-
-    .modern-table tbody tr:hover {
-      background: #efeef6;
-      transform: scale(1.001);
-    }
-
-    .modern-table tbody tr:last-child td {
-      border-bottom: none;
     }
 
     .total-row td {
+      background: #f9fafb;
       color: #605ca8 !important;
-      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .status-icon {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
     }
 
     .status-active {
       background: #10b981;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
     }
 
     .status-pending {
       background: #f59e0b;
-      box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
     }
 
-    @media (max-width: 768px) {
-      .table-title {
-        padding: 16px 20px;
-      }
+    .tab-pane {
+      display: none;
+    }
 
-      .table-title span {
-        font-size: 16px;
-      }
-
-      .modern-table thead th {
-        font-size: 11px;
-        padding: 12px 8px;
-      }
-
-      .modern-table tbody td {
-        font-size: 13px;
-        padding: 12px 8px;
-      }
+    .tab-pane.show.active {
+      display: block;
     }
   </style>
 
@@ -1451,74 +1412,301 @@
             </div>
           </div>
         </div>
+
         <!-- table section  -->
         <div class="container-fluid pb-2">
           <div class="row">
             <div class="col-12">
-              <div class="dashboard-table-wrapper">
-                <div class="table-title border-bottom">
-                  <i class="fas fa-table"></i>
-                  <span>Installation Status Details</span>
+              <div class="card shadow-sm rounded-4 border-0">
+                <div class="card-header table-title border-0 p-0">
+                  <div class="p-3 border-bottom border-white border-opacity-10">
+                    <i class="fas fa-table me-2"></i>
+                    <span class="fs-5 fw-semibold"
+                      >Installation Status Details</span
+                    >
+                  </div>
+                  <ul class="nav nav-tabs border-0 px-3">
+                    <li class="nav-item">
+                      <button
+                        class="nav-link tab-button active px-2 py-2"
+                        onclick="switchTab('phase', this)"
+                      >
+                        Phase Wise
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button
+                        class="nav-link tab-button px-2 py-2"
+                        onclick="switchTab('district', this)"
+                      >
+                        District Wise
+                      </button>
+                    </li>
+                    <li class="nav-item">
+                      <button
+                        class="nav-link tab-button px-2 py-2"
+                        onclick="switchTab('vendor', this)"
+                      >
+                        Vendor Wise
+                      </button>
+                    </li>
+                  </ul>
                 </div>
-                <div class="table-responsive">
-                  <table class="table modern-table text-center mb-0">
-                    <thead>
-                      <tr>
-                        <th>Sr No</th>
-                        <th>Phase</th>
-                        <th>Material Dispatch Pending</th>
-                        <th>Site Installed</th>
-                        <th>Site Not Installed</th>
-                        <th>Meter Installed</th>
-                        <th>Meter Not Installed</th>
-                        <th>RMS Installed</th>
-                        <th>RMS Not Installed</th>
-                        <th>Image Pending</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td><span class=""></span>NA</td>
-                        <td>6</td>
-                        <td>23</td>
-                        <td>44</td>
-                        <td>12</td>
-                        <td>3</td>
-                        <td><span class="empty-cell">23</span></td>
-                        <td><span class="empty-cell">—</span></td>
-                        <td><span class="empty-cell">—</span></td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>
-                          <span class="status-icon status-active"></span>Shiv
-                        </td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td><span>1</span></td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                      </tr>
-                      <tr class="total-row">
-                        <td colspan="2">
-                          <i class="fas fa-calculator me-2"></i>
-                          TOTAL
-                        </td>
-                        <td>130</td>
-                        <td>150</td>
-                        <td>30</td>
-                        <td>33</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>—</td>
-                      </tr>
-                    </tbody>
-                  </table>
+
+                <!-- Phase Wise Tab Content -->
+                <div id="phase-content" class="tab-pane show active">
+                  <div class="table-responsive">
+                    <table
+                      class="table modern-table table-hover text-center mb-0"
+                    >
+                      <thead class="text-white">
+                        <tr>
+                          <th class="text-uppercase fw-normal py-3">Sr No</th>
+                          <th class="text-uppercase fw-normal py-3">Phase</th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Material Dispatch Pending
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Image Pending
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-3">1</td>
+                          <td class="py-3">NA</td>
+                          <td class="py-3">6</td>
+                          <td class="py-3">23</td>
+                          <td class="py-3">44</td>
+                          <td class="py-3">12</td>
+                          <td class="py-3">3</td>
+                          <td class="py-3">23</td>
+                          <td class="py-3 text-muted">—</td>
+                          <td class="py-3 text-muted">—</td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">2</td>
+                          <td class="py-3">
+                            <span class="status-icon status-active"></span>Shiv
+                          </td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">1</td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">0</td>
+                          <td class="py-3">0</td>
+                        </tr>
+                        <tr class="total-row">
+                          <td colspan="2" class="py-3">
+                            <i class="fas fa-calculator me-2"></i>
+                            TOTAL
+                          </td>
+                          <td class="py-3">130</td>
+                          <td class="py-3">150</td>
+                          <td class="py-3">30</td>
+                          <td class="py-3">33</td>
+                          <td class="py-3">—</td>
+                          <td class="py-3">—</td>
+                          <td class="py-3">—</td>
+                          <td class="py-3">—</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- District Wise Tab Content -->
+                <div id="district-content" class="tab-pane">
+                  <div class="table-responsive">
+                    <table
+                      class="table modern-table table-hover text-center mb-0"
+                    >
+                      <thead class="text-white">
+                        <tr>
+                          <th class="text-uppercase fw-normal py-3">Sr No</th>
+                          <th class="text-uppercase fw-normal py-3">
+                            District
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Material Dispatch Pending
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Image Pending
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-3">1</td>
+                          <td class="py-3">
+                            <span class="status-icon status-active"></span
+                            >District A
+                          </td>
+                          <td class="py-3">10</td>
+                          <td class="py-3">45</td>
+                          <td class="py-3">20</td>
+                          <td class="py-3">30</td>
+                          <td class="py-3">15</td>
+                          <td class="py-3">25</td>
+                          <td class="py-3">5</td>
+                          <td class="py-3">8</td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">2</td>
+                          <td class="py-3">
+                            <span class="status-icon status-pending"></span
+                            >District B
+                          </td>
+                          <td class="py-3">5</td>
+                          <td class="py-3">30</td>
+                          <td class="py-3">15</td>
+                          <td class="py-3">20</td>
+                          <td class="py-3">10</td>
+                          <td class="py-3">18</td>
+                          <td class="py-3">3</td>
+                          <td class="py-3">5</td>
+                        </tr>
+                        <tr class="total-row">
+                          <td colspan="2" class="py-3">
+                            <i class="fas fa-calculator me-2"></i>
+                            TOTAL
+                          </td>
+                          <td class="py-3">15</td>
+                          <td class="py-3">75</td>
+                          <td class="py-3">35</td>
+                          <td class="py-3">50</td>
+                          <td class="py-3">25</td>
+                          <td class="py-3">43</td>
+                          <td class="py-3">8</td>
+                          <td class="py-3">13</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Vendor Wise Tab Content -->
+                <div id="vendor-content" class="tab-pane">
+                  <div class="table-responsive">
+                    <table
+                      class="table modern-table table-hover text-center mb-0"
+                    >
+                      <thead class="text-white">
+                        <tr>
+                          <th class="text-uppercase fw-normal py-3">Sr No</th>
+                          <th class="text-uppercase fw-normal py-3">Vendor</th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Material Dispatch Pending
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Site Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Meter Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            RMS Not Installed
+                          </th>
+                          <th class="text-uppercase fw-normal py-3">
+                            Image Pending
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-3">1</td>
+                          <td class="py-3">
+                            <span class="status-icon status-active"></span
+                            >Vendor X
+                          </td>
+                          <td class="py-3">8</td>
+                          <td class="py-3">50</td>
+                          <td class="py-3">25</td>
+                          <td class="py-3">35</td>
+                          <td class="py-3">18</td>
+                          <td class="py-3">30</td>
+                          <td class="py-3">6</td>
+                          <td class="py-3">10</td>
+                        </tr>
+                        <tr>
+                          <td class="py-3">2</td>
+                          <td class="py-3">
+                            <span class="status-icon status-pending"></span
+                            >Vendor Y
+                          </td>
+                          <td class="py-3">12</td>
+                          <td class="py-3">40</td>
+                          <td class="py-3">20</td>
+                          <td class="py-3">28</td>
+                          <td class="py-3">12</td>
+                          <td class="py-3">22</td>
+                          <td class="py-3">4</td>
+                          <td class="py-3">7</td>
+                        </tr>
+                        <tr class="total-row">
+                          <td colspan="2" class="py-3">
+                            <i class="fas fa-calculator me-2"></i>
+                            TOTAL
+                          </td>
+                          <td class="py-3">20</td>
+                          <td class="py-3">90</td>
+                          <td class="py-3">45</td>
+                          <td class="py-3">63</td>
+                          <td class="py-3">30</td>
+                          <td class="py-3">52</td>
+                          <td class="py-3">10</td>
+                          <td class="py-3">17</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1736,6 +1924,31 @@
           },
         ],
       });
+
+      
+      // table tabs script **************************************************
+
+      function switchTab(tabName, button) {
+        // Hide all tab panes
+        const tabPanes = document.querySelectorAll(".tab-pane");
+        tabPanes.forEach((pane) => {
+          pane.classList.remove("show", "active");
+        });
+
+        // Remove active class from all buttons
+        const tabButtons = document.querySelectorAll(".tab-button");
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        // Show selected tab pane
+        document
+          .getElementById(`${tabName}-content`)
+          .classList.add("show", "active");
+
+        // Add active class to clicked button
+        button.classList.add("active");
+      }
     </script>
 
     <!-- Bootstrap JS -->
