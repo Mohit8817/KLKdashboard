@@ -81,15 +81,15 @@
       font-size: 11px;
     }
     .y-axis {
-      left: 10px;
-      top: 30px;
+      left: 0;
+      top: 29px;
       bottom: 50px;
-      width: 50px;
+      width: 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-end;
-      padding-right: 8px;
+      padding-right: 0px;
     }
     .x-axis {
       bottom: 15px;
@@ -100,8 +100,8 @@
     }
     .grid-lines {
       position: absolute;
-      left: 70px;
-      right: 20px;
+      left: 50px;
+      right: 0;
       top: 30px;
       bottom: 50px;
       pointer-events: none;
@@ -1147,11 +1147,11 @@
                   Sales vs. Target Over Time
                 </div>
 
-                <div class="card-body p-4">
-                  <div class="row mb-4">
-                    <div class="col-2 col-md-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6 col-md-3">
                       <div class="border-start border-primary border-4 mb-3">
-                        <h2 class="text-primary f-bold mb-1">₹8323234.5K</h2>
+                        <h2 class="text-primary f-bold mb-1">₹8322.5K</h2>
                         <p
                           class="text-muted text-uppercase small fw-semibold mb-0"
                         >
@@ -1159,7 +1159,7 @@
                         </p>
                       </div>
                     </div>
-                    <div class="col-2 col-md-3">
+                    <div class="col-6 col-md-3">
                       <div
                         class="border-start border-4 mb-3"
                         style="border-color: #b3b0d4 !important"
@@ -1208,10 +1208,10 @@
                     </div>
 
                     <div
-                      class="d-flex justify-content-center gap-4 mt-4 pt-3 border-top"
+                      class="d-flex justify-content-center pt-3 border-top"
                     >
                       <div
-                        class="d-flex align-items-center gap-2 small text-secondary"
+                        class="d-flex align-items-center mx-3 small text-secondary"
                       >
                         <div
                           class="legend-color rounded"
@@ -1220,7 +1220,7 @@
                         <span>Actual Sales</span>
                       </div>
                       <div
-                        class="d-flex align-items-center gap-2 small text-secondary"
+                        class="d-flex align-items-center  small text-secondary"
                       >
                         <div
                           class="legend-color rounded"
@@ -1448,14 +1448,6 @@
         ],
       });
 
-
-
-
-
-
-
-
-
       // **************************************************************************
       // **************************************************************************
       // <!-- Sale and target chart -->
@@ -1473,8 +1465,8 @@
         ctx.scale(dpr, dpr);
 
         // Calculate drawing area (accounting for axis labels)
-        const leftMargin = 70;
-        const rightMargin = 20;
+        const leftMargin = 50;
+        const rightMargin = 0;
         const topMargin = 30;
         const bottomMargin = 50;
 
@@ -1535,7 +1527,6 @@
         });
 
         ctx.stroke();
-
         // Fill under sales line
         const lastSalesX = leftMargin + width;
         const lastSalesY =
