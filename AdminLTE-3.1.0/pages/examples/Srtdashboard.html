@@ -151,6 +151,12 @@
       color: white;
     }
 
+    .table-chart-card {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      overflow: hidden; /* important if you have background or inner elements */
+    }
+
     .tab-button {
       background: transparent;
       border: none;
@@ -1416,9 +1422,11 @@
         <div class="container-fluid pb-2">
           <div class="row">
             <div class="col-12">
-              <div class="card shadow-sm chart-card border-0">
+              <div class="shadow-sm chart-card border-0">
                 <div class="card-header table-title border-0 p-0">
-                  <div class="p-3 border-bottom border-white border-opacity-10 chart-header">
+                  <div
+                    class="p-3 border-bottom border-white border-opacity-10 chart-header"
+                  >
                     <i class="fas fa-table"></i>
                     Installation Status Details
                   </div>
@@ -1710,7 +1718,6 @@
           </div>
         </div>
         <!-- table section end  -->
-
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
