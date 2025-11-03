@@ -210,6 +210,210 @@
     }
   </style>
 
+
+ <style>
+
+    /* Ensure content area doesn't go under sidebar */
+    .content-wrapper {
+      /* margin-left: 270px !important; */
+      background-color: #fff;
+    }
+
+    .main-sidebar {
+      background-color: #ffffff !important;
+      border-right: 1px solid #e5e7eb;
+      box-shadow: 0 !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 1030;
+    }
+
+    .brand-link {
+      padding: 12px 1.5rem;
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      position: sticky;
+      top: 0;
+      z-index: 1040;
+      background-color: #fff !important;
+    }
+
+    .brand-text {
+      color: #111827 !important;
+      font-size: 1.1rem;
+      font-weight: 700 !important;
+    }
+
+    .sidebar {
+      box-shadow: none !important;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+      padding-right: 4rem !important;
+      scroll-behavior: smooth;
+      padding-left: 0 !important;
+    }
+
+    .sidebar:hover {
+      scrollbar-color: #d1d5db transparent;
+    }
+
+    .nav-header {
+      padding: 0.75rem 1.5rem 0.5rem 1.5rem !important;
+      color: #9ca3af !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-sidebar .nav-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-sidebar .nav-link {
+      background-color: transparent !important;
+      padding: 0.65rem 1.25rem 0.65rem 1.25rem !important;
+      margin: 0 0.5rem !important;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-sidebar .nav-link:hover {
+      background-color: #f3f4f6 !important;
+    }
+
+    .nav-sidebar .nav-link p:hover {
+      background-color: #f3f4f6 !important;
+    }
+
+    .nav-sidebar .nav-link {
+      color: #374151;
+      transition: all 0.3s ease;
+    }
+
+    .nav-sidebar .nav-link i {
+      color: #374151;
+      transition: all 0.3s ease;
+    }
+
+    .nav-sidebar .nav-link:hover {
+      background-color: #f3f4f6 !important;
+      color: #2563eb !important;
+    }
+
+    .nav-sidebar .nav-link:hover i {
+      color: #2563eb !important;
+    }
+    .nav-sidebar .nav-link:hover p {
+      color: #2563eb !important;
+    }
+
+    .nav-sidebar .nav-link.active {
+      background-color: #eef2ff !important;
+      color: #2563eb !important;
+    }
+
+    .nav-sidebar .nav-link p {
+      color: #374151;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .nav-sidebar .nav-link.active p {
+      color: #2563eb !important;
+      font-weight: bold !important;
+    }
+
+    /* Icons */
+    .nav-icon {
+      font-size: 1.1rem;
+      margin-right: 0.75rem;
+      color: #6b7280;
+    }
+
+    .nav-icon:hover {
+      color: #4f46e5 !important;
+    }
+    .nav-link.active .nav-icon {
+      color: #4f46e5 !important;
+    }
+
+    /* Dropdown arrows */
+    .nav-link .right {
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
+
+    .menu-open > .nav-link .right {
+      transform: rotate(-90deg);
+    }
+
+    /* Sub-menu styling */
+    .nav-treeview {
+      padding-left: 0;
+      background-color: transparent;
+    }
+
+    .nav-treeview .nav-link {
+      padding: 0.5rem 1.25rem 0.5rem 2.5rem !important;
+      margin: 0 0.5rem !important;
+    }
+
+    .nav-treeview .nav-link p {
+      color: #6b7280;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .nav-treeview .nav-link:hover p {
+      color: #111827;
+    }
+
+    .nav-treeview .nav-link.bg-primary-selected {
+      background-color: #eef2ff !important;
+    }
+
+    .nav-treeview .nav-link.bg-primary-selected p {
+      color: #4f46e5 !important;
+      font-weight: 600 !important;
+    }
+
+    .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+    .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+      background-color: #eef2ff !important;
+      color: #4f46e5 !important;
+    }
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+      visibility: hidden !important;
+      display: none !important;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: #d1d5db;
+      border-radius: 3px;
+      visibility: hidden !important;
+    }
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background-color: #9ca3af;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: #f9fafb;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+  </style>
+
   <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -403,52 +607,22 @@
       </nav>
       <!-- /.navbar -->
 
+
       <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside class="main-sidebar elevation-4">
         <!-- Brand Logo -->
         <a href="../../index3.html" class="brand-link">
           <img
-            src="../../dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3"
+            src="../images/KLK SVG Logo.svg"
+            alt="klk Logo"
+            class="w-25 elevation-3"
             style="opacity: 0.8"
           />
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+          <span class="brand-text font-weight-light">KLK Ventures</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
-          <!-- Sidebar user (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img
-                src="../../dist/img/user2-160x160.jpg"
-                class="img-circle elevation-2"
-                alt="User Image"
-              />
-            </div>
-            <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-          </div>
-
-          <!-- SidebarSearch Form -->
-          <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-              <input
-                class="form-control form-control-sidebar"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <div class="input-group-append">
-                <button class="btn btn-sidebar">
-                  <i class="fas fa-search fa-fw"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul
@@ -1008,15 +1182,17 @@
                   </li>
 
                   <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="../examples/Srtdashboard.html" class="nav-link active">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>SRT Dashboard</p>
+                      <p>SRT Dashboard</p>  
                     </a>
                   </li>
 
-
-                   <li class="nav-item">
-                    <a href="../examples/MainDashboard.html" class="nav-link">
+                  <li class="nav-item">
+                    <a
+                      href="../examples/MainDashboard.html"
+                      class="nav-link"
+                    >
                       <i class="far fa-circle nav-icon"></i>
                       <p>Main Dashboard</p>
                     </a>
@@ -1163,6 +1339,7 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">

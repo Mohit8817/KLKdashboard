@@ -1,11 +1,384 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<!-- Modern Sidebar Container -->
+<aside class="modern-sidebar">
+  <!-- Brand Logo -->
+  <a href="../../index3.html" class="brand-logo">
+    <div class="logo-container">
+      <img
+        src="../images/KLK SVG Logo.svg"
+        alt="KLK Logo"
+        class="logo-image"
+      />
+      <span class="brand-name">KLK Ventures</span>
+    </div>
+  </a>
 
-</body>
-</html>
+  <!-- Sidebar Menu -->
+  <nav class="sidebar-nav">
+    <div class="menu-label">MENU</div>
+
+    <!-- Dashboard -->
+    <div class="nav-item menu-item-has-children active">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-th-large"></i>
+        <span>Dashboard</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../../index.html">Dashboard v1</a></li>
+        <li><a href="../../index2.html">Dashboard v2</a></li>
+        <li><a href="../../index3.html">Dashboard v3</a></li>
+      </ul>
+    </div>
+
+    <!-- Ecommerce (single item like in design) -->
+    <div class="nav-item ecommerce-item">
+      <a href="../widgets.html" class="nav-link">
+        <span>Ecommerce</span>
+      </a>
+    </div>
+
+    <!-- Calendar -->
+    <div class="nav-item">
+      <a href="../calendar.html" class="nav-link">
+        <i class="nav-icon far fa-calendar-alt"></i>
+        <span>Calendar</span>
+        <span class="badge">2</span>
+      </a>
+    </div>
+
+    <!-- User Profile -->
+    <div class="nav-item">
+      <a href="../examples/profile.html" class="nav-link">
+        <i class="nav-icon far fa-user"></i>
+        <span>User Profile</span>
+      </a>
+    </div>
+
+    <!-- Forms -->
+    <div class="nav-item menu-item-has-children">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-file-alt"></i>
+        <span>Forms</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../forms/general.html">General Elements</a></li>
+        <li><a href="../forms/advanced.html">Advanced Elements</a></li>
+        <li><a href="../forms/editors.html">Editors</a></li>
+        <li><a href="../forms/validation.html">Validation</a></li>
+      </ul>
+    </div>
+
+    <!-- Tables -->
+    <div class="nav-item menu-item-has-children">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <span>Tables</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../tables/simple.html">Simple Tables</a></li>
+        <li><a href="../tables/data.html">DataTables</a></li>
+        <li><a href="../tables/jsgrid.html">jsGrid</a></li>
+      </ul>
+    </div>
+
+    <!-- Pages -->
+    <div class="nav-item menu-item-has-children">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
+        <span>Pages</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../examples/invoice.html">Invoice</a></li>
+        <li><a href="../examples/profile.html">Profile</a></li>
+        <li><a href="../examples/e-commerce.html">E-commerce</a></li>
+        <li><a href="../examples/projects.html">Projects</a></li>
+        <li><a href="../examples/contacts.html">Contacts</a></li>
+        <li><a href="../examples/faq.html">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-label">OTHERS</div>
+
+    <!-- Charts -->
+    <div class="nav-item menu-item-has-children">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-chart-pie"></i>
+        <span>Charts</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../charts/chartjs.html">ChartJS</a></li>
+        <li><a href="../charts/flot.html">Flot</a></li>
+        <li><a href="../charts/inline.html">Inline</a></li>
+        <li><a href="../charts/uplot.html">uPlot</a></li>
+      </ul>
+    </div>
+
+    <!-- UI Elements -->
+    <div class="nav-item menu-item-has-children">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-cube"></i>
+        <span>UI Elements</span>
+        <i class="arrow fas fa-chevron-down"></i>
+      </a>
+      <ul class="sub-menu">
+        <li><a href="../UI/general.html">General</a></li>
+        <li><a href="../UI/icons.html">Icons</a></li>
+        <li><a href="../UI/buttons.html">Buttons</a></li>
+        <li><a href="../UI/modals.html">Modals & Alerts</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+
+<style>
+/* Modern Sidebar Styles */
+.modern-sidebar {
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1C2434 0%, #24303F 100%);
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.modern-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-image {
+  width: 40px;
+  height: 40px;
+  background: #3C50E0;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  padding: 20px 0;
+}
+
+/* Menu Label */
+.menu-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8A99AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 28px 8px;
+  margin-top: 8px;
+}
+
+.menu-label:first-child {
+  margin-top: 0;
+}
+
+/* Nav Items */
+.nav-item {
+  margin: 2px 12px;
+}
+
+.nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: #DEE4EE;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item .nav-link:hover {
+  background: rgba(60, 80, 224, 0.1);
+  color: #FFFFFF;
+}
+
+.nav-item.active > .nav-link {
+  background: #3C50E0;
+  color: #FFFFFF;
+}
+
+/* Icons */
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.nav-link span {
+  flex: 1;
+}
+
+/* Arrow Icon */
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+
+.menu-item-has-children.active .arrow,
+.menu-item-has-children:hover .arrow {
+  opacity: 1;
+}
+
+.menu-item-has-children.open .arrow {
+  transform: rotate(-180deg);
+}
+
+/* Badge */
+.badge {
+  background: #3C50E0;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: auto;
+}
+
+/* Sub Menu */
+.sub-menu {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.menu-item-has-children.open .sub-menu {
+  max-height: 500px;
+}
+
+.sub-menu li {
+  margin: 0;
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 10px 16px 10px 48px;
+  color: #8A99AF;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 8px;
+  margin: 0 4px;
+  transition: all 0.2s ease;
+}
+
+.sub-menu li a:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 52px;
+}
+
+/* Ecommerce Item (special styling like in design) */
+.ecommerce-item {
+  margin: 2px 12px;
+  background: rgba(60, 80, 224, 0.08);
+  border-radius: 8px;
+}
+
+.ecommerce-item .nav-link {
+  padding: 12px 16px 12px 48px;
+  color: #DEE4EE;
+}
+
+.ecommerce-item .nav-link:hover {
+  background: rgba(60, 80, 224, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .modern-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+/* Active state improvements */
+.nav-item.active > .nav-link .nav-icon {
+  opacity: 1;
+}
+
+/* Smooth transitions */
+* {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+</style>
+
+<script>
+// Toggle submenu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuItems = document.querySelectorAll('.menu-item-has-children > .nav-link');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      const isOpen = parent.classList.contains('open');
+
+      // Close all other menus
+      document.querySelectorAll('.menu-item-has-children').forEach(menu => {
+        if (menu !== parent) {
+          menu.classList.remove('open');
+        }
+      });
+
+      // Toggle current menu
+      parent.classList.toggle('open');
+    });
+  });
+
+  // Set initial active state (Dashboard is open by default)
+  const dashboardItem = document.querySelector('.nav-item.active');
+  if (dashboardItem && dashboardItem.classList.contains('menu-item-has-children')) {
+    dashboardItem.classList.add('open');
+  }
+});
+</script>
