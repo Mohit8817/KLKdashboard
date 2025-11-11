@@ -1184,7 +1184,7 @@
                   <li class="nav-item">
                     <a href="../examples/Srtdashboard.html" class="nav-link active">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>SRT Dashboard</p>  
+                      <p>SRT Dashboard</p>
                     </a>
                   </li>
 
@@ -1973,6 +1973,9 @@
         },
       });
 
+
+      
+
       // Bar Chart
       const barCtx = document.getElementById("barChart").getContext("2d");
       new Chart(barCtx, {
@@ -1984,7 +1987,8 @@
               label: "Progress %",
               data: [65, 82, 45, 90, 58, 75],
               backgroundColor: "#605ca8",
-              borderRadius: 6,
+              borderRadius: 14,
+              barThickness: 25,
               borderSkipped: false,
             },
           ],
