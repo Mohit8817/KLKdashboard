@@ -36,7 +36,8 @@
     /* navbar css  */
 
 
-    body {
+    body,
+    .sidebar-mini {
       background-color: #f1f4fd !important;
     }
 
@@ -205,16 +206,158 @@
     /* sidebar css  */
 
 
-    .sidebar, .main-sidebar {
+    .sidebar,
+    .main-sidebar {
       background-color: #38487c;
     }
 
 
     /* welcome Section  */
 
-    
+
+    /* Welcome section  */
+
+    .welcome-sub {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .welcome-title {
+      font-size: 22px;
+    }
+
+    /* MOBILE Responsive */
+    @media (max-width: 767px) {
+      .welcome-icon {
+        width: 40px !important;
+        /* icon smaller on mobile */
+      }
+
+      .welcome-sub {
+        font-size: 14px !important;
+      }
+
+      .welcome-title {
+        font-size: 18px !important;
+      }
+    }
 
 
+
+
+
+    /* new cards  */
+
+    /* complaint box css ===========================================================  */
+
+    .complaint-box {
+      background: #fff;
+      border: 0.2px solid;
+      border-radius: 10px;
+      padding: 10px 15px;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .complaint-box:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      padding-bottom: 0px !important;
+      margin-bottom: 0px !important;
+      color: #484848;
+    }
+
+    .value {
+      padding-bottom: 0px !important;
+      margin-bottom: 0px !important;
+      padding-top: 0px !important;
+      margin-top: 0px !important;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .value span {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* Colors */
+    .blue {
+      border-color: #76b7f8;
+    }
+
+    .blue .value {
+      color: #47a3ff;
+    }
+
+    .blue .actions-btn {
+      border-color: #47a3ff;
+      color: #47a3ff;
+    }
+
+    .green {
+      border-color: #72cb8e;
+    }
+
+    .green .value {
+      color: #43c96e;
+    }
+
+    .green .actions-btn {
+      border-color: #43c96e;
+      color: #43c96e;
+    }
+
+    .orange {
+      border-color: #efb66f;
+    }
+
+    .orange .value {
+      color: #ffa73a;
+    }
+
+    .orange .actions-btn {
+      border-color: #ffa73a;
+      color: #ffa73a;
+    }
+
+    .grey {
+      border-color: #7ea5ee;
+    }
+
+    .grey .value {
+      color: #5889e5;
+    }
+
+    .grey .actions-btn {
+      border-color: #5889e5;
+      color: #5889e5;
+    }
+
+    .actions-btn {
+      background: transparent;
+      background-color: #f6f7fa;
+      border: 1.3px solid;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      width: fit-content;
+      transition: 0.3s;
+    }
+
+    .actions-btn:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -330,13 +473,11 @@
       </div>
     </nav>
 
-
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="../../index3.html" class="brand-link text-decoration-none">
-        <img src="../images/KLK SVG Logo.svg" alt="AdminLTE Logo" class="w-25"
-          style="opacity: 0.8" />
+        <img src="../images/KLK SVG Logo.svg" alt="AdminLTE Logo" class="w-25" style="opacity: 0.8" />
         <span class="brand-text font-weight-light fs-6 fw-bold">KLK Ventures PVT LTD. </span>
       </a>
 
@@ -1003,10 +1144,76 @@
     <div class="content-wrapper">
 
 
+      <!-- WELCOME SECTION -->
+      <section class="welcome-section py-4 px-3">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <!-- LEFT SIDE -->
+            <div class="col-md-6 d-flex align-items-center gap-3 mb-3 mb-md-0">
+              <img src="../images/icon (2).svg" class="welcome-icon" style="width: 55px" />
+              <div>
+                <div class="welcome-sub">Welcome to,</div>
+                <h2 class="welcome-title m-0 fw-bold">KLK UP SSL Dashboard</h2>
+              </div>
+            </div>
+            <!-- RIGHT SIDE -->
+            <div class="col-md-6">
+              <div class="doc-btn float-right">
+                <i class="bi bi-ui-checks-grid"></i>
+                <span>Select Volume</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       <section class="content">
-        hello world this new desing page
+
+        <!-- complaints section  -->
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-12 col-md-12 complaint-section mb-3">
+              <div class="row g-3">
+
+                <!-- Card -->
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="complaint-box blue">
+                    <div class="title">SSL Complaints</div>
+                    <div class="value">0 Resolved / <span>3 Pending</span></div>
+                    <button class="actions-btn">Add Complaint</button>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="complaint-box green">
+                    <div class="title">Panel Issues</div>
+                    <div class="value">1 Resolved / <span>2 Pending</span></div>
+                    <button class="actions-btn">Add Complaint</button>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="complaint-box orange">
+                    <div class="title">Street Light</div>
+                    <div class="value">5 Resolved / <span>1 Pending</span></div>
+                    <button class="actions-btn">Add Complaint</button>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12">
+                  <div class="complaint-box grey">
+                    <div class="title">Cable Fault</div>
+                    <div class="value">8 Resolved / <span>0 Pending</span></div>
+                    <button class="actions-btn">Add Complaint</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
       <!-- /.content -->
     </div>
@@ -1035,7 +1242,7 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
