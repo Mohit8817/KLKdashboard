@@ -33,9 +33,6 @@
     }
 
 
-    /* navbar css  */
-
-
     body,
     .sidebar-mini {
       background-color: #f1f4fd !important;
@@ -203,16 +200,18 @@
       }
     }
 
+
+
     /* sidebar css  */
 
-
-    .sidebar,
-    .main-sidebar {
+    .sidebar {
       background-color: #38487c;
     }
 
+    .main-sidebar {
+      background-color: #ffffff;
+    }
 
-    /* welcome Section  */
 
 
     /* Welcome section  */
@@ -243,128 +242,12 @@
     }
 
 
+    /* Main Card Box -------------------------------*/
 
 
-
-    /* new cards  */
-
-    /* complaint box css ===========================================================  */
-    /*
     .complaint-box {
       background: #fff;
-      border: 0.2px solid;
-      border-radius: 10px;
-      padding: 10px 15px;
-      min-height: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .complaint-box:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-      transform: translateY(-3px);
-    }
-
-    .title {
-      font-size: 14px;
-      font-weight: 600;
-      padding-bottom: 0px !important;
-      margin-bottom: 0px !important;
-      color: #484848;
-    }
-
-    .value {
-      padding-bottom: 0px !important;
-      margin-bottom: 0px !important;
-      padding-top: 0px !important;
-      margin-top: 0px !important;
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .value span {
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    .blue {
-      border-color: #76b7f8;
-    }
-
-    .blue .value {
-      color: #47a3ff;
-    }
-
-    .blue .actions-btn {
-      border-color: #47a3ff;
-      color: #47a3ff;
-    }
-
-    .green {
-      border-color: #72cb8e;
-    }
-
-    .green .value {
-      color: #43c96e;
-    }
-
-    .green .actions-btn {
-      border-color: #43c96e;
-      color: #43c96e;
-    }
-
-    .orange {
-      border-color: #efb66f;
-    }
-
-    .orange .value {
-      color: #ffa73a;
-    }
-
-    .orange .actions-btn {
-      border-color: #ffa73a;
-      color: #ffa73a;
-    }
-
-    .grey {
-      border-color: #7ea5ee;
-    }
-
-    .grey .value {
-      color: #5889e5;
-    }
-
-    .grey .actions-btn {
-      border-color: #5889e5;
-      color: #5889e5;
-    }
-
-    .actions-btn {
-      background: transparent;
-      background-color: #f6f7fa;
-      border: 1.3px solid;
-      font-size: 10px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      width: fit-content;
-      transition: 0.3s;
-    }
-
-    .actions-btn:hover {
-      opacity: 0.8;
-    } */
-
-
-    /* main cards dashbaord */
-
-    /* Main Card Box */
-    .complaint-box {
-      background: #fff;
-      border: 0.2px solid;
+      border: 1.2px solid;
       border-radius: 10px;
       padding: 10px 15px;
       min-height: 100px;
@@ -376,8 +259,8 @@
     }
 
     .complaint-box:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-      transform: translateY(-3px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
     }
 
     /* Text Area */
@@ -394,10 +277,18 @@
       margin: 0;
     }
 
-    /* Circle Icon Area */
+    .subtitle {
+      font-size: 12px;
+      font-weight: 500;
+      color: #7a7a7a;
+      margin: 0;
+    }
+
+    /* Circle Icon */
     .circle-icon {
       width: 60px;
       height: 60px;
+
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -406,7 +297,6 @@
       overflow: hidden;
     }
 
-    /* Image inside circle */
     .circle-icon img {
       width: 38px;
       height: 38px;
@@ -415,52 +305,88 @@
 
     /* Color Themes */
     .blue {
-      border-color: #76b7f8;
+      border-color: #007bff;
+
     }
 
     .blue .value {
-      color: #47a3ff;
+      color: #007bff;
     }
 
     .blue-border {
-      border: 2px solid #47a3ff;
+      border: 2px solid #007bff;
     }
 
     .green {
-      border-color: #72cb8e;
+      border-color: #28a745;
     }
 
     .green .value {
-      color: #43c96e;
+      color: #28a745;
     }
 
     .green-border {
-      border: 2px solid #43c96e;
+      border: 2px solid #28a745;
     }
 
     .orange {
-      border-color: #efb66f;
+      border-color: #ff8c00;
     }
 
     .orange .value {
-      color: #ffa73a;
+      color: #ff8c00;
     }
 
     .orange-border {
-      border: 2px solid #ffa73a;
+      border: 2px solid #ff8c00;
     }
 
-    .grey {
-      border-color: #7ea5ee;
+    .red {
+      border-color: #e74c3c;
     }
 
-    .grey .value {
-      color: #5889e5;
+    .red .value {
+      color: #e74c3c;
     }
 
-    .grey-border {
-      border: 2px solid #5889e5;
+    .red-border {
+      border: 2px solid #e74c3c;
     }
+
+    .purple {
+      border-color: #8a56f6;
+    }
+
+    .purple .value {
+      color: #8a56f6;
+    }
+
+    .purple-border {
+      border: 2px solid #8a56f6;
+    }
+
+    .teal {
+      border-color: #17a2b8;
+    }
+
+    .teal .value {
+      color: #17a2b8;
+    }
+
+    .teal-border {
+      border: 2px solid #17a2b8;
+    }
+
+
+    .blue-border,
+    .green-border,
+    .orange-border,
+    .red-border,
+    .purple-border,
+    .teal-border {
+      border-width: 1.2px !important;
+    }
+
 
     /* Responsive */
     @media (max-width: 576px) {
@@ -479,13 +405,75 @@
       }
     }
 
-    .subtitle {
-  font-size: 12px;
-  font-weight: 500;
-  color: #7a7a7a;
-  margin: 0;
-}
 
+    /* chart css here  */
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border: 2px solid #007bff1a;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #3facff;
+      background: #fff;
+    }
+
+    .chart-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Chart Header */
+    .chart-header {
+      background: #3facff;
+      color: #ffffff;
+      padding: 5px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f1f1f1;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #3facff;
+      /* border: 1.2px solid #38487c; */
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 16px;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -603,11 +591,19 @@
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link text-decoration-none">
-        <img src="../images/KLK SVG Logo.svg" alt="AdminLTE Logo" class="w-25" style="opacity: 0.8" />
-        <span class="brand-text font-weight-light fs-6 fw-bold">KLK Ventures PVT LTD. </span>
-      </a>
+
+
+
+       <!-- Brand Logo -->
+        <a href="../../index3.html" class="brand-link">
+          <img
+            src="../images/klkhalflogo.webp"
+            alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3"
+            style="opacity: 0.8"
+          />
+          <span class="brand-text text-dark">KLK Ventures-up</span>
+        </a>
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -1293,152 +1289,148 @@
         </div>
       </section>
 
-
       <section class="content">
 
-        <!-- complaints section  -->
+        <!-- Cards section here  -->
+        <div class="container py-3">
+          <div class="row g-3">
 
+            <!-- Card 1 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box blue">
+                <div class="circle-icon blue-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3380/3380840.png" alt="target">
+                </div>
+                <div>
+                  <p class="title">Total Allocated Target</p>
+                  <p class="value">73330</p>
+                  <p class="subtitle">Total Sites</p>
+                </div>
+              </div>
+            </div>
 
-        <!-- <div class="container mt-2">
+            <!-- Card 2 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box green">
+                <div class="circle-icon green-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="material">
+                </div>
+                <div>
+                  <p class="title">Material Supply Status</p>
+                  <p class="value">73330 / 0</p>
+                  <p class="subtitle">Supplied / Pending</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box orange">
+                <div class="circle-icon orange-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="installation">
+                </div>
+                <div>
+                  <p class="title">Installation</p>
+                  <p class="value">73330 / 0</p>
+                  <p class="subtitle">Installed / Pending</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box red">
+                <div class="circle-icon red-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/906/906341.png" alt="document">
+                </div>
+                <div>
+                  <p class="title">Document Status</p>
+                  <p class="value">73330 / 0</p>
+                  <p class="subtitle">Submitted / Pending</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box purple">
+                <div class="circle-icon purple-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="payment">
+                </div>
+                <div>
+                  <p class="title">85% Payment Status</p>
+                  <p class="value">73329 / 1</p>
+                  <p class="subtitle">Done / Pending</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-md-4 col-6">
+              <div class="complaint-box teal">
+                <div class="circle-icon teal-border">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3240/3240673.png" alt="AMC Visit">
+                </div>
+                <div>
+                  <p class="title">AMC Visit Status</p>
+                  <p class="value">73330 / 0</p>
+                  <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- chart section start  -->
+        <div class="container-fluid mt-2">
           <div class="row">
-            <div class="col-12 col-md-12 complaint-section mb-3">
-              <div class="row g-3">
-
-                <div class="col-lg-3 col-md-6 col-12">
-                  <div class="complaint-box blue">
-                    <div class="title">SSL Complaints</div>
-                    <div class="value">0 Resolved / <span>3 Pending</span></div>
-                    <button class="actions-btn">Add Complaint</button>
+            <!-- Donut Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Department Distribution
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="donutChart"></canvas>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="col-lg-3 col-md-6 col-12">
-                  <div class="complaint-box green">
-                    <div class="title">Panel Issues</div>
-                    <div class="value">1 Resolved / <span>2 Pending</span></div>
-                    <button class="actions-btn">Add Complaint</button>
+            <!-- Bar Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Monthly Progress Overview
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="barChart"></canvas>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <div class="col-lg-3 col-md-6 col-12">
-                  <div class="complaint-box orange">
-                    <div class="title">Street Light</div>
-                    <div class="value">5 Resolved / <span>1 Pending</span></div>
-                    <button class="actions-btn">Add Complaint</button>
+            <!-- Line Chart -->
+            <div class="col-12">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-line"></i>
+                  Installation Trend Analysis
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="lineChart"></canvas>
                   </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6 col-12">
-                  <div class="complaint-box grey">
-                    <div class="title">Cable Fault</div>
-                    <div class="value">8 Resolved / <span>0 Pending</span></div>
-                    <button class="actions-btn">Add Complaint</button>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
         </div>
- -->
-
-
-
-
-        <!-- main dashbaord  card section -->
-
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
-
-<div class="container py-3">
-  <div class="row g-3">
-
-    <!-- Card 1 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box blue">
-        <div class="circle-icon blue-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/1029/1029132.png" alt="target">
-        </div>
-        <div>
-          <p class="title">Total Allocated Target</p>
-          <p class="value">73330</p>
-          <p class="subtitle">Total Sites</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box green">
-        <div class="circle-icon green-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="material">
-        </div>
-        <div>
-          <p class="title">Material Supply Status</p>
-          <p class="value">73330 / 0</p>
-          <p class="subtitle">Supplied / Pending</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box orange">
-        <div class="circle-icon orange-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="installation">
-        </div>
-        <div>
-          <p class="title">Installation</p>
-          <p class="value">73330 / 0</p>
-          <p class="subtitle">Installed / Pending</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box grey">
-        <div class="circle-icon grey-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/906/906341.png" alt="document-status">
-        </div>
-        <div>
-          <p class="title">Document Status</p>
-          <p class="value">73330 / 0</p>
-          <p class="subtitle">Submitted / Pending</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box blue">
-        <div class="circle-icon blue-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="payment">
-        </div>
-        <div>
-          <p class="title">85% Payment Status</p>
-          <p class="value">73329 / 1</p>
-          <p class="subtitle">Done / Pending</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="col-md-4 col-6">
-      <div class="complaint-box green">
-        <div class="circle-icon green-border">
-          <img src="https://cdn-icons-png.flaticon.com/512/3240/3240673.png" alt="amc-visit">
-        </div>
-        <div>
-          <p class="title">AMC Visit Status</p>
-          <p class="value">73330 / 0</p>
-          <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
       </section>
@@ -1460,6 +1452,162 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+
+
+  <!-- Chart.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+  <script>
+    // Donut Chart
+    const donutCtx = document.getElementById("donutChart").getContext("2d");
+    new Chart(donutCtx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Material Supply Status",
+          "Installation Status",
+          "Document Status",
+          "Total Allocation",
+          "SCADA Upload Status",
+          "Inspection Status",
+        ],
+        datasets: [
+          {
+            data: [16.67, 16.67, 16.67, 16.67, 16.67, 16.65],
+            backgroundColor: [
+              "#007bff", // Blue
+              "#28a745", // Green
+              "#ff8c00", // Orange
+              "#e74c3c", // Red
+              "#8a56f6", // Purple
+              "#17a2b8", // Teal
+            ],
+            borderWidth: 2,
+            borderColor: "#fff",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              padding: 15,
+              font: { size: 12 },
+              usePointStyle: true,
+            },
+          },
+        },
+      },
+    });
+
+    // Bar Chart
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+        datasets: [
+          {
+            label: "Progress %",
+            data: [65, 82, 45, 90, 58, 75],
+            backgroundColor: "#018ffb",
+            borderRadius: 6,
+            borderSkipped: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              callback: function (value) {
+                return value;
+              },
+            },
+            grid: {
+              color: "#f6f6f6",
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
+
+    // Line Chart
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5",
+          "Week 6",
+          "Week 7",
+        ],
+        datasets: [
+          {
+            label: "Installations",
+            data: [30, 50, 40, 90, 65, 100, 80],
+            borderColor: "#018ffb",
+            backgroundColor: "rgba(96, 92, 168, 0.1)",
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#018ffb",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 130,
+            grid: {
+              color: "#f3f4f6",
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
+
+
+
+  </script>
+
 
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
