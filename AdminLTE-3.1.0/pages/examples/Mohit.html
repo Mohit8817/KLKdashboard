@@ -249,7 +249,7 @@
     /* new cards  */
 
     /* complaint box css ===========================================================  */
-
+    /*
     .complaint-box {
       background: #fff;
       border: 0.2px solid;
@@ -291,7 +291,6 @@
       font-weight: 600;
     }
 
-    /* Colors */
     .blue {
       border-color: #76b7f8;
     }
@@ -357,7 +356,136 @@
 
     .actions-btn:hover {
       opacity: 0.8;
+    } */
+
+
+    /* main cards dashbaord */
+
+    /* Main Card Box */
+    .complaint-box {
+      background: #fff;
+      border: 0.2px solid;
+      border-radius: 10px;
+      padding: 10px 15px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.3s;
     }
+
+    .complaint-box:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    /* Text Area */
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      color: #484848;
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Circle Icon Area */
+    .circle-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Image inside circle */
+    .circle-icon img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    /* Color Themes */
+    .blue {
+      border-color: #76b7f8;
+    }
+
+    .blue .value {
+      color: #47a3ff;
+    }
+
+    .blue-border {
+      border: 2px solid #47a3ff;
+    }
+
+    .green {
+      border-color: #72cb8e;
+    }
+
+    .green .value {
+      color: #43c96e;
+    }
+
+    .green-border {
+      border: 2px solid #43c96e;
+    }
+
+    .orange {
+      border-color: #efb66f;
+    }
+
+    .orange .value {
+      color: #ffa73a;
+    }
+
+    .orange-border {
+      border: 2px solid #ffa73a;
+    }
+
+    .grey {
+      border-color: #7ea5ee;
+    }
+
+    .grey .value {
+      color: #5889e5;
+    }
+
+    .grey-border {
+      border: 2px solid #5889e5;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .circle-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .circle-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .value {
+        font-size: 18px;
+      }
+    }
+
+    .subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #7a7a7a;
+  margin: 0;
+}
+
   </style>
 </head>
 
@@ -1142,8 +1270,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-
       <!-- WELCOME SECTION -->
       <section class="welcome-section py-4 px-3">
         <div class="container-fluid">
@@ -1171,12 +1297,13 @@
       <section class="content">
 
         <!-- complaints section  -->
-        <div class="container mt-2">
+
+
+        <!-- <div class="container mt-2">
           <div class="row">
             <div class="col-12 col-md-12 complaint-section mb-3">
               <div class="row g-3">
 
-                <!-- Card -->
                 <div class="col-lg-3 col-md-6 col-12">
                   <div class="complaint-box blue">
                     <div class="title">SSL Complaints</div>
@@ -1213,6 +1340,106 @@
             </div>
           </div>
         </div>
+ -->
+
+
+
+
+        <!-- main dashbaord  card section -->
+
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
+
+<div class="container py-3">
+  <div class="row g-3">
+
+    <!-- Card 1 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box blue">
+        <div class="circle-icon blue-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/1029/1029132.png" alt="target">
+        </div>
+        <div>
+          <p class="title">Total Allocated Target</p>
+          <p class="value">73330</p>
+          <p class="subtitle">Total Sites</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box green">
+        <div class="circle-icon green-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="material">
+        </div>
+        <div>
+          <p class="title">Material Supply Status</p>
+          <p class="value">73330 / 0</p>
+          <p class="subtitle">Supplied / Pending</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box orange">
+        <div class="circle-icon orange-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="installation">
+        </div>
+        <div>
+          <p class="title">Installation</p>
+          <p class="value">73330 / 0</p>
+          <p class="subtitle">Installed / Pending</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box grey">
+        <div class="circle-icon grey-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/906/906341.png" alt="document-status">
+        </div>
+        <div>
+          <p class="title">Document Status</p>
+          <p class="value">73330 / 0</p>
+          <p class="subtitle">Submitted / Pending</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box blue">
+        <div class="circle-icon blue-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/992/992700.png" alt="payment">
+        </div>
+        <div>
+          <p class="title">85% Payment Status</p>
+          <p class="value">73329 / 1</p>
+          <p class="subtitle">Done / Pending</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-md-4 col-6">
+      <div class="complaint-box green">
+        <div class="circle-icon green-border">
+          <img src="https://cdn-icons-png.flaticon.com/512/3240/3240673.png" alt="amc-visit">
+        </div>
+        <div>
+          <p class="title">AMC Visit Status</p>
+          <p class="value">73330 / 0</p>
+          <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
       </section>
       <!-- /.content -->
