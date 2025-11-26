@@ -302,13 +302,13 @@
       transform: translateY(-2px);
     }
 
-    /* Remove underline for anchor */
+
     a {
       text-decoration: none !important;
       color: inherit;
     }
 
-    /* Text Area */
+
     .title {
       font-size: 14px;
       font-weight: 600;
@@ -520,7 +520,7 @@
     }
 
 
-    /* chart css here  */
+    /* chart css -------------------------------------------------- */
 
     /* Chart Wrapper */
     .chart-card {
@@ -584,7 +584,7 @@
 
 
 
-    /* Modern Table Styling */
+    /*  Table css --------------------------------------------- */
     .modern-table {
       border-collapse: separate;
       border-spacing: 0;
@@ -1471,8 +1471,8 @@
         </section>
 
 
-        <div class="container py-3">
-          <div class="row g-3">
+        <div class="container-fluid py-3">
+          <div class="row g-3" >
             <!-- Card 1 -->
             <div class="col-lg-4 col-md-6 col-12">
               <a href="#">
@@ -1656,7 +1656,7 @@
                 <div class="tab-content p-3" id="table-tabContent">
 
                   <!-- PHASE TAB -->
-                  <!-- DISTRICT TAB -->
+            
                   <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
                     <div class="table-responsive">
                       <table class="table modern-table table-hover text-center mb-0">
@@ -1908,10 +1908,6 @@
           </div>
         </div>
 
-
-
-
-
         <!-- footer section -->
         <section class="">
           <div class="container">
@@ -2092,6 +2088,11 @@
       },
     });
 
+
+
+    // footer year script
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
 
