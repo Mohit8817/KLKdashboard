@@ -525,17 +525,12 @@
     /* Chart Wrapper */
     .chart-card {
       overflow: hidden;
-      border: 2px solid #007bff1a;
       border-radius: 12px;
       transition: 0.3s;
-      border: 1.2px solid #3facff;
+      border: 1.2px solid #3facff !important;
       background: #fff;
     }
 
-    .chart-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    }
 
     /* Chart Header */
     .chart-header {
@@ -547,7 +542,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      border-bottom: 2px solid #f1f1f1;
     }
 
     /* Icon Circle like card */
@@ -586,6 +580,76 @@
         height: 38px;
         font-size: 16px;
       }
+    }
+
+
+
+    /* Modern Table Styling */
+    .modern-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 14px;
+      border: none;
+      border: 2px solid #e4e4e4;
+
+    }
+
+
+    .modern-table thead th {
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px;
+      border: none;
+    }
+
+    .modern-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    /* Total Row */
+
+
+    /* Tab Custom Style */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      transition: 0.3s;
+      background: #f1f4ff;
+      margin-right: 4px;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #3facff;
+      color: white !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Status Icons */
+    .status-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .status-active {
+      background: #28a745;
+    }
+
+    .status-pending {
+      background: #ffc107;
     }
   </style>
 </head>
@@ -1409,7 +1473,6 @@
 
         <div class="container py-3">
           <div class="row g-3">
-
             <!-- Card 1 -->
             <div class="col-lg-4 col-md-6 col-12">
               <a href="#">
@@ -1431,7 +1494,7 @@
               <a href="#">
                 <div class="dashboard-box green">
                   <div class="circle-icon green-border">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="material">
+                    <img src="../images/icon2.png" alt="material">
                   </div>
                   <div>
                     <p class="title">Material Supply Status</p>
@@ -1447,7 +1510,7 @@
               <a href="#">
                 <div class="dashboard-box orange">
                   <div class="circle-icon orange-border">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="installation">
+                    <img src="../images/icon3.png" alt="installation">
                   </div>
                   <div>
                     <p class="title">Installation</p>
@@ -1463,7 +1526,7 @@
               <a href="#">
                 <div class="dashboard-box red">
                   <div class="circle-icon red-border">
-                    <img src="https://cdn-icons-png.flaticon.com/512/906/906341.png" alt="document">
+                    <img src="../images/icon4.png" alt="document">
                   </div>
                   <div>
                     <p class="title">Document Status</p>
@@ -1479,7 +1542,7 @@
               <a href="#">
                 <div class="dashboard-box purple">
                   <div class="circle-icon purple-border">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="payment">
+                    <img src="../images/icon5.png" alt="payment">
                   </div>
                   <div>
                     <p class="title">85% Payment Status</p>
@@ -1495,7 +1558,7 @@
               <a href="#">
                 <div class="dashboard-box teal">
                   <div class="circle-icon teal-border">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3240/3240673.png" alt="amc">
+                    <img src="../images/icon6.png" alt="amc">
                   </div>
                   <div>
                     <p class="title">AMC Visit Status</p>
@@ -1505,7 +1568,6 @@
                 </div>
               </a>
             </div>
-
 
 
           </div>
@@ -1562,17 +1624,314 @@
         </div>
 
 
+
+        <!-- Table Section -->
+        <div class="container-fluid pb-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0">
+
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="p-3 border-bottom border-white border-opacity-10 chart-header">
+                    <i class="fas fa-table"></i> Installation Status Details
+                  </div>
+                </div>
+
+                <!-- Bootstrap Tab System -->
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="table-tab" role="tablist">
+                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-bs-toggle="tab" href="#phase"
+                      role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
+
+                    <a class="nav-item nav-link text-dark" id="district-tab" data-bs-toggle="tab" href="#district"
+                      role="tab" aria-controls="district" aria-selected="false">District Wise</a>
+
+                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-bs-toggle="tab" href="#vendor"
+                      role="tab" aria-controls="vendor" aria-selected="false">Vendor Wise</a>
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="table-tabContent">
+
+                  <!-- PHASE TAB -->
+                  <!-- DISTRICT TAB -->
+                  <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr. No.</th>
+                            <th>District</th>
+                            <th>Total</th>
+                            <th>WO Received</th>
+                            <th>WO Pending</th>
+                            <th>Material Supplied</th>
+                            <th>Material Pending</th>
+                            <th>Material Inspection</th>
+                            <th>Material Inspection Pending</th>
+                            <th>Installed</th>
+                            <th>Pending</th>
+                            <th>Installation Inspection</th>
+                            <th>Installation Inspection Pending</th>
+                            <th>85% Bill Submitted</th>
+                            <th>85% Bill Pending</th>
+                            <th>85% Payment Complete</th>
+                            <th>85% Payment Pending</th>
+                            <th>AMC 1 Complete</th>
+                            <th>AMC 1 Pending</th>
+                            <th>AMC 2 Complete</th>
+                            <th>AMC 2 Pending</th>
+                            <th>AMC 3 Complete</th>
+                            <th>AMC 3 Pending</th>
+                            <th>AMC 4 Complete</th>
+                            <th>AMC 4 Pending</th>
+                            <th>AMC 5 Complete</th>
+                            <th>AMC 5 Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Aligarh</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>AMBEDKAR NAGAR</td>
+                            <td>510</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Amroha (J.P. NAGAR)</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- DISTRICT TAB -->
+                  <div class="tab-pane fade" id="district" role="tabpanel" aria-labelledby="district-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr No</th>
+                            <th>District</th>
+                            <th>Material Dispatch Pending</th>
+                            <th>Site Installed</th>
+                            <th>Site Not Installed</th>
+                            <th>Meter Installed</th>
+                            <th>Meter Not Installed</th>
+                            <th>RMS Installed</th>
+                            <th>RMS Not Installed</th>
+                            <th>Image Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td><span class="status-icon status-active"></span>District A</td>
+                            <td>10</td>
+                            <td>45</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>25</td>
+                            <td>5</td>
+                            <td>8</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td><span class="status-icon status-pending"></span>District B</td>
+                            <td>5</td>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>18</td>
+                            <td>3</td>
+                            <td>5</td>
+                          </tr>
+                          <tr class="total-row">
+                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
+                            <td>15</td>
+                            <td>75</td>
+                            <td>35</td>
+                            <td>50</td>
+                            <td>25</td>
+                            <td>43</td>
+                            <td>8</td>
+                            <td>13</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- VENDOR TAB -->
+                  <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr No</th>
+                            <th>Vendor</th>
+                            <th>Material Dispatch Pending</th>
+                            <th>Site Installed</th>
+                            <th>Site Not Installed</th>
+                            <th>Meter Installed</th>
+                            <th>Meter Not Installed</th>
+                            <th>RMS Installed</th>
+                            <th>RMS Not Installed</th>
+                            <th>Image Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td><span class="status-icon status-active"></span>Vendor X</td>
+                            <td>8</td>
+                            <td>50</td>
+                            <td>25</td>
+                            <td>35</td>
+                            <td>18</td>
+                            <td>30</td>
+                            <td>6</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td><span class="status-icon status-pending"></span>Vendor Y</td>
+                            <td>12</td>
+                            <td>40</td>
+                            <td>20</td>
+                            <td>28</td>
+                            <td>12</td>
+                            <td>22</td>
+                            <td>4</td>
+                            <td>7</td>
+                          </tr>
+                          <tr class="total-row">
+                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
+                            <td>20</td>
+                            <td>90</td>
+                            <td>45</td>
+                            <td>63</td>
+                            <td>30</td>
+                            <td>52</td>
+                            <td>10</td>
+                            <td>17</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <!-- footer section -->
+        <section class="">
+          <div class="container">
+            <div class="row">
+              <footer class="footer-area py-2">
+                <p class="m-0 fw-semibold text-secondary small footer-text">
+                  Copyright © <span id="year"></span> KLK ERP — By
+                  <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                  All rights reserved.
+                </p>
+              </footer>
+            </div>
+          </div>
+        </section>
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-      <div class="float-right d-none d-sm-block"><b>Version</b> 3.1.0</div>
-      <strong>Copyright &copy; 2014-2021
-        <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
