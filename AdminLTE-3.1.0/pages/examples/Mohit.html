@@ -200,6 +200,8 @@
       }
     }
 
+
+
     /* sidebar css  */
 
     .sidebar {
@@ -281,9 +283,7 @@
 
 
     /* Main Card Box -------------------------------*/
-
-
-    .complaint-box {
+    .dashboard-box {
       background: #fff;
       border: 1.2px solid;
       border-radius: 10px;
@@ -294,11 +294,18 @@
       gap: 12px;
       cursor: pointer;
       transition: 0.3s;
+      text-decoration: none !important;
     }
 
-    .complaint-box:hover {
+    .dashboard-box:hover {
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
       transform: translateY(-2px);
+    }
+
+    /* Remove underline for anchor */
+    a {
+      text-decoration: none !important;
+      color: inherit;
     }
 
     /* Text Area */
@@ -326,7 +333,6 @@
     .circle-icon {
       width: 60px;
       height: 60px;
-
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -344,7 +350,6 @@
     /* Color Themes */
     .blue {
       border-color: #007bff;
-
     }
 
     .blue .value {
@@ -416,15 +421,86 @@
     }
 
 
+    /* Pink */
+    .pink {
+      border-color: #ff4fa7;
+    }
+
+    .pink .value {
+      color: #ff4fa7;
+    }
+
+    .pink-border {
+      border: 2px solid #ff4fa7;
+    }
+
+    /* Yellow */
+    .yellow {
+      border-color: #f7c600;
+    }
+
+    .yellow .value {
+      color: #f7c600;
+    }
+
+    .yellow-border {
+      border: 2px solid #f7c600;
+    }
+
+    /* Sky Blue */
+    .sky {
+      border-color: #19c2ff;
+    }
+
+    .sky .value {
+      color: #19c2ff;
+    }
+
+    .sky-border {
+      border: 2px solid #19c2ff;
+    }
+
+    /* Dark Blue */
+    .darkblue {
+      border-color: #003f88;
+    }
+
+    .darkblue .value {
+      color: #003f88;
+    }
+
+    .darkblue-border {
+      border: 2px solid #003f88;
+    }
+
+    /* Brown */
+    .brown {
+      border-color: #b05b2b;
+    }
+
+    .brown .value {
+      color: #b05b2b;
+    }
+
+    .brown-border {
+      border: 2px solid #b05b2b;
+    }
+
+
+
     .blue-border,
     .green-border,
     .orange-border,
     .red-border,
     .purple-border,
-    .teal-border {
+    .teal-border,
+    .brown-border,
+    .darkblue-border,
+    .sky-border,
+    .yellow-border,
+    .pink-border {
       border-width: 1.2px !important;
     }
-
 
     /* Responsive */
     @media (max-width: 576px) {
@@ -511,9 +587,6 @@
         font-size: 16px;
       }
     }
-
-
-    /* select box ------------------- */
   </style>
 </head>
 
@@ -1302,19 +1375,18 @@
 
       <section class="content">
 
-
         <!-- welcome Section here  -->
-
-        <section class=" py-2 py-md-4">
-          <div class="container-fluid ">
+        <section class="py-2 py-md-4">
+          <div class="container-fluid">
             <div class="row align-items-center g-2">
-
               <!-- LEFT -->
               <div class="col-md-6 col-12 d-flex align-items-center gap-2">
-                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px;" />
+                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
                 <div>
                   <div class="welcome-sub">Welcome to,</div>
-                  <h2 class="welcome-title m-0 fw-bold">KLK UP SSL Dashboard</h2>
+                  <h2 class="welcome-title m-0 fw-bold">
+                    KLK UP SSL Dashboard
+                  </h2>
                 </div>
               </div>
 
@@ -1330,100 +1402,111 @@
                   </select>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
 
 
-
-
-        <!-- Cards section here  -->
         <div class="container py-3">
           <div class="row g-3">
+
             <!-- Card 1 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box blue">
-                <div class="circle-icon blue-border">
-                  <img src="../images/icon1.png" alt="target">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box blue">
+                  <div class="circle-icon blue-border">
+                    <img src="../images/icon1.png" alt="target">
+                  </div>
+                  <div>
+                    <p class="title">Total Allocated Target</p>
+                    <p class="value">73330</p>
+                    <p class="subtitle">Total Sites</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">Total Allocated Target</p>
-                  <p class="value">73330</p>
-                  <p class="subtitle">Total Sites</p>
-                </div>
-              </div>
+              </a>
             </div>
 
             <!-- Card 2 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box green">
-                <div class="circle-icon green-border">
-                  <img src="../images/icon2.png" alt="material">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box green">
+                  <div class="circle-icon green-border">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="material">
+                  </div>
+                  <div>
+                    <p class="title">Material Supply Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Supplied / Pending</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">Material Supply Status</p>
-                  <p class="value">73330 / 0</p>
-                  <p class="subtitle">Supplied / Pending</p>
-                </div>
-              </div>
+              </a>
             </div>
 
             <!-- Card 3 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box orange">
-                <div class="circle-icon orange-border">
-                  <img src="../images/icon3.png" alt="installation">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box orange">
+                  <div class="circle-icon orange-border">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="installation">
+                  </div>
+                  <div>
+                    <p class="title">Installation</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Installed / Pending</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">Installation</p>
-                  <p class="value">73330 / 0</p>
-                  <p class="subtitle">Installed / Pending</p>
-                </div>
-              </div>
+              </a>
             </div>
 
             <!-- Card 4 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box red">
-                <div class="circle-icon red-border">
-                  <img src="../images/icon4.png" alt="document">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box red">
+                  <div class="circle-icon red-border">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906341.png" alt="document">
+                  </div>
+                  <div>
+                    <p class="title">Document Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Submitted / Pending</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">Document Status</p>
-                  <p class="value">73330 / 0</p>
-                  <p class="subtitle">Submitted / Pending</p>
-                </div>
-              </div>
+              </a>
             </div>
 
             <!-- Card 5 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box purple">
-                <div class="circle-icon purple-border">
-                  <img src="../images/icon5.png" alt="payment">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box purple">
+                  <div class="circle-icon purple-border">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png" alt="payment">
+                  </div>
+                  <div>
+                    <p class="title">85% Payment Status</p>
+                    <p class="value">73329 / 1</p>
+                    <p class="subtitle">Done / Pending</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">85% Payment Status</p>
-                  <p class="value">73329 / 1</p>
-                  <p class="subtitle">Done / Pending</p>
-                </div>
-              </div>
+              </a>
             </div>
 
             <!-- Card 6 -->
-            <div class="col-md-4 col-12">
-              <div class="complaint-box teal">
-                <div class="circle-icon teal-border">
-                  <img src="../images/icon6.png" alt="AMC Visit">
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box teal">
+                  <div class="circle-icon teal-border">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3240/3240673.png" alt="amc">
+                  </div>
+                  <div>
+                    <p class="title">AMC Visit Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="title">AMC Visit Status</p>
-                  <p class="value">73330 / 0</p>
-                  <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
-                </div>
-              </div>
+              </a>
             </div>
+
+
 
           </div>
         </div>
