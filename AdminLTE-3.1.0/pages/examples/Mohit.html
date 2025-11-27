@@ -25,14 +25,6 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
-    .card-body img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-
     body,
     .sidebar-mini {
       background-color: #f1f4fd !important;
@@ -536,8 +528,8 @@
     .chart-header {
       background: #3facff;
       color: #ffffff;
-      padding: 5px 15px;
-      font-size: 15px;
+      padding: 10px 15px;
+      font-size: 16px;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -571,7 +563,7 @@
       }
 
       .chart-header {
-        font-size: 16px;
+        font-size: 15px !important;
         padding: 10px 16px;
       }
 
@@ -579,6 +571,11 @@
         width: 38px;
         height: 38px;
         font-size: 16px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
       }
     }
 
@@ -1470,9 +1467,9 @@
           </div>
         </section>
 
-
+        <!-- Cards Section  -->
         <div class="container-fluid py-3">
-          <div class="row g-3" >
+          <div class="row g-3">
             <!-- Card 1 -->
             <div class="col-lg-4 col-md-6 col-12">
               <a href="#">
@@ -1633,7 +1630,7 @@
 
                 <!-- Header -->
                 <div class="card-header table-title border-0 p-0">
-                  <div class="p-3 border-bottom border-white border-opacity-10 chart-header">
+                  <div class="chart-header">
                     <i class="fas fa-table"></i> Installation Status Details
                   </div>
                 </div>
@@ -1656,7 +1653,7 @@
                 <div class="tab-content p-3" id="table-tabContent">
 
                   <!-- PHASE TAB -->
-            
+
                   <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
                     <div class="table-responsive">
                       <table class="table modern-table table-hover text-center mb-0">
