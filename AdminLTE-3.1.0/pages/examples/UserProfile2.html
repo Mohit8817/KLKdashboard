@@ -206,95 +206,85 @@
 
 
 
-    .profile-card {
-      width: 100%;
-      background: #fff;
-      border-radius: 22px;
-      padding: 15px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid #f2f2f2;
-      transition: 0.3s ease-in-out;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0px 18px 45px rgba(0, 0, 0, 0.12);
-    }
-
-    .profile-left img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .profile-right {
-      flex: 1;
-    }
-
-    .role-badge {
-      background: #e8deff;
-      color: #38487c;
-      padding: 5px 14px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      display: inline-block;
-    }
-
-    .user-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-    }
-
-    .user-name {
-      font-size: 20px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .verify {
-      color: #4bf742;
-      margin-left: 5px;
-    }
-
-    .location {
-      background: #f0f2f5;
-      padding: 5px 10px;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .price-row {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .price-tag {
-      background: #f0f2f5;
-      padding: 5px 10px;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 500;
-    }
+    /* cards css  */
 
 
 
-    .btn-row {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      background-color: #38487c;
-      color: white !important;
-      border-radius: 10px;
-    }
+        .card-custom {
+            width: 320px;
+            background: #fff;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-top img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .badge {
+            background: #d6ffe6;
+            padding: 4px 12px;
+            border-radius: 12px;
+            color: #18a34a;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 6px 0 0 0;
+        }
+
+        .verify {
+            color: #22c55e;
+            margin-left: 4px;
+        }
+
+        .details-box {
+            background-color: #f6f6fe;
+            padding: 12px;
+            border-radius: 14px;
+            margin-top: 15px;
+        }
+
+        .price-row {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .price-tag {
+            background: #e8ebee;
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .edit-btn {
+            background: linear-gradient(120deg, #5d6fa7, #38487c);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            margin: 12px auto 0;
+        }
   </style>
 </head>
 
@@ -1083,266 +1073,302 @@
       <section class="content">
 
 
-        <div class="container mt-4">
-          <div class="row">
-            <!-- 1 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
 
-                <!-- LEFT -->
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=udit" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
+     <!-- card section  -->
+<div class="container mt-4">
+  <div class="row g-3 justify-content-center">
 
-                <!-- RIGHT -->
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-
-                  <div class="user-row">
-                    <h2 class="user-name">
-                      Udit </i>
-                    </h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> udit.kumar@klkindia.com</span>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <!-- 2 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=bhupender" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-
-                  <div class="user-row">
-                    <h2 class="user-name">Bhupender </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Viewer</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> bhupender@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 3 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=ajeet" />
-                  <div class="btn-row">
-                 <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-                  <div class="user-row">
-                    <h2 class="user-name">Ajeet </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> ajeet@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=vipin" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User </span>
-                  <div class="user-row">
-                    <h2 class="user-name">Vipin</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> vipin@etsnetworks.in</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=pintu" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-                  <div class="user-row">
-                    <h2 class="user-name">Pintu </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> pintu@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=ravi" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-                  <div class="user-row">
-                    <h2 class="user-name">Ravi </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> ravi@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 7 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=akshat" />
-                  <div class="btn-row">
-               <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-                  <div class="user-row">
-                    <h2 class="user-name">Akshat Jain </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Assam</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Super Admin</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> jain.akshat@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=gourav" />
-                  <div class="btn-row">
-                     <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User </i></span>
-                  <div class="user-row">
-                    <h2 class="user-name">Gourav Gola</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> gauravgola@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=adnan" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User </i></span>
-                  <div class="user-row">
-                    <h2 class="user-name">Adnan</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Jammu</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> adnan@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-
+    <!-- 20 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=20" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Tulsi <i class="fa-regular fa-circle-check verify"></i></h2>
           </div>
         </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> tulsishukla123@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 21 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=21" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Mridu Baranwal <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> mridubaranwal@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Complaint Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 22 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=22" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Shweta Yadav <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> shwetayadav@klkindia.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile </button>
+      </div>
+    </div>
+
+    <!-- 23 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=23" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Rahul <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> rahul.multivision@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Complaint Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 24 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=24" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Tulsi <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> coinlistall454@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Assam</span>
+            <span class="price-tag"><strong>Role:</strong> Super Admin</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 25 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=25" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Anuj Kumar <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> anuj.kumar@klkindia.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 26 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=26" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Ritik Singh Negi <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> itzritik.uk2@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 27 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=27" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Sakshi MV <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> sakshi22.ets@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Jammu</span>
+            <span class="price-tag"><strong>Role:</strong> Super Admin</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 28 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=28" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Sanjay Kumar <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> sanjay@klkindia.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 29 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=29" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Aakriti Jain <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> Headoffice@klkindia.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Assam</span>
+            <span class="price-tag"><strong>Role:</strong> Super Admin</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+    <!-- 30 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-custom">
+        <div class="profile-top">
+          <img src="https://i.pravatar.cc/301?u=30" alt="profile">
+          <div>
+            <span class="badge">Active User</span>
+            <h2 class="name">Manish Yadav <i class="fa-regular fa-circle-check verify"></i></h2>
+          </div>
+        </div>
+        <div class="details-box">
+          <div class="price-row">
+            <span class="price-tag"><strong>Email:</strong> ermanish1090@gmail.com</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>State:</strong> Bihar</span>
+            <span class="price-tag"><strong>Role:</strong> State Head</span>
+          </div>
+          <div class="price-row">
+            <span class="price-tag"><strong>Portal Access:</strong> Main Portal</span>
+          </div>
+        </div>
+        <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i> Edit profile</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- card section end -->
+
+
 
         <!-- footer section -->
         <section class="">
