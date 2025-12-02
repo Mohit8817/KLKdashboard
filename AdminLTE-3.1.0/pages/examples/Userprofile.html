@@ -234,6 +234,28 @@
       flex: 1;
     }
 
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .view-icon {
+      font-size: 12px;
+      color: #38487c;
+      background: #e8deff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .view-icon:hover {
+      transform: scale(1.1);
+      background: #d9ccff;
+    }
+
     .role-badge {
       background: #e8deff;
       color: #38487c;
@@ -1147,8 +1169,6 @@
             <!-- 1 -->
             <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
               <div class="profile-card">
-
-                <!-- LEFT -->
                 <div class="profile-left px-3 sm-px-0">
                   <img src="https://i.pravatar.cc/300?u=udit" />
                   <div class="btn-row">
@@ -1156,14 +1176,16 @@
                   </div>
                 </div>
 
-                <!-- RIGHT -->
                 <div class="profile-right">
-                  <span class="role-badge">Active User</span>
+                  <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
 
                   <div class="user-row">
-                    <h2 class="user-name">
-                      Udit </i>
-                    </h2>
+                    <h2 class="user-name">Udit</h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
                   </div>
 
@@ -1176,6 +1198,9 @@
                 </div>
               </div>
             </div>
+
+
+
             <!-- 2 -->
             <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
               <div class="profile-card">
@@ -1187,8 +1212,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-
+                   <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Bhupender </i></h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
@@ -1216,7 +1245,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User</span>
+                  <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Ajeet </i></h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
@@ -1244,7 +1278,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User </span>
+                   <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Vipin</h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
@@ -1298,7 +1337,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User</span>
+                 <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Ravi </i></h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
@@ -1326,7 +1370,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User</span>
+                  <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Akshat Jain </i></h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Assam</span>
@@ -1354,7 +1403,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User </i></span>
+                   <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Gourav Gola</h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
@@ -1382,7 +1436,12 @@
                 </div>
 
                 <div class="profile-right">
-                  <span class="role-badge">Active User </i></span>
+                   <div class="status-row">
+                    <span class="role-badge">Active User</span>
+                    <a href="profile.html" class="view-icon">
+                      <i class="fa-solid fa-eye"></i>
+                    </a>
+                  </div>
                   <div class="user-row">
                     <h2 class="user-name">Adnan</h2>
                     <span class="location"><i class="fa-solid fa-location-dot"></i> Jammu</span>
