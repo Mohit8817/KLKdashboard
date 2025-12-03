@@ -474,7 +474,6 @@
 
     <!-- profile side bar code  -->
 
-
     <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-slideout" role="document">
         <div class="modal-content profile-modal p-3">
@@ -1241,59 +1240,75 @@
   <!-- ./wrapper -->
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Elements
+  const changeBtn = document.getElementById("changePassBtn");
+  const passFields = document.getElementById("passwordFields");
+  const profileInfo = document.querySelector(".profile-info");
+  const cancelBtn = document.getElementById("cancelPassBtn");
+  const profileModal = $('#profileModal'); 
 
 
-  <script>
-    const changeBtn = document.getElementById("changePassBtn");
-    const passFields = document.getElementById("passwordFields");
-    const profileInfo = document.querySelector(".profile-info");
-    const cancelBtn = document.getElementById("cancelPassBtn");
-    const profileModal = document.getElementById('profileModal');
+  // Reset function (global in this scope)
+  function resetProfileModal() {
+    passFields.style.display = "none";
+    profileInfo.style.display = "block";
+    changeBtn.style.display = "block";
 
-    // Change Password Button
-    changeBtn.addEventListener("click", function () {
-      passFields.style.display = "block";
-      profileInfo.style.display = "none";
-      changeBtn.style.display = "none";
+    const np = document.getElementById("newPass");
+    const cp = document.getElementById("confirmPass");
+    if (np) np.value = "";
+    if (cp) cp.value = "";
+  }
+
+  // Initial reset (in case modal exists on page load)
+  resetProfileModal();
+
+  // Open "Change Password" inside modal
+  changeBtn.addEventListener("click", function () {
+    passFields.style.display = "block";
+    profileInfo.style.display = "none";
+    changeBtn.style.display = "none";
+  });
+
+  // Cancel inside modal -> reset to initial state
+  cancelBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    resetProfileModal();
+
+  });
+
+  // Password show/hide toggles
+  document.querySelectorAll(".password-toggle").forEach(icon => {
+    icon.addEventListener("click", () => {
+      const targetId = icon.getAttribute("data-target");
+      const input = document.getElementById(targetId);
+      if (!input) return;
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
     });
+  });
 
-    // Cancel Button
-    cancelBtn.addEventListener("click", function () {
-      resetProfileModal();
-    });
+  profileModal.on('shown.bs.modal', function () {
+    resetProfileModal();
+  });
 
-    // Password Show/Hide
-    document.querySelectorAll(".password-toggle").forEach(icon => {
-      icon.addEventListener("click", () => {
-        const input = document.getElementById(icon.getAttribute("data-target"));
-        if (input.type === "password") {
-          input.type = "text";
-          icon.classList.remove("bi-eye-slash");
-          icon.classList.add("bi-eye");
-        } else {
-          input.type = "password";
-          icon.classList.remove("bi-eye");
-          icon.classList.add("bi-eye-slash");
-        }
-      });
-    });
+  profileModal.on('hidden.bs.modal', function () {
+    resetProfileModal();
+  });
 
-          // Reset modal on close
-        profileModal = document.getElementById('profileModal');
-        profileModal.addEventListener('hidden.bs.modal', function () {
-          resetProfileModal();
-        });
-        
-        // Reset Function
-        function resetProfileModal() {
-          passFields.style.display = "none";
-          profileInfo.style.display = "block";
-          changeBtn.style.display = "block";
 
-          document.getElementById("newPass").value = "";
-          document.getElementById("confirmPass").value = "";
-        }
-  </script>
+});
+</script>
+
 
 
   <!-- jQuery -->
