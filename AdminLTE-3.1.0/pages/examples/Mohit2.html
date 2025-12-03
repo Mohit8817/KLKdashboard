@@ -34,17 +34,18 @@
     }
 
 
-        .header-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;   /* adjust value as needed  */
-}
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      /* adjust value as needed  */
+    }
 
-.header-actions .dropdown,
-.header-actions li {
-  display: flex;
-  align-items: center;
-}
+    .header-actions .dropdown,
+    .header-actions li {
+      display: flex;
+      align-items: center;
+    }
 
 
     /* Notification Bell Button */
@@ -144,9 +145,11 @@
       padding: 13px 10px;
       border-top: 1px solid #e5e5e5;
       font-weight: 500;
-    text-align: center;      /* Center View All text */
-  justify-content: center; /* Ensure text stays centered in flex */
-}
+      text-align: center;
+      /* Center View All text */
+      justify-content: center;
+      /* Ensure text stays centered in flex */
+    }
 
 
 
@@ -161,7 +164,7 @@
 
     /* profile css  */
 
-        .profile-img {
+    .profile-img {
       width: 45px;
       height: 45px;
       border-radius: 50%;
@@ -175,13 +178,13 @@
     .dropdown-menu {
       width: 210px;
       border-radius: 10px;
-      padding: 0 ;
+      padding: 0;
     }
 
     .user-box {
       padding: 15px 20px !important;
       border-bottom: 1px solid #eee;
-      }
+    }
 
     .user-box h6 {
       font-size: 15px;
@@ -239,6 +242,82 @@
     }
 
 
+
+    /* PROFILE RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .modal-content {
+      position: relative !important;
+      z-index: 9999 !important;
+    }
+
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999 !important;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -267,7 +346,7 @@
 
 
       <!-- Right navbar links -->
-     <ul class="navbar-nav ml-auto header-actions align-items-center">
+      <ul class="navbar-nav ml-auto header-actions align-items-center">
 
         <!-- Notification code -->
         <div class="dropdown">
@@ -330,13 +409,15 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                data-target="#profileModal">
                 <span class="icon-blue mr-2">
                   <i class="fas fa-user"></i>
                 </span>
                 Profile
               </a>
             </li>
+
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
@@ -359,10 +440,8 @@
         </div>
 
 
+
         <!-- Profile code End  -->
-
-
-
         <li class="nav-item">
           <!-- expand page view  -->
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -372,8 +451,49 @@
       </ul>
 
 
+
+
+
+
     </nav>
     <!-- /.navbar -->
+
+
+    <!-- profile side bar code  -->
+
+    <!-- Right Side Profile Modal -->
+    <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-slideout" role="document">
+        <div class="modal-content profile-modal p-3">
+
+          <!-- Close Button -->
+          <div class="close-btn" data-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </div>
+
+
+
+          <!-- Profile Image -->
+          <div class="text-center mt-3">
+            <img src="../images/userimg.jpg" class="profile-photo" alt="User Photo">
+            <h5 class="user-name mt-2">Super Admin</h5>
+            <p class="user-email">Superadmin@klkerp.com</p>
+          </div>
+
+          <!-- Info -->
+          <div class="profile-info mt-4 px-2">
+            <p><strong>Full Name:</strong> Super Admin</p>
+            <p><strong>Email:</strong> Superadmin@klkerp.com</p>
+            <p><strong>Gender:</strong> NA</p>
+            <p><strong>DOJ:</strong> NA</p>
+            <p><strong>Phone:</strong> 9560652530</p>
+            <p><strong>State Access:</strong> All</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 
 
 
@@ -1083,6 +1203,8 @@
 
 
   <!-- jQuery -->
+
+
 
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->

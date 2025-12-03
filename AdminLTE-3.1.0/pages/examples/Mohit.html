@@ -648,6 +648,97 @@
     .status-pending {
       background: #ffc107;
     }
+
+
+
+
+    /* profile side car css  */
+
+
+
+
+    /* RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+
+    /* input box css  */
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -738,15 +829,18 @@
 
           <!-- PROFILE DROPDOWN -->
           <div class="dropdown">
-            <img src="../images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
+            <img src="./images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
             <ul class="dropdown-menu dropdown-menu-end shadow">
               <li class="user-box">
                 <h6>Login New User</h6>
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="#"><i
-                    class="bi bi-person icon-blue me-3"></i>Profile</a>
+                <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal"
+                  data-bs-target="#profileModal">
+                  <i class="bi bi-person icon-blue me-3"></i>Profile
+                </a>
+
               </li>
               <li>
                 <a class="dropdown-item d-flex align-items-center" href="#"><i
@@ -759,9 +853,74 @@
               </li>
             </ul>
           </div>
+
+
         </div>
       </div>
     </nav>
+
+
+
+
+    <!-- profile popup  -->
+    <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content profile-modal">
+
+          <span class="close-btn" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg"></i>
+          </span>
+
+          <div class="modal-body text-center p-4">
+            <img src="./images/userimg.jpg" class="profile-photo mb-3">
+            <h5 class="user-name">Pravesh Ahamad</h5>
+            <p class="user-email">@parvesahamad</p>
+
+            <hr>
+
+            <div class="profile-info">
+              <p><strong>Full Name:</strong> Parves Ahamad</p>
+              <p><strong>Email:</strong> parves@gmail.com</p>
+              <p><strong>Gender:</strong> Male</p>
+              <p><strong>DOB:</strong> 05-01-2001</p>
+              <p><strong>Phone:</strong> +91 9876543210</p>
+              <p><strong>State:</strong> Kashmir</p>
+            </div>
+
+            <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+
+            <!-- Hidden Password Fields -->
+            <div id="passwordFields" style="display:none; padding: 15px;">
+
+              <div class="mb-2 text-start">
+                <label class="form-label">New Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+
+              <div class="mb-2 text-start">
+                <label class="form-label">Confirm Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -2091,6 +2250,70 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+     <script>
+      const changeBtn = document.getElementById("changePassBtn");
+      const passFields = document.getElementById("passwordFields");
+      const profileInfo = document.querySelector(".profile-info");
+      const cancelBtn = document.getElementById("cancelPassBtn");
+
+      // Change Password Button
+      changeBtn.addEventListener("click", function () {
+        passFields.style.display = "block";
+        profileInfo.style.display = "none";
+        changeBtn.style.display = "none";
+      });
+
+      // Cancel
+      cancelBtn.addEventListener("click", function () {
+        passFields.style.display = "none";
+        profileInfo.style.display = "block";
+        changeBtn.style.display = "block";
+      });
+
+      // Password Show/Hide
+      document.querySelectorAll(".password-toggle").forEach(icon => {
+        icon.addEventListener("click", () => {
+          const input = document.getElementById(icon.getAttribute("data-target"));
+          if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+          } else {
+            input.type = "password";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+          }
+        });
+
+        // Reset modal on close
+        const profileModal = document.getElementById('profileModal');
+        profileModal.addEventListener('hidden.bs.modal', function () {
+          resetProfileModal();
+        });
+
+        // Reset Function
+        function resetProfileModal() {
+          passFields.style.display = "none";
+          profileInfo.style.display = "block";
+          changeBtn.style.display = "block";
+
+          document.getElementById("newPass").value = "";
+          document.getElementById("confirmPass").value = "";
+        }
+
+      });
+
+
+      // Cancel Button
+      cancelBtn.addEventListener("click", function () {
+        resetProfileModal();
+      });
+
+
+
+    </script>
+
 
 
   <!-- jQuery -->
