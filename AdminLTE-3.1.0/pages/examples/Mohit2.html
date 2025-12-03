@@ -16,7 +16,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
   <style>
@@ -318,6 +317,20 @@
       margin-bottom: 7px;
       text-align: left;
     }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #666;
+    }
   </style>
 </head>
 
@@ -461,7 +474,7 @@
 
     <!-- profile side bar code  -->
 
-    <!-- Right Side Profile Modal -->
+
     <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-slideout" role="document">
         <div class="modal-content profile-modal p-3">
@@ -471,30 +484,60 @@
             <i class="fas fa-times"></i>
           </div>
 
-
-
-          <!-- Profile Image -->
+          <!-- Modal Body Content -->
           <div class="text-center mt-3">
-            <img src="../images/userimg.jpg" class="profile-photo" alt="User Photo">
-            <h5 class="user-name mt-2">Super Admin</h5>
-            <p class="user-email">Superadmin@klkerp.com</p>
-          </div>
 
-          <!-- Info -->
-          <div class="profile-info mt-4 px-2">
-            <p><strong>Full Name:</strong> Super Admin</p>
-            <p><strong>Email:</strong> Superadmin@klkerp.com</p>
-            <p><strong>Gender:</strong> NA</p>
-            <p><strong>DOJ:</strong> NA</p>
-            <p><strong>Phone:</strong> 9560652530</p>
-            <p><strong>State Access:</strong> All</p>
+            <!-- Profile Image -->
+            <img src="../images/userimg.jpg" class="profile-photo mb-2" alt="User Photo">
+            <h5 class="user-name">Super Admin</h5>
+            <p class="user-email">Superadmin@klkerp.com</p>
+
+            <hr>
+
+            <!-- Profile Info -->
+            <div class="profile-info mt-3 px-2">
+              <p><strong>Full Name:</strong> Super Admin</p>
+              <p><strong>Email:</strong> Superadmin@klkerp.com</p>
+              <p><strong>Gender:</strong> NA</p>
+              <p><strong>DOJ:</strong> NA</p>
+              <p><strong>Phone:</strong> 9560652530</p>
+              <p><strong>State Access:</strong> All</p>
+            </div>
+
+            <!-- Change Password Button -->
+            <button class="btn btn-dark btn-block mt-3" id="changePassBtn">Change Password</button>
+
+            <!-- Hidden Change Password Fields -->
+            <div id="passwordFields" style="display:none; padding: 15px;">
+
+              <div class="text-left mb-2">
+                <label>New Password</label>
+                <div class="password-wrapper position-relative">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+
+              <div class="text-left mb-2">
+                <label>Confirm Password</label>
+                <div class="password-wrapper position-relative">
+                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                  <i class="fas fa-eye-slash password-toggle" data-target="confirmPass"></i>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-dark w-50 mr-2" id="savePassBtn">Save</button>
+                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
       </div>
     </div>
-
-
 
 
 
@@ -1173,15 +1216,11 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
 
+
+        main content here
+
       </section>
 
-
-      <!-- cards section end -->
-
-
-
-
-      <!-- table section end  -->
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -1202,10 +1241,62 @@
   <!-- ./wrapper -->
 
 
+
+
+  <script>
+    const changeBtn = document.getElementById("changePassBtn");
+    const passFields = document.getElementById("passwordFields");
+    const profileInfo = document.querySelector(".profile-info");
+    const cancelBtn = document.getElementById("cancelPassBtn");
+    const profileModal = document.getElementById('profileModal');
+
+    // Change Password Button
+    changeBtn.addEventListener("click", function () {
+      passFields.style.display = "block";
+      profileInfo.style.display = "none";
+      changeBtn.style.display = "none";
+    });
+
+    // Cancel Button
+    cancelBtn.addEventListener("click", function () {
+      resetProfileModal();
+    });
+
+    // Password Show/Hide
+    document.querySelectorAll(".password-toggle").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.getElementById(icon.getAttribute("data-target"));
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
+        }
+      });
+    });
+
+          // Reset modal on close
+        profileModal = document.getElementById('profileModal');
+        profileModal.addEventListener('hidden.bs.modal', function () {
+          resetProfileModal();
+        });
+        
+        // Reset Function
+        function resetProfileModal() {
+          passFields.style.display = "none";
+          profileInfo.style.display = "block";
+          changeBtn.style.display = "block";
+
+          document.getElementById("newPass").value = "";
+          document.getElementById("confirmPass").value = "";
+        }
+  </script>
+
+
   <!-- jQuery -->
-
-
-
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
