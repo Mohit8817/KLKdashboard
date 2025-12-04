@@ -224,7 +224,7 @@
 
 
 
-    /* tabs css here -------------------------- */
+    /* ----------Table CSS -------------------------- */
 
     /* Chart Wrapper */
     .chart-card {
@@ -275,14 +275,14 @@
       }
 
       .chart-header {
-        font-size: 15px !important;
+        font-size: 13px !important;
         padding: 10px 16px;
       }
 
       .chart-header i {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
       }
 
       .nav-tabs .nav-link {
@@ -315,7 +315,10 @@
     .modern-table td {
       padding: 12px;
       border-bottom: 1px solid #e7e7e7;
+
+
     }
+
 
     /* Tabs Styling */
     .nav-tabs .nav-link {
@@ -338,19 +341,6 @@
       background: #fff;
       border-radius: 0 0 12px 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Card Design */
-    .custom-card {
-      background: #f1f4ff;
-      border-left: 5px solid #38487c;
-      transition: .3s;
-      cursor: pointer;
-    }
-
-    .custom-card:hover {
-      background: #e6f4ff;
-      transform: translateY(-3px);
     }
 
 
@@ -497,9 +487,7 @@
         align-items: flex-start;
       }
 
-      .location {
-        width: fit-content;
-      }
+
 
       .price-row {
         flex-direction: column;
@@ -516,10 +504,18 @@
         font-size: 18px;
       }
 
-      .price-tag,
-      .location {
+      .price-tag {
         font-size: 11px;
       }
+    }
+
+    .view-icon {
+      white-space: nowrap !important;
+    }
+
+
+    td.text-center {
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -1360,36 +1356,30 @@
                             <td>Bihar</td>
                             <td>State Head</td>
                             <td>Main Portal</td>
-                            <td class="d-flex align-items-center gap-2 justify-content-center">
-                              <!-- View Icon -->
-                              <a href="./UserProfilepage.html" class="view-icon">
+                            <td class="text-center">
+                              <a href="./UserProfilepage.html" class="view-icon me-2">
                                 <i class="fa-solid fa-eye"></i>
                               </a>
 
-                              <!-- Edit Icon -->
                               <a href="#" class="view-icon">
                                 <i class="fa-solid fa-pen-to-square"></i>
                               </a>
                             </td>
 
                           </tr>
-
-
                           <tr>
-                            <td>1</td>
+                            <td>2</td>
                             <td><span class="role-badge">Active User</span></td>
                             <td>Udit</td>
                             <td>udit.kumar@klkindia.com</td>
                             <td>Bihar</td>
                             <td>State Head</td>
                             <td>Main Portal</td>
-                            <td class="d-flex align-items-center gap-2 justify-content-center">
-                              <!-- View Icon -->
-                              <a href="./UserProfilepage.html" class="view-icon">
+                            <td class="text-center">
+                              <a href="./UserProfilepage.html" class="view-icon me-2">
                                 <i class="fa-solid fa-eye"></i>
                               </a>
 
-                              <!-- Edit Icon -->
                               <a href="#" class="view-icon">
                                 <i class="fa-solid fa-pen-to-square"></i>
                               </a>
@@ -1398,49 +1388,26 @@
                           </tr>
 
 
-                          <tr>
-                            <td>2</td>
-                            <td><span class="role-badge">Active User</span></td>
-                            <td>Utkarsh</td>
-                            <td>utkarsh.kumar@klkindia.com</td>
-                            <td>Jammu</td>
-                            <td>State Head</td>
-                            <td>Main Portal</td>
-                            <td class="d-flex align-items-center gap-2 justify-content-center">
-                              <!-- View Icon -->
-                              <a href="./UserProfilepage.html" class="view-icon">
-                                <i class="fa-solid fa-eye"></i>
-                              </a>
-
-                              <!-- Edit Icon -->
-                              <a href="#" class="view-icon">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                              </a>
-                            </td>
-
-                          </tr>
 
                           <tr>
                             <td>3</td>
                             <td><span class="role-badge">Active User</span></td>
-                            <td>Manish</td>
-                            <td>manish.kumar@klkindia.com</td>
-                            <td>Assam</td>
+                            <td>Udit</td>
+                            <td>udit.kumar@klkindia.com</td>
+                            <td>Bihar</td>
                             <td>State Head</td>
                             <td>Main Portal</td>
-                            <td class="d-flex align-items-center gap-2 justify-content-center">
-                              <!-- View Icon -->
-                              <a href="./UserProfilepage.html" class="view-icon">
+                            <td class="text-center">
+                              <a href="./UserProfilepage.html" class="view-icon me-2">
                                 <i class="fa-solid fa-eye"></i>
                               </a>
 
-                              <!-- Edit Icon -->
                               <a href="#" class="view-icon">
                                 <i class="fa-solid fa-pen-to-square"></i>
                               </a>
                             </td>
-
                           </tr>
+
                         </tbody>
 
                       </table>
