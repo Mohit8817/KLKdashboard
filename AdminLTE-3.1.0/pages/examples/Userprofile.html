@@ -14,9 +14,9 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
 
-  <!-- BOOTSTRAP 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- ICONS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -24,6 +24,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+
   <style>
     body,
     .sidebar-mini {
@@ -192,6 +206,8 @@
       }
     }
 
+    /* nav css end -------------- */
+
 
 
     /* sidebar css  */
@@ -203,6 +219,140 @@
     .main-sidebar {
       background-color: #ffffff;
     }
+
+
+
+
+
+    /* tabs css here -------------------------- */
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #38487c !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #38487c;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #38487c;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 15px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+
+    /* Table Styling */
+    .modern-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 14px;
+      border: 2px solid #e4e4e4;
+    }
+
+    .modern-table thead th {
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px;
+      border: none;
+      color: white;
+      background: #38487c !important;
+    }
+
+    .modern-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      background: #f1f4ff;
+      margin-right: 4px;
+      transition: .3s;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #38487c;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Card Design */
+    .custom-card {
+      background: #f1f4ff;
+      border-left: 5px solid #38487c;
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .custom-card:hover {
+      background: #e6f4ff;
+      transform: translateY(-3px);
+    }
+
 
 
 
@@ -284,13 +434,6 @@
       margin-left: 5px;
     }
 
-    .location {
-      background: #f0f2f5;
-      padding: 5px 10px;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 500;
-    }
 
     .price-row {
       margin-top: 10px;
@@ -303,7 +446,7 @@
       background: #f0f2f5;
       padding: 5px 10px;
       border-radius: 10px;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
     }
 
@@ -1164,304 +1307,353 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content">
-        <div class="container mt-4">
+
+        <!-- tabs section  -->
+
+        <div class="container-fluid pb-2">
           <div class="row">
-            <!-- 1 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=udit" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0 mt-3">
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="chart-header">
+                    <i class="fas fa-users"></i> Employee Status & Access Details
                   </div>
                 </div>
+                <!-- Bootstrap Tab System -->
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="custom-tab" role="tablist">
+                    <a class="nav-item nav-link active text-dark" id="table-tab" data-toggle="tab" href="#cardsTab"
+                      role="tab" aria-controls="cardsTab" aria-selected="true">Card View</a>
 
-                <div class="profile-right">
-                  <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="./UserProfilepage.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
+                    <a class="nav-item nav-link text-dark" id="cards-tab" data-toggle="tab" href="#tableTab" role="tab"
+                      aria-controls="tableTab" aria-selected="false">Table View</a>
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="custom-tabContent">
+
+                  <!-- TABLE TAB -->
+                  <div class="tab-pane fade " id="tableTab" role="tabpanel" aria-labelledby="table-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0" id="example1">
+                        <thead class="">
+                          <tr>
+                            <th>Sr. No.</th>
+                            <th>Employee Status</th>
+                            <th>Employee Name</th>
+                            <th>Email</th>
+                            <th>State</th>
+                            <th>Role</th>
+                            <th>Portal Access</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td><span class="role-badge">Active User</span></td>
+                            <td>Udit</td>
+                            <td>udit.kumar@klkindia.com</td>
+                            <td>Bihar</td>
+                            <td>State Head</td>
+                            <td>Main Portal</td>
+                            <td class="d-flex align-items-center gap-2 justify-content-center">
+                              <!-- View Icon -->
+                              <a href="./UserProfilepage.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+
+                              <!-- Edit Icon -->
+                              <a href="#" class="view-icon">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </a>
+                            </td>
+
+                          </tr>
+
+
+                          <tr>
+                            <td>1</td>
+                            <td><span class="role-badge">Active User</span></td>
+                            <td>Udit</td>
+                            <td>udit.kumar@klkindia.com</td>
+                            <td>Bihar</td>
+                            <td>State Head</td>
+                            <td>Main Portal</td>
+                            <td class="d-flex align-items-center gap-2 justify-content-center">
+                              <!-- View Icon -->
+                              <a href="./UserProfilepage.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+
+                              <!-- Edit Icon -->
+                              <a href="#" class="view-icon">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </a>
+                            </td>
+
+                          </tr>
+
+
+                          <tr>
+                            <td>2</td>
+                            <td><span class="role-badge">Active User</span></td>
+                            <td>Utkarsh</td>
+                            <td>utkarsh.kumar@klkindia.com</td>
+                            <td>Jammu</td>
+                            <td>State Head</td>
+                            <td>Main Portal</td>
+                            <td class="d-flex align-items-center gap-2 justify-content-center">
+                              <!-- View Icon -->
+                              <a href="./UserProfilepage.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+
+                              <!-- Edit Icon -->
+                              <a href="#" class="view-icon">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </a>
+                            </td>
+
+                          </tr>
+
+                          <tr>
+                            <td>3</td>
+                            <td><span class="role-badge">Active User</span></td>
+                            <td>Manish</td>
+                            <td>manish.kumar@klkindia.com</td>
+                            <td>Assam</td>
+                            <td>State Head</td>
+                            <td>Main Portal</td>
+                            <td class="d-flex align-items-center gap-2 justify-content-center">
+                              <!-- View Icon -->
+                              <a href="./UserProfilepage.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+
+                              <!-- Edit Icon -->
+                              <a href="#" class="view-icon">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </a>
+                            </td>
+
+                          </tr>
+                        </tbody>
+
+                      </table>
+                    </div>
                   </div>
 
-                  <div class="user-row">
-                    <h2 class="user-name">Udit</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
+                  <!-- CARDS TAB -->
+                  <div class="tab-pane fade show active" id="cardsTab" role="tabpanel" aria-labelledby="cards-tab">
 
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> udit.kumar@klkindia.com</span>
-                  </div>
+                    <div class="row">
+                      <!-- 1 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=udit" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
 
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="./UserProfilepage.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+
+                            <div class="user-row">
+                              <h2 class="user-name">Udit</h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> State Head</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> udit.kumar@klkindia.com</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 2 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=bhupender" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
+
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="./Userprofilepage2.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="user-row">
+                              <h2 class="user-name">Bhupender </i></h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> Viewer</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> bhupender@klkindia.com</span>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 3 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=ajeet" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
+
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="profile.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="user-row">
+                              <h2 class="user-name">Ajeet </i></h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> Accounts</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> ajeet@etsnetworks.in</span>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 4 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=vipin" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
+
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="profile.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="user-row">
+                              <h2 class="user-name">Vipin</h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> Accounts</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> vipin@etsnetworks.in</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 5 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=pintu" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
+
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="profile.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="user-row">
+                              <h2 class="user-name">Pintu </i></h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> Accounts</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> pintu@etsnetworks.in</span>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 6 -->
+                      <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
+                        <div class="profile-card">
+                          <div class="profile-left px-3 sm-px-0">
+                            <img src="https://i.pravatar.cc/300?u=ravi" />
+                            <div class="btn-row">
+                              <button class="btn btn-sm text-light w-100">Edit</button>
+                            </div>
+                          </div>
+
+                          <div class="profile-right">
+                            <div class="status-row">
+                              <span class="role-badge">Active User</span>
+                              <a href="profile.html" class="view-icon">
+                                <i class="fa-solid fa-eye"></i>
+                              </a>
+                            </div>
+                            <div class="user-row">
+                              <h2 class="user-name">Ravi </i></h2>
+                              <span class="price-tag"><i class="fa-solid fa-location-dot"></i> Bihar</span>
+                            </div>
+
+                            <div class="price-row">
+                              <span class="price-tag"><strong>Access:</strong> Accounts</span>
+                              <span class="price-tag"><strong>Role:</strong> Main Portal</span>
+                              <span class="price-tag"><strong>Email:</strong> ravi@etsnetworks.in</span>
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div> <!-- End Cards Tab -->
                 </div>
+
               </div>
             </div>
-
-
-
-            <!-- 2 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=bhupender" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                   <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="./Userprofilepage2.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Bhupender </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Viewer</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> bhupender@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 3 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=ajeet" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Ajeet </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> ajeet@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=vipin" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                   <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Vipin</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> vipin@etsnetworks.in</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=pintu" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <span class="role-badge">Active User</span>
-                  <div class="user-row">
-                    <h2 class="user-name">Pintu </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> pintu@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=ravi" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                 <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Ravi </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Accounts</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> ravi@etsnetworks.in</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 7 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=akshat" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                  <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Akshat Jain </i></h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Assam</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> Super Admin</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> jain.akshat@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=gourav" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                   <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Gourav Gola</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Bihar</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> gauravgola@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="col-lg-6 col-md-7 col-sm-12 mb-3">
-              <div class="profile-card">
-                <div class="profile-left px-3 sm-px-0">
-                  <img src="https://i.pravatar.cc/300?u=adnan" />
-                  <div class="btn-row">
-                    <button class="btn btn-sm text-light w-100">Edit</button>
-                  </div>
-                </div>
-
-                <div class="profile-right">
-                   <div class="status-row">
-                    <span class="role-badge">Active User</span>
-                    <a href="profile.html" class="view-icon">
-                      <i class="fa-solid fa-eye"></i>
-                    </a>
-                  </div>
-                  <div class="user-row">
-                    <h2 class="user-name">Adnan</h2>
-                    <span class="location"><i class="fa-solid fa-location-dot"></i> Jammu</span>
-                  </div>
-
-                  <div class="price-row">
-                    <span class="price-tag"><strong>Access:</strong> State Head</span>
-                    <span class="price-tag"><strong>Role:</strong> Main Portal</span>
-                    <span class="price-tag"><strong>Email:</strong> adnan@klkindia.com</span>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-
-
           </div>
         </div>
-
         <!-- footer section -->
         <section class="">
           <div class="container">
@@ -1495,17 +1687,52 @@
   <!-- Chart.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 
-
-
+  <!-- Page specific script -->
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables  & Plugins -->
+  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../../plugins/jszip/jszip.min.js"></script>
+  <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+      $("#example1")
+        .DataTable({
+          responsive: true,
+          lengthChange: false,
+          autoWidth: false,
+          buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        })
+        .buttons()
+        .container()
+        .appendTo("#example1_wrapper .col-md-6:eq(0)");
+      $("#example2").DataTable({
+        paging: false,
+        lengthChange: false,
+        searching: false,
+        ordering: true,
+        info: true,
+        autoWidth: false,
+        responsive: true,
+      });
+    });
+  </script>
 </body>
 
 </html>
