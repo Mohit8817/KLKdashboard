@@ -277,36 +277,25 @@
       font-size: 16px;
     }
 
-    .action-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .btn-custom {
+    .btn-main {
       padding: 10px 20px;
       border-radius: 10px;
       font-size: 14px;
       font-weight: 600;
       border: none;
       cursor: pointer;
+      background-color: #38487c;
+      color: #fff;
       transition: 0.3s;
     }
 
-
-    .btn-primary-custom:hover {
+    .btn-main:hover {
       background: #2a3560;
       transform: translateY(-2px);
+      color: #fff;
     }
 
-    .btn-secondary-custom {
-      background: #f0f2f5;
-      color: #38487c;
-    }
 
-    .btn-secondary-custom:hover {
-      background: #e0e3e8;
-    }
 
     /* Info Section */
     .info-section {
@@ -368,15 +357,6 @@
 
       .profile-meta {
         justify-content: center;
-      }
-
-      .action-buttons {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .btn-custom {
-        width: 100%;
       }
 
 
@@ -456,26 +436,7 @@
       border-top: 1px solid #e7eaf0;
     }
 
-    .btn-primary-custom {
-      background: #38487c;
-      color: #fff;
-    }
 
-    .btn-primary-custom:hover {
-      background: #2a3560;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary-custom {
-      background: #f1f3f6;
-      color: #38487c;
-      font-weight: 600;
-      border-radius: 10px;
-    }
-
-    .btn-secondary-custom:hover {
-      background: #e0e3e8;
-    }
 
     .file-input-wrapper {
       position: relative;
@@ -505,6 +466,45 @@
       cursor: pointer;
       transition: 0.3s;
       font-weight: 600;
+    }
+
+
+    .info-item input.form-control {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-top: 2px;
+    }
+
+    .info-item input.form-control:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .info-value-input::placeholder {
+      color: #999;
+      font-weight: 400;
+    }
+
+    .password-wrapper {
+      position: relative;
+    } 
+
+    .toggle-eye {
+      position: absolute;
+      right: 10px;
+      bottom: 12px;
+      font-size: 16px;
+      color: #38487c;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-eye:hover {
+      color: #2a3560;
     }
   </style>
 </head>
@@ -1292,13 +1292,11 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content">
-
-
         <div class="container">
           <!-- Profile Header -->
-          <div class="profile-header-card mt-3">
+          <div class="profile-header-card  mt-3 ">
             <div class="profile-image-section">
-              <img src="../images/userimg.jpg" alt="Udit">
+              <img src="../images/userimg.jpg" alt="profileimg">
             </div>
 
             <div class="profile-info-section">
@@ -1318,16 +1316,13 @@
                 </div>
               </div>
 
-              <div class="action-buttons">
-                <button class="btn-custom btn-secondary-custom" data-toggle="modal" data-target="#addDocumentModal">
-                  <i class="fa-solid fa-file-arrow-up"></i> Add Document
-                </button>
+              <button class="btn-main mt-2" data-toggle="modal" data-target="#addDocumentModal">
+                <i class="fa-solid fa-file-arrow-up"></i> Add Document
+              </button>
 
-              </div>
             </div>
           </div>
 
-          <!-- add document model  -->
 
           <!-- ADD DOCUMENT MODAL -->
           <div class="modal fade" id="addDocumentModal" tabindex="-1" aria-labelledby="addDocumentModalLabel"
@@ -1363,8 +1358,8 @@
                 </div>
 
                 <div class="modal-footer modal-footer-custom">
-                  <button type="button" class="btn btn-secondary-custom" data-dismiss="modal">Cancel</button>
-                  <button type="submit" form="uploadDocumentForm" class="btn btn-primary-custom">Save</button>
+                  <button type="button" class="btn btn-danger rounded-3" data-dismiss="modal">Cancel</button>
+                  <button type="submit" form="uploadDocumentForm" class="btn-main">Save</button>
                 </div>
 
               </div>
@@ -1373,11 +1368,11 @@
         </div>
 
 
+
         <!-- added document section -->
-<!-- added document section -->
-<div class="info-section" id="documentSection" style="display:none;">
-  <div class="row" id="documentList"></div>
-</div>
+        <div class="info-section" id="documentSection" style="display:none;">
+          <div class="row" id="documentList"></div>
+        </div>
 
 
         <!-- Personal Information -->
@@ -1467,6 +1462,118 @@
           </div>
         </div>
 
+
+
+        <!-- Change Password -->
+        <!-- Change Password -->
+        <!-- Change Password -->
+        <div class="info-section">
+          <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+
+          <div class="row g-3">
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item password-wrapper">
+                <div class="info-label">Old Password</div>
+                <input type="password" class="form-control info-value-input password-field"
+                  placeholder="Enter Old Password">
+                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item password-wrapper">
+                <div class="info-label">New Password</div>
+                <input type="password" class="form-control info-value-input password-field"
+                  placeholder="Enter New Password">
+                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item password-wrapper">
+                <div class="info-label">Confirm Password</div>
+                <input type="password" class="form-control info-value-input password-field"
+                  placeholder="Confirm Password">
+                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-right mt-3">
+            <button class="btn-main px-4">Update Password</button>
+          </div>
+        </div>
+
+
+        <!-- Settings / Edit Profile -->
+        <div class="info-section">
+          <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
+
+          <div class="row g-3">
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Full Name</div>
+                <input type="text" class="form-control info-value-input" value="Super Admin"
+                  placeholder="Enter Full Name">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Email</div>
+                <input type="email" class="form-control info-value-input" value="Superadmin@klkerp.com"
+                  placeholder="Enter Email">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Contact</div>
+                <input type="text" class="form-control info-value-input" value="9560652530"
+                  placeholder="Enter Contact Number">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Bank</div>
+                <input type="text" class="form-control info-value-input" placeholder="Enter Bank Name">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Account No</div>
+                <input type="text" class="form-control info-value-input" placeholder="Enter Account Number">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">IFSC Code</div>
+                <input type="text" class="form-control info-value-input" placeholder="Enter IFSC Code">
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Profile Image</div>
+                <input type="file" class="form-control-file mt-1">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="text-right mt-3">
+            <button class="btn-main px-4">Save Changes</button>
+          </div>
+        </div>
+
+
+
+      </section>
     </div>
 
 
@@ -1475,21 +1582,7 @@
 
 
 
-    <!-- footer section -->
-    <section class="">
-      <div class="container">
-        <div class="row">
-          <footer class="footer-area py-2">
-            <p class="m-0 fw-semibold text-secondary small footer-text">
-              Copyright © <span id="year"></span> KLK ERP — By
-              <span class="text-primary fw-bold">ETS NETWORKS.</span>
-              All rights reserved.
-            </p>
-          </footer>
-        </div>
-      </div>
-    </section>
-    </section>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -1509,19 +1602,19 @@
   <!-- Chart.js Library -->
 
   <script>
-   document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  const fileInput = document.getElementById("documentFile");
-  const file = fileInput.files[0];
-  const docType = document.getElementById("documentType").value;
+      const fileInput = document.getElementById("documentFile");
+      const file = fileInput.files[0];
+      const docType = document.getElementById("documentType").value;
 
-  if (!file) return;
+      if (!file) return;
 
-  const fileName = file.name;
+      const fileName = file.name;
 
-  // Create new document card item
-  const newDocHTML = `
+      // Create new document card item
+      const newDocHTML = `
     <div class="col-md-6 col-lg-4 mb-2">
       <div class="info-item">
         <div class="info-label">${docType}</div>
@@ -1530,19 +1623,34 @@
     </div>
   `;
 
-  // Append to list
-  document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
+      // Append to list
+      document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
 
-  // Show document section
-  document.getElementById("documentSection").style.display = "block";
+      // Show document section
+      document.getElementById("documentSection").style.display = "block";
 
-  // Reset & close modal
-  fileInput.value = "";
-  document.getElementById("documentType").value = "";
-  $('#addDocumentModal').modal('hide');
-});
+      // Reset & close modal
+      fileInput.value = "";
+      document.getElementById("documentType").value = "";
+      $('#addDocumentModal').modal('hide');
+    });
 
 
+  </script>
+
+  <script>
+    function togglePassword(icon) {
+      const input = icon.previousElementSibling;
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
   </script>
 
   <!-- jQuery -->
