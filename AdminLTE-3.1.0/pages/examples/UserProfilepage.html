@@ -297,7 +297,7 @@
 
 
 
-    /* Info Section */
+    /* Info Section  CSS --------------------------*/
     .info-section {
       background: #fff;
       border-radius: 16px;
@@ -376,7 +376,7 @@
       }
     }
 
-    /* document model css  */
+    /* DOCUMENT CSS MODEL-----------------------  */
 
     .upload-modal {
       border-radius: 18px;
@@ -489,26 +489,9 @@
       font-weight: 400;
     }
 
-    .password-wrapper {
-      position: relative;
-    }
-
-    .toggle-eye {
-      position: absolute;
-      right: 10px;
-      bottom: 12px;
-      font-size: 16px;
-      color: #38487c;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .toggle-eye:hover {
-      color: #2a3560;
-    }
 
 
-    /* tabs Stlying  */
+
     /* Chart Wrapper */
     .chart-card {
       overflow: hidden;
@@ -596,6 +579,24 @@
       background: #fff;
       border-radius: 0 0 12px 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      right: 10px;
+      bottom: 12px;
+      font-size: 16px;
+      color: #38487c;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-eye:hover {
+      color: #2a3560;
     }
   </style>
 </head>
@@ -1458,8 +1459,6 @@
           </div>
         </div>
 
-
-
         <!-- added document section -->
         <div class="info-section" id="documentSection" style="display:none;">
           <div class="row" id="documentList"></div>
@@ -1553,7 +1552,7 @@
           </div>
         </div>
 
-        <!-- tabs  profile Setting   -->
+        <!-- tabs  profile Setting  / Change Password and Bacnk Details   -->
         <div class="container pb-2">
           <div class="row">
             <div class="col-12">
@@ -1661,9 +1660,7 @@
 
                     <div class="info-section">
                       <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
-
                       <div class="row g-3">
-
                         <div class="col-md-6 col-lg-4 mb-2">
                           <div class="info-item password-wrapper">
                             <div class="info-label">Old Password</div>
@@ -1726,18 +1723,17 @@
   <!-- ./wrapper -->
 
 
-  <!-- Chart.js Library -->
 
   <script>
+
+    // SCRIPT FOR UPLAOD DOCUMENT ---------------
+
     document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
       e.preventDefault();
-
       const fileInput = document.getElementById("documentFile");
       const file = fileInput.files[0];
       const docType = document.getElementById("documentType").value;
-
       if (!file) return;
-
       const fileName = file.name;
 
       // Create new document card item
@@ -1749,14 +1745,9 @@
       </div>
     </div>
   `;
-
-      // Append to list
       document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
-
-      // Show document section
       document.getElementById("documentSection").style.display = "block";
 
-      // Reset & close modal
       fileInput.value = "";
       document.getElementById("documentType").value = "";
       $('#addDocumentModal').modal('hide');
@@ -1766,6 +1757,8 @@
   </script>
 
   <script>
+    // SHOW PASSWORD ON EYE ICONS CLICK ---
+
     document.querySelectorAll(".toggle-eye").forEach(icon => {
       icon.addEventListener("click", () => {
         const input = icon.previousElementSibling;
