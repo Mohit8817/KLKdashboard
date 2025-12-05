@@ -317,14 +317,14 @@
 
     .info-item {
       background: #f1f3f6;
-      padding: 15px;
+      padding: 12px;
       border-radius: 12px;
       border-left: 3px solid #38487c;
     }
 
     .info-label {
       font-size: 12px;
-      color: #666;
+      color: #484848;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -491,7 +491,7 @@
 
     .password-wrapper {
       position: relative;
-    } 
+    }
 
     .toggle-eye {
       position: absolute;
@@ -505,6 +505,97 @@
 
     .toggle-eye:hover {
       color: #2a3560;
+    }
+
+
+    /* tabs Stlying  */
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #38487c !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #38487c;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #38487c;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 13px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      background: #f1f4ff;
+      margin-right: 4px;
+      transition: .3s;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #38487c;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
   </style>
 </head>
@@ -1410,7 +1501,7 @@
           </div>
         </div>
 
-
+        <!-- bank details  -->
         <div class="info-section">
           <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
 
@@ -1462,112 +1553,156 @@
           </div>
         </div>
 
+        <!-- tabs  profile Setting   -->
+        <div class="container pb-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0 mt-3">
 
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="chart-header">
+                    <i class="fas fa-users"></i> Profile Settings
+                  </div>
+                </div>
 
-        <!-- Change Password -->
-        <!-- Change Password -->
-        <!-- Change Password -->
-        <div class="info-section">
-          <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+                <!-- Bootstrap Tab System -->
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="custom-tab" role="tablist">
 
-          <div class="row g-3">
+                    <a class="nav-item nav-link active text-dark" id="settings-tab" data-toggle="tab"
+                      href="#settingsTab" role="tab" aria-controls="settingsTab" aria-selected="true">
+                      Settings
+                    </a>
 
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item password-wrapper">
-                <div class="info-label">Old Password</div>
-                <input type="password" class="form-control info-value-input password-field"
-                  placeholder="Enter Old Password">
-                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
+                    <a class="nav-item nav-link text-dark" id="password-tab" data-toggle="tab" href="#passwordTab"
+                      role="tab" aria-controls="passwordTab" aria-selected="false">
+                      Change Password
+                    </a>
+
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="custom-tabContent">
+
+                  <!-- SETTINGS TAB -->
+                  <div class="tab-pane fade show active" id="settingsTab" role="tabpanel"
+                    aria-labelledby="settings-tab">
+
+                    <!-- Settings / Edit Profile -->
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Full Name</div>
+                            <input type="text" class="form-control info-value-input" value="Super Admin"
+                              placeholder="Enter Full Name">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <input type="email" class="form-control info-value-input" value="Superadmin@klkerp.com"
+                              placeholder="Enter Email">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Contact</div>
+                            <input type="text" class="form-control info-value-input" value="9560652530"
+                              placeholder="Enter Contact Number">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Bank</div>
+                            <input type="text" class="form-control info-value-input" placeholder="Enter Bank Name">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Account No</div>
+                            <input type="text" class="form-control info-value-input" placeholder="Enter Account Number">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">IFSC Code</div>
+                            <input type="text" class="form-control info-value-input" placeholder="Enter IFSC Code">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Profile Image</div>
+                            <input type="file" class="form-control-file mt-1">
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="text-right mt-3">
+                        <button class="btn-main px-4">Save Changes</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- CHANGE PASSWORD TAB -->
+                  <div class="tab-pane fade" id="passwordTab" role="tabpanel" aria-labelledby="password-tab">
+
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item password-wrapper">
+                            <div class="info-label">Old Password</div>
+                            <input type="password" class="form-control info-value-input password-field"
+                              placeholder="Enter Old Password">
+                            <i class="fa-solid fa-eye toggle-eye"></i>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item password-wrapper">
+                            <div class="info-label">New Password</div>
+                            <input type="password" class="form-control info-value-input password-field"
+                              placeholder="Enter New Password">
+                            <i class="fa-solid fa-eye toggle-eye"></i>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item password-wrapper">
+                            <div class="info-label">Confirm Password</div>
+                            <input type="password" class="form-control info-value-input password-field"
+                              placeholder="Confirm Password">
+                            <i class="fa-solid fa-eye toggle-eye"></i>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="text-right mt-3">
+                        <button class="btn-main px-4">Update Password</button>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
               </div>
             </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item password-wrapper">
-                <div class="info-label">New Password</div>
-                <input type="password" class="form-control info-value-input password-field"
-                  placeholder="Enter New Password">
-                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item password-wrapper">
-                <div class="info-label">Confirm Password</div>
-                <input type="password" class="form-control info-value-input password-field"
-                  placeholder="Confirm Password">
-                <i class="fa-solid fa-eye toggle-eye" onclick="togglePassword(this)"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-right mt-3">
-            <button class="btn-main px-4">Update Password</button>
-          </div>
-        </div>
-
-
-        <!-- Settings / Edit Profile -->
-        <div class="info-section">
-          <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
-
-          <div class="row g-3">
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Full Name</div>
-                <input type="text" class="form-control info-value-input" value="Super Admin"
-                  placeholder="Enter Full Name">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Email</div>
-                <input type="email" class="form-control info-value-input" value="Superadmin@klkerp.com"
-                  placeholder="Enter Email">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Contact</div>
-                <input type="text" class="form-control info-value-input" value="9560652530"
-                  placeholder="Enter Contact Number">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Bank</div>
-                <input type="text" class="form-control info-value-input" placeholder="Enter Bank Name">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Account No</div>
-                <input type="text" class="form-control info-value-input" placeholder="Enter Account Number">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">IFSC Code</div>
-                <input type="text" class="form-control info-value-input" placeholder="Enter IFSC Code">
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Profile Image</div>
-                <input type="file" class="form-control-file mt-1">
-              </div>
-            </div>
-
-          </div>
-
-          <div class="text-right mt-3">
-            <button class="btn-main px-4">Save Changes</button>
           </div>
         </div>
 
@@ -1575,14 +1710,6 @@
 
       </section>
     </div>
-
-
-
-
-
-
-
-
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -1639,19 +1766,22 @@
   </script>
 
   <script>
-    function togglePassword(icon) {
-      const input = icon.previousElementSibling;
-      if (input.type === "password") {
-        input.type = "text";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-      } else {
-        input.type = "password";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-      }
-    }
+    document.querySelectorAll(".toggle-eye").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = icon.previousElementSibling;
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.add("fa-eye-slash");
+          icon.classList.remove("fa-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      });
+    });
   </script>
+
 
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
