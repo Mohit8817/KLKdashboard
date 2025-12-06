@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdminLTE 3 | Blank Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+  <style>
+    /* PROFILE IMAGE */
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid #d7e9ff;
+      padding: 2px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* NOTIFICATION ICON */
+    .notif-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px dotted #c5c5c5;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .notif-btn i {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .notif-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4b4b;
+      padding: 1px 6px;
+      border-radius: 50px;
+      font-size: 10px;
+      color: white;
+    }
+
+    .notif-dropdown {
+      width: 250px !important;
+      border-radius: 12px;
+    }
+
+    /* TITLE */
+    .notif-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* HOVER EFFECT */
+    .notif-dropdown .dropdown-item:hover {
+      background: #f5f7ff;
+      border-radius: 8px;
+    }
+
+    /* DOCUMENT BUTTON — LIGHT COLOR */
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .doc-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown-menu {
+      width: 210px;
+      border-radius: 10px;
+      padding: 0;
+    }
+
+    .user-box {
+      padding: 8px 15px !important;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-box h6 {
+      font-size: 15px;
+      margin-bottom: 0;
+      color: black;
+    }
+
+    .icon-blue,
+    .icon-pink,
+    .icon-gray,
+    .icon-green,
+    .icon-orange {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border-radius: 50%;
+    }
+
+    .icon-blue {
+      background: #e8f3ff;
+      color: #4a8cff;
+    }
+
+    .icon-pink {
+      background: #ffe8ef;
+      color: #ff7aa2;
+    }
+
+    .icon-gray {
+      background: #f1f1f1;
+      color: #444444;
+    }
+
+    .icon-orange {
+      background: #fef5e5;
+      color: #ec9829;
+    }
+
+    .icon-green {
+      background: #e8ffe8;
+      color: #33a933;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background: #f4f7ff;
+    }
+
+    @media (max-width: 576px) {
+      .header-actions {
+        gap: 12px;
+      }
+
+      .doc-btn span {
+        display: none;
+      }
+    }
+  </style>
+
+
+
+  <style>
+    /* Welcome Section ---------------------------------------*/
+
+    /* Left side text styling */
+    .welcome-sub {
+      font-size: 14px;
+      color: #6c757d;
+    }
+
+    .welcome-title {
+      font-size: 22px;
+      color: #333;
+    }
+
+    /* Custom Select Wrapper */
+    .select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 0 20px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      width: fit-content;
+    }
+
+    .select-wrapper:hover {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-select {
+      border: none !important;
+      background: none !important;
+      font-size: 14px;
+      color: #495467;
+      font-weight: 500;
+      outline: none !important;
+      cursor: pointer;
+      box-shadow: none !important;
+      padding-right: 13px;
+      appearance: none;
+    }
+
+    /* Responsive font and icon resizing */
+    @media (max-width: 767px) {
+      .welcome-title {
+        font-size: 18px;
+      }
+
+      .welcome-sub {
+        font-size: 13px;
+      }
+
+      .welcome-icon {
+        width: 35px !important;
+      }
+
+      .select-wrapper {
+        padding: 0 0 0 15px;
+        font-size: 12px;
+      }
+    }
+
+
+    /* Main Card Box -------------------------------*/
+    .dashboard-box {
+      background: #fff;
+      border: 1.2px solid;
+      border-radius: 10px;
+      padding: 10px 15px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none !important;
+    }
+
+    .dashboard-box:hover {
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+
+    a {
+      text-decoration: none !important;
+      color: inherit;
+    }
+
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      color: #484848;
+    }
+
+    .value {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      font-weight: 500;
+      color: #7a7a7a;
+      margin: 0;
+    }
+
+    /* Circle Icon */
+    .circle-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .circle-icon img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+
+    /* Color Themes */
+    .blue {
+      border-color: #007bff;
+    }
+
+    .blue .value {
+      color: #007bff;
+    }
+
+    .blue-border {
+      border: 2px solid #007bff;
+    }
+
+    .green {
+      border-color: #28a745;
+    }
+
+    .green .value {
+      color: #28a745;
+    }
+
+    .green-border {
+      border: 2px solid #28a745;
+    }
+
+    .orange {
+      border-color: #ff8c00;
+    }
+
+    .orange .value {
+      color: #ff8c00;
+    }
+
+    .orange-border {
+      border: 2px solid #ff8c00;
+    }
+
+    .red {
+      border-color: #e74c3c;
+    }
+
+    .red .value {
+      color: #e74c3c;
+    }
+
+    .red-border {
+      border: 2px solid #e74c3c;
+    }
+
+    .purple {
+      border-color: #8a56f6;
+    }
+
+    .purple .value {
+      color: #8a56f6;
+    }
+
+    .purple-border {
+      border: 2px solid #8a56f6;
+    }
+
+    .teal {
+      border-color: #17a2b8;
+    }
+
+    .teal .value {
+      color: #17a2b8;
+    }
+
+    .teal-border {
+      border: 2px solid #17a2b8;
+    }
+
+
+    /* Pink */
+    .pink {
+      border-color: #ff4fa7;
+    }
+
+    .pink .value {
+      color: #ff4fa7;
+    }
+
+    .pink-border {
+      border: 2px solid #ff4fa7;
+    }
+
+    /* Yellow */
+    .yellow {
+      border-color: #f7c600;
+    }
+
+    .yellow .value {
+      color: #f7c600;
+    }
+
+    .yellow-border {
+      border: 2px solid #f7c600;
+    }
+
+    /* Sky Blue */
+    .sky {
+      border-color: #19c2ff;
+    }
+
+    .sky .value {
+      color: #19c2ff;
+    }
+
+    .sky-border {
+      border: 2px solid #19c2ff;
+    }
+
+    /* Dark Blue */
+    .darkblue {
+      border-color: #003f88;
+    }
+
+    .darkblue .value {
+      color: #003f88;
+    }
+
+    .darkblue-border {
+      border: 2px solid #003f88;
+    }
+
+    /* Brown */
+    .brown {
+      border-color: #b05b2b;
+    }
+
+    .brown .value {
+      color: #b05b2b;
+    }
+
+    .brown-border {
+      border: 2px solid #b05b2b;
+    }
+
+
+
+    .blue-border,
+    .green-border,
+    .orange-border,
+    .red-border,
+    .purple-border,
+    .teal-border,
+    .brown-border,
+    .darkblue-border,
+    .sky-border,
+    .yellow-border,
+    .pink-border {
+      border-width: 1.2px !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .circle-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .circle-icon img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .value {
+        font-size: 18px;
+      }
+    }
+
+
+    /* chart css -------------------------------------------------- */
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #3facff !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #3facff;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #3facff;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 15px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+
+    /*  Table css --------------------------------------------- */
+    .modern-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 14px;
+      border: none;
+      border: 2px solid #e4e4e4;
+
+    }
+
+
+    .modern-table thead th {
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px;
+      border: none;
+    }
+
+    .modern-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    /* Total Row */
+
+
+    /* Tab Custom Style */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      transition: 0.3s;
+      background: #f1f4ff;
+      margin-right: 4px;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #3facff;
+      color: white !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Status Icons */
+    .status-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .status-active {
+      background: #28a745;
+    }
+
+    .status-pending {
+      background: #ffc107;
+    }
+
+
+
+
+    /* profile side car css  */
+
+
+
+
+    /* RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+
+    /* input box css  */
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+
+
+
+
+  <style>
+    .sidebar-light-custom {
+      background: #38487c;
+      font-family: "Poppins", sans-serif;
+      width: 260px;
+    }
+
+ 
+
+    .nav-sidebar {
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: #ffffff !important;
+      padding: 8px 8px;
+      border-radius: 12px;
+      font-size: 15 px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-bottom: 6px;
+    }
+
+    .nav-link:hover {
+      background: #808080;
+    }
+
+    .nav-link.active {
+      background: #3facff !important;
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+
+
+
+
+
+    .logout-link {
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+      <div class="container-fluid">
+
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+
+        </ul>
+        <!-- BRAND -->
+        <a class="navbar-brand d-flex align-items-center">
+          <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+        </a>
+
+        <!-- RIGHT SIDE ICONS -->
+        <div class="header-actions">
+          <!-- DOCUMENT BUTTON -->
+          <div class="doc-btn">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Document</span>
+          </div>
+
+          <!-- NOTIFICATION -->
+          <div class="dropdown">
+            <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell"></i>
+              <span class="notif-badge">7</span>
+            </div>
+
+            <!-- DROPDOWN BOX -->
+            <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+              <li class="dropdown-header fw-bold px-3 text-dark">
+                Notifications
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">New policy
+                      update</div>
+                    <small class="text-muted">5 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Server downtime
+                      alert</div>
+                    <small class="text-muted">10 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Payment
+                      completed</div>
+                    <small class="text-muted">20 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <a class="dropdown-item text-center" href="#">View All</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PROFILE DROPDOWN -->
+          <div class="dropdown">
+            <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li class="user-box">
+                <h6>Login New User</h6>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                  data-bs-target="#profileModal">
+                  <i class="bi bi-person icon-blue me-3"></i>Profile
+                </a>
+
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                    class="bi bi-gear icon-pink me-3"></i>Settings</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                    class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- profile popup  -->
+    <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content profile-modal">
+
+          <span class="close-btn" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg"></i>
+          </span>
+
+          <div class="modal-body text-center p-4">
+            <img src="../images/userimg.jpg" class="profile-photo mb-3">
+            <h5 class="user-name">Pravesh Ahamad</h5>
+            <p class="user-email">@parvesahamad</p>
+
+            <hr>
+
+            <div class="profile-info">
+              <p><strong>Full Name:</strong> Parves Ahamad</p>
+              <p><strong>Email:</strong> parves@gmail.com</p>
+              <p><strong>Gender:</strong> Male</p>
+              <p><strong>DOB:</strong> 05-01-2001</p>
+              <p><strong>Phone:</strong> +91 9876543210</p>
+              <p><strong>State:</strong> Kashmir</p>
+            </div>
+
+            <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+
+            <!-- Hidden Password Fields -->
+            <div id="passwordFields" style="display:none; padding: 15px;">
+
+              <div class="mb-2 text-start">
+                <label class="form-label">New Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+
+              <div class="mb-2 text-start">
+                <label class="form-label">Confirm Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar elevation-4 sidebar-light-custom">
+
+
+      <a href="#" class="brand-link brand-custom">
+        <img src="../images/klkhalflogo.webp" class="brand-image img-circle elevation-3" />
+        <span class="brand-text text-white">KLK Ventures-UP</span>
+      </a>
+
+
+      <div class="sidebar">
+        <nav>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
+
+            <!-- Dashboard -->
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <span class="side-circle-icon"><i class="bi bi-speedometer2"></i></span>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="../examples/aaa.html" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-collection"></i></span>
+                <p>
+                  Kusum
+                  <i class="right fas fa-angle-left text-info"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../examples/MainDashboard.html" class="nav-link">
+                    <i class="bi bi-dot"></i>
+                    <p>Kusum Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-dot"></i>
+                    <p>Kusum Pending List</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-card-list"></i></span>
+                <p>
+                  SSL Details
+                  <i class="right fas fa-angle-left text-info"></i>
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-lightning"></i></span>
+                <p>SSL 18w</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-building"></i></span>
+                <p>UP Resco</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-grid-1x2"></i></span>
+                <p>UP Off Grid Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-plug"></i></span>
+                <p>UP On Grid Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-battery-charging"></i></span>
+                <p>Power Pack Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-people"></i></span>
+                <p>SRLM SRT Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-list-task"></i></span>
+                <p>Task Assign</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-box-seam"></i></span>
+                <p>Product</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span class="side-circle-icon"><i class="bi bi-chat-dots"></i></span>
+                <p>Complaints</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link logout-link">
+                <span class="side-circle-icon"><i class="bi bi-box-arrow-right"></i></span>
+                <p>Logout</p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+
+    </aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <section class="content">
+
+        <!-- welcome Section here  -->
+        <section class="py-2 py-md-4">
+          <div class="container-fluid">
+            <div class="row align-items-center g-2">
+              <!-- LEFT -->
+              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
+                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
+                <div>
+                  <div class="welcome-sub">Welcome to,</div>
+                  <h2 class="welcome-title m-0 fw-bold">
+                    KLK UP SSL Dashboard
+                  </h2>
+                </div>
+              </div>
+
+              <!-- RIGHT -->
+              <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                <div class="select-wrapper">
+                  <i class="bi bi-ui-checks-grid"></i>
+                  <select class="custom-select form-select">
+                    <option selected>All Volume</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cards Section  -->
+        <div class="container-fluid py-3">
+          <div class="row g-3">
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box blue">
+                  <div class="circle-icon blue-border">
+                    <img src="../images/icon1.png" alt="target">
+                  </div>
+                  <div>
+                    <p class="title">Total Allocated Target</p>
+                    <p class="value">73330</p>
+                    <p class="subtitle">Total Sites</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box green">
+                  <div class="circle-icon green-border">
+                    <img src="../images/icon2.png" alt="material">
+                  </div>
+                  <div>
+                    <p class="title">Material Supply Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Supplied / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box orange">
+                  <div class="circle-icon orange-border">
+                    <img src="../images/icon3.png" alt="installation">
+                  </div>
+                  <div>
+                    <p class="title">Installation</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Installed / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box red">
+                  <div class="circle-icon red-border">
+                    <img src="../images/icon4.png" alt="document">
+                  </div>
+                  <div>
+                    <p class="title">Document Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">Submitted / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box purple">
+                  <div class="circle-icon purple-border">
+                    <img src="../images/icon5.png" alt="payment">
+                  </div>
+                  <div>
+                    <p class="title">85% Payment Status</p>
+                    <p class="value">73329 / 1</p>
+                    <p class="subtitle">Done / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-lg-4 col-md-6 col-12">
+              <a href="#">
+                <div class="dashboard-box teal">
+                  <div class="circle-icon teal-border">
+                    <img src="../images/icon6.png" alt="amc">
+                  </div>
+                  <div>
+                    <p class="title">AMC Visit Status</p>
+                    <p class="value">73330 / 0</p>
+                    <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- chart section start  -->
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <!-- Donut Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Department Distribution
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="donutChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Monthly Progress Overview
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="col-12">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-line"></i>
+                  Installation Trend Analysis
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Table Section -->
+        <div class="container-fluid pb-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0">
+
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="chart-header">
+                    <i class="fas fa-table"></i> Installation Status Details
+                  </div>
+                </div>
+
+                <!-- Bootstrap Tab System -->
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="table-tab" role="tablist">
+                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-toggle="tab" href="#phase"
+                      role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
+
+                    <a class="nav-item nav-link text-dark" id="district-tab" data-toggle="tab" href="#district"
+                      role="tab" aria-controls="district" aria-selected="false">District Wise</a>
+
+                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
+                      aria-controls="vendor" aria-selected="false">Vendor Wise</a>
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="table-tabContent">
+
+                  <!-- PHASE TAB -->
+
+                  <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr. No.</th>
+                            <th>District</th>
+                            <th>Total</th>
+                            <th>WO Received</th>
+                            <th>WO Pending</th>
+                            <th>Material Supplied</th>
+                            <th>Material Pending</th>
+                            <th>Material Inspection</th>
+                            <th>Material Inspection Pending</th>
+                            <th>Installed</th>
+                            <th>Pending</th>
+                            <th>Installation Inspection</th>
+                            <th>Installation Inspection Pending</th>
+                            <th>85% Bill Submitted</th>
+                            <th>85% Bill Pending</th>
+                            <th>85% Payment Complete</th>
+                            <th>85% Payment Pending</th>
+                            <th>AMC 1 Complete</th>
+                            <th>AMC 1 Pending</th>
+                            <th>AMC 2 Complete</th>
+                            <th>AMC 2 Pending</th>
+                            <th>AMC 3 Complete</th>
+                            <th>AMC 3 Pending</th>
+                            <th>AMC 4 Complete</th>
+                            <th>AMC 4 Pending</th>
+                            <th>AMC 5 Complete</th>
+                            <th>AMC 5 Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>Aligarh</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>AMBEDKAR NAGAR</td>
+                            <td>510</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>510</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Amroha (J.P. NAGAR)</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                            <td>0</td>
+                            <td>19</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- DISTRICT TAB -->
+                  <div class="tab-pane fade" id="district" role="tabpanel" aria-labelledby="district-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr No</th>
+                            <th>District</th>
+                            <th>Material Dispatch Pending</th>
+                            <th>Site Installed</th>
+                            <th>Site Not Installed</th>
+                            <th>Meter Installed</th>
+                            <th>Meter Not Installed</th>
+                            <th>RMS Installed</th>
+                            <th>RMS Not Installed</th>
+                            <th>Image Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td><span class="status-icon status-active"></span>District A</td>
+                            <td>10</td>
+                            <td>45</td>
+                            <td>20</td>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>25</td>
+                            <td>5</td>
+                            <td>8</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td><span class="status-icon status-pending"></span>District B</td>
+                            <td>5</td>
+                            <td>30</td>
+                            <td>15</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>18</td>
+                            <td>3</td>
+                            <td>5</td>
+                          </tr>
+                          <tr class="total-row">
+                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
+                            <td>15</td>
+                            <td>75</td>
+                            <td>35</td>
+                            <td>50</td>
+                            <td>25</td>
+                            <td>43</td>
+                            <td>8</td>
+                            <td>13</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- VENDOR TAB -->
+                  <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead class="text-white">
+                          <tr>
+                            <th>Sr No</th>
+                            <th>Vendor</th>
+                            <th>Material Dispatch Pending</th>
+                            <th>Site Installed</th>
+                            <th>Site Not Installed</th>
+                            <th>Meter Installed</th>
+                            <th>Meter Not Installed</th>
+                            <th>RMS Installed</th>
+                            <th>RMS Not Installed</th>
+                            <th>Image Pending</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td><span class="status-icon status-active"></span>Vendor X</td>
+                            <td>8</td>
+                            <td>50</td>
+                            <td>25</td>
+                            <td>35</td>
+                            <td>18</td>
+                            <td>30</td>
+                            <td>6</td>
+                            <td>10</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td><span class="status-icon status-pending"></span>Vendor Y</td>
+                            <td>12</td>
+                            <td>40</td>
+                            <td>20</td>
+                            <td>28</td>
+                            <td>12</td>
+                            <td>22</td>
+                            <td>4</td>
+                            <td>7</td>
+                          </tr>
+                          <tr class="total-row">
+                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
+                            <td>20</td>
+                            <td>90</td>
+                            <td>45</td>
+                            <td>63</td>
+                            <td>30</td>
+                            <td>52</td>
+                            <td>10</td>
+                            <td>17</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer section -->
+        <section class="">
+          <div class="container">
+            <div class="row">
+              <footer class="footer-area py-2">
+                <p class="m-0 fw-semibold text-secondary small footer-text">
+                  Copyright © <span id="year"></span> KLK ERP — By
+                  <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                  All rights reserved.
+                </p>
+              </footer>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- Chart.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+  <script>
+    // Donut Chart
+    const donutCtx = document.getElementById("donutChart").getContext("2d");
+    new Chart(donutCtx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Material Supply Status",
+          "Installation Status",
+          "Document Status",
+          "Total Allocation",
+          "SCADA Upload Status",
+          "Inspection Status",
+        ],
+        datasets: [
+          {
+            data: [16.67, 16.67, 16.67, 16.67, 16.67, 16.65],
+            backgroundColor: [
+              "#007bff", // Blue
+              "#28a745", // Green
+              "#ff8c00", // Orange
+              "#e74c3c", // Red
+              "#8a56f6", // Purple
+              "#17a2b8", // Teal
+            ],
+            borderWidth: 2,
+            borderColor: "#fff",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              padding: 15,
+              font: { size: 12 },
+              usePointStyle: true,
+            },
+          },
+        },
+      },
+    });
+
+    // Bar Chart
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+        datasets: [
+          {
+            label: "Progress %",
+            data: [65, 82, 45, 90, 58, 75],
+            backgroundColor: "#018ffb",
+            borderRadius: 6,
+            borderSkipped: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              callback: function (value) {
+                return value;
+              },
+            },
+            grid: {
+              color: "#f6f6f6",
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
+
+    // Line Chart
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5",
+          "Week 6",
+          "Week 7",
+        ],
+        datasets: [
+          {
+            label: "Installations",
+            data: [30, 50, 40, 90, 65, 100, 80],
+            borderColor: "#018ffb",
+            backgroundColor: "rgba(96, 92, 168, 0.1)",
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#018ffb",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 130,
+            grid: {
+              color: "#f3f4f6",
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
+
+
+
+    // footer year script
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    const changeBtn = document.getElementById("changePassBtn");
+    const passFields = document.getElementById("passwordFields");
+    const profileInfo = document.querySelector(".profile-info");
+    const cancelBtn = document.getElementById("cancelPassBtn");
+
+    // Change Password Button
+    changeBtn.addEventListener("click", function () {
+      passFields.style.display = "block";
+      profileInfo.style.display = "none";
+      changeBtn.style.display = "none";
+    });
+
+    // Cancel
+    cancelBtn.addEventListener("click", function () {
+      passFields.style.display = "none";
+      profileInfo.style.display = "block";
+      changeBtn.style.display = "block";
+    });
+
+    // Password Show/Hide
+    document.querySelectorAll(".password-toggle").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.getElementById(icon.getAttribute("data-target"));
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
+        }
+      });
+
+      // Reset modal on close
+      const profileModal = document.getElementById('profileModal');
+      profileModal.addEventListener('hidden.bs.modal', function () {
+        resetProfileModal();
+      });
+
+      // Reset Function
+      function resetProfileModal() {
+        passFields.style.display = "none";
+        profileInfo.style.display = "block";
+        changeBtn.style.display = "block";
+
+        document.getElementById("newPass").value = "";
+        document.getElementById("confirmPass").value = "";
+      }
+
+    });
+
+
+    // Cancel Button
+    cancelBtn.addEventListener("click", function () {
+      resetProfileModal();
+    });
+
+
+
+  </script>
+
+
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
