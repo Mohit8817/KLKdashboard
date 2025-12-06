@@ -24,14 +24,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
   <style>
-    body,
-    .sidebar-mini {
-      background-color: #f1f4fd !important;
-    }
-
-
-
     /* PROFILE IMAGE */
     .profile-img {
       width: 40px;
@@ -191,20 +186,11 @@
         display: none;
       }
     }
+  </style>
 
 
 
-    /* sidebar css  */
-
-    .sidebar {
-      background-color: #38487c;
-    }
-
-    .main-sidebar {
-      background-color: #ffffff;
-    }
-
-
+  <style>
     /* Welcome Section ---------------------------------------*/
 
     /* Left side text styling */
@@ -740,6 +726,109 @@
       cursor: pointer;
     }
   </style>
+
+
+
+
+  <style>
+    .sidebar-light-custom {
+      background: #f5f7fb;
+      font-family: "Poppins", sans-serif;
+      width: 260px;
+    }
+
+
+
+    .nav-sidebar {
+      margin-top: 15px;
+      padding: 0 10px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #363636 !important;
+      padding: 5px 8px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-bottom: 6px;
+    }
+
+    .nav-link:hover {
+      background: #eaf7ff;
+    }
+
+    .nav-link.active {
+      background: #3facff !important;
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+
+    .side-circle-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      padding: 2px !important;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid currentColor;
+
+    }
+
+    /* icon colors */
+    .bg1 {
+      color: #3facff;
+    }
+
+    .bg2 {
+      color: #ff6b6b;
+    }
+
+    .bg3 {
+      color: #6c5ce7;
+    }
+
+    .bg4 {
+      color: #ffa502;
+    }
+
+    .bg5 {
+      color: #2ed573;
+    }
+
+    .bg6 {
+      color: #1e90ff;
+    }
+
+    .bg7 {
+      color: #ff4757;
+    }
+
+    .bg8 {
+      color: #5352ed;
+    }
+
+    .bg9 {
+      color: #10ac84;
+    }
+
+    .bg10 {
+      color: #ff9f1a;
+    }
+
+    .logout-link {
+      color: #e84118 !important;
+    }
+
+    .logout-link:hover {
+      background: #f5f6fa !important;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -767,10 +856,10 @@
             <i class="bi bi-file-earmark-text"></i>
             <span>Document</span>
           </div>
-          <!-- NOTIFICATION -->
+
           <!-- NOTIFICATION -->
           <div class="dropdown">
-            <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-bell"></i>
               <span class="notif-badge">7</span>
             </div>
@@ -829,14 +918,14 @@
 
           <!-- PROFILE DROPDOWN -->
           <div class="dropdown">
-            <img src="../images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
+            <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
             <ul class="dropdown-menu dropdown-menu-end shadow">
               <li class="user-box">
                 <h6>Login New User</h6>
               </li>
 
               <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal"
+                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
                   data-bs-target="#profileModal">
                   <i class="bi bi-person icon-blue me-3"></i>Profile
                 </a>
@@ -917,673 +1006,163 @@
 
 
 
+
+
+
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link">
-        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Ventures-up</span>
+    <aside class="main-sidebar elevation-4 sidebar-light-custom">
+
+      <a href="#" class="brand-link brand-custom">
+        <img src="../images/klkhalflogo.webp" class="brand-image img-circle elevation-3" />
+        <span class="brand-text">KLK Ventures-UP</span>
       </a>
 
-      <!-- Sidebar -->
       <div class="sidebar">
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+        <nav>
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
+            <!-- Dashboard -->
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../../index.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v1</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../../index2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../../index3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v3</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="../widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Widgets
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Layout Options
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Top Navigation</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Top Navigation + Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/boxed.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Boxed</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/fixed-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Fixed Sidebar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/fixed-sidebar-custom.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/fixed-topnav.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Fixed Navbar</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/fixed-footer.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Fixed Footer</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/collapsed-sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Collapsed Sidebar</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
-                <p>
-                  Charts
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ChartJS</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../charts/uplot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>uPlot</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  UI Elements
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../UI/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/icons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Icons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/buttons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Buttons</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/sliders.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sliders</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/modals.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Modals & Alerts</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/navbar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Navbar & Tabs</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/timeline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Timeline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../UI/ribbons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ribbons</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Forms
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General Elements</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../forms/advanced.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Advanced Elements</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../forms/editors.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../forms/validation.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Tables
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../tables/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../tables/data.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>DataTables</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../tables/jsgrid.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>jsGrid</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-              <a href="../calendar.html" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
-                <p>
-                  Calendar
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../gallery.html" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
-                <p>Gallery</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../kanban.html" class="nav-link">
-                <i class="nav-icon fas fa-columns"></i>
-                <p>Kanban Board</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
-                <p>
-                  Mailbox
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../mailbox/mailbox.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inbox</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../mailbox/compose.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Compose</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../mailbox/read-mail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Read</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Pages
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../examples/invoice.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Invoice</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/profile.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Profile</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/e-commerce.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>E-commerce</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/projects.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Projects</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/project-add.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Add</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/project-edit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Edit</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/project-detail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Detail</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/contacts.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Contacts</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/faq.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>FAQ</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/contact-us.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Contact us</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item menu-open">
               <a href="#" class="nav-link active">
-                <i class="nav-icon far fa-plus-square"></i>
+                <span><img src="../images/icon (75).png" class="side-circle-icon bg1"></span>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="../examples/aaa.html" class="nav-link">
+                <span><img src="../images/icon (70).png" class="side-circle-icon bg2"></span>
                 <p>
-                  Extras
-                  <i class="fas fa-angle-left right"></i>
+                  Kusum
+                  <i class="right fas fa-angle-left text-info"></i>
                 </p>
               </a>
+
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Login & Register v1
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../examples/login.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/register.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/forgot-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/recover-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v1</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Login & Register v2
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="../examples/login-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/register-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/forgot-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="../examples/recover-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v2</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/lockscreen.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Lockscreen</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/legacy-user-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Legacy User Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/language-menu.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Language Menu</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/404.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 404</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/500.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 500</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/pace.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pace</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../examples/blank.html" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
+                    <p>Kusum Dashboard</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="../examples/Empdashboard.html" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      User Dashboard
-                      <i class="fa fa-dashboard" aria-hidden="true"></i>
-                    </p>
+                    <p>Kusum Pending List</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+
+
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <span><img src="../images/icon (72).png" class="side-circle-icon bg2"></span>
+                <p>
+                  SSL Details
+                  <i class="right fas fa-angle-left text-info"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kusum Dashboard</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="../examples/hrmdashboard.html" class="nav-link">
+                  <a href="#" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      HRM Dashboard
-                      <i class="fa fa-dashboard" aria-hidden="true"></i>
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../../starter.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Starter Page</p>
+                    <p>Kusum Pending List</p>
                   </a>
                 </li>
               </ul>
             </li>
+
+
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <span><img src="../images/icon (74).png" class="side-circle-icon bg4"></span>
+                <p>SSL 18w</p>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-search"></i>
-                <p>
-                  Search
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../search/simple.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Search</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../search/enhanced.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Enhanced</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-header">MISCELLANEOUS</li>
-            <li class="nav-item">
-              <a href="../../iframe.html" class="nav-link">
-                <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>Tabbed IFrame Plugin</p>
+                <span><img src="../images/icon (21).png" class="side-circle-icon bg5"></span>
+                <p>UP Resco</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                <i class="nav-icon fas fa-file"></i>
-                <p>Documentation</p>
-              </a>
-            </li>
-            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
-                <p>Level 1</p>
+                <span><img src="../images/icon (19).png" class="side-circle-icon bg6"></span>
+                <p>UP Off Grid Details</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-circle"></i>
-                <p>
-                  Level 1
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+                <span><img src="../images/icon (18).png" class="side-circle-icon bg7"></span>
+                <p>UP On Grid Details</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Level 2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Level 2
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Level 2</p>
-                  </a>
-                </li>
-              </ul>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
-                <p>Level 1</p>
+                <span><img src="../images/icon (34).png" class="side-circle-icon bg8"></span>
+                <p>Power Pack Details</p>
               </a>
             </li>
-            <li class="nav-header">LABELS</li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-danger"></i>
-                <p class="text">Important</p>
+                <span><img src="../images/icon (43).png" class="side-circle-icon bg9"></span>
+                <p>SRLM SRT Details</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-warning"></i>
-                <p>Warning</p>
+                <span><img src="../images/icon (71).png" class="side-circle-icon bg10"></span>
+                <p>Task Assign</p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-info"></i>
-                <p>Informational</p>
+                <span><img src="../images/icon (69).png" class="side-circle-icon bg11"></span>
+                <p>Product</p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <span><img src="../images/icon (46).png" class="side-circle-icon bg12"></span>
+                <p>Complaints</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link logout-link">
+                <span><img src="../images/icon (73).png" class="side-circle-icon bg2"></span>
+                <p>Logout</p>
+              </a>
+            </li>
+
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
       </div>
-      <!-- /.sidebar -->
+
     </aside>
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -1792,14 +1371,14 @@
                 <!-- Bootstrap Tab System -->
                 <nav class="px-3 pt-2">
                   <div class="nav nav-tabs" id="table-tab" role="tablist">
-                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-bs-toggle="tab" href="#phase"
+                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-toggle="tab" href="#phase"
                       role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
 
-                    <a class="nav-item nav-link text-dark" id="district-tab" data-bs-toggle="tab" href="#district"
+                    <a class="nav-item nav-link text-dark" id="district-tab" data-toggle="tab" href="#district"
                       role="tab" aria-controls="district" aria-selected="false">District Wise</a>
 
-                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-bs-toggle="tab" href="#vendor"
-                      role="tab" aria-controls="vendor" aria-selected="false">Vendor Wise</a>
+                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
+                      aria-controls="vendor" aria-selected="false">Vendor Wise</a>
                   </div>
                 </nav>
 
@@ -2246,68 +1825,68 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-     <script>
-      const changeBtn = document.getElementById("changePassBtn");
-      const passFields = document.getElementById("passwordFields");
-      const profileInfo = document.querySelector(".profile-info");
-      const cancelBtn = document.getElementById("cancelPassBtn");
+  <script>
+    const changeBtn = document.getElementById("changePassBtn");
+    const passFields = document.getElementById("passwordFields");
+    const profileInfo = document.querySelector(".profile-info");
+    const cancelBtn = document.getElementById("cancelPassBtn");
 
-      // Change Password Button
-      changeBtn.addEventListener("click", function () {
-        passFields.style.display = "block";
-        profileInfo.style.display = "none";
-        changeBtn.style.display = "none";
-      });
+    // Change Password Button
+    changeBtn.addEventListener("click", function () {
+      passFields.style.display = "block";
+      profileInfo.style.display = "none";
+      changeBtn.style.display = "none";
+    });
 
-      // Cancel
-      cancelBtn.addEventListener("click", function () {
-        passFields.style.display = "none";
-        profileInfo.style.display = "block";
-        changeBtn.style.display = "block";
-      });
+    // Cancel
+    cancelBtn.addEventListener("click", function () {
+      passFields.style.display = "none";
+      profileInfo.style.display = "block";
+      changeBtn.style.display = "block";
+    });
 
-      // Password Show/Hide
-      document.querySelectorAll(".password-toggle").forEach(icon => {
-        icon.addEventListener("click", () => {
-          const input = document.getElementById(icon.getAttribute("data-target"));
-          if (input.type === "password") {
-            input.type = "text";
-            icon.classList.remove("bi-eye-slash");
-            icon.classList.add("bi-eye");
-          } else {
-            input.type = "password";
-            icon.classList.remove("bi-eye");
-            icon.classList.add("bi-eye-slash");
-          }
-        });
-
-        // Reset modal on close
-        const profileModal = document.getElementById('profileModal');
-        profileModal.addEventListener('hidden.bs.modal', function () {
-          resetProfileModal();
-        });
-
-        // Reset Function
-        function resetProfileModal() {
-          passFields.style.display = "none";
-          profileInfo.style.display = "block";
-          changeBtn.style.display = "block";
-
-          document.getElementById("newPass").value = "";
-          document.getElementById("confirmPass").value = "";
+    // Password Show/Hide
+    document.querySelectorAll(".password-toggle").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.getElementById(icon.getAttribute("data-target"));
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
         }
-
       });
 
-
-      // Cancel Button
-      cancelBtn.addEventListener("click", function () {
+      // Reset modal on close
+      const profileModal = document.getElementById('profileModal');
+      profileModal.addEventListener('hidden.bs.modal', function () {
         resetProfileModal();
       });
 
+      // Reset Function
+      function resetProfileModal() {
+        passFields.style.display = "none";
+        profileInfo.style.display = "block";
+        changeBtn.style.display = "block";
+
+        document.getElementById("newPass").value = "";
+        document.getElementById("confirmPass").value = "";
+      }
+
+    });
 
 
-    </script>
+    // Cancel Button
+    cancelBtn.addEventListener("click", function () {
+      resetProfileModal();
+    });
+
+
+
+  </script>
 
 
 
@@ -2319,7 +1898,6 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
