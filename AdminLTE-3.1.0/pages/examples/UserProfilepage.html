@@ -585,19 +585,7 @@
       position: relative;
     }
 
-    .toggle-eye {
-      position: absolute;
-      right: 10px;
-      bottom: 12px;
-      font-size: 16px;
-      color: #38487c;
-      cursor: pointer;
-      transition: 0.3s;
-    }
 
-    .toggle-eye:hover {
-      color: #2a3560;
-    }
   </style>
 </head>
 
@@ -1600,62 +1588,45 @@
                   <!-- SETTINGS TAB -->
                   <div class="tab-pane fade" id="settingsTab" role="tabpanel" aria-labelledby="settings-tab">
 
-                    <!-- Settings / Edit Profile -->
                     <div class="info-section">
                       <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
 
                       <div class="row g-3">
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Full Name</div>
-                            <input type="text" class="form-control info-value-input" value="Super Admin"
-                              placeholder="Enter Full Name">
-                          </div>
+                          <label class="form-label">Full Name</label>
+                          <input type="text" class="form-control" value="Super Admin" placeholder="Enter Full Name">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Email</div>
-                            <input type="email" class="form-control info-value-input" value="Superadmin@klkerp.com"
-                              placeholder="Enter Email">
-                          </div>
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control" value="Superadmin@klkerp.com"
+                            placeholder="Enter Email">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Contact</div>
-                            <input type="text" class="form-control info-value-input" value="9560652530"
-                              placeholder="Enter Contact Number">
-                          </div>
+                          <label class="form-label">Contact</label>
+                          <input type="text" class="form-control" value="9560652530" placeholder="Enter Contact Number">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Bank</div>
-                            <input type="text" class="form-control info-value-input" placeholder="Enter Bank Name">
-                          </div>
+                          <label class="form-label">Bank</label>
+                          <input type="text" class="form-control" placeholder="Enter Bank Name">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Account No</div>
-                            <input type="text" class="form-control info-value-input" placeholder="Enter Account Number">
-                          </div>
+                          <label class="form-label">Account No</label>
+                          <input type="text" class="form-control" placeholder="Enter Account Number">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">IFSC Code</div>
-                            <input type="text" class="form-control info-value-input" placeholder="Enter IFSC Code">
-                          </div>
+                          <label class="form-label">IFSC Code</label>
+                          <input type="text" class="form-control" placeholder="Enter IFSC Code">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item">
-                            <div class="info-label">Profile Image</div>
-                            <input type="file" class="form-control-file mt-1">
-                          </div>
+                          <label class="form-label">Profile Image</label>
+                          <input type="file" class="form-control">
                         </div>
 
                       </div>
@@ -1667,36 +1638,27 @@
                   </div>
 
                   <!-- CHANGE PASSWORD TAB -->
+                  <!-- CHANGE PASSWORD TAB -->
                   <div class="tab-pane fade" id="passwordTab" role="tabpanel" aria-labelledby="password-tab">
 
                     <div class="info-section">
                       <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+
                       <div class="row g-3">
-                        <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item password-wrapper">
-                            <div class="info-label">Old Password</div>
-                            <input type="password" class="form-control info-value-input password-field"
-                              placeholder="Enter Old Password">
-                            <i class="fa-solid fa-eye toggle-eye"></i>
-                          </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">Old Password</label>
+                          <input type="password" class="form-control password-field" placeholder="Enter Old Password">
                         </div>
 
-                        <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item password-wrapper">
-                            <div class="info-label">New Password</div>
-                            <input type="password" class="form-control info-value-input password-field"
-                              placeholder="Enter New Password">
-                            <i class="fa-solid fa-eye toggle-eye"></i>
-                          </div>
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">New Password</label>
+                          <input type="password" class="form-control password-field" placeholder="Enter New Password">
                         </div>
 
-                        <div class="col-md-6 col-lg-4 mb-2">
-                          <div class="info-item password-wrapper">
-                            <div class="info-label">Confirm Password</div>
-                            <input type="password" class="form-control info-value-input password-field"
-                              placeholder="Confirm Password">
-                            <i class="fa-solid fa-eye toggle-eye"></i>
-                          </div>
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">Confirm Password</label>
+                          <input type="password" class="form-control password-field" placeholder="Confirm Password">
                         </div>
 
                       </div>
@@ -1705,7 +1667,6 @@
                         <button class="btn-main px-4">Update Password</button>
                       </div>
                     </div>
-
                   </div>
 
                 </div>
@@ -1765,24 +1726,6 @@
 
   </script>
 
-  <script>
-    // SHOW PASSWORD ON EYE ICONS CLICK ---
-
-    document.querySelectorAll(".toggle-eye").forEach(icon => {
-      icon.addEventListener("click", () => {
-        const input = icon.previousElementSibling;
-        if (input.type === "password") {
-          input.type = "text";
-          icon.classList.add("fa-eye-slash");
-          icon.classList.remove("fa-eye");
-        } else {
-          input.type = "password";
-          icon.classList.remove("fa-eye-slash");
-          icon.classList.add("fa-eye");
-        }
-      });
-    });
-  </script>
 
 
   <!-- jQuery -->
