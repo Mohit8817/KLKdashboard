@@ -416,12 +416,11 @@
       font-size: 14px;
       font-weight: 600;
       color: #38487c;
-      margin-bottom: 6px;
+      margin-bottom: 3px;
     }
 
     .input-custom {
       border-radius: 10px;
-      padding: 12px 14px;
       border: 1.5px solid #d9e2f3;
       transition: 0.3s;
     }
@@ -438,34 +437,16 @@
 
 
 
-    .file-input-wrapper {
-      position: relative;
-      width: 100%;
-    }
-
-    .input-file-custom {
-      border: 1.5px solid #d9e2f3;
-      background: #fff;
-      border-radius: 10px;
-      padding: 2px 14px;
-      width: 100%;
-      cursor: pointer;
-      color: #2c3e50;
-      font-size: 14px;
-    }
-
-
-
     .input-file-custom::-webkit-file-upload-button {
       background: #38487c;
       color: #fff;
       border: none;
-      padding: 5px 12px;
+      padding: 0px 12px;
       border-radius: 8px;
       margin-right: 12px;
       cursor: pointer;
       transition: 0.3s;
-      font-weight: 600;
+      font-weight: 500;
     }
 
 
@@ -476,7 +457,6 @@
       font-size: 15px;
       font-weight: 600;
       color: #2c3e50;
-      margin-top: 2px;
     }
 
     .info-item input.form-control:focus {
@@ -580,12 +560,6 @@
       border-radius: 0 0 12px 12px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     }
-
-    .password-wrapper {
-      position: relative;
-    }
-
-
   </style>
 </head>
 
@@ -1421,7 +1395,7 @@
                     <!-- SELECT FILE -->
                     <div class="form-group">
                       <label class="form-label-custom" for="documentFile">Select File *</label>
-                      <input type="file" class="form-control input-file-custom" id="documentFile" required>
+                      <input type="file" class="form-control input-file-custom input-custom" id="documentFile" required>
                     </div>
 
 
@@ -1595,40 +1569,42 @@
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Full Name</label>
-                          <input type="text" class="form-control" value="Super Admin" placeholder="Enter Full Name">
+                          <input type="text" class="form-control input-custom" value="Super Admin"
+                            placeholder="Enter Full Name">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Email</label>
-                          <input type="email" class="form-control" value="Superadmin@klkerp.com"
+                          <input type="email" class="form-control input-custom" value="Superadmin@klkerp.com"
                             placeholder="Enter Email">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Contact</label>
-                          <input type="text" class="form-control" value="9560652530" placeholder="Enter Contact Number">
+                          <input type="text" class="form-control input-custom" value="9560652530"
+                            placeholder="Enter Contact Number">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Bank</label>
-                          <input type="text" class="form-control" placeholder="Enter Bank Name">
+                          <input type="text" class="form-control input-custom" placeholder="Enter Bank Name">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Account No</label>
-                          <input type="text" class="form-control" placeholder="Enter Account Number">
+                          <input type="text" class="form-control input-custom" placeholder="Enter Account Number">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">IFSC Code</label>
-                          <input type="text" class="form-control" placeholder="Enter IFSC Code">
+                          <input type="text" class="form-control input-custom" placeholder="Enter IFSC Code">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2">
                           <label class="form-label">Profile Image</label>
-                          <input type="file" class="form-control">
+                          <input type="file" class="form-control input-file-custom input-custom" id="documentFile"
+                            required>
                         </div>
-
                       </div>
 
                       <div class="text-right mt-3">
@@ -1637,7 +1613,7 @@
                     </div>
                   </div>
 
-                  <!-- CHANGE PASSWORD TAB -->
+
                   <!-- CHANGE PASSWORD TAB -->
                   <div class="tab-pane fade" id="passwordTab" role="tabpanel" aria-labelledby="password-tab">
 
@@ -1648,17 +1624,17 @@
 
                         <div class="col-md-6 col-lg-4 mb-2 position-relative">
                           <label class="form-label">Old Password</label>
-                          <input type="password" class="form-control password-field" placeholder="Enter Old Password">
+                          <input type="password" class="form-control input-custom " placeholder="Enter Old Password">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2 position-relative">
                           <label class="form-label">New Password</label>
-                          <input type="password" class="form-control password-field" placeholder="Enter New Password">
+                          <input type="password" class="form-control input-custom" placeholder="Enter New Password">
                         </div>
 
                         <div class="col-md-6 col-lg-4 mb-2 position-relative">
                           <label class="form-label">Confirm Password</label>
-                          <input type="password" class="form-control password-field" placeholder="Confirm Password">
+                          <input type="password" class="form-control input-custom" placeholder="Confirm Password">
                         </div>
 
                       </div>
