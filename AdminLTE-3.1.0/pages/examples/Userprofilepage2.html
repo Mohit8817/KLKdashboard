@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
 
 
-  <!-- BOOTSTRAP 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- ICONS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -24,6 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
   <style>
     body,
     .sidebar-mini {
@@ -203,154 +202,364 @@
     .main-sidebar {
       background-color: #ffffff;
     }
+  </style>
 
-
-
-
-
-
-
-
-
+  <style>
     /* user profile view page css ------------------------------- */
 
+    .profile-header-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .profile-image-section {
+      position: relative;
+    }
+
+    .profile-image-section img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e4edfe;
+    }
 
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #f3f2ef;
-  margin: 0;
-}
+    .profile-name-row h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      color: #2c3e50;
+    }
 
-.profile-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-}
+    .status-badge {
+      background: #fff3cd;
+      color: #856404;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-.profile-header {
-  background: linear-gradient(90deg, #ff6b35, #f7931e, #fdc830, #96e6a1, #7dd3c0, #4facfe, #9d8fd9);
-  height: 220px;
-}
+    .status-badge.pending {
+      background: #fff3cd;
+      color: #856404;
+    }
 
-/* Profile Image */
-.profile-image-wrapper {
-  position: absolute;
-  top: 120px;
-  left: 40px;
-}
+    .status-badge.active {
+      background: #d4edda;
+      color: #155724;
+    }
 
-.profile-image {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  object-fit: cover;
-}
+    .profile-meta {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
 
-/* Profile Info */
-.profile-info {
-  padding: 160px 40px 10px;
-}
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #565656;
+      font-size: 16px;
+    }
 
-.profile-name {
-  font-size: 32px;
-  font-weight: 700;
-}
+    .meta-item i {
+      color: #38487c;
+      font-size: 16px;
+    }
 
-.profile-title, .profile-location {
-  font-size: 17px;
-  color: #555;
-}
+    .btn-main {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background-color: #38487c;
+      color: #fff;
+      transition: 0.3s;
+    }
 
-/* Right Role Box */
-.profile-role-box {
-  position: absolute;
-  right: 40px;
-  top: 260px;
-  background: #fff;
-  padding: 10px 16px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-}
+    .btn-main:hover {
+      background: #2a3560;
+      transform: translateY(-2px);
+      color: #fff;
+    }
 
-.role-label {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 4px;
-}
 
-.role-value {
-  font-size: 15px;
-  font-weight: 600;
-}
 
-/* Buttons */
-.action-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 14px;
-}
+    /* Info Section  CSS --------------------------*/
+    .info-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.06);
+    }
 
-.btn-edit {
-  background: #0a66c2;
-  color: #fff;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 24px;
-  font-size: 15px;
-  font-weight: 600;
-}
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1.5px solid #f0f2f5;
+    }
 
-.btn-settings {
-  background: #fff;
-  color: #0a66c2;
-  border: 1px solid #0a66c2;
-  padding: 10px 24px;
-  border-radius: 24px;
-}
+    .info-item {
+      background: #f1f3f6;
+      padding: 12px;
+      border-radius: 12px;
+      border-left: 3px solid #38487c;
+    }
 
-/* Info Cards */
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 20px 40px;
-}
+    .info-label {
+      font-size: 12px;
+      color: #484848;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
 
-.info-card {
-  background: #f3f6f8;
-  padding: 18px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
+    .info-value {
+      font-size: 15px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
 
-/* Personal Info & Bank */
-.personal-info-section {
-  padding: 20px 40px;
-}
+    .info-value.empty {
+      color: #999;
+      font-style: italic;
+    }
 
-.section-header {
-  font-size: 22px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-}
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
+      .profile-name-row {
+        flex-direction: column;
+        gap: 8px;
+      }
 
-.info-item {
-  border: 1px solid #ddd;
-  background: #fff;
-  border-radius: 10px;
-  padding: 14px;
-}
+      .profile-meta {
+        justify-content: center;
+      }
 
+
+      .profile-name-row h1 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-image-section img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+    }
+
+    /* DOCUMENT CSS MODEL-----------------------  */
+
+    .upload-modal {
+      border-radius: 18px;
+      box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.12);
+      border: none;
+    }
+
+    .modal-header-custom {
+      background: #f7f9fc;
+      padding: 18px 25px;
+      border-bottom: 1px solid #e7eaf0;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .close-btn-custom span {
+      font-size: 28px;
+      color: #2c3e50;
+      transition: 0.3s;
+    }
+
+    .close-btn-custom:hover span {
+      color: #38487c;
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 25px;
+    }
+
+    .form-label-custom {
+      font-size: 14px;
+      font-weight: 600;
+      color: #38487c;
+      margin-bottom: 3px;
+    }
+
+    .input-custom {
+      border-radius: 10px;
+      border: 1.5px solid #d9e2f3;
+      transition: 0.3s;
+    }
+
+    .input-custom:focus {
+      border-color: #38487c;
+      box-shadow: 0 0 0 3px rgba(56, 72, 124, 0.15);
+    }
+
+    .modal-footer-custom {
+      padding: 18px 25px;
+      border-top: 1px solid #e7eaf0;
+    }
+
+
+
+    .input-file-custom::-webkit-file-upload-button {
+      background: #38487c;
+      color: #fff;
+      border: none;
+      padding: 0px 12px;
+      border-radius: 8px;
+      margin-right: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+
+    .info-item input.form-control {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .info-item input.form-control:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .info-value-input::placeholder {
+      color: #999;
+      font-weight: 400;
+    }
+
+
+
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #38487c !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #38487c;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #38487c;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 13px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      background: #f1f4ff;
+      margin-right: 4px;
+      transition: .3s;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #38487c;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
   </style>
 </head>
 
@@ -1137,150 +1346,447 @@ body {
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content">
-        <div class="profile-container">
-          <!-- Header Gradient -->
-          <div class="profile-header"></div>
-
-          <!-- Main Content -->
-          <div class="profile-main">
-            <!-- Profile Image -->
-            <div class="profile-image-wrapper">
-              <img src="https://i.pravatar.cc/300?u=udit" alt="Udit" class="profile-image">
+        <div class="container-fluid">
+          <!-- Profile Header -->
+          <div class="profile-header-card  mt-3 ">
+            <div class="profile-image-section">
+              <img src="../images/userimg.jpg" alt="profileimg">
             </div>
-
-            <!-- Profile Info -->
-            <div class="profile-info">
-              <h1 class="profile-name">Udit</h1>
-              <p class="profile-title">State Head</p>
-              <p class="profile-location">Bihar, India</p>
-
-              <div class="action-buttons">
-                <button class="btn-edit">Edit Profile</button>
-                <button class="btn-settings">Settings</button>
+            <div class="profile-info-section">
+              <div class="profile-name-row">
+                <h1 class="mb-2">Udit Kumar</h1>
+                <span class="status-badge pending">Pending</span>
               </div>
-            </div>
-
-            <!-- Current Role (Right Side) -->
-            <div class="profile-role-box">
-              <div class="role-label">Current role</div>
-              <div class="role-value">State Head</div>
-            </div>
-
-            <!-- Info Cards -->
-            <div class="info-cards">
-              <div class="info-card">
-                <div class="info-card-title">
-                  Ready for work
-                  <i class="fa-solid fa-arrow-right"></i>
+              <div class="profile-meta">
+                <div class="meta-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>9218024809</span>
                 </div>
-                <p class="info-card-desc">Show recruiters that you're ready for work.</p>
+                <div class="meta-item">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Date of Joining: 08/08/2023</span>
+                </div>
               </div>
 
-              <div class="info-card">
-                <div class="info-card-title">
-                  Share posts
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <p class="info-card-desc">Share latest news to get connected with others.</p>
-              </div>
+              <button class="btn-main mt-2" data-toggle="modal" data-target="#addDocumentModal">
+                <i class="fa-solid fa-file-arrow-up"></i> Add Document
+              </button>
 
-              <div class="info-card">
-                <div class="info-card-title">
-                  Update
-                  <i class="fa-solid fa-arrow-right"></i>
+              <button class="btn-main mt-2 ml-2" data-toggle="modal" data-target="#editProfileModal">
+                <i class="fa-solid fa-user-pen"></i> Edit Profile
+              </button>
+
+
+            </div>
+          </div>
+
+
+          <!-- ADD DOCUMENT MODAL -->
+          <div class="modal fade" id="addDocumentModal" tabindex="-1" aria-labelledby="addDocumentModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+              <div class="modal-content upload-modal">
+
+                <div class="modal-header modal-header-custom">
+                  <h5 class="modal-title" id="addDocumentModalLabel">Upload Document</h5>
+                  <button type="button" class="close close-btn-custom" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
                 </div>
-                <p class="info-card-desc">Keep your profile updated so recruiters know you better.</p>
+
+                <div class="modal-body">
+                  <form id="uploadDocumentForm">
+
+                    <!-- SELECT FILE -->
+                    <div class="form-group">
+                      <label class="form-label-custom" for="documentFile">Select File *</label>
+                      <input type="file" class="form-control input-file-custom input-custom" id="documentFile" required>
+                    </div>
+
+
+                    <!-- DOCUMENT TYPE -->
+                    <div class="form-group">
+                      <label class="form-label-custom" for="documentType">Document Type *</label>
+                      <input type="text" class="form-control input-custom" id="documentType"
+                        placeholder="Ex: Aadhaar / PAN / Offer Letter" required>
+                    </div>
+
+                  </form>
+                </div>
+
+                <div class="modal-footer modal-footer-custom">
+                  <button type="button" class="btn btn-danger rounded-3" data-dismiss="modal">Cancel</button>
+                  <button type="submit" form="uploadDocumentForm" class="btn-main">Save</button>
+                </div>
+
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Personal Information -->
-            <div class="personal-info-section">
-              <h2 class="section-header">Personal Information</h2>
-              <div class="info-grid">
+        <!-- ADDED DOCUMENT SHOW SECTION  -->
+        <div class="info-section" id="documentSection" style="display:none;">
+          <div class="row" id="documentList"></div>
+        </div>
+
+
+        <!-- EDIT PROFILE MODAL -->
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content upload-modal">
+
+              <div class="modal-header modal-header-custom">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="close close-btn-custom" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+
+                <!-- tabs  profile Setting  / Change Password and Bacnk Details   -->
+                <div class="container-fluid pb-2">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="shadow-sm chart-card border-0">
+                        <!-- Header -->
+                        <div class="card-header table-title border-0 p-0">
+                          <div class="chart-header">
+                            <i class="fas fa-users"></i> Profile Settings
+                          </div>
+                        </div>
+
+                        <!-- Bootstrap Tab System -->
+                        <nav class="px-3 pt-2">
+                          <div class="nav nav-tabs" id="custom-tab" role="tablist">
+
+                            <!-- NEW BANK TAB -->
+                            <a class="nav-item nav-link active text-dark" id="bank-tab" data-toggle="tab"
+                              href="#bankTab" role="tab" aria-controls="bankTab" aria-selected="true">
+                              Bank Details
+                            </a>
+
+
+                            <a class="nav-item nav-link text-dark" id="settings-tab" data-toggle="tab"
+                              href="#settingsTab" role="tab" aria-controls="settingsTab" aria-selected="true">
+                              Settings
+                            </a>
+
+                            <a class="nav-item nav-link text-dark" id="password-tab" data-toggle="tab"
+                              href="#passwordTab" role="tab" aria-controls="passwordTab" aria-selected="false">
+                              Change Password
+                            </a>
+                          </div>
+                        </nav>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content p-3" id="custom-tabContent">
+
+                          <!-- BANK TAB -->
+                          <div class="tab-pane fade show active" id="bankTab" role="tabpanel"
+                            aria-labelledby="bank-tab">
+
+                            <div class="info-section">
+                              <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
+
+                              <div class="row g-3">
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">Name</div>
+                                    <div class="info-value">Super Admin</div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value">Superadmin@klkerp.com</div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">Contact</div>
+                                    <div class="info-value">9560652530</div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">Bank</div>
+                                    <div class="info-value">Not Provided</div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">Account No</div>
+                                    <div class="info-value">Not Provided</div>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <div class="info-item">
+                                    <div class="info-label">IFSC Code</div>
+                                    <div class="info-value">Not Provided</div>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+
+                          </div>
+
+
+                          <!-- SETTINGS TAB -->
+                          <div class="tab-pane fade" id="settingsTab" role="tabpanel" aria-labelledby="settings-tab">
+
+                            <div class="info-section">
+                              <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
+
+                              <div class="row g-3">
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Full Name</label>
+                                  <input type="text" class="form-control input-custom" value="Super Admin"
+                                    placeholder="Enter Full Name">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Email</label>
+                                  <input type="email" class="form-control input-custom" value="Superadmin@klkerp.com"
+                                    placeholder="Enter Email">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Contact</label>
+                                  <input type="text" class="form-control input-custom" value="9560652530"
+                                    placeholder="Enter Contact Number">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Bank</label>
+                                  <input type="text" class="form-control input-custom" placeholder="Enter Bank Name">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Account No</label>
+                                  <input type="text" class="form-control input-custom"
+                                    placeholder="Enter Account Number">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">IFSC Code</label>
+                                  <input type="text" class="form-control input-custom" placeholder="Enter IFSC Code">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2">
+                                  <label class="form-label">Profile Image</label>
+                                  <input type="file" class="form-control input-file-custom input-custom"
+                                    id="documentFile" required>
+                                </div>
+                              </div>
+
+                              <div class="text-right mt-3">
+                                <button class="btn-main px-4">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <!-- CHANGE PASSWORD TAB -->
+                          <div class="tab-pane fade" id="passwordTab" role="tabpanel" aria-labelledby="password-tab">
+
+                            <div class="info-section">
+                              <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+
+                              <div class="row g-3">
+
+                                <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                                  <label class="form-label">Old Password</label>
+                                  <input type="password" class="form-control input-custom "
+                                    placeholder="Enter Old Password">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                                  <label class="form-label">New Password</label>
+                                  <input type="password" class="form-control input-custom"
+                                    placeholder="Enter New Password">
+                                </div>
+
+                                <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                                  <label class="form-label">Confirm Password</label>
+                                  <input type="password" class="form-control input-custom"
+                                    placeholder="Confirm Password">
+                                </div>
+
+                              </div>
+
+                              <div class="text-right mt-3">
+                                <button class="btn-main px-4">Update Password</button>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- PERSONAL INFORMATION  -->
+        <div class="container-fluid">
+          <div class="info-section">
+            <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Information</h2>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3 mb-2">
                 <div class="info-item">
                   <div class="info-label">Full Name</div>
                   <div class="info-value">Udit</div>
                 </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
                 <div class="info-item">
                   <div class="info-label">Email Address</div>
                   <div class="info-value">udit.kumar@klkindia.com</div>
                 </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
                 <div class="info-item">
                   <div class="info-label">Contact Number</div>
                   <div class="info-value">9218024809</div>
                 </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
                 <div class="info-item">
                   <div class="info-label">Assigned State</div>
                   <div class="info-value">Bihar</div>
-                </div>
-                <div class="info-item">
-                  <div class="info-label">Access Level</div>
-                  <div class="info-value">State Head</div>
-                </div>
-                <div class="info-item">
-                  <div class="info-label">Portal Role</div>
-                  <div class="info-value">Main Portal</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Bank Details -->
-            <div class="personal-info-section">
-              <h2 class="section-header">Bank Details</h2>
-              <div class="info-grid">
-                <div class="info-item">
-                  <div class="info-label">Bank Name</div>
-                  <div class="info-value empty">Not Provided</div>
-                </div>
-                <div class="info-item">
-                  <div class="info-label">Account Number</div>
-                  <div class="info-value empty">Not Provided</div>
-                </div>
-                <div class="info-item">
-                  <div class="info-label">IFSC Code</div>
-                  <div class="info-value empty">Not Provided</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Bank details here  -->
+        <div class="info-section">
+          <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
 
+          <div class="row g-3">
 
-
-
-
-        <!-- footer section -->
-        <section class="">
-          <div class="container">
-            <div class="row">
-              <footer class="footer-area py-2">
-                <p class="m-0 fw-semibold text-secondary small footer-text">
-                  Copyright © <span id="year"></span> KLK ERP — By
-                  <span class="text-primary fw-bold">ETS NETWORKS.</span>
-                  All rights reserved.
-                </p>
-              </footer>
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Name</div>
+                <div class="info-value">Super Admin</div>
+              </div>
             </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value">Superadmin@klkerp.com</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Contact</div>
+                <div class="info-value">9560652530</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Bank</div>
+                <div class="info-value">Not Provided</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">Account No</div>
+                <div class="info-value">Not Provided</div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-2">
+              <div class="info-item">
+                <div class="info-label">IFSC Code</div>
+                <div class="info-value">Not Provided</div>
+              </div>
+            </div>
+
           </div>
-        </section>
+
+        </div>
+
+
+
       </section>
-      <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
 
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+
+  </aside>
+  <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
 
 
-  <!-- Chart.js Library -->
+
+  <script>
+
+    // SCRIPT FOR UPLAOD DOCUMENT ---------------
+
+    document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("documentFile");
+      const file = fileInput.files[0];
+      const docType = document.getElementById("documentType").value;
+      if (!file) return;
+      const fileName = file.name;
+
+      // Create new document card item
+      const newDocHTML = `
+    <div class="col-md-6 col-lg-4 mb-2">
+      <div class="info-item">
+        <div class="info-label">${docType}</div>
+        <div class="info-value" title="${fileName}">${fileName}</div>
+      </div>
+    </div>
+  `;
+      document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
+      document.getElementById("documentSection").style.display = "block";
+
+      fileInput.value = "";
+      document.getElementById("documentType").value = "";
+      $('#addDocumentModal').modal('hide');
+    });
+
+
+  </script>
 
 
 
@@ -1292,7 +1798,6 @@ body {
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
