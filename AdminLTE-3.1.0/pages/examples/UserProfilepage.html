@@ -1384,7 +1384,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content">
-        <div class="container">
+        <div class="container-fluid">
           <!-- Profile Header -->
           <div class="profile-header-card  mt-3 ">
             <div class="profile-image-section">
@@ -1464,94 +1464,45 @@
 
 
         <!-- PERSONAL INFORMATION  -->
-        <div class="info-section">
-          <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Information</h2>
+        <div class="container-fluid">
+          <div class="info-section">
+            <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Information</h2>
 
-          <div class="row g-3">
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Full Name</div>
-                <div class="info-value">Udit</div>
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Full Name</div>
+                  <div class="info-value">Udit</div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Email Address</div>
-                <div class="info-value">udit.kumar@klkindia.com</div>
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Email Address</div>
+                  <div class="info-value">udit.kumar@klkindia.com</div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Contact Number</div>
-                <div class="info-value">9218024809</div>
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Contact Number</div>
+                  <div class="info-value">9218024809</div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Assigned State</div>
-                <div class="info-value">Bihar</div>
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Assigned State</div>
+                  <div class="info-value">Bihar</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- BANK  DETAILS  -->
-        <div class="info-section">
-          <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
-
-          <div class="row g-3">
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Name</div>
-                <div class="info-value empty">Super Admin</div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Email</div>
-                <div class="info-value empty">Superadmin@klkerp.com</div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Contact</div>
-                <div class="info-value empty">9560652530</div>
-              </div>
-            </div>
-
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Bank</div>
-                <div class="info-value empty">Not Provided</div>
-              </div>
-            </div>
-
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">Account No</div>
-                <div class="info-value empty">Not Provided</div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-2">
-              <div class="info-item">
-                <div class="info-label">IFSC Code</div>
-                <div class="info-value empty">Not Provided</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
         <!-- tabs  profile Setting  / Change Password and Bacnk Details   -->
-        <div class="container pb-2">
+        <div class="container-fluid pb-2">
           <div class="row">
             <div class="col-12">
               <div class="shadow-sm chart-card border-0">
@@ -1566,8 +1517,15 @@
                 <nav class="px-3 pt-2">
                   <div class="nav nav-tabs" id="custom-tab" role="tablist">
 
-                    <a class="nav-item nav-link active text-dark" id="settings-tab" data-toggle="tab"
-                      href="#settingsTab" role="tab" aria-controls="settingsTab" aria-selected="true">
+                    <!-- NEW BANK TAB -->
+                    <a class="nav-item nav-link active text-dark" id="bank-tab" data-toggle="tab" href="#bankTab"
+                      role="tab" aria-controls="bankTab" aria-selected="true">
+                      Bank Details
+                    </a>
+
+
+                    <a class="nav-item nav-link text-dark" id="settings-tab" data-toggle="tab" href="#settingsTab"
+                      role="tab" aria-controls="settingsTab" aria-selected="true">
                       Settings
                     </a>
 
@@ -1582,9 +1540,65 @@
                 <!-- Tab Content -->
                 <div class="tab-content p-3" id="custom-tabContent">
 
+                  <!-- BANK TAB -->
+                  <div class="tab-pane fade show active" id="bankTab" role="tabpanel" aria-labelledby="bank-tab">
+
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Name</div>
+                            <div class="info-value">Super Admin</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">Superadmin@klkerp.com</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Contact</div>
+                            <div class="info-value">9560652530</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Bank</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Account No</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">IFSC Code</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
                   <!-- SETTINGS TAB -->
-                  <div class="tab-pane fade show active" id="settingsTab" role="tabpanel"
-                    aria-labelledby="settings-tab">
+                  <div class="tab-pane fade" id="settingsTab" role="tabpanel" aria-labelledby="settings-tab">
 
                     <!-- Settings / Edit Profile -->
                     <div class="info-section">
