@@ -1674,31 +1674,38 @@
 
     // SCRIPT FOR UPLAOD DOCUMENT ---------------
 
-    document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const fileInput = document.getElementById("documentFile");
-      const file = fileInput.files[0];
-      const docType = document.getElementById("documentType").value;
-      if (!file) return;
-      const fileName = file.name;
+document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-      // Create new document card item
-      const newDocHTML = `
+  const fileInput = document.getElementById("documentFile");
+  const file = fileInput.files[0];
+  const docType = document.getElementById("documentType").value;
+  if (!file) return;
+  const fileName = file.name;
+
+  const fileURL = URL.createObjectURL(file);
+
+  const newDocHTML = `
     <div class="col-md-6 col-lg-4 mb-2">
-      <div class="info-item">
-        <div class="info-label">${docType}</div>
-        <div class="info-value" title="${fileName}">${fileName}</div>
+      <div class="info-item d-flex justify-content-between align-items-center">
+        <div>
+          <div class="info-label">${docType}</div>
+          <div class="info-value" title="${fileName}">${fileName}</div>
+        </div>
+        <a href="${fileURL}" download="${fileName}"  style="color:#3a4680;">
+          <i class="fa fa-download   "></i>
+        </a>
       </div>
     </div>
   `;
-      document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
-      document.getElementById("documentSection").style.display = "block";
 
-      fileInput.value = "";
-      document.getElementById("documentType").value = "";
-      $('#addDocumentModal').modal('hide');
-    });
+  document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
+  document.getElementById("documentSection").style.display = "block";
 
+  fileInput.value = "";
+  document.getElementById("documentType").value = "";
+  $('#addDocumentModal').modal('hide');
+});
 
   </script>
 
