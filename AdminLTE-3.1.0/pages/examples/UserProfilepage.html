@@ -1674,18 +1674,18 @@
 
     // SCRIPT FOR UPLAOD DOCUMENT ---------------
 
-document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  const fileInput = document.getElementById("documentFile");
-  const file = fileInput.files[0];
-  const docType = document.getElementById("documentType").value;
-  if (!file) return;
-  const fileName = file.name;
+      const fileInput = document.getElementById("documentFile");
+      const file = fileInput.files[0];
+      const docType = document.getElementById("documentType").value;
+      if (!file) return;
+      const fileName = file.name;
 
-  const fileURL = URL.createObjectURL(file);
+      const fileURL = URL.createObjectURL(file);
 
-  const newDocHTML = `
+      const newDocHTML = `
     <div class="col-md-6 col-lg-4 mb-2">
       <div class="info-item d-flex justify-content-between align-items-center">
         <div>
@@ -1699,13 +1699,13 @@ document.getElementById("uploadDocumentForm").addEventListener("submit", functio
     </div>
   `;
 
-  document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
-  document.getElementById("documentSection").style.display = "block";
+      document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
+      document.getElementById("documentSection").style.display = "block";
 
-  fileInput.value = "";
-  document.getElementById("documentType").value = "";
-  $('#addDocumentModal').modal('hide');
-});
+      fileInput.value = "";
+      document.getElementById("documentType").value = "";
+      $('#addDocumentModal').modal('hide');
+    }); 
 
   </script>
 
