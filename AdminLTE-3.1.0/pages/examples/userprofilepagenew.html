@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdminLTE 3 | Blank Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+  <!-- ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body
+     {
+      background-color: #f1f4fd !important;
+    }
+
+
+
+    /* PROFILE IMAGE */
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid #d7e9ff;
+      padding: 2px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* NOTIFICATION ICON */
+    .notif-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px dotted #c5c5c5;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .notif-btn i {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .notif-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4b4b;
+      padding: 1px 6px;
+      border-radius: 50px;
+      font-size: 10px;
+      color: white;
+    }
+
+    .notif-dropdown {
+      width: 250px !important;
+      border-radius: 12px;
+    }
+
+    /* TITLE */
+    .notif-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* HOVER EFFECT */
+    .notif-dropdown .dropdown-item:hover {
+      background: #f5f7ff;
+      border-radius: 8px;
+    }
+
+    /* DOCUMENT BUTTON — LIGHT COLOR */
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .doc-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown-menu {
+      width: 210px;
+      border-radius: 10px;
+      padding: 0;
+    }
+
+    .user-box {
+      padding: 8px 15px !important;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-box h6 {
+      font-size: 15px;
+      margin-bottom: 0;
+      color: black;
+    }
+
+    .icon-blue,
+    .icon-pink,
+    .icon-gray,
+    .icon-green,
+    .icon-orange {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border-radius: 50%;
+    }
+
+    .icon-blue {
+      background: #e8f3ff;
+      color: #4a8cff;
+    }
+
+    .icon-pink {
+      background: #ffe8ef;
+      color: #ff7aa2;
+    }
+
+    .icon-gray {
+      background: #f1f1f1;
+      color: #444444;
+    }
+
+    .icon-orange {
+      background: #fef5e5;
+      color: #ec9829;
+    }
+
+    .icon-green {
+      background: #e8ffe8;
+      color: #33a933;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background: #f4f7ff;
+    }
+
+    @media (max-width: 576px) {
+      .header-actions {
+        gap: 12px;
+      }
+
+      .doc-btn span {
+        display: none;
+      }
+    }
+
+
+
+  </style>
+
+  <style>
+    /* user profile view page css ------------------------------- */
+
+    .profile-header-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.06);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .profile-image-section {
+      position: relative;
+    }
+
+    .profile-image-section img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e4edfe;
+    }
+
+
+    .profile-name-row h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    .status-badge {
+      background: #fff3cd;
+      color: #856404;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .status-badge.pending {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-badge.active {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .profile-meta {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #565656;
+      font-size: 16px;
+    }
+
+    .meta-item i {
+      color: #3facff;
+      font-size: 16px;
+    }
+
+    .btn-main {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background-color: #3facff;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover {
+      background: #2a3560;
+      transform: translateY(-2px);
+      color: #fff;
+    }
+
+
+
+    /* Info Section  CSS --------------------------*/
+    .info-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1.5px solid #f0f2f5;
+    }
+
+    .info-item {
+      background: #f1f3f6;
+      padding: 12px;
+      border-radius: 12px;
+      border-left: 3px solid #3facff;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: #484848;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .info-value {
+      font-size: 15px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .info-value.empty {
+      color: #999;
+      font-style: italic;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .profile-name-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .profile-meta {
+        justify-content: center;
+      }
+
+
+      .profile-name-row h1 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-image-section img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+    }
+
+    /* DOCUMENT CSS MODEL-----------------------  */
+
+    .upload-modal {
+      border-radius: 18px;
+      box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.12);
+      border: none;
+    }
+
+    .modal-header-custom {
+      background: #f7f9fc;
+      padding: 18px 25px;
+      border-bottom: 1px solid #e7eaf0;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .close-btn-custom span {
+      font-size: 28px;
+      color: #2c3e50;
+      transition: 0.3s;
+    }
+
+    .close-btn-custom:hover span {
+      color: #3facff;
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 25px;
+    }
+
+    .form-label-custom {
+      font-size: 14px;
+      font-weight: 600;
+      color: #3facff;
+      margin-bottom: 3px;
+    }
+
+    .input-custom {
+      border-radius: 10px;
+      border: 1.5px solid #d9e2f3;
+      transition: 0.3s;
+    }
+
+    .input-custom:focus {
+      border-color: #3facff;
+      box-shadow: 0 0 0 3px rgba(56, 72, 124, 0.15);
+    }
+
+    .modal-footer-custom {
+      padding: 18px 25px;
+      border-top: 1px solid #e7eaf0;
+    }
+
+
+
+    .input-file-custom::-webkit-file-upload-button {
+      background: #3facff;
+      color: #fff;
+      border: none;
+      padding: 0px 12px;
+      border-radius: 8px;
+      margin-right: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+
+    .info-item input.form-control {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .info-item input.form-control:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .info-value-input::placeholder {
+      color: #999;
+      font-weight: 400;
+    }
+
+
+
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #3facff !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #3facff;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #3facff;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 13px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      background: #f1f4ff;
+      margin-right: 4px;
+      transition: .3s;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #3facff;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+
+    <!-- NEW Nav css here  -->
+
+  <style>
+    .main-sidebar {
+      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+      box-shadow: 0px 4px 16px rgba(180, 188, 204, 0.50) !important;
+      overflow-y: hidden !important;
+    }
+
+    .sidebar {
+      padding: 0 !important;
+    }
+
+    .nav-sidebar .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 3px 12px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #4c576c !important;
+      font-weight: 500;
+      transition: 0.2s ease-in-out;
+    }
+
+    .nav-sidebar .nav-link .nav-icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 17px;
+      color: #677892;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-sidebar .nav-link:hover {
+      background: #edf5fc;
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .nav-link.active {
+      background: #e7f2ff !important;
+      color: #2e83ff !important;
+      font-weight: 600;
+      border-left: 4px solid #2e83ff;
+      padding-left: 10px;
+    }
+
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #7b8aa1;
+    }
+
+    .nav-treeview {
+      padding-left: 25px;
+      margin: 0 !important;
+    }
+
+    .nav-treeview .nav-link {
+      margin: 4px 12px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #6b7280 !important;
+    }
+
+    .nav-treeview .nav-link:hover {
+      background: #f3f6fb;
+      color: #2e83ff !important;
+    }
+  </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+      <div class="container-fluid">
+
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+
+        </ul>
+        <!-- BRAND -->
+        <a class="navbar-brand d-flex align-items-center">
+          <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+        </a>
+
+        <!-- RIGHT SIDE ICONS -->
+        <div class="header-actions">
+          <!-- DOCUMENT BUTTON -->
+          <div class="doc-btn">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Document</span>
+          </div>
+          <!-- NOTIFICATION -->
+          <!-- NOTIFICATION -->
+          <div class="dropdown">
+            <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell"></i>
+              <span class="notif-badge">7</span>
+            </div>
+
+            <!-- DROPDOWN BOX -->
+            <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+              <li class="dropdown-header fw-bold px-3 text-dark">
+                Notifications
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">New policy
+                      update</div>
+                    <small class="text-muted">5 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Server downtime
+                      alert</div>
+                    <small class="text-muted">10 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Payment
+                      completed</div>
+                    <small class="text-muted">20 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <a class="dropdown-item text-center" href="#">View All</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PROFILE DROPDOWN -->
+          <div class="dropdown">
+            <img src="../images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li class="user-box">
+                <h6>Login New User</h6>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                    class="bi bi-person icon-blue me-3"></i>Profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                    class="bi bi-gear icon-pink me-3"></i>Settings</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                    class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4">
+      <!-- Brand Logo -->
+      <a href="../../index3.html" class="brand-link border-bottom shadow-sm">
+        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo" class="brand-image  bottom-border img-circle elevation-3"
+          style="opacity: 0.8" />
+        <span class="brand-text text-dark">KLK Ventures-up</span>
+      </a>
+
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+            <li class="nav-header">Dashboard</li>
+            <li class="nav-item">
+              <a href="./Mohit.html" class="nav-link">
+                <i class="bi bi-speedometer2 nav-icon"></i>
+
+                <p>
+                  Dashboard
+                  <i class="right ph ph-caret-right"></i>
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Mohit4.html" class="nav-link ">
+                <i class="bi bi-grid nav-icon"></i>
+
+                <p>Dashboard 2</p>
+              </a>
+            </li>
+
+
+
+               <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="bi bi-grid nav-icon"></i>
+
+                <p>Dashboard 3</p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              <a href="./Userprofile.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-icon"></i>
+                <p>
+                  User Profile
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./UserProfilepage.html" class="nav-link active">
+                <i class="bi bi-layers nav-icon"></i>
+                <p>User Profile View
+                </p>
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+              <a href="./Srtdashboard.html" class="nav-link">
+                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                <p>SRT Old Dashboard</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+             <li class="nav-item">
+              <a href="./Srtdashboarddemo.html" class="nav-link">
+                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                <p>SRT Old Dashboard</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-header">HRM Dashboards</li>
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <i class="bi bi-table nav-icon"></i>
+
+                <p>HRM Main Dashboards</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Empdashboard.html" class="nav-link">
+                <i class="bi bi-calendar-week nav-icon"></i>
+
+                <p>HRM Employee Dashboard</p>
+              </a>
+            </li>
+
+
+            <li class="nav-header">Sidebar Designs </li>
+
+           <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-tree"></i>
+                <p>
+                  Sidebars
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sidebar one</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sidebar Two</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit3.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sidebar Three</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit4.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sidebar four</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sidebar five</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="pages/UI/timeline.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Timeline</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/ribbons.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ribbons</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Forms
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>General Elements</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Advanced Elements</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Editors</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/validation.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Validation</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-header">IMPORTANT LINKS</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Tables
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/tables/simple.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Simple Tables</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/tables/data.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>DataTables</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="pages/tables/jsgrid.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>jsGrid</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">EXAMPLES</li>
+            <li class="nav-item">
+              <a href="pages/calendar.html" class="nav-link">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Calendar
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/gallery.html" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Gallery
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/kanban.html" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Kanban Board
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>
+                  Mailbox
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Inbox</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/mailbox/compose.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Compose</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Read</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Pages
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/examples/invoice.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Invoice</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/profile.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/e-commerce.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>E-commerce</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/projects.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Projects</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-add.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Project Add</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-edit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Project Edit</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-detail.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Project Detail</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/contacts.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Contacts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/faq.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>FAQ</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/contact-us.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Contact us</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                  Extras
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Login & Register v1
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/examples/login.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Login v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/register.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Register v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/forgot-password.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Forgot Password v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/recover-password.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Recover Password v1</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Login & Register v2
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/examples/login-v2.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Login v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/register-v2.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Register v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/forgot-password-v2.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Forgot Password v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/recover-password-v2.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Recover Password v2</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/lockscreen.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Lockscreen</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Legacy User Menu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/language-menu.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Language Menu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/404.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Error 404</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/500.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Error 500</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/pace.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pace</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/blank.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Blank Page</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="starter.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Starter Page</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-search"></i>
+                <p>
+                  Search
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/search/simple.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Simple Search</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/search/enhanced.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Enhanced</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">MISCELLANEOUS</li>
+            <li class="nav-item">
+              <a href="iframe.html" class="nav-link">
+                <i class="nav-icon fas fa-ellipsis-h"></i>
+                <p>Tabbed IFrame Plugin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                <i class="nav-icon fas fa-file"></i>
+                <p>Documentation</p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Profile Header -->
+          <div class="profile-header-card  mt-3 ">
+            <div class="profile-image-section">
+              <img src="../images/userimg.jpg" alt="profileimg">
+            </div>
+            <div class="profile-info-section">
+              <div class="profile-name-row">
+                <h1 class="mb-2">Udit Kumar</h1>
+                <span class="status-badge pending">Pending</span>
+              </div>
+              <div class="profile-meta">
+                <div class="meta-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>9218024809</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Date of Joining: 08/08/2023</span>
+                </div>
+              </div>
+
+              <button class="btn-main mt-2" data-toggle="modal" data-target="#addDocumentModal">
+                <i class="fa-solid fa-file-arrow-up"></i> Add Document
+              </button>
+
+            </div>
+          </div>
+
+
+          <!-- ADD DOCUMENT MODAL -->
+          <div class="modal fade" id="addDocumentModal" tabindex="-1" aria-labelledby="addDocumentModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+              <div class="modal-content upload-modal">
+
+                <div class="modal-header modal-header-custom">
+                  <h5 class="modal-title" id="addDocumentModalLabel">Upload Document</h5>
+                  <button type="button" class="close close-btn-custom" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="uploadDocumentForm">
+
+                    <!-- SELECT FILE -->
+                    <div class="form-group">
+                      <label class="form-label-custom" for="documentFile">Select File *</label>
+                      <input type="file" class="form-control input-file-custom input-custom" id="documentFile" required>
+                    </div>
+
+
+                    <!-- DOCUMENT TYPE -->
+                    <div class="form-group">
+                      <label class="form-label-custom" for="documentType">Document Type *</label>
+                      <input type="text" class="form-control input-custom" id="documentType"
+                        placeholder="Ex: Aadhaar / PAN / Offer Letter" required>
+                    </div>
+
+                  </form>
+                </div>
+
+                <div class="modal-footer modal-footer-custom">
+                  <button type="button" class="btn btn-danger rounded-3" data-dismiss="modal">Cancel</button>
+                  <button type="submit" form="uploadDocumentForm" class="btn-main">Save</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADDED DOCUMENT SHOW SECTION  -->
+        <div class="info-section" id="documentSection" style="display:none;">
+          <div class="row" id="documentList"></div>
+        </div>
+
+
+        <!-- PERSONAL INFORMATION  -->
+        <div class="container-fluid">
+          <div class="info-section">
+            <h2 class="section-title"><i class="fa-solid fa-user"></i> Personal Information</h2>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Full Name</div>
+                  <div class="info-value">Udit</div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Email Address</div>
+                  <div class="info-value">udit.kumar@klkindia.com</div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Contact Number</div>
+                  <div class="info-value">9218024809</div>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 mb-2">
+                <div class="info-item">
+                  <div class="info-label">Assigned State</div>
+                  <div class="info-value">Bihar</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- tabs  profile Setting  / Change Password and Bacnk Details   -->
+        <div class="container-fluid pb-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0">
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="chart-header">
+                    <i class="fas fa-users"></i> Profile Settings
+                  </div>
+                </div>
+
+                <!-- Bootstrap Tab System -->
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="custom-tab" role="tablist">
+
+                    <!-- NEW BANK TAB -->
+                    <a class="nav-item nav-link active text-dark" id="bank-tab" data-toggle="tab" href="#bankTab"
+                      role="tab" aria-controls="bankTab" aria-selected="true">
+                      Bank Details
+                    </a>
+
+
+                    <a class="nav-item nav-link text-dark" id="settings-tab" data-toggle="tab" href="#settingsTab"
+                      role="tab" aria-controls="settingsTab" aria-selected="true">
+                      Settings
+                    </a>
+
+                    <a class="nav-item nav-link text-dark" id="password-tab" data-toggle="tab" href="#passwordTab"
+                      role="tab" aria-controls="passwordTab" aria-selected="false">
+                      Change Password
+                    </a>
+
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="custom-tabContent">
+
+                  <!-- BANK TAB -->
+                  <div class="tab-pane fade show active" id="bankTab" role="tabpanel" aria-labelledby="bank-tab">
+
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-building-columns"></i> Bank Details</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Name</div>
+                            <div class="info-value">Super Admin</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">Superadmin@klkerp.com</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Contact</div>
+                            <div class="info-value">9560652530</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Bank</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">Account No</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <div class="info-item">
+                            <div class="info-label">IFSC Code</div>
+                            <div class="info-value">Not Provided</div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <!-- SETTINGS TAB -->
+                  <div class="tab-pane fade" id="settingsTab" role="tabpanel" aria-labelledby="settings-tab">
+
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-gear"></i> Edit Profile Settings</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Full Name</label>
+                          <input type="text" class="form-control input-custom" value="Super Admin"
+                            placeholder="Enter Full Name">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Email</label>
+                          <input type="email" class="form-control input-custom" value="Superadmin@klkerp.com"
+                            placeholder="Enter Email">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Contact</label>
+                          <input type="text" class="form-control input-custom" value="9560652530"
+                            placeholder="Enter Contact Number">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Bank</label>
+                          <input type="text" class="form-control input-custom" placeholder="Enter Bank Name">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Account No</label>
+                          <input type="text" class="form-control input-custom" placeholder="Enter Account Number">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">IFSC Code</label>
+                          <input type="text" class="form-control input-custom" placeholder="Enter IFSC Code">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2">
+                          <label class="form-label">Profile Image</label>
+                          <input type="file" class="form-control input-file-custom input-custom" id="documentFile"
+                            required>
+                        </div>
+                      </div>
+
+                      <div class="text-right mt-3">
+                        <button class="btn-main px-4">Save Changes</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- CHANGE PASSWORD TAB -->
+                  <div class="tab-pane fade" id="passwordTab" role="tabpanel" aria-labelledby="password-tab">
+
+                    <div class="info-section">
+                      <h2 class="section-title"><i class="fa-solid fa-lock"></i> Change Password</h2>
+
+                      <div class="row g-3">
+
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">Old Password</label>
+                          <input type="password" class="form-control input-custom " placeholder="Enter Old Password">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">New Password</label>
+                          <input type="password" class="form-control input-custom" placeholder="Enter New Password">
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-2 position-relative">
+                          <label class="form-label">Confirm Password</label>
+                          <input type="password" class="form-control input-custom" placeholder="Confirm Password">
+                        </div>
+
+                      </div>
+
+                      <div class="text-right mt-3">
+                        <button class="btn-main px-4">Update Password</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+
+  </aside>
+  <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+
+
+  <script>
+
+    // SCRIPT FOR UPLAOD DOCUMENT ---------------
+
+    document.getElementById("uploadDocumentForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById("documentFile");
+      const file = fileInput.files[0];
+      const docType = document.getElementById("documentType").value;
+      if (!file) return;
+      const fileName = file.name;
+
+      const fileURL = URL.createObjectURL(file);
+
+      const newDocHTML = `
+    <div class="col-md-6 col-lg-4 mb-2">
+      <div class="info-item d-flex justify-content-between align-items-center">
+        <div>
+          <div class="info-label">${docType}</div>
+          <div class="info-value" title="${fileName}">${fileName}</div>
+        </div>
+        <a href="${fileURL}" download="${fileName}"  style="color:#3a4680;">
+          <i class="fa fa-download   "></i>
+        </a>
+      </div>
+    </div>
+  `;
+
+      document.getElementById("documentList").insertAdjacentHTML("beforeend", newDocHTML);
+      document.getElementById("documentSection").style.display = "block";
+
+      fileInput.value = "";
+      document.getElementById("documentType").value = "";
+      $('#addDocumentModal').modal('hide');
+    });
+
+  </script>
+
+
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
