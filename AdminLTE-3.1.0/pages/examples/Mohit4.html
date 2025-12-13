@@ -732,14 +732,47 @@
 
   <!-- NEW Sidebar css here  -->
   <style>
+    /* Chrome, Edge, Safari */
+    .main-sidebar .os-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .main-sidebar .os-content::-webkit-scrollbar-track {
+      background: rgba(46, 131, 255, 0.15);
+      border-radius: 10px;
+    }
+
+    .main-sidebar .os-content::-webkit-scrollbar-thumb {
+      background-color: #2e83ff;
+      border-radius: 10px;
+    }
+
+    .main-sidebar .os-content::-webkit-scrollbar-thumb:hover {
+      background-color: #1f6de0;
+    }
+
+    /* Firefox */
+    .main-sidebar .os-content {
+      scrollbar-width: thin;
+      scrollbar-color: #2e83ff rgba(46, 131, 255, 0.15);
+    }
+
+
     .main-sidebar {
+      height: 100vh !important;
       background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
       box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
-      overflow-y: hidden !important;
-      overflow-x: scroll !important;
-      height: 100px !important;
       position: fixed !important;
+      overflow: hidden !important;
+
     }
+
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+
 
     .nav-sidebar .nav-link {
       display: flex;
@@ -999,14 +1032,10 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
             <li class="nav-header">Dashboard</li>
-
-            <li class="nav-item active">
-              <a href="#" class="nav-link">
-                 <i class="bi bi-speedometer2 nav-icon"></i>
+            <li class="nav-item ">
+              <a href="#" class="nav-link active">
+                <i class="bi bi-speedometer2 nav-icon"></i>
                 <p>
                   Dashboard
                   <i class="fas fa-angle-left right"></i>
@@ -1020,7 +1049,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dashboard Two</p>
                   </a>
@@ -1061,7 +1090,7 @@
 
 
             <li class="nav-item">
-              <a href="./Mohit4.html" class="nav-link active">
+              <a href="./Mohit4.html" class="nav-link">
                 <i class="bi bi-grid nav-icon"></i>
 
                 <p>Dashboard 2</p>
@@ -1077,6 +1106,14 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="./Newtable.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-icon"></i>
+                <p>
+                  Table
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               <a href="./Userprofile.html" class="nav-link">
@@ -1086,6 +1123,7 @@
                 </p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="./UserProfilepage.html" class="nav-link">
                 <i class="bi bi-layers nav-icon"></i>
