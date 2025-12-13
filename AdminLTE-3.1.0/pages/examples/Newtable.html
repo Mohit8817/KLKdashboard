@@ -23,7 +23,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
-
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css" />
+  <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
 
   <style>
     /* PROFILE IMAGE */
@@ -481,169 +491,6 @@
       border-width: 1.2px !important;
     }
 
-    /* Responsive */
-    @media (max-width: 576px) {
-      .circle-icon {
-        width: 45px;
-        height: 45px;
-      }
-
-      .circle-icon img {
-        width: 30px;
-        height: 30px;
-      }
-
-      .value {
-        font-size: 18px;
-      }
-    }
-
-
-    /* chart css -------------------------------------------------- */
-
-    /* Chart Wrapper */
-    .chart-card {
-      overflow: hidden;
-      border-radius: 12px;
-      transition: 0.3s;
-      border: 1.2px solid #3facff !important;
-      background: #fff;
-    }
-
-
-    /* Chart Header */
-    .chart-header {
-      background: #3facff;
-      color: #ffffff;
-      padding: 10px 15px;
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Icon Circle like card */
-    .chart-header i {
-      width: 30px;
-      height: 30px;
-      background: #eef6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 15px;
-      color: #3facff;
-    }
-
-    /* Card Inner */
-    .chart-container {
-      position: relative;
-      height: 350px;
-      padding: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .chart-container {
-        height: 300px;
-      }
-
-      .chart-header {
-        font-size: 15px !important;
-        padding: 10px 16px;
-      }
-
-      .chart-header i {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-      }
-
-      .nav-tabs .nav-link {
-        font-size: 9px !important;
-        padding: 10px 12px !important;
-      }
-    }
-
-
-
-    /*  Table css --------------------------------------------- */
-    .modern-table {
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      font-size: 14px;
-      border: none;
-      border: 2px solid #e4e4e4;
-
-    }
-
-
-    .modern-table thead th {
-      font-weight: 600;
-      letter-spacing: .5px;
-      padding: 14px;
-      border: none;
-    }
-
-    .modern-table td {
-      padding: 12px;
-      border-bottom: 1px solid #e7e7e7;
-    }
-
-    /* Total Row */
-
-
-    /* Tab Custom Style */
-    .nav-tabs .nav-link {
-      font-size: 15px;
-      font-weight: 600;
-      padding: 10px 15px;
-      border-radius: 8px 8px 0 0;
-      transition: 0.3s;
-      background: #f1f4ff;
-      margin-right: 4px;
-    }
-
-    .nav-tabs .nav-link.active {
-      background: #3facff;
-      color: white !important;
-      border-color: transparent !important;
-    }
-
-    .tab-content {
-      background: #fff;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Status Icons */
-    .status-icon {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-    }
-
-    .status-active {
-      background: #28a745;
-    }
-
-    .status-pending {
-      background: #ffc107;
-    }
-
-
-
-
-    /* profile side car css  */
-
-
-
-
     /* RIGHT SIDE MODAL */
     .right-modal .modal-dialog {
       position: fixed;
@@ -807,6 +654,127 @@
   </style>
 
 
+
+
+  <!-- table css  -->
+
+  <style>
+    /* ----------Table CSS -------------------------- */
+
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: 1.2px solid #38487c !important;
+      background: #fff;
+    }
+
+
+    /* Chart Header */
+    .chart-header {
+      background: #38487c;
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Icon Circle like card */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: #eef6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #38487c;
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 13px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+    /* Table Styling */
+    .modern-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 14px;
+      border: 2px solid #e4e4e4;
+    }
+
+    .modern-table thead th {
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px;
+      border: none;
+      color: white;
+      background: #38487c !important;
+    }
+
+    .modern-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e7e7e7;
+
+
+    }
+
+    /* Tabs Styling */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      background: #f1f4ff;
+      margin-right: 4px;
+      transition: .3s;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #38487c;
+      color: #fff !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+  </style>
 
 
 </head>
@@ -1006,7 +974,7 @@
 
             <li class="nav-item active">
               <a href="#" class="nav-link">
-                 <i class="bi bi-speedometer2 nav-icon"></i>
+                <i class="bi bi-speedometer2 nav-icon"></i>
                 <p>
                   Dashboard
                   <i class="fas fa-angle-left right"></i>
@@ -1332,328 +1300,126 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
       <section class="content">
-
-        <!-- welcome Section here  -->
-        <section class="py-2 py-md-4">
-          <div class="container-fluid">
-            <div class="row align-items-center g-2">
-              <!-- LEFT -->
-              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
-                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
-                <div>
-                  <div class="welcome-sub">Welcome to,</div>
-                  <h2 class="welcome-title m-0 fw-bold">
-                    KLK UP SSL Dashboard
-                  </h2>
-                </div>
-              </div>
-
-              <!-- RIGHT -->
-              <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
-                <div class="select-wrapper">
-                  <i class="bi bi-ui-checks-grid"></i>
-                  <select class="custom-select form-select">
-                    <option selected>All Volume</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-       
-
-
-
-
-        <!-- Table Section -->
-        <div class="container-fluid pb-2">
+        <!-- tabs section  -->
+        <div class="container pb-2">
           <div class="row">
             <div class="col-12">
-              <div class="shadow-sm chart-card border-0">
-
+              <div class="shadow-sm chart-card border-0 mt-3">
                 <!-- Header -->
                 <div class="card-header table-title border-0 p-0">
                   <div class="chart-header">
-                    <i class="fas fa-table"></i> Installation Status Details
+                    <i class="fas fa-users"></i> Employee Status & Access Details
                   </div>
                 </div>
-
                 <!-- Bootstrap Tab System -->
                 <nav class="px-3 pt-2">
-                  <div class="nav nav-tabs" id="table-tab" role="tablist">
-                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-toggle="tab" href="#phase"
-                      role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
-
-                    <a class="nav-item nav-link text-dark" id="district-tab" data-toggle="tab" href="#district"
-                      role="tab" aria-controls="district" aria-selected="false">District Wise</a>
-
-                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
-                      aria-controls="vendor" aria-selected="false">Vendor Wise</a>
+                  <div class="nav nav-tabs" id="custom-tab" role="tablist">
+                    <a class="nav-item nav-link text-dark" id="cards-tab" data-toggle="tab" href="#tableTab" role="tab"
+                      aria-controls="tableTab" aria-selected="false">Table View</a>
                   </div>
                 </nav>
 
                 <!-- Tab Content -->
-                <div class="tab-content p-3" id="table-tabContent">
+                <div class="tab-content p-3" id="custom-tabContent">
 
-                  <!-- PHASE TAB -->
-
-                  <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
+                  <!-- TABLE TAB -->
+                  <div class="tab-pane fade active show " id="tableTab" role="tabpanel" aria-labelledby="table-tab">
                     <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
-                          <tr>
-                            <th>Sr. No.</th>
-                            <th>District</th>
-                            <th>Total</th>
-                            <th>WO Received</th>
-                            <th>WO Pending</th>
-                            <th>Material Supplied</th>
-                            <th>Material Pending</th>
-                            <th>Material Inspection</th>
-                            <th>Material Inspection Pending</th>
-                            <th>Installed</th>
-                            <th>Pending</th>
-                            <th>Installation Inspection</th>
-                            <th>Installation Inspection Pending</th>
-                            <th>85% Bill Submitted</th>
-                            <th>85% Bill Pending</th>
-                            <th>85% Payment Complete</th>
-                            <th>85% Payment Pending</th>
-                            <th>AMC 1 Complete</th>
-                            <th>AMC 1 Pending</th>
-                            <th>AMC 2 Complete</th>
-                            <th>AMC 2 Pending</th>
-                            <th>AMC 3 Complete</th>
-                            <th>AMC 3 Pending</th>
-                            <th>AMC 4 Complete</th>
-                            <th>AMC 4 Pending</th>
-                            <th>AMC 5 Complete</th>
-                            <th>AMC 5 Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Aligarh</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>AMBEDKAR NAGAR</td>
-                            <td>510</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Amroha (J.P. NAGAR)</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <!-- DISTRICT TAB -->
-                  <div class="tab-pane fade" id="district" role="tabpanel" aria-labelledby="district-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
+                      <table class="table modern-table table-hover text-center mb-0" id="example1">
+                        <thead>
                           <tr>
                             <th>Sr No</th>
+                            <th>Serial No</th>
+                            <th>Financial Year</th>
+                            <th>State</th>
                             <th>District</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
+                            <th>Village</th>
+                            <th>Scheme</th>
+                            <th>UID</th>
+                            <th>Beneficiary Name</th>
+                            <th>Contact No</th>
+                            <th>Installed Date</th>
+                            <th>Payment 85%</th>
+                            <th>AMC 1st Yr 3%</th>
+                            <th>AMC 2nd Yr 3%</th>
+                            <th>AMC 3rd Yr 3%</th>
+                            <th>AMC 4th Yr 3%</th>
+                            <th>AMC 5th Yr 3%</th>
+                            <th>Document</th>
+                            <th>Remarks</th>
+                            <th>Created By</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
+
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td><span class="status-icon status-active"></span>District A</td>
-                            <td>10</td>
-                            <td>45</td>
-                            <td>20</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>25</td>
-                            <td>5</td>
-                            <td>8</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td><span class="status-icon status-pending"></span>District B</td>
-                            <td>5</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>20</td>
-                            <td>10</td>
-                            <td>18</td>
-                            <td>3</td>
-                            <td>5</td>
-                          </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>15</td>
-                            <td>75</td>
-                            <td>35</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>43</td>
-                            <td>8</td>
-                            <td>13</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <!-- VENDOR TAB -->
-                  <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
-                          <tr>
-                            <th>Sr No</th>
-                            <th>Vendor</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
                             <td>1</td>
-                            <td><span class="status-icon status-active"></span>Vendor X</td>
-                            <td>8</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>35</td>
-                            <td>18</td>
-                            <td>30</td>
-                            <td>6</td>
-                            <td>10</td>
+                            <td>-</td>
+                            <td>UP</td>
+                            <td>Agra</td>
+                            <td>Kirawali</td>
+                            <td>Solar Street Light (Full Cost)</td>
+                            <td>20220107806840</td>
+                            <td>Kandaubar Ward No -25</td>
+                            <td>9837676924</td>
+                            <td>2022-11-23</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>NULL</td>
+                            <td>
+                              <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
+                              <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                            </td>
                           </tr>
+
                           <tr>
                             <td>2</td>
-                            <td><span class="status-icon status-pending"></span>Vendor Y</td>
-                            <td>12</td>
-                            <td>40</td>
-                            <td>20</td>
-                            <td>28</td>
-                            <td>12</td>
-                            <td>22</td>
-                            <td>4</td>
-                            <td>7</td>
-                          </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>20</td>
-                            <td>90</td>
-                            <td>45</td>
-                            <td>63</td>
-                            <td>30</td>
-                            <td>52</td>
-                            <td>10</td>
-                            <td>17</td>
+                            <td>2</td>
+                            <td>2021-2022</td>
+                            <td>UP</td>
+                            <td>Agra</td>
+                            <td>Kirawali</td>
+                            <td>Solar Street Light (Full Cost)</td>
+                            <td>20220107806841</td>
+                            <td>Utsav Resort Ke Pass</td>
+                            <td>9410422621</td>
+                            <td>2022-11-23</td>
+                            <td>YES</td>
+                            <td>NO</td>
+                            <td>NO</td>
+                            <td>NO</td>
+                            <td>NO</td>
+                            <td>NO</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>NULL</td>
+                            <td>
+                              <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
+                              <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
+
                     </div>
                   </div>
 
+                  <!-- End Cards Tab -->
                 </div>
+
               </div>
             </div>
           </div>
         </div>
-
         <!-- footer section -->
         <section class="">
           <div class="container">
@@ -1672,7 +1438,6 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
 
 
     <!-- Control Sidebar -->
@@ -1752,15 +1517,51 @@
   </script>
 
 
-
   <!-- jQuery -->
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables  & Plugins -->
+  <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../../plugins/jszip/jszip.min.js"></script>
+  <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- Page specific script -->
+  <script>
+    $(function () {
+      $("#example1")
+        .DataTable({
+          responsive: true,
+          lengthChange: false,
+          autoWidth: false,
+          buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        })
+        .buttons()
+        .container()
+        .appendTo("#example1_wrapper .col-md-6:eq(0)");
+      $("#example2").DataTable({
+        paging: false,
+        lengthChange: false,
+        searching: false,
+        ordering: true,
+        info: true,
+        autoWidth: false,
+        responsive: true,
+      });
+    });
+  </script>
 </body>
 
 </html>

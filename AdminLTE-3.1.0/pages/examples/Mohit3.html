@@ -734,95 +734,84 @@
   <!-- NEW Nav css here  -->
 
   <style>
-    /* ===== New Modern Sidebar Style (for AdminLTE) ===== */
     .main-sidebar {
-      background: #36404a !important;
+      height: 100vh !important;
+      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+      position: fixed !important;
+      overflow: hidden !important;
+
+    }
+
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
     }
 
 
-
-    .nav-sidebar .nav-item>.nav-link {
+    .nav-sidebar .nav-link {
       display: flex;
       align-items: center;
-      gap: 1px !important;
-      padding: 12px 15px;
-      border-radius: 50px !important;
-      margin: 3px 5px !important;
-      color: #e5e9ec !important;
-      transition: all 0.3s ease-in-out;
-      box-shadow: #303841 !important;
-      font-size: 15px;
-    }
-
-    .nav-sidebar .nav-item>.nav-link i.nav-icon {
-      color: #9ca8b3 !important;
-      font-size: 18px;
-    }
-
-    /* Hover */
-    .nav-sidebar .nav-item>.nav-link:hover {
-      background: #303942 !important;
-      color: #338ed7 !important;
-    }
-
-    .nav-sidebar .nav-item>.nav-link:hover i.nav-icon {
-      color: #338ed7 !important;
-    }
-
-    /* Active */
-    .nav-sidebar .nav-link.active {
-      background: #303942 !important;
-      color: #338ed7 !important;
-    }
-
-    .nav-sidebar .nav-link.active i.nav-icon {
-      color: #338ed7 !important;
-    }
-
-    /* Treeview submenu */
-    .nav-treeview>.nav-item>.nav-link {
-      padding: 7px 20px !important;
+      gap: 10px;
+      padding: 8px 22px;
+      border-radius: 10px;
       font-size: 14px;
-      margin: 4px 5px;
-      border-radius: 50px;
-    }
-
-    .nav-treeview>.nav-item>.nav-link:hover {
-      background: #303942 !important;
-      color: #338ed7 !important;
-    }
-
-    /* ===== nav header style ===== */
-    /* ===== nav header style (compact background) ===== */
-    .nav-header {
-      color: #338dd7 !important;
-      background: #303841 !important;
-      padding: 4px 12px !important;
-      font-size: 11px !important;
-      font-weight: 600 !important;
-      display: inline-block !important;
-      border-radius: 0 14px 14px 0 !important;
-      margin: 10px 0 6px 0px !important;
-      letter-spacing: .5px;
-      width: 60%;
-      text-transform: uppercase;
-    }
-
-
-    /* Arrow icon color */
-    .nav-sidebar .nav-link .right {
-      color: #9ca8b3;
+      color: #4c576c !important;
+      font-weight: 500;
+      transition: 0.2s ease-in-out;
     }
 
     .nav-sidebar .nav-link .nav-icon {
-      font-size: 1.1rem;
-      margin-right: 10px;
-      color: #7da2c9;
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 17px;
+      color: #677892;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .nav-sidebar .nav-link.active .nav-icon,
-    .nav-sidebar .nav-link:hover .nav-icon {
-      color: #ffffff;
+    .nav-sidebar .nav-link:hover {
+      background: #edf5fc;
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .nav-link.active {
+      background: #e7f2ff !important;
+      color: #2e83ff !important;
+      font-weight: 600;
+      border-left: 4px solid #2e83ff;
+      padding-left: 15px;
+    }
+
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #7b8aa1;
+    }
+
+    .nav-treeview {
+      padding-left: 25px;
+      margin: 0 !important;
+    }
+
+    .nav-treeview .nav-link {
+      margin: 4px 12px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #6b7280 !important;
+    }
+
+    .nav-treeview .nav-link:hover {
+      background: #f3f6fb;
+      color: #2e83ff !important;
     }
   </style>
 
@@ -1006,578 +995,465 @@
 
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand -->
-      <a href="#" class="brand-link brand-custom bg-light d-flex align-items-center justify-content-center ">
-        <img src="../images/klkhalflogo.webp" class="brand-image img-circle elevation-3 me-2" width="38" />
-        <span class="brand-text text-dark">KLK Ventures</span>
+    <aside class="main-sidebar  elevation-4">
+      <!-- Brand Logo -->
+      <a href="../../index3.html" class="brand-link border-bottom shadow-sm">
+        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+          class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
+        <span class="brand-text text-dark">KLK Jammu </span>
       </a>
+
 
       <!-- Sidebar -->
       <div class="sidebar">
-
-
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
             <li class="nav-header">Dashboard</li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a href="#" class="nav-link active">
                 <i class="bi bi-speedometer2 nav-icon"></i>
-
                 <p>
                   Dashboard
-                  <i class="right ph ph-caret-right"></i>
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="bi bi-grid nav-icon"></i>
-
-                <p>Widgets</p>
-              </a>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-bar-chart-line nav-icon"></i>
-                <p>
-                  Charts
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-
-                <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>uPlot</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-layers nav-icon"></i>
-                <p>
-                  UI Elements
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-
-                <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>uPlot</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-ui-checks-grid nav-icon"></i>
-
-                <p>Forms</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-header">Pages</li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-table nav-icon"></i>
-
-                <p>Tables</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="pages/calendar.html" class="nav-link">
-                <i class="bi bi-calendar-week nav-icon"></i>
-
-                <p>Calendar</p>
-              </a>
-            </li>
-
-
-            <li class="nav-header">Main Links</li>
-
-            <li class="nav-item">
-              <a href="pages/gallery.html" class="nav-link">
-                <i class="bi bi-images nav-icon"></i>
-
-                <p>Gallery</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="pages/kanban.html" class="nav-link">
-                <i class="bi bi-gear nav-icon"></i>
-
-                <p>Kanban</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-envelope nav-icon"></i>
-
-                <p>Mailbox</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tree"></i>
-                <p>
-                  UI Elements
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/UI/general.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>General</p>
+                    <p>Jammu SRT</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/icons.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Icons</p>
+                    <p>Jammu 70MW SRT</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/buttons.html" class="nav-link">
+                  <a href="./Mohit3.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Buttons</p>
+                    <p>Jammu SWP</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/sliders.html" class="nav-link">
+                  <a href="./Mohit4.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Sliders</p>
+                    <p>Jammuj SSL</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/UI/modals.html" class="nav-link">
+                  <a href="./Sidebar.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Modals & Alerts</p>
+                    <p>Jammu SHL</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/UI/navbar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Navbar & Tabs</p>
-                  </a>
-                </li>
+
                 <li class="nav-item">
                   <a href="pages/UI/timeline.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Timeline</p>
+                    <p>Jammu Resco</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/UI/ribbons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ribbons</p>
-                  </a>
-                </li>
+
               </ul>
             </li>
+
+
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+              <a href="./Mohit4.html" class="nav-link">
+                <i class="bi bi-diagram-3 nav-icon"></i>
+                <p>SRT</p>
+              </a>
+            </li>
+
+
+
+            <li class="nav-item ">
+              <a href="#" class="nav-link ">
+                <i class="bi bi-lightning-charge nav-icon"></i>
                 <p>
-                  Forms
+                  Jammu SRT 70MW
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>General Elements</p>
+                    <p>Add SRT 70MW</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/advanced.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Advanced Elements</p>
+                    <p>Upload SRT 70MW</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/editors.html" class="nav-link">
+                  <a href="./Mohit3.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
+                    <p>View SRT 70MW SWP</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/validation.html" class="nav-link">
+                  <a href="./Mohit4.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
+                    <p>HO Panel No. Import</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Dispatch</p>
+                  </a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
+
+            <li class="nav-item ">
+              <a href="#" class="nav-link ">
+<i class="bi bi-clipboard-check nav-icon"></i>
+                <p>
+                  Survey
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Survey</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Survey</p>
+                  </a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
+
+            <li class="nav-header">Resco</li>
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <i class="bi bi-plus-circle nav-icon"></i>
+
+                <p>Add Resco</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Empdashboard.html" class="nav-link">
+                <i class="bi bi-eye nav-icon"></i>
+                <p>View Resco</p>
+              </a>
+            </li>
+
+
+            <li class="nav-header">More Links</li>
+            <li class="nav-item ">
+              <a href="#" class="nav-link">
+<i class="bi bi-person-check nav-icon"></i>
+                <p>
+                  Task Assign
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Task Assign</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Task Assign</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./Mohit2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Task Assign By Me</p>
                   </a>
                 </li>
               </ul>
             </li>
 
-            <li class="nav-header">IMPORTANT LINKS</li>
-            <li class="nav-item">
+
+
+
+
+            <li class="nav-item ">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+<i class="bi bi-file-earmark-text nav-icon"></i>
                 <p>
-                  Tables
+                  SSL Details
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/tables/simple.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Tables</p>
+                    <p>Add SSL Details</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/tables/data.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>DataTables</p>
+                    <p>View SSL Details</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
-                  <a href="pages/tables/jsgrid.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>jsGrid</p>
+                    <p>Upload SSL Details</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-              <a href="pages/calendar.html" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <p>
-                  Calendar
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/gallery.html" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
-                <p>
-                  Gallery
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/kanban.html" class="nav-link">
-                <i class="nav-icon fas fa-columns"></i>
-                <p>
-                  Kanban Board
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
+
+
+
+
+            <li class="nav-item ">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-envelope"></i>
+<i class="bi bi-file-earmark-medical nav-icon"></i>
                 <p>
-                  Mailbox
+                  SHL Details
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Inbox</p>
+                    <p>Add SHL Details</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/mailbox/compose.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Compose</p>
+                    <p>View SHL Details</p>
                   </a>
                 </li>
+
                 <li class="nav-item">
-                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Read</p>
+                    <p>Upload SHL Details</p>
                   </a>
                 </li>
               </ul>
             </li>
+
+
+            <li class="nav-header">SWP Details</li>
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+            <i class="bi bi-droplet nav-icon"></i>
+
+                <p>Add SWP Details</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Empdashboard.html" class="nav-link">
+               <i class="bi bi-eye nav-icon"></i>
+
+
+                <p>View SWP Details</p>
+              </a>
+            </li>
+
+
+
+
+
+
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
+                <i class="bi bi-speedometer2 nav-icon"></i>
                 <p>
-                  Pages
+                  Material Status
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/examples/invoice.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Invoice</p>
+                    <p>Add Material</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/examples/profile.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Profile</p>
+                    <p>View Material</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/examples/e-commerce.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>E-commerce</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/projects.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Projects</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/project-add.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Add</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/project-edit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Edit</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/project-detail.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Project Detail</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/contacts.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Contacts</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/faq.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>FAQ</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/contact-us.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Contact us</p>
-                  </a>
-                </li>
+
+
               </ul>
             </li>
+
+
+
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon far fa-plus-square"></i>
+<i class="bi bi-bag nav-icon"></i>
                 <p>
-                  Extras
+                  Products
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Login & Register v1
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="pages/examples/login.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/register.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/forgot-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v1</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/recover-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v1</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Login & Register v2
-                      <i class="fas fa-angle-left right"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="pages/examples/login-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/register-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/forgot-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v2</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="pages/examples/recover-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v2</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/lockscreen.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Lockscreen</p>
+                    <p>Products Deatils</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Legacy User Menu</p>
+                    <p>Request Deatils</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/examples/language-menu.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Language Menu</p>
+                    <p>Dispatch Details</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/examples/404.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 404</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/500.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Error 500</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/pace.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pace</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/examples/blank.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Blank Page</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="starter.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Starter Page</p>
-                  </a>
-                </li>
+
+
               </ul>
             </li>
+
+
+            <li class="nav-header">Complaints</li>
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+               <i class="bi bi-exclamation-triangle nav-icon"></i>
+                <p>SSL Complaints</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Empdashboard.html" class="nav-link">
+<i class="bi bi-exclamation-octagon nav-icon"></i>
+                <p>SWP Complaints</p>
+              </a>
+            </li>
+
+
+
+
+
+
+
+
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-search"></i>
+<i class="bi bi-truck nav-icon"></i>
                 <p>
-                  Search
+                  HO Dispatch
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/search/simple.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Simple Search</p>
+                    <p>Dispatch Sim No </p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/search/enhanced.html" class="nav-link">
+                  <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Enhanced</p>
+                    <p>Dispatch Panel No </p>
+                  </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dispatch Battery No </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dispatch IMEI No </p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-header">MISCELLANEOUS</li>
+
+
+
             <li class="nav-item">
-              <a href="iframe.html" class="nav-link">
-                <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>Tabbed IFrame Plugin</p>
+              <a href="#" class="nav-link">
+<i class="bi bi-person-badge nav-icon"></i>
+                  <p>
+                  Jammu Registeration
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kusum B Registeration</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kusum C Registeration</p>
+                  </a>
+                </li>
+
+
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-box-arrow-right nav-icon"></i>
+                <p>Logout</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                <i class="nav-icon fas fa-file"></i>
-                <p>Documentation</p>
-              </a>
-            </li>
+
+
+
+
+
 
           </ul>
         </nav>
@@ -1585,6 +1461,7 @@
       </div>
       <!-- /.sidebar -->
     </aside>
+
 
 
     <!-- Content Wrapper. Contains page content -->
