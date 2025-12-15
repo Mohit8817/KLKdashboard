@@ -661,8 +661,8 @@
   <style>
     /* ----------Table CSS -------------------------- */
 
-    /* Chart Wrapper */
-    .chart-card {
+    /* Table Header */
+    .table-card {
       overflow: hidden;
       border-radius: 12px;
       transition: 0.3s;
@@ -670,21 +670,30 @@
       background: #fff;
     }
 
-
-    /* Chart Header */
-    .chart-header {
+    .table-header {
       background: #38487c;
-      color: #ffffff;
       padding: 10px 15px;
-      font-size: 15px;
-      font-weight: 600;
+    }
+
+    /* Header Inner Layout */
+    .table-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Left Title */
+    .table-title-left {
       display: flex;
       align-items: center;
       gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffffff;
     }
 
-    /* Icon Circle like card */
-    .chart-header i {
+    /* Icon Circle */
+    .table-title-left i {
       width: 30px;
       height: 30px;
       background: #eef6ff;
@@ -696,34 +705,49 @@
       color: #38487c;
     }
 
-    /* Card Inner */
-    .chart-container {
-      position: relative;
-      height: 350px;
-      padding: 10px;
+    /* Export Button */
+    .export-btn {
+      background: #ffffff;
+      color: #38487c;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: 0.3s ease;
     }
+
+    .export-btn:hover {
+      background: #eef6ff;
+      color: #38487c;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 576px) {
+      .table-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
 
     /* Responsive */
     @media (max-width: 768px) {
-      .chart-container {
-        height: 300px;
-      }
 
-      .chart-header {
+
+      .table-header {
         font-size: 13px !important;
         padding: 10px 16px;
       }
 
-      .chart-header i {
+      .table-header i {
         width: 30px;
         height: 30px;
         font-size: 13px;
       }
 
-      .nav-tabs .nav-link {
-        font-size: 9px !important;
-        padding: 10px 12px !important;
-      }
+
     }
 
     /* Table Styling */
@@ -748,33 +772,21 @@
     .modern-table td {
       padding: 12px;
       border-bottom: 1px solid #e7e7e7;
-
-
     }
 
-    /* Tabs Styling */
-    .nav-tabs .nav-link {
-      font-size: 15px;
-      font-weight: 600;
-      padding: 10px 15px;
-      border-radius: 8px 8px 0 0;
-      background: #f1f4ff;
-      margin-right: 4px;
-      transition: .3s;
+    .dataTables_wrapper {
+      width: 100%;
+      /* overflow-x: auto; */
     }
 
-    .nav-tabs .nav-link.active {
-      background: #38487c;
-      color: #fff !important;
-      border-color: transparent !important;
-    }
-
-    .tab-content {
-      background: #fff;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    table.dataTable td,
+    table.dataTable th {
+      white-space: nowrap;
+      vertical-align: middle;
+      border-radius: 0px !important;
     }
   </style>
+
 
 
 </head>
@@ -967,12 +979,8 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
             <li class="nav-header">Dashboard</li>
-
-            <li class="nav-item active">
+            <li class="nav-item ">
               <a href="#" class="nav-link">
                 <i class="bi bi-speedometer2 nav-icon"></i>
                 <p>
@@ -988,7 +996,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="./Mohit2.html" class="nav-link ">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dashboard Two</p>
                   </a>
@@ -1029,7 +1037,7 @@
 
 
             <li class="nav-item">
-              <a href="./Mohit4.html" class="nav-link active">
+              <a href="./Mohit4.html" class="nav-link">
                 <i class="bi bi-grid nav-icon"></i>
 
                 <p>Dashboard 2</p>
@@ -1045,6 +1053,14 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="./Newtable.html" class="nav-link active">
+                <i class="bi bi-bar-chart-line nav-icon"></i>
+                <p>
+                  Table
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               <a href="./Userprofile.html" class="nav-link">
@@ -1054,6 +1070,7 @@
                 </p>
               </a>
             </li>
+
             <li class="nav-item">
               <a href="./UserProfilepage.html" class="nav-link">
                 <i class="bi bi-layers nav-icon"></i>
@@ -1298,6 +1315,7 @@
     </aside>
 
 
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <section class="content">
@@ -1305,117 +1323,111 @@
         <div class="container pb-2">
           <div class="row">
             <div class="col-12">
-              <div class="shadow-sm chart-card border-0 mt-3">
-                <!-- Header -->
-                <div class="card-header table-title border-0 p-0">
-                  <div class="chart-header">
-                    <i class="fas fa-users"></i> Employee Status & Access Details
-                  </div>
-                </div>
-                <!-- Bootstrap Tab System -->
-                <nav class="px-3 pt-2">
-                  <div class="nav nav-tabs" id="custom-tab" role="tablist">
-                    <a class="nav-item nav-link text-dark" id="cards-tab" data-toggle="tab" href="#tableTab" role="tab"
-                      aria-controls="tableTab" aria-selected="false">Table View</a>
-                  </div>
-                </nav>
+              <div class="shadow-sm table-card border-0 mt-3">
 
-                <!-- Tab Content -->
-                <div class="tab-content p-3" id="custom-tabContent">
-
-                  <!-- TABLE TAB -->
-                  <div class="tab-pane fade active show " id="tableTab" role="tabpanel" aria-labelledby="table-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0" id="example1">
-                        <thead>
-                          <tr>
-                            <th>Sr No</th>
-                            <th>Serial No</th>
-                            <th>Financial Year</th>
-                            <th>State</th>
-                            <th>District</th>
-                            <th>Village</th>
-                            <th>Scheme</th>
-                            <th>UID</th>
-                            <th>Beneficiary Name</th>
-                            <th>Contact No</th>
-                            <th>Installed Date</th>
-                            <th>Payment 85%</th>
-                            <th>AMC 1st Yr 3%</th>
-                            <th>AMC 2nd Yr 3%</th>
-                            <th>AMC 3rd Yr 3%</th>
-                            <th>AMC 4th Yr 3%</th>
-                            <th>AMC 5th Yr 3%</th>
-                            <th>Document</th>
-                            <th>Remarks</th>
-                            <th>Created By</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>-</td>
-                            <td>UP</td>
-                            <td>Agra</td>
-                            <td>Kirawali</td>
-                            <td>Solar Street Light (Full Cost)</td>
-                            <td>20220107806840</td>
-                            <td>Kandaubar Ward No -25</td>
-                            <td>9837676924</td>
-                            <td>2022-11-23</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>NULL</td>
-                            <td>
-                              <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
-                              <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>2</td>
-                            <td>2</td>
-                            <td>2021-2022</td>
-                            <td>UP</td>
-                            <td>Agra</td>
-                            <td>Kirawali</td>
-                            <td>Solar Street Light (Full Cost)</td>
-                            <td>20220107806841</td>
-                            <td>Utsav Resort Ke Pass</td>
-                            <td>9410422621</td>
-                            <td>2022-11-23</td>
-                            <td>YES</td>
-                            <td>NO</td>
-                            <td>NO</td>
-                            <td>NO</td>
-                            <td>NO</td>
-                            <td>NO</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>NULL</td>
-                            <td>
-                              <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
-                              <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
+                <!-- Table Header -->
+                <div class="table-header border-0 p-2">
+                  <div class="table-header-inner">
+                    <div class="table-title-left">
+                      <i class="fas fa-users"></i>
+                      View UP SSL Data
                     </div>
-                  </div>
+                    <div class="table-title-right">
+                      <a href="#" class="export-btn">
+                        <i class="fa-solid fa-file-export me-1"></i> Export
+                      </a>
+                    </div>
 
-                  <!-- End Cards Tab -->
+                  </div>
                 </div>
 
+
+                <div class="table-responsive p-3">
+                  <table class="table modern-table table-hover text-center mb-0 w-100" id="example1">
+                    <thead>
+                      <tr>
+                        <th>Sr No</th>
+                        <th>Serial No</th>
+                        <th>Financial Year</th>
+                        <th>State</th>
+                        <th>District</th>
+                        <th>Village</th>
+                        <th>Scheme</th>
+                        <th>UID</th>
+                        <th>Beneficiary Name</th>
+                        <th>Contact No</th>
+                        <th>Installed Date</th>
+                        <th>Payment 85%</th>
+                        <th>AMC 1st Yr 3%</th>
+                        <th>AMC 2nd Yr 3%</th>
+                        <th>AMC 3rd Yr 3%</th>
+                        <th>AMC 4th Yr 3%</th>
+                        <th>AMC 5th Yr 3%</th>
+                        <th>Document</th>
+                        <th>Remarks</th>
+                        <th>Created By</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>-</td>
+                        <td>UP</td>
+                        <td>Agra</td>
+                        <td>Kirawali</td>
+                        <td>Solar Street Light (Full Cost)</td>
+                        <td>20220107806840</td>
+                        <td>Kandaubar Ward No -25</td>
+                        <td>9837676924</td>
+                        <td>2022-11-23</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>NULL</td>
+                        <td>
+                          <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
+                          <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2021-2022</td>
+                        <td>UP</td>
+                        <td>Agra</td>
+                        <td>Kirawali</td>
+                        <td>Solar Street Light (Full Cost)</td>
+                        <td>20220107806841</td>
+                        <td>Utsav Resort Ke Pass</td>
+                        <td>9410422621</td>
+                        <td>2022-11-23</td>
+                        <td>YES</td>
+                        <td>NO</td>
+                        <td>NO</td>
+                        <td>NO</td>
+                        <td>NO</td>
+                        <td>NO</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>NULL</td>
+                        <td>
+                          <a href="#" class="view-icon me-2"><i class="fa-solid fa-eye"></i></a>
+                          <a href="#" class="view-icon"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
               </div>
             </div>
           </div>
@@ -1541,27 +1553,35 @@
   <!-- Page specific script -->
   <script>
     $(function () {
-      $("#example1")
-        .DataTable({
-          responsive: true,
-          lengthChange: false,
-          autoWidth: false,
-          buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
-        })
+      $("#example1").DataTable({
+        responsive: {
+          details: {
+            type: "column",
+            target: "tr"
+          }
+        },
+        responsive: false,
+        scrollX: true,
+        autoWidth: false,
+        lengthChange: false,
+        pageLength: 10,
+        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        columnDefs: [
+          { responsivePriority: 1, targets: -1 },
+          { responsivePriority: 2, targets: 0 },
+          { responsivePriority: 3, targets: 8 }
+        ]
+      })
         .buttons()
         .container()
         .appendTo("#example1_wrapper .col-md-6:eq(0)");
-      $("#example2").DataTable({
-        paging: false,
-        lengthChange: false,
-        searching: false,
-        ordering: true,
-        info: true,
-        autoWidth: false,
-        responsive: true,
-      });
     });
   </script>
+
+
+
+
+
 </body>
 
 </html>
