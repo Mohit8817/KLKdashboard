@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KLK ERP</title>
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: #f1f4fd !important;
+    }
+
+    /* PROFILE IMAGE */
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid #d7e9ff;
+      padding: 2px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* NOTIFICATION ICON */
+    .notif-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px dotted #c5c5c5;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .notif-btn i {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .notif-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4b4b;
+      padding: 1px 6px;
+      border-radius: 50px;
+      font-size: 10px;
+      color: white;
+    }
+
+    .notif-dropdown {
+      width: 250px !important;
+      border-radius: 12px;
+    }
+
+    /* TITLE */
+    .notif-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* HOVER EFFECT */
+    .notif-dropdown .dropdown-item:hover {
+      background: #f5f7ff;
+      border-radius: 8px;
+    }
+
+    /* DOCUMENT BUTTON — LIGHT COLOR */
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .doc-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown-menu {
+      width: 210px;
+      border-radius: 10px;
+      padding: 0;
+    }
+
+    .user-box {
+      padding: 8px 15px !important;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-box h6 {
+      font-size: 15px;
+      margin-bottom: 0;
+      color: black;
+    }
+
+    .icon-blue,
+    .icon-pink,
+    .icon-gray,
+    .icon-green,
+    .icon-orange {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border-radius: 50%;
+    }
+
+    .icon-blue {
+      background: #e8f3ff;
+      color: #4a8cff;
+    }
+
+    .icon-pink {
+      background: #ffe8ef;
+      color: #ff7aa2;
+    }
+
+    .icon-gray {
+      background: #f1f1f1;
+      color: #444444;
+    }
+
+    .icon-orange {
+      background: #fef5e5;
+      color: #ec9829;
+    }
+
+    .icon-green {
+      background: #e8ffe8;
+      color: #33a933;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background: #f4f7ff;
+    }
+
+    @media (max-width: 576px) {
+      .header-actions {
+        gap: 12px;
+      }
+
+      .doc-btn span {
+        display: none;
+      }
+    }
+
+    /* Welcome section  */
+
+    .welcome-sub {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .welcome-title {
+      font-size: 22px;
+    }
+
+    /* MOBILE Responsive */
+    @media (max-width: 767px) {
+      .welcome-icon {
+        width: 40px !important;
+        /* icon smaller on mobile */
+      }
+
+      .welcome-sub {
+        font-size: 14px !important;
+      }
+
+      .welcome-title {
+        font-size: 18px !important;
+      }
+    }
+
+    /* ============================  card section  */
+
+    .dashboard-container,
+    .map-container,
+    .footer-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .stats-card {
+      position: relative;
+      border-radius: 50px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+      height: 110px;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Existing Background Circle */
+    .stats-card::after {
+      content: "";
+      position: absolute;
+      bottom: -30%;
+      right: -20%;
+      width: 200px;
+      height: 200px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .upper_div-circle {
+      border: 0.2px solid rgb(240, 240, 240) !important;
+      border-radius: 50px;
+      position: relative;
+      padding: 0 0 0 10px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(50px) !important;
+      -webkit-backdrop-filter: blur(30px) !important;
+      box-shadow: 0 10px 30px rgba(224, 14, 14, 0.15);
+      overflow: hidden;
+      height: 90px;
+      width: 100%;
+    }
+
+    .icon-wrapper {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .circle-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats-content {
+      flex: 1;
+      position: relative;
+      padding: 0 0 0 5px;
+      z-index: 1;
+    }
+
+    .stats-label {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+
+    .card-1 {
+      background: linear-gradient(135deg, #50aefa 0%, #0487ef 100%);
+    }
+
+    .card-2 {
+      background: linear-gradient(135deg, #f9526b 0%, #c4001a 100%);
+    }
+
+    .card-3 {
+      background: linear-gradient(135deg, #9486ff 0%, #3822fd 100%);
+    }
+
+    .card-4 {
+      background: linear-gradient(135deg, #467fe7 0%, #07275b 100%);
+    }
+
+    .card-5 {
+      background: linear-gradient(135deg, #56de6f 0%, #198129 100%);
+    }
+
+    .card-6 {
+      background: linear-gradient(135deg, #f9c26b 0%, #945b00 100%);
+    }
+
+    .card-7 {
+      background: linear-gradient(135deg, #5dd88d 0%, #19aa56 100%);
+    }
+
+    .card-8 {
+      background: linear-gradient(135deg, #ff966c 0%, #c03802 100%);
+    }
+
+    .card-9 {
+      background: linear-gradient(135deg, #ffbafc 0%, #7d0076 100%);
+    }
+
+    .card-10 {
+      background: linear-gradient(135deg, #77faff 0%, #002729 100%);
+    }
+
+    /* Base footer text */
+    .footer-text {
+      font-size: 12px;
+      color: #6c757d;
+      letter-spacing: 0.3px;
+      line-height: 1.4;
+    }
+
+    .brand-name {
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* Responsive text for small devices */
+    @media (max-width: 480px) {
+      .footer-text {
+        text-align: center;
+        font-size: 12px;
+        padding: 0 10px;
+        display: block;
+      }
+    }
+
+    /* MOBILE — KEEP LOGO + TEXT + ICONS IN ONE ROW */
+    @media (max-width: 576px) {
+      .navbar .container-fluid {
+        flex-wrap: nowrap !important;
+      }
+
+      .navbar-brand {
+        font-size: 13px !important;
+        display: flex;
+        align-items: center;
+        gap: 0;
+        font-weight: 500;
+      }
+
+      .navbar-brand img {
+        width: 45px !important;
+      }
+
+      .header-actions {
+        gap: 10px !important;
+      }
+
+      .doc-btn {
+        padding: 4px 10px !important;
+        font-size: 12px !important;
+      }
+
+      .notif-btn,
+      .profile-img {
+        width: 32px !important;
+        height: 32px !important;
+      }
+
+      .notif-badge {
+        font-size: 8px !important;
+        padding: 1px 4px !important;
+      }
+    }
+
+
+
+    /* RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+
+
+    /* input box css  */
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-white shadow-sm px-lg-3">
+    <div class="container-fluid">
+      <!-- BRAND -->
+      <a class="navbar-brand d-flex align-items-center">
+        <img src="../images/KLK SVG Logo.svg" class="me-2 rounded" width="80" />
+        KLK Ventures Pvt Ltd.
+      </a>
+
+      <!-- RIGHT SIDE ICONS -->
+      <div class="header-actions">
+        <!-- DOCUMENT BUTTON -->
+        <div class="doc-btn">
+          <i class="bi bi-file-earmark-text"></i>
+          <span>Document</span>
+        </div>
+        <!-- NOTIFICATION -->
+        <div class="dropdown">
+          <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell"></i>
+            <span class="notif-badge">7</span>
+          </div>
+          <!-- DROPDOWN BOX -->
+          <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+            <li class="dropdown-header fw-bold px-3 text-dark">
+              Notifications
+            </li>
+
+            <li>
+              <a href="#" class="dropdown-item d-flex align-items-start">
+                <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                <div>
+                  <div class="notif-title">New policy update</div>
+                  <small class="text-muted">5 min ago</small>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="dropdown-item d-flex align-items-start">
+                <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                <div>
+                  <div class="notif-title">Server downtime alert</div>
+                  <small class="text-muted">10 min ago</small>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="dropdown-item d-flex align-items-start">
+                <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                <div>
+                  <div class="notif-title">Payment completed</div>
+                  <small class="text-muted">20 min ago</small>
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li>
+              <a class="dropdown-item text-center" href="#">View All</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- PROFILE DROPDOWN -->
+        <div class="dropdown">
+          <img src="../images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li class="user-box">
+              <h6>Login New User</h6>
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal"
+                data-bs-target="#profileModal">
+                <i class="bi bi-person icon-blue me-3"></i>Profile
+              </a>
+
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#"><i
+                  class="bi bi-gear icon-pink me-3"></i>Settings</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                  class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+        <!-- profile popup  -->
+
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-right">
+            <div class="modal-content profile-modal">
+
+              <span class="close-btn" data-bs-dismiss="modal">
+                <i class="bi bi-x-lg"></i>
+              </span>
+
+              <div class="modal-body text-center p-4">
+                <img src="../images/userimg.jpg" class="profile-photo mb-3">
+                <h5 class="user-name">Pravesh Ahamad</h5>
+                <p class="user-email">@parvesahamad</p>
+
+                <hr>
+
+                <div class="profile-info">
+                  <p><strong>Full Name:</strong> Parves Ahamad</p>
+                  <p><strong>Email:</strong> parves@gmail.com</p>
+                  <p><strong>Gender:</strong> Male</p>
+                  <p><strong>DOB:</strong> 05-01-2001</p>
+                  <p><strong>Phone:</strong> +91 9876543210</p>
+                  <p><strong>State:</strong> Kashmir</p>
+                </div>
+
+                <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+
+                <!-- Hidden Password Fields -->
+                <div id="passwordFields" style="display:none; padding: 15px;">
+
+                  <div class="mb-2 text-start">
+                    <label class="form-label">New Password</label>
+                    <div class="password-wrapper">
+                      <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                      <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                    </div>
+                  </div>
+
+                  <div class="mb-2 text-start">
+                    <label class="form-label">Confirm Password</label>
+                    <div class="password-wrapper">
+                      <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                      <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                    <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WELCOME SECTION -->
+  <section class="welcome-section py-4 px-3">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <!-- LEFT SIDE -->
+        <div class="col-md-6 d-flex align-items-center gap-3 mb-3 mb-md-0">
+          <img src="../images/logistics.svg" class="welcome-icon" style="width: 55px" />
+          <div>
+            <div class="welcome-sub">Welcome back to,</div>
+            <h2 class="welcome-title m-0 fw-bold">KLK ERP Dashboard</h2>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-6">
+          <div class="row justify-content-md-end justify-content-center align-items-center">
+            <!-- Vendor -->
+            <a href="vendor.html" class="col-4 text-decoration-none text-dark">
+              <div class="d-flex flex-md-row flex-column text-center text-md-start pointer">
+                <img src="../images/icon (2).svg" class="d-block mx-auto mx-md-0" style="width: 45px; height: 45px"
+                  onload="if(window.innerWidth < 768){this.style.width='28px';this.style.height='28px';}" />
+
+                <div class="ms-md-2 mt-md-0">
+                  <h6 class="m-0 fw-bold d-flex align-items-center justify-content-center justify-content-md-start"
+                    style="font-size: 17px">
+                    Vendor
+                    <i class="bi bi-arrow-up-right fs-5 ms-1 text-info"></i>
+                  </h6>
+                  <p class="m-0 text-secondary" style="font-size: 13px">
+                    View more
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Complaints -->
+            <a href="complaints.html" class="col-4 text-decoration-none text-dark">
+              <div class="d-flex align-items-center flex-md-row flex-column text-center text-md-start pointer">
+                <img src="../images/icon (3).svg" class="d-block mx-auto mx-md-0" style="width: 45px; height: 45px"
+                  onload="if(window.innerWidth < 768){this.style.width='28px';this.style.height='28px';}" />
+
+                <div class="ms-md-2 mt-md-0">
+                  <h6 class="m-0 fw-bold d-flex align-items-center justify-content-center justify-content-md-start"
+                    style="font-size: 17px">
+                    Complaints
+                    <i class="bi bi-arrow-up-right fs-5 ms-1 text-info"></i>
+                  </h6>
+                  <p class="m-0 text-secondary" style="font-size: 13px">
+                    View more
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Gallery -->
+            <a href="gallery.html" class="col-4 text-decoration-none text-dark">
+              <div class="d-flex align-items-center flex-md-row flex-column text-center text-md-start pointer">
+                <img src="../images/icon (4).svg" class="d-block mx-auto mx-md-0" style="width: 45px; height: 45px"
+                  onload="if(window.innerWidth < 768){this.style.width='28px';this.style.height='28px';}" />
+
+                <div class="ms-md-2 mt-md-0">
+                  <h6 class="m-0 fw-bold d-flex align-items-center justify-content-center justify-content-md-start"
+                    style="font-size: 17px">
+                    Gallery
+                    <i class="bi bi-arrow-up-right fs-5 ms-1 text-info"></i>
+                  </h6>
+                  <p class="m-0 text-secondary" style="font-size: 13px">
+                    View more
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cards section  -->
+  <section class="dashboard-container">
+    <div class="row"> 
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-1">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/j&K.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Kashmir</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Jammu -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-2">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/j&K.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Jammu</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Himachal Pradesh -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-3">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/hp.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Himachal Pradesh</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Haryana -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-4">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/hr.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Haryana</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Uttar Pradesh -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-5">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/up.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Uttar Pradesh</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Bihar -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-6">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/bh.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Bihar</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Karnataka -->
+      <div class="col-lg-3 col-md-6">
+        <a href="#" class="text-decoration-none">
+          <div class="stats-card card-7">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/tr.webp" alt=" Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Karnataka</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Jharkhand -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-8">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/bh.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Jharkhand</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Tripura -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-9">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/up.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Tripura</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Assam  -->
+      <div class="col-lg-3 col-md-6">
+        <a href="./klkinnerpage.html" class="text-decoration-none">
+          <div class="stats-card card-10">
+            <div class="upper_div-circle">
+              <div class="icon-wrapper">
+                <img src="../images/assam.webp" alt="Kashmir" class="circle-img" />
+              </div>
+              <div class="stats-content">
+                <div class="stats-label">Assam</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- hr line  -->
+  <section class="container">
+    <div class="row">
+      <hr />
+    </div>
+  </section>
+
+  <!-- map and card section  -->
+  <section class="map-container mb-3">
+    <div class="row">
+      <!-- LEFT SIDE -->
+      <div class="col-lg-6">
+        <div class="card border-2 p-4 shadow rounded-4 overflow-hidden">
+          <h5 class="fw-bold text-dark m-0" style="letter-spacing: 0.5px">
+            Solar Site Geo-Locator
+          </h5>
+          <hr />
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112092.35102763707!2d77.275344!3d28.6031975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce56c15555555%3A0xe34818fa9bfd0b86!2sKLK%20Ventures%20Private%20Limited!5e0!3m2!1sen!2sin!4v1763545370195!5m2!1sen!2sin"
+            width="100%" height="410" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="col-lg-6 mt-3 mt-sm-0 mt-md-0">
+        <div class="card border-2 p-4 shadow rounded-4 overflow-hidden">
+          <h5 class="fw-bold text-dark m-0" style="letter-spacing: 0.5px">
+            comming soon
+          </h5>
+          <hr />
+          <img src="../images/comingsooming.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- hr line  -->
+  <section class="container">
+    <div class="row">
+      <hr />
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <section class="">
+    <div class="container mx-lg-5">
+      <div class="row">
+        <footer class="footer-area py-2">
+          <p class="m-0 fw-semibold text-secondary small footer-text">
+            Copyright © <span id="year"></span> KLK ERP — By
+            <span class="text-primary fw-bold">ETS NETWORKS.</span>
+            All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script>
+    const changeBtn = document.getElementById("changePassBtn");
+    const passFields = document.getElementById("passwordFields");
+    const profileInfo = document.querySelector(".profile-info");
+    const cancelBtn = document.getElementById("cancelPassBtn");
+
+    // Change Password Button
+    changeBtn.addEventListener("click", function () {
+      passFields.style.display = "block";
+      profileInfo.style.display = "none";
+      changeBtn.style.display = "none";
+    });
+
+    // Cancel
+    cancelBtn.addEventListener("click", function () {
+      passFields.style.display = "none";
+      profileInfo.style.display = "block";
+      changeBtn.style.display = "block";
+    });
+
+    // Password Show/Hide
+    document.querySelectorAll(".password-toggle").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.getElementById(icon.getAttribute("data-target"));
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
+        }
+      });
+
+      // Reset modal on close
+      const profileModal = document.getElementById('profileModal');
+      profileModal.addEventListener('hidden.bs.modal', function () {
+        resetProfileModal();
+      });
+
+      // Reset Function
+      function resetProfileModal() {
+        passFields.style.display = "none";
+        profileInfo.style.display = "block";
+        changeBtn.style.display = "block";
+
+        document.getElementById("newPass").value = "";
+        document.getElementById("confirmPass").value = "";
+      }
+
+    });
+
+
+    // Cancel Button
+    cancelBtn.addEventListener("click", function () {
+      resetProfileModal();
+    });
+
+
+
+  </script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

@@ -31,7 +31,6 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1050;
     }
 
 
@@ -740,53 +739,28 @@
 
 
   <!-- NEW Sidebar css here  -->
-
-
   <style>
-    .main-sidebar .os-content::-webkit-scrollbar {
-      width: 10px !important;
+    /* SCROLLBAR WIDTH */
+    .main-sidebar .sidebar::-webkit-scrollbar {
+      width: 8px !important;
     }
 
-    .main-sidebar .os-content::-webkit-scrollbar-track {
-      background: rgba(46, 131, 255, 0.15) !important;
+    /* SCROLLBAR TRACK */
+    .main-sidebar .sidebar::-webkit-scrollbar-track {
+      background: #f1f1f1 !important;
       border-radius: 10px !important;
     }
 
-    .main-sidebar .os-content::-webkit-scrollbar-thumb {
-      background-color: #2e83ff !important;
+    /* SCROLLBAR THUMB */
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #49a3e8, #018ffb) !important;
       border-radius: 10px !important;
     }
 
-    .main-sidebar .os-content::-webkit-scrollbar-thumb:hover {
-      background-color: #1f6de0 !important;
+    /* SCROLLBAR HOVER */
+    .main-sidebar .sidebar::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #2997eb, #018ffb) !important;
     }
-
-    /* Firefox */
-    .main-sidebar .os-content {
-      scrollbar-width: thin !important;
-      scrollbar-color: #2e83ff rgba(46, 131, 255, 0.15) !important;
-    }
-
-
-
-       .main-sidebar.sidebar::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .main-sidebar.sidebar::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
-
-      .main-sidebar.sidebar::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #900000, #ef1313) !important ;
-        border-radius: 10px;
-      }
-
-      .main-sidebar.sidebar::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(135deg, #900000, #e51616) !important;
-      }
-
 
     .main-sidebar {
       height: 100vh !important;

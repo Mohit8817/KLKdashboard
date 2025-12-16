@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KLK ERP</title>
+
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            background-color: #f1f4fd !important;
+        }
+
+        /* PROFILE IMAGE */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* NOTIFICATION ICON */
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        /* TITLE */
+        .notif-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* HOVER EFFECT */
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        /* DOCUMENT BUTTON — LIGHT COLOR */
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+
+        /* Welcome section  */
+
+
+        .welcome-sub {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .welcome-title {
+            font-size: 22px;
+        }
+
+        /* MOBILE Responsive */
+        @media (max-width: 767px) {
+            .welcome-icon {
+                width: 40px !important;
+
+            }
+
+            .welcome-sub {
+                font-size: 14px !important;
+            }
+
+            .welcome-title {
+                font-size: 18px !important;
+            }
+        }
+
+
+        /* auto type text --------------------- */
+
+        .card-body-scroll {
+            padding: 0;
+            height: 65px;
+            overflow: hidden;
+            position: relative;
+            scroll-behavior: smooth;
+        }
+
+        .card-body-scroll::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .typewriter-paragraph {
+            margin: 0;
+            line-height: 1.4;
+            color: #000;
+            font-weight: 400;
+            max-height: 65px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .typewriter-paragraph .typing-text {
+            display: inline-block;
+            white-space: normal;
+        }
+
+        /* Slider Section ===================================================*/
+
+        .slider-section {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Slider Card */
+        .slider-card {
+            min-width: 150px !important;
+            background: #fff;
+            border-radius: 7px;
+            text-align: center;
+            padding: 15px 10px 12px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .slider-card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ICON TOP LEFT */
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            color: #fff;
+        }
+
+        /* TEXT */
+        .text-number {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .text-label {
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            color: #333;
+        }
+
+        /* COLORS */
+        .blue {
+            background: #47a3ff;
+        }
+
+        .red {
+            background: #ff4765;
+        }
+
+        .green {
+            background: #43c96e;
+        }
+
+        .purple {
+            background: #7a4bff;
+        }
+
+        .yellow {
+            background: #f4c531;
+        }
+
+
+
+
+
+        /* ======= Cards Container =================================================== */
+
+        .my_containers {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /*  State Card  */
+        .state-card {
+            position: relative;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 110px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .state-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Background Shape */
+        .state-card::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            right: -20%;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.09);
+            border-radius: 50%;
+        }
+
+        /* Inner Square Box */
+        .state-inner-box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Image Wrapper Square */
+        .state-icon-wrap {
+            width: 65px;
+            height: 65px;
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1.5px solid rgba(255, 255, 255, 0.691);
+            flex-shrink: 0;
+        }
+
+        /* State Image */
+        .state-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* State Label */
+        .state-text {
+            padding-left: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Color Themes */
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .bg-1 {
+            background: linear-gradient(120deg, #50aefa 0%, #0487ef 100%);
+        }
+
+        .bg-2 {
+            background: linear-gradient(120deg, #f9526b 0%, #c4001a 100%);
+        }
+
+        .bg-3 {
+            background: linear-gradient(120deg, #9486ff 0%, #3822fd 100%);
+        }
+
+        .bg-4 {
+            background: linear-gradient(120deg, #467fe7 0%, #07275b 100%);
+        }
+
+        .bg-5 {
+            background: linear-gradient(120deg, #56de6f 0%, #198129 100%);
+        }
+
+        .bg-6 {
+            background: linear-gradient(120deg, #f9c26b 0%, #945b00 100%);
+        }
+
+        .bg-7 {
+            background: linear-gradient(120deg, #5dd88d 0%, #19aa56 100%);
+        }
+
+        .bg-8 {
+            background: linear-gradient(120deg, #ff966c 0%, #c03802 100%);
+        }
+
+        .bg-9 {
+            background: linear-gradient(120deg, #ffbafc 0%, #7d0076 100%);
+        }
+
+        .bg-10 {
+            background: linear-gradient(120deg, #77faff 0%, #002729 100%);
+        }
+
+
+        /* Light Pastel Gradient Extras */
+        /*
+.bg-11{
+    background: linear-gradient(120deg, #51f984 0%, #007b31 100%);
+}
+
+.bg-12 {
+    background: linear-gradient(120deg, #efaa4a 0%, #ca7104 100%);
+}
+
+.bg-13 {
+    background: linear-gradient(120deg, #f85ea8 0%, #bf0458 100%);
+}
+
+.bg-14 {
+    background: linear-gradient(120deg, #3eb5f5 0%, #00426d 100%);
+}
+
+
+} */
+
+
+        /* footer css  */
+
+        .footer-text {
+            font-size: 12px;
+            color: #6c757d;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+        }
+
+        .brand-name {
+            color: #000;
+            font-weight: 700;
+        }
+
+        /* Responsive text for small devices */
+        @media (max-width: 480px) {
+            .footer-text {
+                text-align: center;
+                font-size: 12px;
+                padding: 0 10px;
+                display: block;
+            }
+        }
+
+        /* MOBILE — KEEP LOGO + TEXT + ICONS IN ONE ROW */
+        @media (max-width: 576px) {
+            .navbar .container-fluid {
+                flex-wrap: nowrap !important;
+            }
+
+            .navbar-brand {
+                font-size: 13px !important;
+                display: flex;
+                align-items: center;
+                gap: 0;
+                font-weight: 500;
+            }
+
+            .navbar-brand img {
+                width: 45px !important;
+            }
+
+            .header-actions {
+                gap: 10px !important;
+            }
+
+            .doc-btn {
+                padding: 4px 10px !important;
+                font-size: 12px !important;
+            }
+
+            .notif-btn,
+            .profile-img {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            .notif-badge {
+                font-size: 8px !important;
+                padding: 1px 4px !important;
+            }
+        }
+
+
+
+        /* complaint box css ===========================================================  */
+
+        .complaint-box {
+            background: #fff;
+            border: 0.2px solid;
+            border-radius: 10px;
+            padding: 10px 15px;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .complaint-box:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
+            color: #484848;
+        }
+
+        .value {
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
+            padding-top: 0px !important;
+            margin-top: 0px !important;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .value span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Colors */
+        .blue {
+            border-color: #76b7f8;
+        }
+
+        .blue .value {
+            color: #47a3ff;
+        }
+
+        .blue .actions-btn {
+            border-color: #47a3ff;
+            color: #47a3ff;
+        }
+
+        .green {
+            border-color: #72cb8e;
+        }
+
+        .green .value {
+            color: #43c96e;
+        }
+
+        .green .actions-btn {
+            border-color: #43c96e;
+            color: #43c96e;
+        }
+
+        .orange {
+            border-color: #efb66f;
+        }
+
+        .orange .value {
+            color: #ffa73a;
+        }
+
+        .orange .actions-btn {
+            border-color: #ffa73a;
+            color: #ffa73a;
+        }
+
+        .grey {
+            border-color: #7ea5ee;
+        }
+
+        .grey .value {
+            color: #5889e5;
+        }
+
+        .grey .actions-btn {
+            border-color: #5889e5;
+            color: #5889e5;
+        }
+
+        .actions-btn {
+            background: transparent;
+            background-color: #f6f7fa;
+            border: 1.3px solid;
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+            transition: 0.3s;
+        }
+
+        .actions-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-white shadow-sm px-lg-3">
+        <div class="container-fluid">
+            <!-- BRAND -->
+            <a href="./klkhome.html" class="navbar-brand d-flex align-items-center">
+                <img src="../images/KLK SVG Logo.svg" class="me-2 rounded" width="80" />
+                KLK Ventures Pvt Ltd.
+            </a>
+
+            <!-- RIGHT SIDE ICONS -->
+            <div class="header-actions">
+                <!-- DOCUMENT BUTTON -->
+                <div class="doc-btn">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Document</span>
+                </div>
+                <!-- NOTIFICATION -->
+                <div class="dropdown">
+                    <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell"></i>
+                        <span class="notif-badge">7</span>
+                    </div>
+
+                    <!-- DROPDOWN BOX -->
+                    <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                        <li class="dropdown-header fw-bold px-3 text-dark">
+                            Notifications
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">New policy
+                                        update</div>
+                                    <small class="text-muted">5 min
+                                        ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">Server downtime
+                                        alert</div>
+                                    <small class="text-muted">10 min
+                                        ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">Payment
+                                        completed</div>
+                                    <small class="text-muted">20 min
+                                        ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item text-center" href="#">View All</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PROFILE DROPDOWN -->
+                <div class="dropdown">
+                    <img src="../images/userimg.jpg" class="profile-img" data-bs-toggle="dropdown" />
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li class="user-box">
+                            <h6>Login New User</h6>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                    class="bi bi-person icon-blue me-3"></i>Profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                    class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                                    class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section py-4 px-3">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+
+                <!-- LEFT SIDE -->
+                <div class="col-lg-3 col-md-4 col-12 mb-3 mb-md-0">
+                    <div class="d-flex gap-2">
+                        <img src="../images/logistics.svg" class="welcome-icon" style="width: 55px" />
+                        <div>
+                            <div class="welcome-sub">Welcome to,</div>
+                            <h2 class="welcome-title m-0 fw-bold">KLK ERP Dashboard</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <!-- d-none d-md-block -->
+                <div class="col-lg-9 col-md-8 col-12 d-none d-md-block">
+                    <div class="card p-4 shadow-sm rounded-3">
+                        <h5 class="fw-bold text-dark">
+                            सौर ऊर्जा: प्राकृतिक संसाधनों का उत्तम उपयोग
+                        </h5>
+                        <hr />
+                        <div class="card-body-scroll">
+                            <p id="autoTypePara" class="typewriter-paragraph">
+                                <span class="typing-text"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- hr line ------->
+    <section class="my_containers">
+        <div class="row">
+            <hr />
+        </div>
+    </section>
+
+
+    <!-- Slider Section -->
+    <section class="my_containers slider-section mb-4">
+        <div class="row">
+            <div class="col">
+                <h2 class="welcome-title fw-bold text-center text-uppercase">
+                    Project Under <span style="color: #800007;">Kashmir</span> Government
+                </h2>
+            </div>
+        </div>
+
+
+
+
+        <div class="swiper mySwiper pt-4">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box green"><i class="bi bi-box"></i></div>
+                    <div class="text-number">530</div>
+                    <div class="text-label">
+                        <span>Kashmir</span> | <span>Solar Rooftop</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box purple"><i class="bi bi-box"></i></div>
+                    <div class="text-number">230</div>
+                    <div class="text-label">
+                        <span>Jammu</span> | <span>70 MW Rooftop</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box blue"><i class="bi bi-box"></i></div>
+                    <div class="text-number">800</div>
+                    <div class="text-label">
+                        <span>HP</span> | <span>Irrigation Pump</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box yellow"><i class="bi bi-box"></i></div>
+                    <div class="text-number">300</div>
+                    <div class="text-label">
+                        <span>Haryana</span> | <span>Street Light</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box red"><i class="bi bi-download"></i></div>
+                    <div class="text-number">500</div>
+                    <div class="text-label">
+                        <span>UP</span> | <span>70 MW Solar</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box green"><i class="bi bi-file-earmark"></i></div>
+                    <div class="text-number">800</div>
+                    <div class="text-label">
+                        <span>Bihar</span> | <span>Home Lighting</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box purple"><i class="bi bi-bag-check"></i></div>
+                    <div class="text-number">300</div>
+                    <div class="text-label">
+                        <span>Bihar</span> | <span>On Grid</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slider-card">
+                    <div class="icon-box yellow"><i class="bi bi-receipt"></i></div>
+                    <div class="text-number">500</div>
+                    <div class="text-label">
+                        <span>Bihar</span> | <span>Power Pack</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- hr line  -------->
+    <section class="my_containers">
+        <div class="row">
+            <hr />
+        </div>
+    </section>
+
+
+
+    <!-- work cards  section  -->
+    <section class="my_containers mt-2">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <!-- Kashmir -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-1">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (3).png" class="state-img" alt="Kashmir" />
+                                    </div>
+                                    <div class="state-text">Solar RoofTop</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Jammu -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-2">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (7).png" class="state-img" alt="Jammu" />
+                                    </div>
+                                    <div class="state-text">70 MW Solar RoofTop</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Himachal Pradesh -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-3">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/ic (3).png" class="state-img" alt="HP" />
+                                    </div>
+                                    <div class="state-text">Solar Irrigation Pump</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Haryana -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-4">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (6).png" class="state-img" alt="Haryana" />
+                                    </div>
+                                    <div class="state-text">Solar Street Light</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Uttar Pradesh -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-5">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (4).png" class="state-img" alt="UP" />
+                                    </div>
+                                    <div class="state-text">70 MW Solar</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Bihar -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-6">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/ic (5).png" class="state-img" alt="Bihar" />
+                                    </div>
+                                    <div class="state-text">Solar Home Lighting</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Bihar -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-7">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (5).png" class="state-img" alt="Bihar" />
+                                    </div>
+                                    <div class="state-text">On Grid</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Bihar -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <a href="#">
+                            <div class="state-card bg-8">
+                                <div class="state-inner-box">
+                                    <div class="state-icon-wrap">
+                                        <img src="../images/icn (8).png" class="state-img" alt="Bihar" />
+                                    </div>
+                                    <div class="state-text">Power Pack</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- hr line  -------->
+    <section class="my_containers">
+        <div class="row">
+            <hr />
+        </div>
+    </section>
+
+
+    <!-- complaints section  -->
+    <div class="my_containers mt-2">
+        <div class="row">
+            <div class="col-12 col-md-12 complaint-section mb-3">
+                <div class="row g-3">
+
+                    <!-- Card -->
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="complaint-box blue">
+                            <div class="title">SSL Complaints</div>
+                            <div class="value">0 Resolved / <span>3 Pending</span></div>
+                            <button class="actions-btn">Add Complaint</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="complaint-box green">
+                            <div class="title">Panel Issues</div>
+                            <div class="value">1 Resolved / <span>2 Pending</span></div>
+                            <button class="actions-btn">Add Complaint</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="complaint-box orange">
+                            <div class="title">Street Light</div>
+                            <div class="value">5 Resolved / <span>1 Pending</span></div>
+                            <button class="actions-btn">Add Complaint</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <div class="complaint-box grey">
+                            <div class="title">Cable Fault</div>
+                            <div class="value">8 Resolved / <span>0 Pending</span></div>
+                            <button class="actions-btn">Add Complaint</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- hr line  -->
+    <section class="container">
+        <div class="row">
+            <hr />
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <section class>
+        <div class="container mx-lg-5">
+            <div class="row">
+                <footer class="footer-area py-2">
+                    <p class="m-0 fw-semibold text-secondary small footer-text">
+                        Copyright © <span id="year"></span> KLK ERP — By
+                        <span class="text-primary fw-bold">ETS
+                            NETWORKS.</span>
+                        All rights reserved.
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+
+        // auto type text
+
+        class TypeWriter {
+            constructor(element, text, speed = 70, delay = 0) {
+                this.element = element;
+                this.text = text;
+                this.speed = speed;
+                this.delay = delay;
+                this.index = 0;
+                this.isTyping = false;
+            }
+
+            async start() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        this.element.classList.add("show", "typing");
+                        this.type(resolve);
+                    }, this.delay);
+                });
+            }
+
+            type(callback) {
+                if (this.index < this.text.length) {
+                    this.isTyping = true;
+                    const textSpan = this.element.querySelector(".typing-text");
+                    textSpan.textContent = this.text.substring(0, this.index + 1);
+
+                    // New content scrolls up automatically
+                    this.element.scrollTop = this.element.scrollHeight;
+
+                    this.index++;
+                    setTimeout(() => this.type(callback), this.speed);
+                } else {
+                    this.isTyping = false;
+                    setTimeout(() => {
+                        this.element.classList.remove("typing");
+                        callback();
+                    }, 400);
+                }
+            }
+
+
+            reset() {
+                this.index = 0;
+                this.isTyping = false;
+                this.element.classList.remove("show", "typing");
+                const textSpan = this.element.querySelector(".typing-text");
+                textSpan.textContent = "";
+            }
+        }
+
+        let typewriter;
+        let isTypingInProgress = false;
+
+        function startTypingEffect() {
+            if (isTypingInProgress) return;
+            isTypingInProgress = true;
+
+            const paragraph = document.getElementById("autoTypePara");
+            if (typewriter) typewriter.reset();
+
+            const text = "हम गर्व से प्रस्तुत करते हैं एक साथी इनोवेटिव सौर ऊर्जा समाधान, जो आपके व्यवसाय और निवास को स्वच्छ, सामर्थ्यशाली, और भविष्य में सुरक्षित बनाने के लिए बनाया गया है। सौर ऊर्जा, सूर्य के प्रकाश का उपयोग करते हुए ऊर्जा उत्पन्न करती है और यह हमें अपने पर्यावरण के प्रति जिम्मेदारी संभालने में मदद करती है। हमारा सौर ऊर्जा समाधान एक समृद्ध विकल्प है, जो आपके व्यवसाय की ऊर्जा संभालने की जिम्मेदारी को स्वीकार करता है और आपको आर्थिक लाभ भी प्रदान करता है। हमारी तकनीक और सौर पैनल उत्पादन क्षमता हमें एक अग्रणी सौर ऊर्जा प्रदाता बनाती हैं, जो आपके व्यवसाय की ऊर्जा जरूरतों को पूरा करती हैं। सौर ऊर्जा के प्रयोग में हम सरकारी पहलों का समर्थन करते हैं, जो वायु प्रदूषण को कम करने और सामर्थ्यशाली ऊर्जा स्रोतों के प्रयासों को बढ़ावा देने के लिए कई योजनाएं शुरू कर रही है। सरकारी एनर्जी नीतियों और योजनाओं का समर्थन करके, हम भारतीय समुदाय को ऊर्जा स्वतंत्रता की दिशा में एक महत्वपूर्ण कदम बढ़ाने में सहायक हो रहे हैं। सौर ऊर्जा एक सुरक्षित, सामर्थ्यशाली, और अग्रणी ऊर्जा स्रोत है जो हमें विकास के मार्ग पर ले जाता है और हमारे पर्यावरण को संरक्षित रखने में मदद करता है। हम आपके साथ हैं, आपके व्यवसाय और निवास को सुरक्षित, साफ, और स्थायी ऊर्जा स्रोतों की दिशा में आगे बढ़ाने के लिए। आइये सौर ऊर्जा के साथ हमारे भविष्य को उजागर करें!";
+
+            typewriter = new TypeWriter(paragraph, text, 45, 300);
+            typewriter.start().then(() => (isTypingInProgress = false));
+        }
+
+        window.addEventListener("load", () =>
+            setTimeout(startTypingEffect, 1000)
+        );
+
+        //   footer date year wise
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+
+
+        // Slider Script ----------------
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 6,
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+                delay: 1000,
+                disableOnInteraction: false
+            },
+            speed: 900,
+            breakpoints: {
+                320: { slidesPerView: 2 }, /* Mobile */
+                576: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                992: { slidesPerView: 5 },
+                1200: { slidesPerView: 7 } /*  Desktop */
+            }
+        });
+    </script>
+</body>
+
+</html>
