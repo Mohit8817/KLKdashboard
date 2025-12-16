@@ -767,6 +767,27 @@
       scrollbar-color: #2e83ff rgba(46, 131, 255, 0.15) !important;
     }
 
+
+
+       .main-sidebar.sidebar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .main-sidebar.sidebar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .main-sidebar.sidebar::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #900000, #ef1313) !important ;
+        border-radius: 10px;
+      }
+
+      .main-sidebar.sidebar::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #900000, #e51616) !important;
+      }
+
+
     .main-sidebar {
       height: 100vh !important;
       background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
@@ -1029,9 +1050,9 @@
 
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar  elevation-4">
+    <aside class="main-sidebar  elevation-4 shadow">
       <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link border-bottom shadow-sm">
+      <a href="../../index3.html" class="brand-link border-bottom shadow-sm border-2">
         <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
           class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
         <span class="brand-text text-dark">KLK Ventures-up</span>
