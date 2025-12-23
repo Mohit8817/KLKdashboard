@@ -17,7 +17,6 @@
   <!-- ICONS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <style>
@@ -489,6 +488,184 @@
   </style>
 
 
+<style>
+  /* =====================================================
+   BASE DASHCARD (ROUND CUT CORNER – KEEP AS IT IS)
+===================================================== */
+.dashcard {
+  --black-muted: 0, 0%, 13%;
+  --white-smoke: 0, 0%, 89%;
+  --green-light: 87, 73%, 63%;
+  --gap-action: 6px;
+  --sz-action: 58px;
+  --round-card: calc(var(--sz-action) / 2 + calc(var(--gap-action) / 2));
+
+  position: relative;
+  width: 100%;
+  height: 260px;
+  border-radius: var(--round-card);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* =====================================================
+   CORNER CUT (UNCHANGED LOGIC)
+===================================================== */
+.corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: hsl(var(--white-smoke));
+  border-bottom-left-radius: var(--round-card);
+  padding: 0 0 var(--gap-action) var(--gap-action);
+  display: flex;
+  gap: var(--gap-action);
+  z-index: 5;
+}
+
+.corner i[data-corner] {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: hsl(var(--white-smoke));
+}
+
+.corner i[data-corner]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top-right-radius: var(--round-card);
+  background: #fff;
+}
+
+.corner i[data-corner="tl"] {
+  top: 0;
+  right: 100%;
+}
+
+.corner i[data-corner="br"] {
+  top: 100%;
+  right: 0;
+}
+
+/* ACTION BUTTON */
+.corner .action {
+  width: var(--sz-action);
+  height: var(--sz-action);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--white-smoke));
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(0,0,0,0.06);
+}
+
+.corner .action:hover {
+  background: hsl(var(--green-light));
+}
+
+.corner .action svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* =====================================================
+   STAT / FINANCE CARD CONTENT
+===================================================== */
+
+/* HEADER */
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-header .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* ICON */
+.icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #f4f5f7;
+}
+
+/* VALUE */
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 18px 0 10px;
+  letter-spacing: -0.4px;
+}
+
+/* FOOTER */
+.stat-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* TEXT */
+.muted {
+  font-size: 13px;
+  color: #777;
+}
+
+/* BADGES */
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.badge.up {
+  background: #e8f7ef;
+  color: #1ca661;
+}
+
+.badge.down {
+  background: #ffeaea;
+  color: #e53935;
+}
+
+/* MINI BARS (RIGHT SIDE) */
+.bars {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.bars span {
+  width: 6px;
+  height: 16px;
+  background: #e0e0e0;
+  border-radius: 6px;
+}
+
+.bars span.active {
+  height: 26px;
+  background: #111;
+}
+
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -1302,6 +1479,100 @@
         </section>
 
         <!-- Cards Section  -->
+
+        <!-- new cards section  -->
+        <div class="container-fluid mt-3">
+          <div class="row g-3">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+              <div class="dashcard finance-card">
+
+                <!-- CORNER (SAME AS YOUR CODE) -->
+                <div class="corner">
+                  <i data-corner="tl"></i>
+                  <i data-corner="br"></i>
+                  <div data-action="more" class="action">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M17 7l-11 11"></path>
+                      <path d="M8 7l9 0l0 9"></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- CARD CONTENT -->
+                <div class="finance-head">
+                  <p class="finance-title">Total Saving</p>
+                  <span class="finance-icon">💰</span>
+                </div>
+
+                <h2 class="finance-amount">$3,765.35</h2>
+
+                <div class="finance-meta">
+                  <span class="finance-badge down">▼ 12.08%</span>
+                  <span class="finance-muted">vs. 416.50 last period</span>
+                </div>
+
+                <div class="finance-footer">
+                  <span class="finance-muted">Last 30 days</span>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+              <div class="cut-card">
+
+                <div class="cut-arrow">
+                  <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+                <div class="card-content">
+                  <div class="top-row">
+                    <div class="icon-circle">
+                      <i class="bi bi-envelope"></i>
+                    </div>
+
+                    <span class="stats-badge">
+                      <i class="bi bi-graph-up"></i> 4.43%
+                    </span>
+                  </div>
+
+                  <h3>1,546,251</h3>
+                  <p>New Revenue</p>
+                </div>
+
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+              <div class="cut-card">
+
+                <div class="cut-arrow">
+                  <i class="bi bi-arrow-up-right"></i>
+                </div>
+
+                <div class="card-content">
+                  <div class="top-row">
+                    <div class="icon-circle">
+                      <i class="bi bi-envelope"></i>
+                    </div>
+
+                    <span class="stats-badge">
+                      <i class="bi bi-graph-up"></i> 4.43%
+                    </span>
+                  </div>
+
+                  <h3>1,546,251</h3>
+                  <p>New Revenue</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
 
 
         <!-- Cards Section  -->
