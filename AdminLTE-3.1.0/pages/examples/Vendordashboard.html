@@ -246,7 +246,7 @@
       color: #fff;
       padding: 20px;
       position: relative;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.20);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.081);
       transition: 0.3s ease;
       overflow: hidden;
       display: flex;
@@ -257,14 +257,14 @@
 
     .stat-card-img:hover {
       transform: scale(1.02);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.30);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.30);
     }
 
     .icon-circle-img {
       min-width: 60px;
       min-height: 60px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.20);
+      background: rgba(255, 255, 255, 0.177);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -302,7 +302,7 @@
     }
 
     /* Gradient Backgrounds */
-    .gradient-blue {
+    /* .gradient-blue {
       background: linear-gradient(135deg, #004F8C, #2979FF);
     }
 
@@ -324,8 +324,35 @@
 
     .gradient-purple {
       background: linear-gradient(135deg, #7B1FA2, #512DA8);
+    } */
+
+
+
+    /* NEW  Dashboard Gradients */
+
+    .gradient-blue {
+      background: linear-gradient(135deg, #0052D4, #99a9f3);
     }
 
+    .gradient-pink {
+      background: linear-gradient(135deg, #FF416C, #f8745d);
+    }
+
+    .gradient-green {
+      background: linear-gradient(135deg, #11998E, #5bf897);
+    }
+
+    .gradient-orange {
+      background: linear-gradient(135deg, #FF8008, #ffd261);
+    }
+
+    .gradient-teal {
+      background: linear-gradient(135deg, #00a3d0, #9ffba8);
+    }
+
+    .gradient-purple {
+      background: linear-gradient(135deg, #6A11CB, #5d95f6);
+    }
 
 
     /* chart css-------------- */
@@ -1000,9 +1027,9 @@
             <!-- Booked Trips -->
             <div class="col-md-4 mb-3">
               <div class="stat-card-img gradient-blue">
-                <div class="icon-circle-img"><i class="fas fa-users"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-globe-asia"></i></div>
                 <div class="card-content">
-                  <h5>Booked Trips</h5>
+                  <h5>Total States</h5>
                   <h2>450</h2>
                   <div class="line"></div>
                   <p>60% Increase in...</p>
@@ -1013,9 +1040,9 @@
             <!-- Cancelled Trip -->
             <div class="col-md-4">
               <div class="stat-card-img gradient-pink">
-                <div class="icon-circle-img"><i class="fas fa-user"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-building"></i></div>
                 <div class="card-content">
-                  <h5>Cancelled Trip</h5>
+                  <h5>Total Vendor</h5>
                   <h2>155</h2>
                   <div class="line"></div>
                   <p>40% Increase in...</p>
@@ -1026,9 +1053,9 @@
             <!-- New Users -->
             <div class="col-md-4">
               <div class="stat-card-img gradient-green">
-                <div class="icon-circle-img"><i class="bi bi-scissors"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-file-contract"></i></div>
                 <div class="card-content">
-                  <h5>New Users</h5>
+                  <h5>Total Work Order</h5>
                   <h2>52</h2>
                   <div class="line"></div>
                   <p>80% Increase in...</p>
@@ -1036,15 +1063,14 @@
               </div>
             </div>
 
-            <!-- Second Row -->
 
             <!-- Total Earning -->
             <div class="col-md-4">
               <div class="stat-card-img gradient-orange">
-                <div class="icon-circle-img"><i class="fas fa-dollar-sign"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-exclamation-circle"></i></div>
                 <div class="card-content">
-                  <h5>Total Earning</h5>
-                  <h2>13,921$</h2>
+                  <h5>Total Complaints</h5>
+                  <h2>13</h2>
                   <div class="line"></div>
                   <p>60% Increase in...</p>
                 </div>
@@ -1054,9 +1080,9 @@
             <!-- Add more cards here -->
             <div class="col-md-4">
               <div class="stat-card-img gradient-teal">
-                <div class="icon-circle-img"><i class="fas fa-user-tie"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-money-bill-wave"></i></div>
                 <div class="card-content">
-                  <h5>Active Vendors</h5>
+                  <h5>Total Payment Request</h5>
                   <h2>87</h2>
                   <div class="line"></div>
                   <p>50% Growth...</p>
@@ -1066,10 +1092,10 @@
 
             <div class="col-md-4">
               <div class="stat-card-img gradient-purple">
-                <div class="icon-circle-img"><i class="fas fa-chart-line"></i></div>
+                <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
                 <div class="card-content">
-                  <h5>Growth Rate</h5>
-                  <h2>92%</h2>
+                  <h5>Repair & Maintenance</h5>
+                  <h2>30</h2>
                   <div class="line"></div>
                   <p>Stable growth...</p>
                 </div>
@@ -1082,7 +1108,7 @@
         <!-- end Cards Section  -->
 
         <!-- chart section start  -->
-        <div class="container-fluid mt-2">
+        <div class="container-fluid mt-4">
           <div class="row">
             <!-- Donut Chart -->
             <div class="col-12 col-lg-6">
