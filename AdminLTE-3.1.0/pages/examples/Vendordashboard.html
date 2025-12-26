@@ -206,7 +206,7 @@
     .welcome-sub {
       font-size: 15px;
       font-weight: bold;
-      color: #6c757d;
+      color: #fd663c;
     }
 
     .welcome-title {
@@ -594,88 +594,87 @@
 
 
   <!-- NEW Sidebar css here  -->
-  <style>
-    .main-sidebar {
-      height: 100vh !important;
-      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
-      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
-      position: fixed !important;
-      overflow: hidden !important;
+<style>
+  .main-sidebar {
+    height: 100vh !important;
+    background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+    box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+    position: fixed !important;
+    overflow: hidden !important;
+  }
 
-    }
+  .main-sidebar .sidebar {
+    height: calc(100vh - 60px);
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
 
-    .main-sidebar .sidebar {
-      height: calc(100vh - 60px);
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-    }
+  /* Top-level links */
+  .nav-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #636363 !important;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
 
+  .nav-sidebar .nav-link .nav-icon {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    font-size: 17px;
+    color: #636363;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .nav-sidebar .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 22px;
-      border-radius: 10px;
-      font-size: 14px;
-      color: #4c576c !important;
-      font-weight: 500;
-      transition: 0.2s ease-in-out;
-    }
+  .nav-sidebar .nav-link:hover {
+    background: #f8e7e3;
+    color: #ff3300 !important;
+  }
 
-    .nav-sidebar .nav-link .nav-icon {
-      width: 20px;
-      min-width: 20px;
-      height: 20px;
-      font-size: 17px;
-      color: #677892;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .nav-sidebar .nav-link.active {
+    background: #fbeae6 !important;
+    color: #fd663c !important;
+    font-weight: 600;
+    border-left: 4px solid #fd663c;
+    padding-left: 15px;
+  }
 
-    .nav-sidebar .nav-link:hover {
-      background: #edf5fc;
-      color: #2e83ff !important;
-    }
+  .nav-sidebar .nav-link.active .nav-icon {
+    color: #ff8528 !important;
+  }
 
-    .nav-sidebar .nav-link.active {
-      background: #e7f2ff !important;
-      color: #2e83ff !important;
-      font-weight: 600;
-      border-left: 4px solid #2e83ff;
-      padding-left: 15px;
-    }
+  .nav-sidebar .right {
+    margin-left: auto;
+    font-size: 14px;
+    color: #FEB47B;
+  }
 
-    .nav-sidebar .nav-link.active .nav-icon {
-      color: #2e83ff !important;
-    }
+  /* Sub-menu links */
+  .nav-treeview {
+    padding-left: 25px;
+    margin: 0 !important;
+  }
 
-    .nav-sidebar .right {
-      margin-left: auto;
-      font-size: 14px;
-      color: #7b8aa1;
-    }
+  .nav-treeview .nav-link {
+    margin: 4px 12px !important;
+    padding: 6px 10px !important;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #636363 !important; 
+  }
 
-    .nav-treeview {
-      padding-left: 25px;
-      margin: 0 !important;
-    }
-
-    .nav-treeview .nav-link {
-      margin: 4px 12px !important;
-      padding: 6px 10px !important;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #6b7280 !important;
-    }
-
-    .nav-treeview .nav-link:hover {
-      background: #f3f6fb;
-      color: #2e83ff !important;
-    }
-  </style>
-
+  .nav-treeview .nav-link:hover {
+    background: #f8e7e3;
+    color: #ff3300 !important;
+  }
+</style>
 
 
 
