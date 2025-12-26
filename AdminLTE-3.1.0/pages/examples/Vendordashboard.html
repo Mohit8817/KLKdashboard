@@ -354,43 +354,54 @@
       background: linear-gradient(135deg, #6d0ad6, #76a4f3);
     }
 
+/* chart css-------------- */
+/* Chart Wrapper */
+.chart-card {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: 0.3s;
+  background: #fff;
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+              linear-gradient(135deg, #ff7e5f, #feb47b) border-box; /* vibrant gradient */
+  border: 1.5px solid transparent !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* subtle shadow for depth */
+}
 
-    /* chart css-------------- */
+/* Chart Header */
+.chart-header {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* matching gradient */
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle header shadow */
 
-    /* Chart Wrapper */
-    .chart-card {
-      overflow: hidden;
-      border-radius: 12px;
-      transition: 0.3s;
-      border: 1.2px solid #3facff !important;
-      background: #fff;
-    }
+}
 
+/* Icon Circle */
+.chart-header i {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #ffffff;
+  transition: 0.3s;
+}
 
-    /* Chart Header */
-    .chart-header {
-      background: #3facff;
-      color: #ffffff;
-      padding: 10px 15px;
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Icon Circle like card */
-    .chart-header i {
-      width: 30px;
-      height: 30px;
-      background: #eef6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 15px;
-      color: #3facff;
-    }
+.chart-header i:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
 
     /* Card Inner */
     .chart-container {
@@ -464,7 +475,7 @@
     }
 
     .nav-tabs .nav-link.active {
-      background: #3facff;
+      background: #ff7e5f;
       color: white !important;
       border-color: transparent !important;
     }
@@ -1020,103 +1031,103 @@
 
 
 
-     <!-- Cards Section  -->
-<div class="container-fluid">
-  <div class="row g-3">
+        <!-- Cards Section  -->
+        <div class="container-fluid">
+          <div class="row g-3">
 
-    <!-- Total States -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-blue">
-          <div class="icon-circle-img"><i class="fas fa-globe-asia"></i></div>
-          <div class="card-content">
-            <h5>Total States</h5>
-            <h2>450</h2>
-            <div class="line"></div>
-            <p>60% Increase in...</p>
+            <!-- Total States -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-blue">
+                  <div class="icon-circle-img"><i class="fas fa-globe-asia"></i></div>
+                  <div class="card-content">
+                    <h5>Total States</h5>
+                    <h2>450</h2>
+                    <div class="line"></div>
+                    <p>60% Increase in...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Total Vendor -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-pink">
+                  <div class="icon-circle-img"><i class="fas fa-building"></i></div>
+                  <div class="card-content">
+                    <h5>Total Vendor</h5>
+                    <h2>155</h2>
+                    <div class="line"></div>
+                    <p>40% Increase in...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Total Work Order -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-green">
+                  <div class="icon-circle-img"><i class="fas fa-file-contract"></i></div>
+                  <div class="card-content">
+                    <h5>Total Work Order</h5>
+                    <h2>52</h2>
+                    <div class="line"></div>
+                    <p>80% Increase in...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Total Complaints -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-orange">
+                  <div class="icon-circle-img"><i class="fas fa-exclamation-circle"></i></div>
+                  <div class="card-content">
+                    <h5>Total Complaints</h5>
+                    <h2>13</h2>
+                    <div class="line"></div>
+                    <p>60% Increase in...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Total Payment Request -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-teal">
+                  <div class="icon-circle-img"><i class="fas fa-money-bill-wave"></i></div>
+                  <div class="card-content">
+                    <h5>Total Payment Request</h5>
+                    <h2>87</h2>
+                    <div class="line"></div>
+                    <p>50% Growth...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Repair & Maintenance -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-purple">
+                  <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
+                  <div class="card-content">
+                    <h5>Repair & Maintenance</h5>
+                    <h2>30</h2>
+                    <div class="line"></div>
+                    <p>Stable growth...</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
           </div>
         </div>
-      </a>
-    </div>
-
-    <!-- Total Vendor -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-pink">
-          <div class="icon-circle-img"><i class="fas fa-building"></i></div>
-          <div class="card-content">
-            <h5>Total Vendor</h5>
-            <h2>155</h2>
-            <div class="line"></div>
-            <p>40% Increase in...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Total Work Order -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-green">
-          <div class="icon-circle-img"><i class="fas fa-file-contract"></i></div>
-          <div class="card-content">
-            <h5>Total Work Order</h5>
-            <h2>52</h2>
-            <div class="line"></div>
-            <p>80% Increase in...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Total Complaints -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-orange">
-          <div class="icon-circle-img"><i class="fas fa-exclamation-circle"></i></div>
-          <div class="card-content">
-            <h5>Total Complaints</h5>
-            <h2>13</h2>
-            <div class="line"></div>
-            <p>60% Increase in...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Total Payment Request -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-teal">
-          <div class="icon-circle-img"><i class="fas fa-money-bill-wave"></i></div>
-          <div class="card-content">
-            <h5>Total Payment Request</h5>
-            <h2>87</h2>
-            <div class="line"></div>
-            <p>50% Growth...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Repair & Maintenance -->
-    <div class="col-md-4 mb-3">
-      <a href="#" class="stat-link">
-        <div class="stat-card-img gradient-purple">
-          <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
-          <div class="card-content">
-            <h5>Repair & Maintenance</h5>
-            <h2>30</h2>
-            <div class="line"></div>
-            <p>Stable growth...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</div>
-<!-- end Cards Section  -->
+        <!-- end Cards Section  -->
 
 
         <!-- chart section start  -->
@@ -1487,34 +1498,43 @@
   <!-- Chart.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 
+
   <script>
-    // Donut Chart
+    // Donut Chart - Updated to match image colors
     const donutCtx = document.getElementById("donutChart").getContext("2d");
     new Chart(donutCtx, {
       type: "doughnut",
       data: {
         labels: [
-          "Material Supply Status",
-          "Installation Status",
-          "Document Status",
-          "Total Allocation",
-          "SCADA Upload Status",
-          "Inspection Status",
+          "Assam",
+          "Bihar",
+          "Andhra Pradesh",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jammu & Kashmir",
+          "Karnataka",
+          "Maharashtra",
+          "Rajasthan",
+          "Telangana"
         ],
-        datasets: [
-          {
-            data: [16.67, 16.67, 16.67, 16.67, 16.67, 16.65],
-            backgroundColor: [
-              "#007bff", // Blue
-              "#28a745", // Green
-              "#ff8c00", // Orange
-              "#e74c3c", // Red
-              "#8a56f6", // Purple
-              "#17a2b8", // Teal
-            ],
+         datasets: [
+        {
+          data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12],
+          backgroundColor: [
+            "#FF7E5F", // Warm Coral
+            "#FEB47B", // Peach
+            "#FF6B6B", // Red-Pink
+            "#FFD56B", // Soft Yellow
+            "#FF9F80", // Orange-Peach
+            "#FFB997", // Light Peach
+            "#FF6F61", // Coral-Red
+            "#FFADAD", // Pastel Red
+            "#FFE066", // Sunny Yellow
+            "#FF8C42"  // Vibrant Orange
+          ],
             borderWidth: 2,
-            borderColor: "#fff",
-          },
+            borderColor: "#ffffff"
+          }
         ],
       },
       options: {
@@ -1524,7 +1544,7 @@
           legend: {
             position: "bottom",
             labels: {
-              padding: 15,
+              padding: 10,
               font: { size: 12 },
               usePointStyle: true,
             },
@@ -1532,6 +1552,11 @@
         },
       },
     });
+  </script>
+
+
+  <script>
+
 
     // Bar Chart
     const barCtx = document.getElementById("barChart").getContext("2d");
@@ -1543,7 +1568,7 @@
           {
             label: "Progress %",
             data: [65, 82, 45, 90, 58, 75],
-            backgroundColor: "#018ffb",
+            backgroundColor: "#fe996d",
             borderRadius: 6,
             borderSkipped: false,
           },
@@ -1597,12 +1622,12 @@
           {
             label: "Installations",
             data: [30, 50, 40, 90, 65, 100, 80],
-            borderColor: "#018ffb",
+            borderColor: "#fe996d",
             backgroundColor: "rgba(96, 92, 168, 0.1)",
             borderWidth: 3,
             tension: 0.4,
             pointRadius: 5,
-            pointBackgroundColor: "#018ffb",
+            pointBackgroundColor: "#fe996d",
             pointBorderColor: "#fff",
             pointBorderWidth: 2,
             fill: true,
