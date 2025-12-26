@@ -1254,7 +1254,8 @@
               <div class="card chart-card shadow-sm">
                 <div class="chart-header">
                   <i class="fas fa-chart-pie"></i>
-                  Department Distribution
+                  Assigned Vendors
+
                 </div>
                 <div class="card-body">
                   <div class="chart-container">
@@ -1269,7 +1270,8 @@
               <div class="card chart-card shadow-sm">
                 <div class="chart-header">
                   <i class="fas fa-chart-bar"></i>
-                  Monthly Progress Overview
+                  Monthly Installation
+
                 </div>
                 <div class="card-body">
                   <div class="chart-container">
@@ -1613,35 +1615,35 @@
 
   <!-- Chart.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-
-
   <script>
     const donutCtx = document.getElementById("donutChart").getContext("2d");
     new Chart(donutCtx, {
       type: "doughnut",
       data: {
         labels: [
-          "Assam",
-          "Bihar",
-          "Andhra Pradesh",
-          "Haryana",
+          "Unknown",
+          "Vipin Kumar Yadav",
+          "Vinay kumar Singh",
+          " Anurag Tiwari",
           "Himachal Pradesh",
           "Jammu & Kashmir",
-          "Karnataka",
-          "Maharashtra",
-          "Rajasthan",
-          "Telangana"
+          "Pintu",
+          "Reena Kumari",
+          "Ravi Chaudhary ",
+          "ANIL KUMAR",
+          "Gautam Kumar",
+          "Anand kumar"
         ],
         datasets: [
           {
-            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12],
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
             backgroundColor: [
-              "#1E6DF2", // Blue
-              "#7200A1", // Purple
-              "#1F7A5D", // Green
-              "#E96D0C", // Orange
-              "#007B7F", // Teal
-              "#6F2DBD", // Violet
+              "#1E6DF2",
+              "#7200A1",
+              "#1F7A5D",
+              "#E96D0C",
+              "#007B7F",
+              "#6F2DBD",
               "#1E6DF2",
               "#7200A1",
               "#1F7A5D",
@@ -1671,57 +1673,42 @@
 
   <script>
     const barCtx = document.getElementById("barChart").getContext("2d");
-    new Chart(barCtx, {
-      type: "bar",
-      data: {
-        labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
-        datasets: [
-          {
-            label: "Progress %",
-            data: [65, 82, 45, 90, 58, 75],
-            backgroundColor: [
-              "#0e1750",
-              "#6c019c",
-              "#0e1750",
-              "#6c019c",
-              "#0e1750",
-              "#6c019c"
-            ],
-            borderRadius: 6,
-            borderSkipped: false
-          }
-        ]
-
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 100,
-            ticks: {
-              callback: function (value) {
-                return value + "%";
-              },
-            },
-            grid: {
-              color: "#f6f6f6",
-            },
-          },
-          x: {
-            grid: {
-              display: false,
-            },
-          },
-        },
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
+new Chart(barCtx, {
+  type: "bar",
+  data: {
+    labels: ["2025-10","2025-09","2025-08","2025-07","2025-06","2025-05","2025-04","2025-03","2025-02"],
+    datasets: [
+      {
+        label: "Monthly Installation",
+        data: [20, 69, 10, 40, 22, 31, 60, 40, 1],
+        backgroundColor: [
+          "#0e1750","#6c019c","#0e1750","#6c019c","#0e1750",
+          "#6c019c","#0e1750","#6c019c","#0e1750"
+        ],
+        borderRadius: 6,
+        borderSkipped: false,
       }
-    });
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 80,
+        grid: { color: "#f6f6f6" },
+      },
+      x: {
+        grid: { display: false },
+      },
+    },
+    plugins: {
+      legend: { display: false },
+    },
+  }
+});
+
 
 
     // Line Chart
