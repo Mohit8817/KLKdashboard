@@ -196,17 +196,12 @@
   </style>
 
 
-
-
   <!-- Dashboard css  -->
   <style>
-    /* Welcome Section - */
-
-    /* Left side text styling */
     .welcome-sub {
       font-size: 15px;
       font-weight: bold;
-      color: #7200A1;
+      color: #231262;
     }
 
     .welcome-title {
@@ -341,8 +336,8 @@
     }
 
     .chart-header {
-      background: linear-gradient(135deg, #1E6DF2, #7200A1);
-            color: #ffffff;
+      background: linear-gradient(135deg, #001945, #7200A1);
+      color: #ffffff;
       padding: 12px 18px;
       font-size: 16px;
       font-weight: 600;
@@ -460,7 +455,7 @@
     }
 
     .nav-tabs .nav-link.active {
-      background: #2465eb;
+      background: #231262;
       color: white !important;
       border-color: transparent !important;
     }
@@ -579,24 +574,23 @@
 
 
   <!-- NEW Sidebar css here  -->
+  <!-- /* NEW Sidebar Theme Matching Chart Header Gradient */ -->
   <style>
     .main-sidebar {
       height: 100vh !important;
-      background: linear-gradient(180deg, #ffc3b524 0%, #ffc79c2e 100%) !important;
-      /* warm gradient to match dashboard */
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15) !important;
-      /* subtle shadow for depth */
+      background: linear-gradient(180deg, #001945 0%, #5d0284 100%) !important;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25) !important;
       position: fixed !important;
       overflow: hidden !important;
+      color: #ffffff !important;
     }
 
-    /* Optional: scrollable sidebar content */
+    /* sidebar scrollable area */
     .main-sidebar .sidebar {
       height: calc(100vh - 60px);
       overflow-y: auto !important;
       overflow-x: hidden !important;
     }
-
 
     /* Top-level links */
     .nav-sidebar .nav-link {
@@ -606,43 +600,45 @@
       padding: 8px 22px;
       border-radius: 10px;
       font-size: 14px;
-      color: #636363 !important;
       font-weight: 500;
-      transition: 0.2s ease-in-out;
+      color: #e0e0e0 !important;
+      transition: 0.25s ease-in-out;
     }
 
-    .nav-sidebar .nav-link .nav-icon {
+    .nav-sidebar .nav-icon {
       width: 20px;
-      min-width: 20px;
       height: 20px;
       font-size: 17px;
-      color: #636363;
+      color: #ffffffcc;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    /* hover link */
     .nav-sidebar .nav-link:hover {
-      background: #f8e7e3;
-      color: #ff3300 !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
     }
 
+    /* active link */
     .nav-sidebar .nav-link.active {
-      background: #fbeae6 !important;
-      color: #fd663c !important;
+      background: rgba(255, 255, 255, 0.25) !important;
+      border-left: 4px solid #ffffff;
+      color: #ffffff !important;
+      padding-left: 18px;
       font-weight: 600;
-      border-left: 4px solid #fd663c;
-      padding-left: 15px;
     }
 
     .nav-sidebar .nav-link.active .nav-icon {
-      color: #ff8528 !important;
+      color: #ffffff;
     }
 
+    /* right dropdown arrow */
     .nav-sidebar .right {
       margin-left: auto;
       font-size: 14px;
-      color: #FEB47B;
+      color: #ffffff;
     }
 
     /* Sub-menu links */
@@ -656,12 +652,12 @@
       padding: 6px 10px !important;
       border-radius: 8px;
       font-size: 13px;
-      color: #636363 !important;
+      color: #e6e6e6 !important;
     }
 
     .nav-treeview .nav-link:hover {
-      background: #f8e7e3;
-      color: #ff3300 !important;
+      background: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
     }
   </style>
 
@@ -849,8 +845,8 @@
       <!-- Brand Logo -->
       <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
         <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-          class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Vendor</span>
+          class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+        <span class="brand-text text-light">KLK Vendor</span>
       </a>
 
 
@@ -900,6 +896,7 @@
 
 
 
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-journal-text nav-icon"></i>
@@ -929,20 +926,80 @@
             </li>
 
             <!-- States -->
+
+            <!-- Bihar Management -->
+            <li class="nav-header">Bihar</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-geo-alt nav-icon"></i>
-                <p>Bihar</p>
+                <p>
+                  SSL
+                  <i class="fas fa-angle-left right"></i>
+                </p>
               </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+              </ul>
             </li>
 
+
+            <!-- SRT SUBMENU -->
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-geo-alt nav-icon"></i>
-                <p>Jammu</p>
+                <p>
+                  SRT
+                  <i class="fas fa-angle-left right"></i>
+                </p>
               </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./bihar-srt-dashboard.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
 
+
+           
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-map nav-icon"></i>
@@ -1542,10 +1599,6 @@
   </script>
 
   <script>
-
-
-    // Bar Chart
-    // Bar Chart
     const barCtx = document.getElementById("barChart").getContext("2d");
     new Chart(barCtx, {
       type: "bar",
@@ -1556,17 +1609,18 @@
             label: "Progress %",
             data: [65, 82, 45, 90, 58, 75],
             backgroundColor: [
-              "rgba(30,109,242,0.8)",  // #1E6DF2
-              "rgba(114,0,161,0.8)",   // #7200A1
-              "rgba(30,109,242,0.8)",
-              "rgba(114,0,161,0.8)",
-              "rgba(30,109,242,0.8)",
-              "rgba(114,0,161,0.8)"
+              "#0e1750",
+              "#6c019c",
+              "#0e1750",
+              "#6c019c",
+              "#0e1750",
+              "#6c019c"
             ],
-            borderRadius: 6,  // Optional: rounded bars
+            borderRadius: 6,
             borderSkipped: false
           }
         ]
+
       },
       options: {
         responsive: true,
@@ -1577,7 +1631,7 @@
             max: 100,
             ticks: {
               callback: function (value) {
-                return value + "%"; // Add % symbol if needed
+                return value + "%";
               },
             },
             grid: {
@@ -1609,14 +1663,14 @@
           {
             label: "Installations",
             data: [30, 50, 40, 90, 65, 100, 80],
-            borderColor: "rgba(114, 0, 161, 0.9)",
-            backgroundColor: "rgba(114, 0, 161, 0.1)",
+            borderColor: "#6c019c",
+            backgroundColor: "rgba(14, 23, 80, 0.15)",
             borderWidth: 3,
             tension: 0.4,
             pointRadius: 6,
-            pointBackgroundColor: "#7200A1",
-            pointBorderColor: "#ffff",
-            pointBorderWidth: 1,
+            pointBackgroundColor: "#6c019c",
+            pointBorderColor: "#ffffff",
+            pointBorderWidth: 2,
             fill: true,
           },
         ],
@@ -1629,16 +1683,20 @@
             beginAtZero: true,
             max: 130,
             grid: {
-              color: "#f6f6f6",
+              color: "rgba(14, 23, 80, 0.08)"
             },
             ticks: {
-              stepSize: 20
+              stepSize: 20,
+              color: "#0e1750",
             }
           },
           x: {
             grid: {
               display: false,
             },
+            ticks: {
+              color: "#0e1750",
+            }
           },
         },
         plugins: {
@@ -1646,13 +1704,16 @@
             display: false,
           },
           tooltip: {
-            backgroundColor: "#7200A1",
+            backgroundColor: "#6c019c",
             titleColor: "#fff",
             bodyColor: "#fff",
+            borderColor: "#0e1750",
+            borderWidth: 1,
           },
         },
       },
     });
+
 
 
     // footer year script

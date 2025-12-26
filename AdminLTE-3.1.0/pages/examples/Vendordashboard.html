@@ -354,54 +354,58 @@
       background: linear-gradient(135deg, #6d0ad6, #76a4f3);
     }
 
-/* chart css-------------- */
-/* Chart Wrapper */
-.chart-card {
-  overflow: hidden;
-  border-radius: 12px;
-  transition: 0.3s;
-  background: #fff;
-  position: relative;
-  padding: 0;
-  border: 0;
-  background: linear-gradient(#ffffff, #ffffff) padding-box,
-              linear-gradient(135deg, #ff7e5f, #feb47b) border-box; /* vibrant gradient */
-  border: 1.5px solid transparent !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* subtle shadow for depth */
-}
+    /* chart css-------------- */
+    /* Chart Wrapper */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      background: #fff;
+      position: relative;
+      padding: 0;
+      border: 0;
+      background: linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #ff7e5f, #feb47b) border-box;
+      /* vibrant gradient */
+      border: 1.5px solid transparent !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      /* subtle shadow for depth */
+    }
 
-/* Chart Header */
-.chart-header {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* matching gradient */
-  color: #ffffff;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle header shadow */
+    /* Chart Header */
+    .chart-header {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      /* matching gradient */
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* subtle header shadow */
 
-}
+    }
 
-/* Icon Circle */
-.chart-header i {
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 15px;
-  color: #ffffff;
-  transition: 0.3s;
-}
+    /* Icon Circle */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #ffffff;
+      transition: 0.3s;
+    }
 
-.chart-header i:hover {
-  background: rgba(255, 255, 255, 0.5);
-  transform: scale(1.1);
-}
+    .chart-header i:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1);
+    }
 
     /* Card Inner */
     .chart-container {
@@ -594,89 +598,89 @@
 
 
   <!-- NEW Sidebar css here  -->
-<style>
- .main-sidebar {
-  height: 100vh !important;
-  background: linear-gradient(180deg, #ffc3b524 0%, #ffc79c2e 100%) !important; /* warm gradient to match dashboard */
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15) !important; /* subtle shadow for depth */
-  position: fixed !important;
-  overflow: hidden !important;
-}
-
-/* Optional: scrollable sidebar content */
-.main-sidebar .sidebar {
-  height: calc(100vh - 60px);
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-}
+  <style>
+    .main-sidebar {
+      height: 100vh !important;
+      background: linear-gradient(180deg, #ffc3b524 0%, #ffc79c2e 100%) !important;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15) !important;
+      position: fixed !important;
+      overflow: hidden !important;
+    }
 
 
-  /* Top-level links */
-  .nav-sidebar .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 22px;
-    border-radius: 10px;
-    font-size: 14px;
-    color: #636363 !important;
-    font-weight: 500;
-    transition: 0.2s ease-in-out;
-  }
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
 
-  .nav-sidebar .nav-link .nav-icon {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-    font-size: 17px;
-    color: #636363;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  .nav-sidebar .nav-link:hover {
-    background: #f8e7e3;
-    color: #ff3300 !important;
-  }
 
-  .nav-sidebar .nav-link.active {
-    background: #fbeae6 !important;
-    color: #fd663c !important;
-    font-weight: 600;
-    border-left: 4px solid #fd663c;
-    padding-left: 15px;
-  }
+    .nav-sidebar .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #636363 !important;
+      font-weight: 500;
+      transition: 0.2s ease-in-out;
+    }
 
-  .nav-sidebar .nav-link.active .nav-icon {
-    color: #ff8528 !important;
-  }
+    .nav-sidebar .nav-link .nav-icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 17px;
+      color: #636363;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .nav-sidebar .right {
-    margin-left: auto;
-    font-size: 14px;
-    color: #FEB47B;
-  }
+    .nav-sidebar .nav-link:hover {
+      background: #f8e7e3;
+      color: #ff3300 !important;
+    }
 
-  /* Sub-menu links */
-  .nav-treeview {
-    padding-left: 25px;
-    margin: 0 !important;
-  }
+    .nav-sidebar .nav-link.active {
+      background: #fbeae6 !important;
+      color: #fd663c !important;
+      font-weight: 600;
+      border-left: 4px solid #fd663c;
+      padding-left: 15px;
+    }
 
-  .nav-treeview .nav-link {
-    margin: 4px 12px !important;
-    padding: 6px 10px !important;
-    border-radius: 8px;
-    font-size: 13px;
-    color: #636363 !important;
-  }
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #ff8528 !important;
+    }
 
-  .nav-treeview .nav-link:hover {
-    background: #f8e7e3;
-    color: #ff3300 !important;
-  }
-</style>
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #FEB47B;
+    }
+
+    /* Sub-menu links */
+    .nav-treeview {
+      padding-left: 25px;
+      margin: 0 !important;
+    }
+
+    .nav-treeview .nav-link {
+      margin: 4px 12px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #636363 !important;
+    }
+
+    .nav-treeview .nav-link:hover {
+      background: #f8e7e3;
+      color: #ff3300 !important;
+    }
+  </style>
 
 
 
@@ -1035,8 +1039,6 @@
         <!-- Cards Section  -->
         <div class="container-fluid">
           <div class="row g-3">
-
-            <!-- Total States -->
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-blue">
@@ -1051,7 +1053,7 @@
               </a>
             </div>
 
-            <!-- Total Vendor -->
+
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-pink">
@@ -1066,7 +1068,7 @@
               </a>
             </div>
 
-            <!-- Total Work Order -->
+
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-green">
@@ -1081,7 +1083,6 @@
               </a>
             </div>
 
-            <!-- Total Complaints -->
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-orange">
@@ -1096,7 +1097,7 @@
               </a>
             </div>
 
-            <!-- Total Payment Request -->
+
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-teal">
@@ -1111,7 +1112,7 @@
               </a>
             </div>
 
-            <!-- Repair & Maintenance -->
+
             <div class="col-md-4 mb-3">
               <a href="#" class="stat-link">
                 <div class="stat-card-img gradient-purple">
@@ -1188,7 +1189,6 @@
           <div class="row">
             <div class="col-12">
               <div class="shadow-sm chart-card border-0">
-
                 <!-- Header -->
                 <div class="card-header table-title border-0 p-0">
                   <div class="chart-header">
@@ -1214,7 +1214,6 @@
                 <div class="tab-content p-3" id="table-tabContent">
 
                   <!-- PHASE TAB -->
-
                   <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
                     <div class="table-responsive">
                       <table class="table modern-table table-hover text-center mb-0">
@@ -1500,8 +1499,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 
 
+
   <script>
-    // Donut Chart - Updated to match image colors
+
     const donutCtx = document.getElementById("donutChart").getContext("2d");
     new Chart(donutCtx, {
       type: "doughnut",
@@ -1518,21 +1518,21 @@
           "Rajasthan",
           "Telangana"
         ],
-         datasets: [
-        {
-          data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12],
-          backgroundColor: [
-            "#FF7E5F", // Warm Coral
-            "#FEB47B", // Peach
-            "#FF6B6B", // Red-Pink
-            "#FFD56B", // Soft Yellow
-            "#FF9F80", // Orange-Peach
-            "#FFB997", // Light Peach
-            "#FF6F61", // Coral-Red
-            "#FFADAD", // Pastel Red
-            "#FFE066", // Sunny Yellow
-            "#FF8C42"  // Vibrant Orange
-          ],
+        datasets: [
+          {
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12],
+            backgroundColor: [
+              "#FF7E5F",
+              "#FEB47B",
+              "#FF6B6B",
+              "#FFD56B",
+              "#FF9F80",
+              "#FFB997",
+              "#FF6F61",
+              "#FFADAD",
+              "#FFE066",
+              "#FF8C42"
+            ],
             borderWidth: 2,
             borderColor: "#ffffff"
           }
@@ -1553,11 +1553,6 @@
         },
       },
     });
-  </script>
-
-
-  <script>
-
 
     // Bar Chart
     const barCtx = document.getElementById("barChart").getContext("2d");
@@ -1661,10 +1656,6 @@
     });
 
 
-
-    // footer year script
-
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
   <script>
