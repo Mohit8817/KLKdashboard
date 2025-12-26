@@ -475,105 +475,157 @@
 
 
 
-  <!-- NEW Sidebar css here  -->
-  <style>
-    .main-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
+<style>
+/* =========================
+   HEADER
+========================= */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0f172a; /* dark slate */
+  border-bottom: 1px solid #1e293b;
+}
 
-    .main-sidebar {
-      height: 100vh !important;
-      background: linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%) !important;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12) !important;
-      position: fixed !important;
-      overflow: hidden !important;
-    }
+/* =========================
+   SIDEBAR CONTAINER
+========================= */
+.main-sidebar {
+  height: 100vh !important;
+  background: linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+  position: fixed !important;
+  overflow: hidden !important;
+}
 
-    /* Scroll area */
-    .main-sidebar .sidebar {
-      height: calc(100vh - 60px);
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-      padding-top: 6px;
-    }
+/* Scroll area */
+.main-sidebar .sidebar {
+  height: calc(100vh - 60px);
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-top: 10px;
+}
 
-    /* Sidebar links */
-    .nav-sidebar .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 9px 22px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #475569 !important;
-      /* slate */
-      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
-    }
+/* =========================
+   HEADERS
+========================= */
+.nav-header {
+  color: #94a3b8 !important;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
 
-    /* Hover effect */
-    .nav-sidebar .nav-link:hover {
-      background: #eef4ff;
-      color: #2563eb !important;
-      transform: translateX(2px);
-    }
+/* =========================
+   NAV LINKS
+========================= */
+.nav-sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  margin: 4px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cbd5f5 !important;
+  transition: all 0.2s ease;
+}
 
+/* Hover */
+.nav-sidebar .nav-link:hover {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa !important;
+}
 
-    .nav-sidebar .nav-link .nav-icon {
-      width: 20px;
-      min-width: 20px;
-      height: 20px;
-      font-size: 17px;
-      color: #677892;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Active */
+.nav-sidebar .nav-link.active {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+}
 
-    .nav-sidebar .nav-link:hover {
-      background: #edf5fc;
-      color: #2e83ff !important;
-    }
+/* =========================
+   ICONS
+========================= */
+.nav-sidebar .nav-icon {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  font-size: 16px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .nav-sidebar .nav-link.active {
-      background: #e7f2ff !important;
-      color: #2e83ff !important;
-      font-weight: 600;
-      border-left: 4px solid #2e83ff;
-      padding-left: 15px;
-    }
+.nav-sidebar .nav-link.active .nav-icon {
+  color: #ffffff;
+}
 
-    .nav-sidebar .nav-link.active .nav-icon {
-      color: #2e83ff !important;
-    }
+.nav-sidebar .nav-link:hover .nav-icon {
+  color: #60a5fa;
+}
 
-    .nav-sidebar .right {
-      margin-left: auto;
-      font-size: 14px;
-      color: #7b8aa1;
-    }
+/* =========================
+   RIGHT ARROW
+========================= */
+.nav-sidebar .right {
+  margin-left: auto;
+  font-size: 14px;
+  color: #94a3b8;
+}
 
-    .nav-treeview {
-      padding-left: 25px;
-      margin: 0 !important;
-    }
+/* =========================
+   TREEVIEW
+========================= */
+.nav-treeview {
+  padding-left: 18px;
+  margin: 6px 0;
+}
 
-    .nav-treeview .nav-link {
-      margin: 4px 12px !important;
-      padding: 6px 10px !important;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #6b7280 !important;
-    }
+.nav-treeview .nav-link {
+  margin: 4px 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #a5b4fc !important;
+}
 
-    .nav-treeview .nav-link:hover {
-      background: #f3f6fb;
-      color: #2e83ff !important;
-    }
-  </style>
+/* Tree hover */
+.nav-treeview .nav-link:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe !important;
+}
+
+/* Tree active */
+.nav-treeview .nav-link.active {
+  background: rgba(99, 102, 241, 0.25);
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* =========================
+   SCROLLBAR (OPTIONAL)
+========================= */
+.main-sidebar .sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-sidebar .sidebar::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+.main-sidebar .sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+</style>
+
 
 
 </head>
@@ -696,10 +748,10 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar  elevation-4 shadow">
       <!-- Brand Logo -->
-      <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+      <a href="./klkhome.html" class="brand-link shadow-sm border-2">
         <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-          class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Ventures-up</span>
+          class="brand-image  bg-light bottom-border img-circle elevation-3" style="opacity: 0.8" />
+        <span class="brand-text text-light">KLK Ventures</span>
       </a>
 
 
@@ -707,7 +759,7 @@
 
 
 
- Logout
+
       <!-- Sidebar -->
       <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -741,7 +793,7 @@
                     <p>All Department</p>
                   </a>
                 </li>
-              
+
                 <li class="nav-item">
                   <a href="pages/UI/ribbons.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
