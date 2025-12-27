@@ -475,156 +475,124 @@
 
 
 
-<style>
-/* =========================
-   HEADER
-========================= */
-.main-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #0f172a; /* dark slate */
-  border-bottom: 1px solid #1e293b;
-}
+  <style>
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
 
-/* =========================
-   SIDEBAR CONTAINER
-========================= */
-.main-sidebar {
-  height: 100vh !important;
-  background: linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
-  position: fixed !important;
-  overflow: hidden !important;
-}
+    }
 
-/* Scroll area */
-.main-sidebar .sidebar {
-  height: calc(100vh - 60px);
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  padding-top: 10px;
-}
 
-/* =========================
-   HEADERS
-========================= */
-.nav-header {
-  color: #94a3b8 !important;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  margin-top: 10px;
-}
+    .main-sidebar {
+      height: 100vh !important;
+      background: linear-gradient(180deg, #0f172a 0%, #020617 100%) !important;
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+      position: fixed !important;
+      overflow: hidden !important;
+    }
 
-/* =========================
-   NAV LINKS
-========================= */
-.nav-sidebar .nav-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 22px;
-  margin: 4px 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #cbd5f5 !important;
-  transition: all 0.2s ease;
-}
 
-/* Hover */
-.nav-sidebar .nav-link:hover {
-  background: rgba(59, 130, 246, 0.12);
-  color: #60a5fa !important;
-}
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding-top: 10px;
+    }
 
-/* Active */
-.nav-sidebar .nav-link.active {
-  background: linear-gradient(90deg, #2563eb, #1d4ed8);
-  color: #ffffff !important;
-  font-weight: 600;
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
-}
 
-/* =========================
-   ICONS
-========================= */
-.nav-sidebar .nav-icon {
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
-  font-size: 16px;
-  color: #94a3b8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .nav-header {
+      color: #94a3b8 !important;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      margin-top: 10px;
+    }
 
-.nav-sidebar .nav-link.active .nav-icon {
-  color: #ffffff;
-}
 
-.nav-sidebar .nav-link:hover .nav-icon {
-  color: #60a5fa;
-}
+    .nav-sidebar .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 22px;
+      margin: 4px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #cbd5f5 !important;
+      transition: all 0.2s ease;
+    }
 
-/* =========================
-   RIGHT ARROW
-========================= */
-.nav-sidebar .right {
-  margin-left: auto;
-  font-size: 14px;
-  color: #94a3b8;
-}
 
-/* =========================
-   TREEVIEW
-========================= */
-.nav-treeview {
-  padding-left: 18px;
-  margin: 6px 0;
-}
+    .nav-sidebar .nav-link:hover {
+      background: rgba(59, 130, 246, 0.12);
+      color: #60a5fa !important;
+    }
 
-.nav-treeview .nav-link {
-  margin: 4px 12px !important;
-  padding: 8px 12px !important;
-  border-radius: 8px;
-  font-size: 13px;
-  color: #a5b4fc !important;
-}
 
-/* Tree hover */
-.nav-treeview .nav-link:hover {
-  background: rgba(99, 102, 241, 0.15);
-  color: #c7d2fe !important;
-}
+    .nav-sidebar .nav-link.active {
+      background: linear-gradient(90deg, #2563eb, #1d4ed8);
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+    }
 
-/* Tree active */
-.nav-treeview .nav-link.active {
-  background: rgba(99, 102, 241, 0.25);
-  color: #ffffff !important;
-  font-weight: 500;
-}
 
-/* =========================
-   SCROLLBAR (OPTIONAL)
-========================= */
-.main-sidebar .sidebar::-webkit-scrollbar {
-  width: 6px;
-}
+    .nav-sidebar .nav-icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 16px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.main-sidebar .sidebar::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 10px;
-}
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #ffffff;
+    }
 
-.main-sidebar .sidebar::-webkit-scrollbar-track {
-  background: transparent;
-}
-</style>
+    .nav-sidebar .nav-link:hover .nav-icon {
+      color: #60a5fa;
+    }
+
+
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+
+    .nav-treeview {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+
+    .nav-treeview .nav-link {
+      margin: 4px 12px !important;
+      padding: 8px 12px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #a5b4fc !important;
+    }
+
+    /* Tree hover */
+    .nav-treeview .nav-link:hover {
+      background: rgba(99, 102, 241, 0.15);
+      color: #c7d2fe !important;
+    }
+
+    /* Tree active */
+    .nav-treeview .nav-link.active {
+      background: rgba(99, 102, 241, 0.25);
+      color: #ffffff !important;
+      font-weight: 500;
+    }
+  </style>
 
 
 
@@ -656,7 +624,7 @@
             <span>Document</span>
           </div>
           <!-- NOTIFICATION -->
-          <!-- NOTIFICATION -->
+
           <div class="dropdown">
             <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-bell"></i>
