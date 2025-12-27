@@ -246,7 +246,7 @@
       color: #fff;
       padding: 20px;
       position: relative;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.081);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.081);
       transition: 0.3s ease;
       overflow: hidden;
       display: flex;
@@ -257,7 +257,7 @@
 
     .stat-card-img:hover {
       transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.30);
+      box-shadow: 0 5px 10px rgba(158, 158, 158, 0.173);
     }
 
     .icon-circle-img {
@@ -601,8 +601,8 @@
   <style>
     .main-sidebar {
       height: 100vh !important;
-      background: linear-gradient(180deg, #ffc3b524 0%, #ffc79c2e 100%) !important;
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15) !important;
+      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
       position: fixed !important;
       overflow: hidden !important;
     }
@@ -613,7 +613,6 @@
       overflow-y: auto !important;
       overflow-x: hidden !important;
     }
-
 
 
     .nav-sidebar .nav-link {
@@ -866,8 +865,8 @@
       <!-- Brand Logo -->
       <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
         <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-          class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Vendor</span>
+          class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+        <span class="brand-text text-light">KLK Vendor</span>
       </a>
 
 
@@ -917,6 +916,7 @@
 
 
 
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-journal-text nav-icon"></i>
@@ -946,19 +946,79 @@
             </li>
 
             <!-- States -->
+
+            <!-- Bihar Management -->
+            <li class="nav-header">Bihar</li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-geo-alt nav-icon"></i>
-                <p>Bihar</p>
+                <p>
+                  SSL
+                  <i class="fas fa-angle-left right"></i>
+                </p>
               </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+              </ul>
             </li>
 
+
+            <!-- SRT SUBMENU -->
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-geo-alt nav-icon"></i>
-                <p>Jammu</p>
+                <p>
+                  SRT
+                  <i class="fas fa-angle-left right"></i>
+                </p>
               </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./vendorbiharsrt.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
+
+
 
             <li class="nav-item">
               <a href="#" class="nav-link">
