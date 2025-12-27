@@ -1314,268 +1314,452 @@
                 </div>
 
                 <!-- Bootstrap Tab System -->
+
+
                 <nav class="px-3 pt-2">
                   <div class="nav nav-tabs" id="table-tab" role="tablist">
-                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-toggle="tab" href="#phase"
-                      role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
 
-                    <a class="nav-item nav-link text-dark" id="district-tab" data-toggle="tab" href="#district"
-                      role="tab" aria-controls="district" aria-selected="false">District Wise</a>
+                    <a class="nav-item nav-link active text-dark" id="district-tab" data-toggle="tab" href="#district"
+                      role="tab" aria-controls="district" aria-selected="true">
+                      District Wise
+                    </a>
 
                     <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
-                      aria-controls="vendor" aria-selected="false">Vendor Wise</a>
+                      aria-controls="vendor" aria-selected="false">
+                      Vendor Wise
+                    </a>
+
                   </div>
                 </nav>
 
                 <!-- Tab Content -->
                 <div class="tab-content p-3" id="table-tabContent">
 
-                  <!-- PHASE TAB -->
-
-                  <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
-                          <tr>
-                            <th>Sr. No.</th>
-                            <th>District</th>
-                            <th>Total</th>
-                            <th>WO Received</th>
-                            <th>WO Pending</th>
-                            <th>Material Supplied</th>
-                            <th>Material Pending</th>
-                            <th>Material Inspection</th>
-                            <th>Material Inspection Pending</th>
-                            <th>Installed</th>
-                            <th>Pending</th>
-                            <th>Installation Inspection</th>
-                            <th>Installation Inspection Pending</th>
-                            <th>85% Bill Submitted</th>
-                            <th>85% Bill Pending</th>
-                            <th>85% Payment Complete</th>
-                            <th>85% Payment Pending</th>
-                            <th>AMC 1 Complete</th>
-                            <th>AMC 1 Pending</th>
-                            <th>AMC 2 Complete</th>
-                            <th>AMC 2 Pending</th>
-                            <th>AMC 3 Complete</th>
-                            <th>AMC 3 Pending</th>
-                            <th>AMC 4 Complete</th>
-                            <th>AMC 4 Pending</th>
-                            <th>AMC 5 Complete</th>
-                            <th>AMC 5 Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Aligarh</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>AMBEDKAR NAGAR</td>
-                            <td>510</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Amroha (J.P. NAGAR)</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
                   <!-- DISTRICT TAB -->
-                  <div class="tab-pane fade" id="district" role="tabpanel" aria-labelledby="district-tab">
+                  <div class="tab-pane fade active show" id="district" role="tabpanel" aria-labelledby="district-tab">
                     <div class="table-responsive">
                       <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
+                        <thead>
                           <tr>
                             <th>Sr No</th>
                             <th>District</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
+                            <th>Total Allocation</th>
+                            <th>Total Installed</th>
+                            <th>Pending Installation</th>
+                            <th>Pay1 Complete</th>
+                            <th>Pay2 Complete</th>
+                            <th>Pay3 Complete</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td><span class="status-icon status-active"></span>District A</td>
-                            <td>10</td>
-                            <td>45</td>
-                            <td>20</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>25</td>
-                            <td>5</td>
-                            <td>8</td>
+                            <td>BHAGALPUR</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td><span class="status-icon status-pending"></span>District B</td>
-                            <td>5</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>20</td>
-                            <td>10</td>
-                            <td>18</td>
-                            <td>3</td>
-                            <td>5</td>
+                            <td>BUXAR</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>15</td>
-                            <td>75</td>
-                            <td>35</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>43</td>
+                          <tr>
+                            <td>3</td>
+                            <td>East Champaran</td>
+                            <td>17</td>
+                            <td>17</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>EAST CHAMPARAN (MOTIHARI)</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>GAYA</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>JAMUI</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>KAIMUR (BHABHUA)</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
                             <td>8</td>
+                            <td>KHAGARIA</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>9</td>
+                            <td>LAKHISARAI</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>10</td>
+                            <td>MADHEPURA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>11</td>
+                            <td>MADHUBANI</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>12</td>
+                            <td>MUNGER</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
                             <td>13</td>
+                            <td>Muzafarpur</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>14</td>
+                            <td>MUZAFFARPUR</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>15</td>
+                            <td>NALANDA (BIHAR SHARIF)</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>16</td>
+                            <td>Patna</td>
+                            <td>132</td>
+                            <td>75</td>
+                            <td>57</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>17</td>
+                            <td>PURNEA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>18</td>
+                            <td>SARAN</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>19</td>
+                            <td>SARAN CHPRA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>20</td>
+                            <td>SHEIKHPURA</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>21</td>
+                            <td>Sheikpura</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>22</td>
+                            <td>Sheohar</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>23</td>
+                            <td>SITAMARHI</td>
+                            <td>31</td>
+                            <td>30</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>24</td>
+                            <td>Siwan</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>25</td>
+                            <td>SUPAUL</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>26</td>
+                            <td>VAISHALI</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>27</td>
+                            <td>WEST CHAMPARAN</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+
 
                   <!-- VENDOR TAB -->
                   <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
                     <div class="table-responsive">
                       <table class="table modern-table table-hover text-center mb-0">
-                        <thead class="">
+                        <thead>
                           <tr>
                             <th>Sr No</th>
                             <th>Vendor</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
+                            <th>Total Allocation</th>
+                            <th>Total Installed</th>
+                            <th>Pending Installation</th>
+                            <th>Pay1 Complete</th>
+                            <th>Pay2 Complete</th>
+                            <th>Pay3 Complete</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <td>1</td>
-                            <td><span class="status-icon status-active"></span>Vendor X</td>
-                            <td>8</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>35</td>
-                            <td>18</td>
-                            <td>30</td>
-                            <td>6</td>
-                            <td>10</td>
+                            <td>NA</td>
+                            <td>9</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td><span class="status-icon status-pending"></span>Vendor Y</td>
-                            <td>12</td>
-                            <td>40</td>
-                            <td>20</td>
-                            <td>28</td>
-                            <td>12</td>
-                            <td>22</td>
-                            <td>4</td>
-                            <td>7</td>
+                            <td>Vipin Kumar Yadav</td>
+                            <td>96</td>
+                            <td>15</td>
+                            <td>46</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>20</td>
-                            <td>90</td>
-                            <td>45</td>
-                            <td>63</td>
-                            <td>30</td>
+                          <tr>
+                            <td>3</td>
+                            <td>Vinay kumar singh</td>
+                            <td>71</td>
                             <td>52</td>
+                            <td>12</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Anurag Tiwari</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Pintu.N</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Reena Kumari</td>
+                            <td>15</td>
+                            <td>13</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Om siyaram</td>
+                            <td>40</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>8</td>
+                            <td>Anand kumar</td>
+                            <td>54</td>
+                            <td>22</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>9</td>
+                            <td>Ravi Chaudhary</td>
+                            <td>50</td>
+                            <td>45</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
                             <td>10</td>
-                            <td>17</td>
+                            <td>Gautam Kumar</td>
+                            <td>47</td>
+                            <td>24</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>11</td>
+                            <td>ANIL KUMAR</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+
 
                 </div>
               </div>
@@ -1711,68 +1895,68 @@
   </script>
 
   <script>
-  // Line Chart (Same data as Donut)
-  const lineCtx = document.getElementById("lineChart").getContext("2d");
-  new Chart(lineCtx, {
-    type: "line",
-    data: {
-      labels: [
-        "Unknown",
-        "Vipin Kumar Yadav",
-        "Vinay kumar Singh",
-        "Anurag Tiwari",
-        "Himachal Pradesh",
-        "Jammu & Kashmir",
-        "Pintu",
-        "Reena Kumari",
-        "Ravi Chaudhary",
-        "ANIL KUMAR",
-        "Gautam Kumar",
-        "Anand kumar"
-      ],
-      datasets: [
-        {
-          label: "User Data",
-          data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
-          borderColor: "#6c019c",
-          backgroundColor: "rgba(108, 1, 156, 0.15)",
-          borderWidth: 3,
-          tension: 0.4,
-          pointRadius: 5,
-          pointBackgroundColor: "#6c019c",
-          pointBorderColor: "#ffffff",
-          pointBorderWidth: 2,
-          fill: true,
+    // Line Chart (Same data as Donut)
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Unknown",
+          "Vipin Kumar Yadav",
+          "Vinay kumar Singh",
+          "Anurag Tiwari",
+          "Himachal Pradesh",
+          "Jammu & Kashmir",
+          "Pintu",
+          "Reena Kumari",
+          "Ravi Chaudhary",
+          "ANIL KUMAR",
+          "Gautam Kumar",
+          "Anand kumar"
+        ],
+        datasets: [
+          {
+            label: "User Data",
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+            borderColor: "#6c019c",
+            backgroundColor: "rgba(108, 1, 156, 0.15)",
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#6c019c",
+            pointBorderColor: "#ffffff",
+            pointBorderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: "rgba(14, 23, 80, 0.08)" },
+            ticks: { color: "#0e1750" }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: "#0e1750" }
+          },
         },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: "rgba(14, 23, 80, 0.08)" },
-          ticks: { color: "#0e1750" }
-        },
-        x: {
-          grid: { display: false },
-          ticks: { color: "#0e1750" }
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "#6c019c",
+            titleColor: "#fff",
+            bodyColor: "#fff",
+            borderColor: "#0e1750",
+            borderWidth: 1,
+          },
         },
       },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: "#6c019c",
-          titleColor: "#fff",
-          bodyColor: "#fff",
-          borderColor: "#0e1750",
-          borderWidth: 1,
-        },
-      },
-    },
-  });
-</script>
+    });
+  </script>
 
 
   <script>
