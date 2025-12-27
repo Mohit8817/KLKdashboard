@@ -1673,41 +1673,41 @@
 
   <script>
     const barCtx = document.getElementById("barChart").getContext("2d");
-new Chart(barCtx, {
-  type: "bar",
-  data: {
-    labels: ["2025-10","2025-09","2025-08","2025-07","2025-06","2025-05","2025-04","2025-03","2025-02"],
-    datasets: [
-      {
-        label: "Monthly Installation",
-        data: [20, 69, 10, 40, 22, 31, 60, 40, 1],
-        backgroundColor: [
-          "#0e1750","#6c019c","#0e1750","#6c019c","#0e1750",
-          "#6c019c","#0e1750","#6c019c","#0e1750"
-        ],
-        borderRadius: 6,
-        borderSkipped: false,
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["2025-10", "2025-09", "2025-08", "2025-07", "2025-06", "2025-05", "2025-04", "2025-03", "2025-02"],
+        datasets: [
+          {
+            label: "Monthly Installation",
+            data: [20, 69, 10, 40, 22, 31, 60, 40, 1],
+            backgroundColor: [
+              "#0e1750", "#6c019c", "#0e1750", "#6c019c", "#0e1750",
+              "#6c019c", "#0e1750", "#6c019c", "#0e1750"
+            ],
+            borderRadius: 6,
+            borderSkipped: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 80,
+            grid: { color: "#f6f6f6" },
+          },
+          x: {
+            grid: { display: false },
+          },
+        },
+        plugins: {
+          legend: { display: false },
+        },
       }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 80,
-        grid: { color: "#f6f6f6" },
-      },
-      x: {
-        grid: { display: false },
-      },
-    },
-    plugins: {
-      legend: { display: false },
-    },
-  }
-});
+    });
 
 
 
