@@ -1708,76 +1708,72 @@
         },
       }
     });
-
-
-
-    // Line Chart
-    const lineCtx = document.getElementById("lineChart").getContext("2d");
-    new Chart(lineCtx, {
-      type: "line",
-      data: {
-        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7"],
-        datasets: [
-          {
-            label: "Installations",
-            data: [30, 50, 40, 90, 65, 100, 80],
-            borderColor: "#6c019c",
-            backgroundColor: "rgba(14, 23, 80, 0.15)",
-            borderWidth: 3,
-            tension: 0.4,
-            pointRadius: 6,
-            pointBackgroundColor: "#6c019c",
-            pointBorderColor: "#ffffff",
-            pointBorderWidth: 2,
-            fill: true,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 130,
-            grid: {
-              color: "rgba(14, 23, 80, 0.08)"
-            },
-            ticks: {
-              stepSize: 20,
-              color: "#0e1750",
-            }
-          },
-          x: {
-            grid: {
-              display: false,
-            },
-            ticks: {
-              color: "#0e1750",
-            }
-          },
-        },
-        plugins: {
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            backgroundColor: "#6c019c",
-            titleColor: "#fff",
-            bodyColor: "#fff",
-            borderColor: "#0e1750",
-            borderWidth: 1,
-          },
-        },
-      },
-    });
-
-
-
-    // footer year script
-
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script>
+  // Line Chart (Same data as Donut)
+  const lineCtx = document.getElementById("lineChart").getContext("2d");
+  new Chart(lineCtx, {
+    type: "line",
+    data: {
+      labels: [
+        "Unknown",
+        "Vipin Kumar Yadav",
+        "Vinay kumar Singh",
+        "Anurag Tiwari",
+        "Himachal Pradesh",
+        "Jammu & Kashmir",
+        "Pintu",
+        "Reena Kumari",
+        "Ravi Chaudhary",
+        "ANIL KUMAR",
+        "Gautam Kumar",
+        "Anand kumar"
+      ],
+      datasets: [
+        {
+          label: "User Data",
+          data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+          borderColor: "#6c019c",
+          backgroundColor: "rgba(108, 1, 156, 0.15)",
+          borderWidth: 3,
+          tension: 0.4,
+          pointRadius: 5,
+          pointBackgroundColor: "#6c019c",
+          pointBorderColor: "#ffffff",
+          pointBorderWidth: 2,
+          fill: true,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: "rgba(14, 23, 80, 0.08)" },
+          ticks: { color: "#0e1750" }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: "#0e1750" }
+        },
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: "#6c019c",
+          titleColor: "#fff",
+          bodyColor: "#fff",
+          borderColor: "#0e1750",
+          borderWidth: 1,
+        },
+      },
+    },
+  });
+</script>
+
 
   <script>
     const changeBtn = document.getElementById("changePassBtn");
