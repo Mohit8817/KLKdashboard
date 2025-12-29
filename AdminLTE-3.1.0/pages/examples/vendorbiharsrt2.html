@@ -1747,42 +1747,30 @@
 
   <!-- Chart.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
   <script>
     const donutCtx = document.getElementById("donutChart").getContext("2d");
     new Chart(donutCtx, {
       type: "doughnut",
       data: {
         labels: [
-          "Unknown",
-          "Vipin Kumar Yadav",
-          "Vinay kumar Singh",
-          " Anurag Tiwari",
-          "Himachal Pradesh",
-          "Jammu & Kashmir",
-          "Pintu",
-          "Reena Kumari",
-          "Ravi Chaudhary ",
-          "ANIL KUMAR",
-          "Gautam Kumar",
-          "Anand kumar"
+          "Unknown", "Vipin Kumar Yadav", "Vinay kumar Singh", "Anurag Tiwari",
+          "Himachal Pradesh", "Jammu & Kashmir", "Pintu", "Reena Kumari",
+          "Ravi Chaudhary", "ANIL KUMAR", "Gautam Kumar", "Anand kumar"
         ],
         datasets: [
           {
             data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+
+            /* 🎨 Custom Theme Colors Applied */
             backgroundColor: [
-              "#1E6DF2",
-              "#7200A1",
-              "#1F7A5D",
-              "#E96D0C",
-              "#007B7F",
-              "#6F2DBD",
-              "#1E6DF2",
-              "#7200A1",
-              "#1F7A5D",
-              "#E96D0C"
+              "#ff8b66", "#ff7e5f", "#feae79",
+              "#ff8b66", "#ff7e5f", "#feae79",
+              "#ff8b66", "#ff7e5f", "#feae79",
+              "#ff8b66", "#ff7e5f", "#feae79"
             ],
+            borderColor: "#ffffff",
             borderWidth: 2,
-            borderColor: "#ffffff"
           }
         ]
       },
@@ -1798,10 +1786,18 @@
               usePointStyle: true,
             },
           },
+          tooltip: {
+            backgroundColor: "#ff7e5f",
+            titleColor: "#ffffff",
+            bodyColor: "#ffffff",
+            borderColor: "#ff8b66",
+            borderWidth: 1,
+          },
         },
       },
     });
   </script>
+
 
   <script>
     const barCtx = document.getElementById("barChart").getContext("2d");
