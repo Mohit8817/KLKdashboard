@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdminLTE 3 | Blank Page</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+  <!-- ICONS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+
+
+  <style>
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+
+    /* PROFILE IMAGE */
+    .profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid #d7e9ff;
+      padding: 2px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* NOTIFICATION ICON */
+    .notif-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px dotted #c5c5c5;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .notif-btn i {
+      font-size: 16px;
+      color: #444;
+    }
+
+    .notif-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4b4b;
+      padding: 1px 6px;
+      border-radius: 50px;
+      font-size: 10px;
+      color: white;
+    }
+
+    .notif-dropdown {
+      width: 250px !important;
+      border-radius: 12px;
+    }
+
+    /* TITLE */
+    .notif-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* HOVER EFFECT */
+    .notif-dropdown .dropdown-item:hover {
+      background: #f5f7ff;
+      border-radius: 8px;
+    }
+
+    /* DOCUMENT BUTTON — LIGHT COLOR */
+    .doc-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .doc-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown-menu {
+      width: 210px;
+      border-radius: 10px;
+      padding: 0;
+    }
+
+    .user-box {
+      padding: 8px 15px !important;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user-box h6 {
+      font-size: 15px;
+      margin-bottom: 0;
+      color: black;
+    }
+
+    .icon-blue,
+    .icon-pink,
+    .icon-gray,
+    .icon-green,
+    .icon-orange {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      border-radius: 50%;
+    }
+
+    .icon-blue {
+      background: #e8f3ff;
+      color: #4a8cff;
+    }
+
+    .icon-pink {
+      background: #ffe8ef;
+      color: #ff7aa2;
+    }
+
+    .icon-gray {
+      background: #f1f1f1;
+      color: #444444;
+    }
+
+    .icon-orange {
+      background: #fef5e5;
+      color: #ec9829;
+    }
+
+    .icon-green {
+      background: #e8ffe8;
+      color: #33a933;
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+    }
+
+    .dropdown-item:hover {
+      background: #f4f7ff;
+    }
+
+    @media (max-width: 576px) {
+      .header-actions {
+        gap: 12px;
+      }
+
+      .doc-btn span {
+        display: none;
+      }
+    }
+  </style>
+
+
+  <!-- Dashboard css  -->
+  <style>
+    .welcome-sub {
+      font-size: 15px;
+      font-weight: bold;
+      color: #231262;
+    }
+
+    .welcome-title {
+      font-weight: 600;
+      font-size: 22px;
+      color: #333;
+    }
+
+
+    /* Responsive font and icon resizing */
+    @media (max-width: 767px) {
+      .welcome-title {
+        font-size: 18px;
+      }
+
+      .welcome-sub {
+        font-size: 13px;
+      }
+
+      .welcome-icon {
+        width: 35px !important;
+      }
+
+      .select-wrapper {
+        padding: 0 0 0 15px;
+        font-size: 12px;
+      }
+    }
+
+    /* Cards css  */
+
+
+
+
+    .stat-card-img {
+      border-radius: 30px;
+      color: #fff;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.081);
+      transition: 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      height: 130px;
+    }
+
+    .stat-card-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.30);
+    }
+
+    .icon-circle-img {
+      min-width: 60px;
+      min-height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.177);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-content h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-content h5 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .card-content .line {
+      width: 60%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.6);
+      margin: 4px 0;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .gradient-blue {
+      background: linear-gradient(135deg, #0052D4, #a7b7fb);
+    }
+
+    .gradient-pink {
+      background: linear-gradient(135deg, #e91446, #f78571);
+    }
+
+    .gradient-green {
+      background: linear-gradient(135deg, #03981c, #92ffbc);
+    }
+
+    .gradient-orange {
+      background: linear-gradient(135deg, #FF8008, #fee4a3);
+    }
+
+    .gradient-teal {
+      background: linear-gradient(135deg, #00a3d0, #baeebf);
+    }
+
+    .gradient-purple {
+      background: linear-gradient(135deg, #6d0ad6, #76a4f3);
+    }
+
+
+
+
+
+    /* graphs css ------------------- */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      background: #fff;
+      position: relative;
+      padding: 0;
+      border: 0;
+      background: linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #ff7e5f, #feb47b) border-box;
+      /* vibrant gradient */
+      border: 1.5px solid transparent !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      /* subtle shadow for depth */
+    }
+
+    /* Chart Header */
+    .chart-header {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      /* matching gradient */
+      color: #ffffff;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* subtle header shadow */
+
+    }
+
+    /* Icon Circle */
+    .chart-header i {
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #ffffff;
+      transition: 0.3s;
+    }
+
+    .chart-header i:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1);
+    }
+
+    /* Card Inner */
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 15px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+
+    /*  Table css --------------------------------------------- */
+    .modern-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 14px;
+      border: none;
+      border: 2px solid #e4e4e4;
+
+    }
+
+
+    .modern-table thead th {
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 14px;
+      border: none;
+    }
+
+    .modern-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    /* Total Row */
+
+
+    /* Tab Custom Style */
+    .nav-tabs .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 8px 8px 0 0;
+      transition: 0.3s;
+      background: #f1f4ff;
+      margin-right: 4px;
+    }
+
+    .nav-tabs .nav-link.active {
+      background: #ff7e5f;
+      color: white !important;
+      border-color: transparent !important;
+    }
+
+    .tab-content {
+      background: #fff;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Status Icons */
+    .status-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .status-active {
+      background: #28a745;
+    }
+
+    .status-pending {
+      background: #ffc107;
+    }
+
+
+
+    /* profile side car css  */
+    /* RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+
+    /* input box css  */
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  </style>
+
+
+
+  <!-- NEW Sidebar css here  -->
+  <style>
+    .main-sidebar {
+      height: 100vh !important;
+      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+      position: fixed !important;
+      overflow: hidden !important;
+    }
+
+
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+
+
+    .nav-sidebar .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #636363 !important;
+      font-weight: 500;
+      transition: 0.2s ease-in-out;
+    }
+
+    .nav-sidebar .nav-link .nav-icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 17px;
+      color: #636363;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-sidebar .nav-link:hover {
+      background: #f8e7e3;
+      color: #ff3300 !important;
+    }
+
+    .nav-sidebar .nav-link.active {
+      background: #fbeae6 !important;
+      color: #fd663c !important;
+      font-weight: 600;
+      border-left: 4px solid #fd663c;
+      padding-left: 15px;
+    }
+
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #ff8528 !important;
+    }
+
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #FEB47B;
+    }
+
+    /* Sub-menu links */
+    .nav-treeview {
+      padding-left: 25px;
+      margin: 0 !important;
+    }
+
+    .nav-treeview .nav-link {
+      margin: 4px 12px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #636363 !important;
+    }
+
+    .nav-treeview .nav-link:hover {
+      background: #f8e7e3;
+      color: #ff3300 !important;
+    }
+  </style>
+
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+      <div class="container-fluid">
+
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+
+        </ul>
+        <!-- BRAND -->
+        <a class="navbar-brand d-flex align-items-center">
+          <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+        </a>
+
+        <!-- RIGHT SIDE ICONS -->
+        <div class="header-actions">
+          <!-- DOCUMENT BUTTON -->
+          <div class="doc-btn">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Document</span>
+          </div>
+
+          <!-- NOTIFICATION -->
+          <div class="dropdown">
+            <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell"></i>
+              <span class="notif-badge">7</span>
+            </div>
+
+            <!-- DROPDOWN BOX -->
+            <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+              <li class="dropdown-header fw-bold px-3 text-dark">
+                Notifications
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">New policy
+                      update</div>
+                    <small class="text-muted">5 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Server downtime
+                      alert</div>
+                    <small class="text-muted">10 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="dropdown-item d-flex align-items-start">
+                  <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                  <div>
+                    <div class="notif-title">Payment
+                      completed</div>
+                    <small class="text-muted">20 min
+                      ago</small>
+                  </div>
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+
+              <li>
+                <a class="dropdown-item text-center" href="#">View All</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- PROFILE DROPDOWN -->
+          <div class="dropdown">
+            <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li class="user-box">
+                <h6>Login New User</h6>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                  data-bs-target="#profileModal">
+                  <i class="bi bi-person icon-blue me-3"></i>Profile
+                </a>
+
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                    class="bi bi-gear icon-pink me-3"></i>Settings</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                    class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- profile popup  -->
+    <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-right">
+        <div class="modal-content profile-modal">
+
+          <span class="close-btn" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg"></i>
+          </span>
+
+          <div class="modal-body text-center p-4">
+            <img src="../images/userimg.jpg" class="profile-photo mb-3">
+            <h5 class="user-name">Pravesh Ahamad</h5>
+            <p class="user-email">@parvesahamad</p>
+
+            <hr>
+
+            <div class="profile-info">
+              <p><strong>Full Name:</strong> Parves Ahamad</p>
+              <p><strong>Email:</strong> parves@gmail.com</p>
+              <p><strong>Gender:</strong> Male</p>
+              <p><strong>DOB:</strong> 05-01-2001</p>
+              <p><strong>Phone:</strong> +91 9876543210</p>
+              <p><strong>State:</strong> Kashmir</p>
+            </div>
+
+            <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+
+            <!-- Hidden Password Fields -->
+            <div id="passwordFields" style="display:none; padding: 15px;">
+
+              <div class="mb-2 text-start">
+                <label class="form-label">New Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+
+              <div class="mb-2 text-start">
+                <label class="form-label">Confirm Password</label>
+                <div class="password-wrapper">
+                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                  <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4 shadow">
+      <!-- Brand Logo -->
+      <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+          class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+        <span class="brand-text text-light">KLK Vendor</span>
+      </a>
+
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-header">Dashboard </li>
+            <li class="nav-item">
+              <a href="./vendordashboard2.html" class="nav-link active">
+                <i class="bi bi-speedometer2 nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+
+
+            <li class="nav-header">Vendor Management</li>
+            <li class="nav-item ">
+              <a href="#" class="nav-link">
+
+                <i class="bi bi-people nav-icon"></i>
+                <p>
+                  Vendor
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./Mohit.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Vendor</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./klkhome.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Vendor</p>
+                  </a>
+                </li>
+
+
+              </ul>
+            </li>
+
+
+
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-journal-text nav-icon"></i>
+                <p>Work Order</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-person-check nav-icon"></i>
+                <p>Work Order Assign</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-tools nav-icon"></i>
+                <p>Return & Maintanence</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-credit-card-2-front nav-icon"></i>
+                <p>Payment</p>
+              </a>
+            </li>
+
+            <!-- States -->
+
+            <!-- Bihar Management -->
+            <li class="nav-header">Bihar</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-geo-alt nav-icon"></i>
+                <p>
+                  SSL
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+            <!-- SRT SUBMENU -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-geo-alt nav-icon"></i>
+                <p>
+                  SRT
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./vendorbiharsrt.html" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-assign-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Assign Light</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="./bihar-srt-verify-light.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Verify Light</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-map nav-icon"></i>
+                <p>UP</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-map nav-icon"></i>
+                <p>Karnataka</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-map nav-icon"></i>
+                <p>Assam</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-chat-dots nav-icon"></i>
+                <p>Vendor Complaint</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-graph-up-arrow nav-icon"></i>
+                <p>Vendor Report</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                <p class="text-danger">Logout</p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+
+    </aside>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper mt-5 pt-4">
+
+      <section class="content">
+        <!-- welcome Section here  -->
+        <section class="py-1">
+          <div class="container-fluid">
+            <div class="row align-items-center g-2">
+              <!-- LEFT -->
+              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
+                <img src="../images/icon (2).svg" class="welcome-icon mx-1" style="width: 50px" />
+                <div>
+                  <div class="welcome-sub">Welcome to,</div>
+                  <h2 class="welcome-title m-0">
+                    Bihar SRT Installation Dashboard
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </section>
+
+
+
+        <!-- Cards Section  -->
+        <div class="container-fluid">
+          <div class="row g-3">
+
+            <!-- Total Sites -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-blue">
+                  <div class="icon-circle-img"><i class="fas fa-map-marked-alt"></i></div>
+                  <div class="card-content">
+                    <h5>Total Sites</h5>
+                    <h2>399</h2>
+                    <!-- <p>Assigned / Pending / Cancel: <b>263 / 1 / 135</b></p> -->
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Installation Status -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-pink">
+                  <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
+                  <div class="card-content">
+                    <h5>Installation Status</h5>
+                    <h2>185 / 79</h2>
+                    <p>Installed / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Verification Status -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-green">
+                  <div class="icon-circle-img"><i class="fas fa-check-circle"></i></div>
+                  <div class="card-content">
+                    <h5>Verification Status</h5>
+                    <h2>185 / 0 / 0</h2>
+                    <p>Approved / Pending / Rejected</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Claim Status -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-orange">
+                  <div class="icon-circle-img"><i class="fas fa-file-invoice-dollar"></i></div>
+                  <div class="card-content">
+                    <h5>Claim Status</h5>
+                    <h2>99 / 86</h2>
+                    <p>Applicable / Raised</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Inspection Status -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-teal">
+                  <div class="icon-circle-img"><i class="fas fa-search"></i></div>
+                  <div class="card-content">
+                    <h5>Inspection Status</h5>
+                    <h2>0 / 0</h2>
+                    <p>Inspected / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Documents Submitted -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-purple">
+                  <div class="icon-circle-img"><i class="fas fa-file-upload"></i></div>
+                  <div class="card-content">
+                    <h5>Documents Submitted</h5>
+                    <h2>0 / 0</h2>
+                    <p>Submitted / Pending</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Documents Approval -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-soft-blue">
+                  <div class="icon-circle-img"><i class="fas fa-clipboard-check"></i></div>
+                  <div class="card-content">
+                    <h5>Document Approval</h5>
+                    <h2>0 / 0</h2>
+                    <p>Approved / Rejected</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Payment Claimed (Numbers) -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-gold">
+                  <div class="icon-circle-img"><i class="fas fa-rupee-sign"></i></div>
+                  <div class="card-content">
+                    <h5>Payment Claimed (Numbers)</h5>
+                    <h2>0 / 0 / 0</h2>
+                    <p>1st / 2nd / 3rd</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Payment Amount Claimed -->
+            <div class="col-md-4 mb-3">
+              <a href="#" class="stat-link">
+                <div class="stat-card-img gradient-red">
+                  <div class="icon-circle-img"><i class="fas fa-hand-holding-usd"></i></div>
+                  <div class="card-content">
+                    <h5>Payment Amount Claimed</h5>
+                    <h2>0 / 0 / 0</h2>
+                    <p>1st / 2nd / 3rd</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <!-- end Cards Section  -->
+
+
+        <!-- chart section start  -->
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <!-- Donut Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Assigned Vendors
+
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="donutChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Monthly Installation
+
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="col-12">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-line"></i>
+                  Installation Trend Analysis
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Table Section -->
+        <div class="container-fluid pb-2">
+          <div class="row">
+            <div class="col-12">
+              <div class="shadow-sm chart-card border-0">
+
+                <!-- Header -->
+                <div class="card-header table-title border-0 p-0">
+                  <div class="chart-header">
+                    <i class="fas fa-table"></i> Installation Status Details
+                  </div>
+                </div>
+
+                <!-- Bootstrap Tab System -->
+
+
+                <nav class="px-3 pt-2">
+                  <div class="nav nav-tabs" id="table-tab" role="tablist">
+                    <a class="nav-item nav-link active text-dark" id="district-tab" data-toggle="tab" href="#district"
+                      role="tab" aria-controls="district" aria-selected="true">
+                      District Wise
+                    </a>
+
+                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
+                      aria-controls="vendor" aria-selected="false">
+                      Vendor Wise
+                    </a>
+
+                  </div>
+                </nav>
+
+                <!-- Tab Content -->
+                <div class="tab-content p-3" id="table-tabContent">
+
+                  <!-- DISTRICT TAB -->
+                  <div class="tab-pane fade active show" id="district" role="tabpanel" aria-labelledby="district-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead>
+                          <tr>
+                            <th>Sr No</th>
+                            <th>District</th>
+                            <th>Total Allocation</th>
+                            <th>Total Installed</th>
+                            <th>Pending Installation</th>
+                            <th>Pay1 Complete</th>
+                            <th>Pay2 Complete</th>
+                            <th>Pay3 Complete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>BHAGALPUR</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>BUXAR</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>East Champaran</td>
+                            <td>17</td>
+                            <td>17</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>EAST CHAMPARAN (MOTIHARI)</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>GAYA</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>JAMUI</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>KAIMUR (BHABHUA)</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>8</td>
+                            <td>KHAGARIA</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>9</td>
+                            <td>LAKHISARAI</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>10</td>
+                            <td>MADHEPURA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>11</td>
+                            <td>MADHUBANI</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>12</td>
+                            <td>MUNGER</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>13</td>
+                            <td>Muzafarpur</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>14</td>
+                            <td>MUZAFFARPUR</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>15</td>
+                            <td>NALANDA (BIHAR SHARIF)</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>16</td>
+                            <td>Patna</td>
+                            <td>132</td>
+                            <td>75</td>
+                            <td>57</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>17</td>
+                            <td>PURNEA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>18</td>
+                            <td>SARAN</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>19</td>
+                            <td>SARAN CHPRA</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>20</td>
+                            <td>SHEIKHPURA</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>21</td>
+                            <td>Sheikpura</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>22</td>
+                            <td>Sheohar</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>23</td>
+                            <td>SITAMARHI</td>
+                            <td>31</td>
+                            <td>30</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>24</td>
+                            <td>Siwan</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>25</td>
+                            <td>SUPAUL</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>26</td>
+                            <td>VAISHALI</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>27</td>
+                            <td>WEST CHAMPARAN</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+                  <!-- VENDOR TAB -->
+                  <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
+                    <div class="table-responsive">
+                      <table class="table modern-table table-hover text-center mb-0">
+                        <thead>
+                          <tr>
+                            <th>Sr No</th>
+                            <th>Vendor</th>
+                            <th>Total Allocation</th>
+                            <th>Total Installed</th>
+                            <th>Pending Installation</th>
+                            <th>Pay1 Complete</th>
+                            <th>Pay2 Complete</th>
+                            <th>Pay3 Complete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>NA</td>
+                            <td>9</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>Vipin Kumar Yadav</td>
+                            <td>96</td>
+                            <td>15</td>
+                            <td>46</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>Vinay kumar singh</td>
+                            <td>71</td>
+                            <td>52</td>
+                            <td>12</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>Anurag Tiwari</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>Pintu.N</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>6</td>
+                            <td>Reena Kumari</td>
+                            <td>15</td>
+                            <td>13</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>7</td>
+                            <td>Om siyaram</td>
+                            <td>40</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>8</td>
+                            <td>Anand kumar</td>
+                            <td>54</td>
+                            <td>22</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>9</td>
+                            <td>Ravi Chaudhary</td>
+                            <td>50</td>
+                            <td>45</td>
+                            <td>4</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>10</td>
+                            <td>Gautam Kumar</td>
+                            <td>47</td>
+                            <td>24</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td>11</td>
+                            <td>ANIL KUMAR</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- footer section -->
+        <section class="">
+          <div class="container">
+            <div class="row">
+              <footer class="footer-area py-2">
+                <p class="m-0 fw-semibold text-secondary small footer-text">
+                  Copyright © <span id="year"></span> KLK ERP — By
+                  <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                  All rights reserved.
+                </p>
+              </footer>
+            </div>
+          </div>
+        </section>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- Chart.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script>
+    const donutCtx = document.getElementById("donutChart").getContext("2d");
+    new Chart(donutCtx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Unknown",
+          "Vipin Kumar Yadav",
+          "Vinay kumar Singh",
+          " Anurag Tiwari",
+          "Himachal Pradesh",
+          "Jammu & Kashmir",
+          "Pintu",
+          "Reena Kumari",
+          "Ravi Chaudhary ",
+          "ANIL KUMAR",
+          "Gautam Kumar",
+          "Anand kumar"
+        ],
+        datasets: [
+          {
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+            backgroundColor: [
+              "#1E6DF2",
+              "#7200A1",
+              "#1F7A5D",
+              "#E96D0C",
+              "#007B7F",
+              "#6F2DBD",
+              "#1E6DF2",
+              "#7200A1",
+              "#1F7A5D",
+              "#E96D0C"
+            ],
+            borderWidth: 2,
+            borderColor: "#ffffff"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              padding: 10,
+              font: { size: 12 },
+              usePointStyle: true,
+            },
+          },
+        },
+      },
+    });
+  </script>
+
+  <script>
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["2025-10", "2025-09", "2025-08", "2025-07", "2025-06", "2025-05", "2025-04", "2025-03", "2025-02"],
+        datasets: [
+          {
+            label: "Monthly Installation",
+            data: [20, 69, 10, 40, 22, 31, 60, 40, 1],
+            backgroundColor: [
+              "#ff8b66", "#ff7e5f", "#feae79",
+              "#ff8b66", "#ff7e5f", "#feae79",
+              "#ff8b66", "#ff7e5f", "#feae79"
+            ],
+            borderColor: "#ffffff",
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 80,
+            grid: { color: "rgba(0,0,0,0.05)" },
+            ticks: { color: "#0e1750" }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: "#0e1750" }
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "#ff7e5f",
+            titleColor: "#ffffff",
+            bodyColor: "#ffffff",
+            borderColor: "#ff8b66",
+            borderWidth: 1,
+          },
+        },
+      }
+    });
+  </script>
+
+
+  <script>
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Unknown", "Vipin Kumar Yadav", "Vinay kumar Singh", "Anurag Tiwari",
+          "Himachal Pradesh", "Jammu & Kashmir", "Pintu", "Reena Kumari",
+          "Ravi Chaudhary", "ANIL KUMAR", "Gautam Kumar", "Anand kumar"
+        ],
+        datasets: [
+          {
+            label: "User Data",
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+            borderColor: "#ff8b66",
+            backgroundColor: "rgba(254, 174, 121, 0.25)",
+            pointBackgroundColor: "#ff7e5f",
+            pointBorderColor: "#ffffff",
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBorderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: "rgba(14, 23, 80, 0.08)" },
+            ticks: { color: "#0e1750" }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: "#0e1750" }
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "#ff7e5f",
+            titleColor: "#fff",
+            bodyColor: "#fff",
+            borderColor: "#ff8b66",
+            borderWidth: 1,
+          },
+        },
+      },
+    });
+  </script>
+
+
+  <script>
+    const changeBtn = document.getElementById("changePassBtn");
+    const passFields = document.getElementById("passwordFields");
+    const profileInfo = document.querySelector(".profile-info");
+    const cancelBtn = document.getElementById("cancelPassBtn");
+
+    // Change Password Button
+    changeBtn.addEventListener("click", function () {
+      passFields.style.display = "block";
+      profileInfo.style.display = "none";
+      changeBtn.style.display = "none";
+    });
+
+    // Cancel
+    cancelBtn.addEventListener("click", function () {
+      passFields.style.display = "none";
+      profileInfo.style.display = "block";
+      changeBtn.style.display = "block";
+    });
+
+    // Password Show/Hide
+    document.querySelectorAll(".password-toggle").forEach(icon => {
+      icon.addEventListener("click", () => {
+        const input = document.getElementById(icon.getAttribute("data-target"));
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
+        }
+      });
+
+      // Reset modal on close
+      const profileModal = document.getElementById('profileModal');
+      profileModal.addEventListener('hidden.bs.modal', function () {
+        resetProfileModal();
+      });
+
+      // Reset Function
+      function resetProfileModal() {
+        passFields.style.display = "none";
+        profileInfo.style.display = "block";
+        changeBtn.style.display = "block";
+
+        document.getElementById("newPass").value = "";
+        document.getElementById("confirmPass").value = "";
+      }
+
+    });
+
+
+    // Cancel Button
+    cancelBtn.addEventListener("click", function () {
+      resetProfileModal();
+    });
+
+
+
+  </script>
+
+
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
