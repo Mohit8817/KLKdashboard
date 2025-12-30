@@ -288,7 +288,8 @@
       margin: 0;
       font-weight: 500;
     }
-/*
+
+    /*
     .card-content .line {
       width: 60%;
       height: 2px;
@@ -335,63 +336,62 @@
 
 
     /* graphs css ------------------- */
-    .chart-card {
-      overflow: hidden;
-      border-radius: 12px;
-      transition: 0.3s;
-      background: #fff;
-      position: relative;
-      padding: 0;
-      border: 0;
-      background: linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, #ff7e5f, #feb47b) border-box;
-      /* vibrant gradient */
-      border: 1.5px solid transparent !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      /* subtle shadow for depth */
-    }
+   /* graphs css ------------------- */
+.chart-card {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: 0.3s;
+  background: #fff;
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #f68555, #e06468, #e4744f, #fd6c30) border-box; /* updated last color */
+  border: 1.5px solid transparent !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
-    /* Chart Header */
-    .chart-header {
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
-      /* matching gradient */
-      color: #ffffff;
-      padding: 10px 15px;
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      /* subtle header shadow */
+/* Chart Header */
+.chart-header {
+  background: linear-gradient(135deg, #f68555, #fd6c30); /* updated gradient */
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    }
+/* Icon Circle */
+.chart-header i {
+  width: 30px;
+  height: 30px;
+  background: #ffe1d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #fd6c30; /* updated icon color */
+  transition: 0.3s;
+}
 
-    /* Icon Circle */
-    .chart-header i {
-      width: 30px;
-      height: 30px;
-      background: rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 15px;
-      color: #ffffff;
-      transition: 0.3s;
-    }
+.chart-header i:hover {
+  background: #f68555;
+  color: #fff;
+  transform: scale(1.1);
+}
 
-    .chart-header i:hover {
-      background: rgba(255, 255, 255, 0.5);
-      transform: scale(1.1);
-    }
+/* Card Inner */
+.chart-container {
+  position: relative;
+  height: 350px;
+  padding: 10px;
+  background: #ffff;
+}
 
-    /* Card Inner */
-    .chart-container {
-      position: relative;
-      height: 350px;
-      padding: 10px;
-    }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -427,9 +427,7 @@
       font-size: 14px;
       border: none;
       border: 2px solid #e4e4e4;
-
     }
-
 
     .modern-table thead th {
       font-weight: 600;
@@ -443,9 +441,6 @@
       border-bottom: 1px solid #e7e7e7;
     }
 
-    /* Total Row */
-
-
     /* Tab Custom Style */
     .nav-tabs .nav-link {
       font-size: 15px;
@@ -458,8 +453,8 @@
     }
 
     .nav-tabs .nav-link.active {
-      background: #ff7e5f;
-      color: white !important;
+      background: #fd6c30;
+      color: #fff !important;
       border-color: transparent !important;
     }
 
@@ -888,7 +883,7 @@
               </ul>
             </li>
 
-           <li class="nav-item">
+            <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-journal-text nav-icon"></i>
                 <p>Work Order</p>
@@ -1595,7 +1590,7 @@
           {
             label: "Progress %",
             data: [65, 82, 45, 90, 58, 75],
-            backgroundColor: "#fe996d",
+            backgroundColor: "#fd9369",
             borderRadius: 6,
             borderSkipped: false,
           },
@@ -1649,12 +1644,12 @@
           {
             label: "Installations",
             data: [30, 50, 40, 90, 65, 100, 80],
-            borderColor: "#fe996d",
+            borderColor: "#fd9369",
             backgroundColor: "rgba(96, 92, 168, 0.1)",
             borderWidth: 3,
             tension: 0.4,
             pointRadius: 5,
-            pointBackgroundColor: "#fe996d",
+            pointBackgroundColor: "#ff8555",
             pointBorderColor: "#fff",
             pointBorderWidth: 2,
             fill: true,
