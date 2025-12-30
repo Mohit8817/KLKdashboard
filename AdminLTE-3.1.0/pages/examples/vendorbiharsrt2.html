@@ -274,17 +274,22 @@
       font-weight: 500;
     }
 
-    .card-content .line {
-      width: 60%;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.6);
-      margin: 4px 0;
-    }
+
 
     .card-content p {
       font-size: 14px;
       margin: 0;
     }
+
+    .stat-link {
+      color: #fff;
+    }
+
+    .stat-link:hover {
+      color: #fff;
+      transform: translateX(1px);
+    }
+
 
     .gradient-blue {
       background: linear-gradient(135deg, #0052D4, #a7b7fb);
@@ -1053,7 +1058,6 @@
                   <div class="card-content">
                     <h5>Total Sites</h5>
                     <h2>399</h2>
-                    <!-- <p>Assigned / Pending / Cancel: <b>263 / 1 / 135</b></p> -->
                   </div>
                 </div>
               </a>
@@ -1061,17 +1065,21 @@
 
             <!-- Installation Status -->
             <div class="col-md-4 mb-3">
-              <a href="#" class="stat-link">
-                <div class="stat-card-img gradient-pink">
-                  <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
-                  <div class="card-content">
-                    <h5>Installation Status</h5>
-                    <h2>185 / 79</h2>
-                    <p>Installed / Pending</p>
-                  </div>
+              <div class="stat-card-img gradient-pink">
+                <div class="icon-circle-img"><i class="fas fa-tools"></i></div>
+                <div class="card-content">
+                  <h5>Installation Status</h5>
+
+                  <h2>
+                    <a href="link-185.html" class="stat-link">185</a> /
+                    <a href="link-79.html" class="stat-link">79</a>
+                  </h2>
+
+                  <p>Installed / Pending</p>
                 </div>
-              </a>
+              </div>
             </div>
+
 
             <!-- Verification Status -->
             <div class="col-md-4 mb-3">
