@@ -194,15 +194,13 @@
     }
   </style>
 
+
   <!-- Dashboard css  -->
   <style>
-    /* Welcome Section - */
-
-    /* Left side text styling */
     .welcome-sub {
       font-size: 15px;
       font-weight: bold;
-      color: #fd663c;
+      color: #231262;
     }
 
     .welcome-title {
@@ -234,15 +232,12 @@
 
     /* Cards css  */
 
-
-
-
     .stat-card-img {
       border-radius: 30px;
       color: #fff;
       padding: 20px;
       position: relative;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.081);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.081);
       transition: 0.3s ease;
       overflow: hidden;
       display: flex;
@@ -253,7 +248,7 @@
 
     .stat-card-img:hover {
       transform: scale(1.02);
-      box-shadow: 0 5px 10px rgba(158, 158, 158, 0.173);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.30);
     }
 
     .icon-circle-img {
@@ -274,7 +269,7 @@
     }
 
     .card-content h2 {
-      font-size: 25px;
+      font-size: 28px;
       font-weight: 600;
       margin-bottom: 4px;
     }
@@ -285,111 +280,139 @@
       font-weight: 500;
     }
 
-
-    .stat-link {
-      color: #fff;
+    .card-content .line {
+      width: 60%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.6);
+      margin: 4px 0;
     }
 
-    .stat-link:hover {
-      color: #fff;
-      transform: translateX(2px);
-    }
-
-    .stat-link p i {
-      transition: 0.3s;
-      color: #fff;
+    .card-content p {
+      font-size: 14px;
+      margin: 0;
     }
 
 
 
 
 
-    /* NEW  Dashboard Gradients */
-
+    /* ------- Extra Gradient Colors ------- */
     .gradient-blue {
-      background: linear-gradient(135deg, #0052D4, #a7b7fb);
+      background: linear-gradient(135deg, #004F8C, #2979FF);
     }
 
     .gradient-pink {
-      background: linear-gradient(135deg, #e91446, #f78571);
+      background: linear-gradient(135deg, #9C0D47, #3E0EC2);
     }
 
     .gradient-green {
-      background: linear-gradient(135deg, #03981c, #92ffbc);
+      background: linear-gradient(135deg, #3FA46C, #004F56);
     }
 
     .gradient-orange {
-      background: linear-gradient(135deg, #FF8008, #fee4a3);
+      background: linear-gradient(135deg, #CE7902, #E94000);
     }
 
     .gradient-teal {
-      background: linear-gradient(135deg, #00a3d0, #baeebf);
+      background: linear-gradient(135deg, #008080, #005f73);
     }
 
     .gradient-purple {
-      background: linear-gradient(135deg, #6d0ad6, #76a4f3);
+      background: linear-gradient(135deg, #7B1FA2, #512DA8);
+    }
+
+    .gradient-soft-blue {
+      background: linear-gradient(135deg, #1E3C72, #2A5298);
+    }
+
+    .gradient-soft-purple {
+      background: linear-gradient(135deg, #6A0572, #A6036D);
+    }
+
+    .gradient-soft-green {
+      background: linear-gradient(135deg, #0F9B0F, #0B6623);
+    }
+
+    .gradient-indigo {
+      background: linear-gradient(135deg, #581389, #6A5ACD);
+    }
+
+    .gradient-red {
+      background: linear-gradient(135deg, #105378, #00B0FF);
+    }
+
+    .gradient-gold {
+      background: linear-gradient(135deg, #488706, #AEEA00);
     }
 
 
-
-
-
-    /* graphs css ------------------- */
-
+    /* Chart Wrapper -  */
     .chart-card {
       overflow: hidden;
       border-radius: 12px;
       transition: 0.3s;
-      background: #fff;
       position: relative;
       padding: 0;
       border: 0;
-      background: linear-gradient(#ffffff, #ffffff) padding-box,
-        linear-gradient(135deg, #f68555, #e06468, #e4744f, #fd6c30) border-box;
       border: 1.5px solid transparent !important;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
     }
 
-
     .chart-header {
-      background: linear-gradient(135deg, #f68555, #fd6c30);
+      background: linear-gradient(135deg, #001945, #7200A1);
       color: #ffffff;
-      padding: 10px 15px;
+      padding: 12px 18px;
       font-size: 16px;
       font-weight: 600;
       display: flex;
       align-items: center;
       gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px 12px 0 0;
     }
 
 
     .chart-header i {
-      width: 30px;
-      height: 30px;
-      background: #ffe1d6;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 15px;
-      color: #fd6c30;
+      font-size: 16px;
+      color: #ffffff;
       transition: 0.3s;
     }
 
     .chart-header i:hover {
-      background: #f68555;
-      color: #fff;
+      background: rgba(255, 255, 255, 0.4);
       transform: scale(1.1);
+    }
+
+
+    .chart-container {
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 0 0 12px 12px;
+    }
+
+
+    #donutChart {
+      transition: transform 0.3s;
+    }
+
+    #donutChart:hover {
+      transform: scale(1.02);
     }
 
     .chart-container {
       position: relative;
       height: 350px;
       padding: 10px;
-      background: #ffff;
     }
-
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -416,7 +439,7 @@
 
 
 
-    /*  Table css --------------------------------------------- */
+    /*  Table css ------------------------ */
     .modern-table {
       border-collapse: separate;
       border-spacing: 0;
@@ -425,7 +448,9 @@
       font-size: 14px;
       border: none;
       border: 2px solid #e4e4e4;
+
     }
+
 
     .modern-table thead th {
       font-weight: 600;
@@ -439,6 +464,7 @@
       border-bottom: 1px solid #e7e7e7;
     }
 
+
     /* Tab Custom Style */
     .nav-tabs .nav-link {
       font-size: 15px;
@@ -446,13 +472,13 @@
       padding: 10px 15px;
       border-radius: 8px 8px 0 0;
       transition: 0.3s;
-      background: #f1f4ff;
+      background: #e1e0f1;
       margin-right: 4px;
     }
 
     .nav-tabs .nav-link.active {
-      background: #fd6c30;
-      color: #fff !important;
+      background: #231262;
+      color: white !important;
       border-color: transparent !important;
     }
 
@@ -479,12 +505,7 @@
       background: #ffc107;
     }
 
-
-
-
-    /* profile side car css  */
-    /* RIGHT SIDE MODAL */
-    .right-modal .modal-dialog {
+   .right-modal .modal-dialog {
       position: fixed;
       right: 0;
       top: 0;
@@ -553,7 +574,6 @@
       text-align: left;
     }
 
-    /* input box css  */
     .password-wrapper {
       position: relative;
     }
@@ -566,6 +586,7 @@
       cursor: pointer;
     }
   </style>
+
 
 
   <!-- NEW Sidebar css here  -->
