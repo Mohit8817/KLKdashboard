@@ -209,6 +209,43 @@
     }
 
 
+    /* Custom Select Wrapper */
+    .select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 0 20px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      width: fit-content;
+    }
+
+    .select-wrapper:hover {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-select {
+      border: none !important;
+      background: none !important;
+      font-size: 14px;
+      color: #495467;
+      font-weight: 500;
+      outline: none !important;
+      cursor: pointer;
+      box-shadow: none !important;
+      padding-right: 13px;
+      appearance: none;
+    }
+
+
+
     /* Responsive font and icon resizing */
     @media (max-width: 767px) {
       .welcome-title {
@@ -230,10 +267,6 @@
     }
 
     /* Cards css  */
-
-
-
-
     .stat-card-img {
       border-radius: 30px;
       color: #fff;
@@ -960,6 +993,7 @@
               </ul>
             </li>
 
+
             <!-- States -->
 
             <li class="nav-header">Bihar</li>
@@ -1504,21 +1538,33 @@
 
       <section class="content">
         <!-- welcome Section here  -->
-        <section class>
+       <section class="py-2 py-md-4">
           <div class="container-fluid">
             <div class="row align-items-center g-2">
               <!-- LEFT -->
-              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
-                <img src="../images/icon (2).svg" class="welcome-icon mx-1" style="width: 50px" />
+              <div class="col-md-6 col-12 d-flex align-items-center gap-3">
+                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
                 <div>
                   <div class="welcome-sub">Welcome to,</div>
-                  <h2 class="welcome-title m-0">
+                  <h2 class="welcome-title m-0 fw-bold">
                     KLK Vendor Dashboard
                   </h2>
                 </div>
               </div>
+
+              <!-- RIGHT -->
+              <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                <div class="select-wrapper">
+                  <i class="bi bi-ui-checks-grid"></i>
+                  <select class="custom-select form-select">
+                    <option selected>All Volume</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <hr>
           </div>
         </section>
 
