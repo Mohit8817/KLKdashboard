@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AdminLTE 3 | Blank Page</title>
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="../../plugins/fontawesome-free/css/all.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+        <!-- ICONS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+            rel="stylesheet" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+        <style>
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+
+        /* PROFILE IMAGE */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* NOTIFICATION ICON */
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        /* TITLE */
+        .notif-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* HOVER EFFECT */
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        /* DOCUMENT BUTTON — LIGHT COLOR */
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+    </style>
+
+        <style>
+        /* Left side text styling */
+        .welcome-sub {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .welcome-title {
+            font-size: 22px;
+            color: #333;
+        }
+    </style>
+
+        <!-- NEW Sidebar css here  -->
+        <style>
+        /* SCROLLBAR WIDTH */
+        .main-sidebar .sidebar::-webkit-scrollbar {
+            width: 8px !important;
+        }
+
+        /* SCROLLBAR TRACK */
+        .main-sidebar .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1 !important;
+            border-radius: 10px !important;
+        }
+
+        /* SCROLLBAR THUMB */
+        .main-sidebar .sidebar::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #49a3e8, #018ffb) !important;
+            border-radius: 10px !important;
+        }
+
+        /* SCROLLBAR HOVER */
+        .main-sidebar .sidebar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #2997eb, #018ffb) !important;
+        }
+
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #4c576c !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #677892;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #edf5fc;
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #e7f2ff !important;
+            color: #2e83ff !important;
+            font-weight: 600;
+            border-left: 4px solid #2e83ff;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #7b8aa1;
+        }
+
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #6b7280 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f3f6fb;
+            color: #2e83ff !important;
+        }
+    </style>
+
+    </head>
+
+    <body class="hold-transition sidebar-mini">
+
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <nav
+                class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+                <div class="container-fluid">
+
+                    <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" data-widget="pushmenu" href="#"
+                                role="button"><i
+                                    class="fas fa-bars"></i></a>
+                        </li>
+
+                    </ul>
+                    <!-- BRAND -->
+                    <a class="navbar-brand d-flex align-items-center">
+                        <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+                    </a>
+
+                </div>
+            </nav>
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar  elevation-4 shadow">
+                <!-- Brand Logo -->
+                <a href="./klkhome.html"
+                    class="brand-link border-bottom shadow-sm border-2">
+                    <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+                        class="brand-image  bottom-border img-circle elevation-3"
+                        style="opacity: 0.8" />
+                    <span class="brand-text text-dark">KLK Ventures-up</span>
+                </a>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column"
+                            data-widget="treeview" role="menu"
+                            data-accordion="false">
+                            <li class="nav-header">Dashboard</li>
+                            <li class="nav-item ">
+                                <a href="#" class="nav-link active">
+                                    <i class="bi bi-speedometer2 nav-icon"></i>
+                                    <p>
+                                        Dashboard
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./Mohit.html" class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard one</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./klkhome.html"
+                                            class="nav-link active">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard Two</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit3.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard Three</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit4.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard four</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Sidebar.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Dashboard five</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="pages/UI/timeline.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Timeline</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/UI/ribbons.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Ribbons</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Mohit4.html" class="nav-link">
+                                    <i class="bi bi-grid nav-icon"></i>
+
+                                    <p>Dashboard 2</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="pages/widgets.html" class="nav-link">
+                                    <i class="bi bi-grid nav-icon"></i>
+
+                                    <p>Dashboard 3</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Newtable.html" class="nav-link">
+                                    <i
+                                        class="bi bi-bar-chart-line nav-icon"></i>
+                                    <p>
+                                        Table
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Userprofile.html" class="nav-link">
+                                    <i
+                                        class="bi bi-bar-chart-line nav-icon"></i>
+                                    <p>
+                                        User Profile
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./UserProfilepage.html"
+                                    class="nav-link">
+                                    <i class="bi bi-layers nav-icon"></i>
+                                    <p>User Profile View
+                                    </p>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Srtdashboard.html" class="nav-link">
+                                    <i
+                                        class="bi bi-ui-checks-grid nav-icon"></i>
+
+                                    <p>SRT Old Dashboard</p>
+                                    <i class="right ph ph-caret-right"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Srtdashboarddemo.html"
+                                    class="nav-link">
+                                    <i
+                                        class="bi bi-ui-checks-grid nav-icon"></i>
+
+                                    <p>SRT Old Dashboard</p>
+                                    <i class="right ph ph-caret-right"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-header">HRM Dashboards</li>
+                            <li class="nav-item">
+                                <a href="./hrmdashboard.html" class="nav-link">
+                                    <i class="bi bi-table nav-icon"></i>
+
+                                    <p>HRM Main Dashboards</p>
+                                    <i class="right ph ph-caret-right"></i>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="./Empdashboard.html" class="nav-link">
+                                    <i class="bi bi-calendar-week nav-icon"></i>
+
+                                    <p>HRM Employee Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-header">Sidebar Designs </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i
+                                        class="bi bi-exclamation-octagon nav-icon"></i>
+
+                                    <p>
+                                        Sidebars
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./Mohit.html" class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Sidebar one</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit2.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Sidebar Two</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit3.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Sidebar Three</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit4.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Sidebar four</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Sidebar.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Sidebar five</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="pages/UI/timeline.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Timeline</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/UI/ribbons.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Ribbons</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-list-check nav-icon"></i>
+                                    <p>
+                                        Forms
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="pages/forms/general.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>General Elements</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/forms/advanced.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Advanced Elements</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/forms/editors.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Editors</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="pages/forms/validation.html"
+                                            class="nav-link">
+                                            <i
+                                                class="far fa-circle nav-icon"></i>
+                                            <p>Validation</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-speedometer2 nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-sun nav-icon"></i>
+                                    <p>Kusum</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i
+                                        class="bi bi-file-earmark-text nav-icon"></i>
+                                    <p>SSL Details</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-lightbulb nav-icon"></i>
+                                    <p>SSL 18W</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-building nav-icon"></i>
+                                    <p>UP Resco</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-cloud-slash nav-icon"></i>
+                                    <p>UP Off Grid Details</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-cloud-check nav-icon"></i>
+                                    <p>UP On Grid Details</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-battery-full nav-icon"></i>
+                                    <p>Power Pack Details</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-archive nav-icon"></i>
+                                    <p>SRLM SRT Details</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-list-check nav-icon"></i>
+                                    <p>Task Assign</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-box-seam nav-icon"></i>
+                                    <p>Product</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i
+                                        class="bi bi-exclamation-octagon nav-icon"></i>
+                                    <p>Complaints</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i
+                                        class="bi bi-box-arrow-right nav-icon"></i>
+                                    <p>Logout</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <section class="content">
+                    <!-- welcome Section here  -->
+                    <section class="py-2 py-md-4 mt-5">
+                        <div class="container-fluid">
+                            <div class="row align-items-center g-2">
+                                <!-- LEFT -->
+                                <div
+                                    class="col-md-6 col-12 d-flex align-items-center gap-2">
+                                    <img src="../images/icon (2).svg"
+                                        class="welcome-icon"
+                                        style="width: 50px" />
+                                    <div>
+                                        <div class="welcome-sub">Welcome
+                                            to,</div>
+                                        <h2 class="welcome-title m-0 fw-bold">
+                                            KLK UP SSL Dashboard
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Cards Section  -->
+                    <div class="container-fluid py-3">
+                        <div class="row">
+
+                        </div>
+                    </div>
+
+                    <!-- footer section -->
+                    <section class>
+                        <div class="container">
+                            <div class="row">
+                                <footer class="footer-area py-2">
+                                    <p
+                                        class="m-0 fw-semibold text-secondary small footer-text">
+                                        Copyright © <span id="year"></span> KLK
+                                        ERP — By
+                                        <span class="text-primary fw-bold">ETS
+                                            NETWORKS.</span>
+                                        All rights reserved.
+                                    </p>
+                                </footer>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- Chart.js Library -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script
+            src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+    </body>
+
+</html>
