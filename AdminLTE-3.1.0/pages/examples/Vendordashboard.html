@@ -209,6 +209,43 @@
     }
 
 
+    /* Custom Select Wrapper */
+    .select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0 0 20px;
+      border-radius: 50px;
+      background: #e4edfd;
+      color: #495467;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #e2e6ee;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      width: fit-content;
+    }
+
+    .select-wrapper:hover {
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-select {
+      border: none !important;
+      background: none !important;
+      font-size: 14px;
+      color: #495467;
+      font-weight: 500;
+      outline: none !important;
+      cursor: pointer;
+      box-shadow: none !important;
+      padding-right: 13px;
+      appearance: none;
+    }
+
+
+
     /* Responsive font and icon resizing */
     @media (max-width: 767px) {
       .welcome-title {
@@ -230,10 +267,6 @@
     }
 
     /* Cards css  */
-
-
-
-
     .stat-card-img {
       border-radius: 30px;
       color: #fff;
@@ -960,6 +993,7 @@
               </ul>
             </li>
 
+
             <!-- States -->
 
             <li class="nav-header">Bihar</li>
@@ -1126,7 +1160,363 @@
               </ul>
             </li>
 
+
+
+            <!-- Jammuu  -->
             <li class="nav-header">Jammu</li>
+            <!-- 📋 Survey -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-clipboard-data nav-icon"></i>
+                <p>Survey <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SRT 70MW Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify 70MW Survey</p>
+                      </a></li>
+
+                  </ul>
+                </li>
+
+
+                <!-- Resco -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Resco Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Resco Dashboard</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Survey</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign View Survey</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assigned Survey vendor</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Survey</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+            <!-- 🔧 Installation -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-layers nav-icon"></i>
+                <p>Installation <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- SRT -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SRT <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Light</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Light</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- SSL -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SSL <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Light</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Light</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- SWP  -->
+
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SWP <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Light</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Light</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- Resco -->
+
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Resco <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Light</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Light</p>
+                      </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <!-- 🔧 SRT 70MW -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-cash-stack nav-icon"></i>
+                <p>SRT 70MW Expense <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- SRT -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SRT <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Claim Request</p>
+                      </a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>View Payments</p>
+                      </a></li>
+
+                  </ul>
+                </li>
+
+
+
+
+
+
+
+              </ul>
+            </li>
+
+
+
+            <!-- 🟩 UP -->
+            <li class="nav-header">UP</li>
+
+            <!-- 🔧 Installation -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-tools nav-icon"></i>
+                <p>Installation <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- Kusum C -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Kusum C <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Installation</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>View Assign</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Installation</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- Resco -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Resco <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Installation</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>View Assign</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Installation</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- SSL 18W -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SSL 18W <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Installation</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>View Assign</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Installation</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+            <!-- 🛠️ AMC -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-gear nav-icon"></i>
+                <p>AMC <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- Off Grid -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Off Grid <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>UP Off Grid</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>UP Off Grid AMC Dashboard</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- Power Pack -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Power Pack <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign PP</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+                <!-- SSL -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>SSL <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Dashboard</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign SSL</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+            <!-- 📝 Survey -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-clipboard-data nav-icon"></i>
+                <p>Survey <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- Resco Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                    <p>Resco Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Resco Dashboard</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign Survey</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assign View Survey</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Verify Survey</p>
+                      </a></li>
+                    <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                        <p>Assigned Sites Update</p>
+                      </a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+
+
+
 
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -1148,21 +1538,33 @@
 
       <section class="content">
         <!-- welcome Section here  -->
-        <section class>
+       <section class="py-2 py-md-4">
           <div class="container-fluid">
             <div class="row align-items-center g-2">
               <!-- LEFT -->
-              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
-                <img src="../images/icon (2).svg" class="welcome-icon mx-1" style="width: 50px" />
+              <div class="col-md-6 col-12 d-flex align-items-center gap-3">
+                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
                 <div>
                   <div class="welcome-sub">Welcome to,</div>
-                  <h2 class="welcome-title m-0">
+                  <h2 class="welcome-title m-0 fw-bold">
                     KLK Vendor Dashboard
                   </h2>
                 </div>
               </div>
+
+              <!-- RIGHT -->
+              <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                <div class="select-wrapper">
+                  <i class="bi bi-ui-checks-grid"></i>
+                  <select class="custom-select form-select">
+                    <option selected>All Volume</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <hr>
           </div>
         </section>
 
