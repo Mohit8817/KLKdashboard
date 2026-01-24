@@ -1,0 +1,830 @@
+@include('component.head')
+@include('component.header')
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6 d-flex align-items-center">
+                    <img src="{{ asset('/icons/icon (55).png') }}"
+                        class="welcome-icon mx-2" style="width: 30px" />
+                    <div>
+                        <div class="welcome-sub">Welcome to,</div>
+                        <h2 class="welcome-title m-0 fw-bold">
+                            Add Bihar SRT Data
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add SRT Data</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default">
+                <div class="card-header table-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="table-title-left">
+                                <i class="fa-solid fa-pen-to-square me-1"></i>
+                                Add Bihar SRT Data
+                            </span>
+                        </div>
+                        <div class="col-6 text-right">
+
+                        </div>
+                    </div>
+                </div>
+                @if(session()->has('status'))
+                <div class="alert my-3 p-3 alert-success">
+                    {{session('status')}}
+                </div>
+                @endif
+
+                @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger" role="alert">
+                    {{ $error }}
+                </div>
+                @endforeach
+                @endif
+                <form action="{{route('store-bihar-srt')}}" method="POST"
+                    class="form-horizontal" enctype="multipart/form-data">
+                    @csrf
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <p class="text-muted small">The field labels marked with
+                            * required input
+                            fields.</p>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label
+                                    for="exampleInputUsername1">Volume</label>
+                                <div class="controls">
+                                    <select name="volume" id="volume"
+                                        class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">DISCOM
+                                    *</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="discom" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">District
+                                    *</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="district" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Department
+                                    *</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="dept_name" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Name of the
+                                    Site *</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="site_name" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Location
+                                    *</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="location" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Firm
+                                    Name</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="firm_name">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">CA
+                                    NO.</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="ca_no">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Sanction load
+                                    in kwp</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="sanction_load">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">PLANT SPP
+                                    Capacity</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="plant_sc">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Work Order
+                                    NO.</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="wo_no">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Phase</label>
+                                <div class="controls">
+                                    <select name="phase	" id="phase	"
+                                        class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="NA">NA</option>
+                                        <option value="CANCEL">CANCEL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label
+                                    for="exampleInputUsername1">Vendor</label>
+                                <div class="controls">
+                                    <select class="form-control" name="vendor">
+                                        <option value="NA">NA</option>
+                                        @foreach($vendor as $vendors)
+                                        <option
+                                            value="{{$vendors->id}}">{{$vendors->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Contact
+                                    Person</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="contact_person">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Contact
+                                    Number</label>
+                                <div class="controls">
+                                    <input type="number" class="form-control"
+                                        name="contact_number">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="date">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cancel_site">Cancel Site</label>
+                                <select name="cancel_site" id="cancel_site"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Material
+                                    Inspection Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="material_i_date">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cancel_site">Material Inspection
+                                    Done</label>
+                                <select name="material_dispatch_status	"
+                                    id="material_dispatch_status	"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="1">YES</option>
+                                    <option value="0">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Material Bill
+                                    Invoice</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="mb_invoice">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="material_payment">Material
+                                    Payment</label>
+                                <select name="material_payment"
+                                    id="material_payment" class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Installation
+                                    Status</label>
+                                <div class="controls">
+                                    <select class="form-control"
+                                        name="installation_status">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="I">Installed</option>
+                                        <option value="NI">Pending</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Installation
+                                    Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="installation_date">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Installation
+                                    Remarks</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="inst_remarks">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ic_bill_submit">I & C Bill
+                                    Submitted</label>
+
+                                <select name="ic_bill_submit"
+                                    id="ic_bill_submit" class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Bill Invoice
+                                    No</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="bill_i_no">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="ic_payment">I & C Payment</label>
+                                <div class="controls">
+                                    <select name="ic_payment" id="ic_payment"
+                                        class="form-control">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="ic_date">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Net Meter
+                                    Submission Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="net_meter_submit_date">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Metering
+                                    Status</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="metering_status">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="I">Installed</option>
+                                        <option value="NI">Not
+                                            Installed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Smart
+                                    Meter</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="smart_meter">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Convert to
+                                    Net Meter</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="convert_nm">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Net Meter
+                                    Required</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="nm_required">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Net Meter
+                                    Installed</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="nm_install">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Testing Slip
+                                    (Y/N)</label>
+                                <div class="controls">
+                                    <select class="form-control"
+                                        name="test_slip">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Testing
+                                    Slip(Photo)</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="ts_image">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Fixing Slip
+                                    (Y/N)</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="fix_slip">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Fixing
+                                    Slip(Photo)</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="fs_image">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Meter
+                                    Installation Date</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="meter_i_date">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">RMS
+                                    URL</label>
+                                <div class="controls">
+                                    <select class="form-control" name="rms_url">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option
+                                            value="https://globalpro.solarmanpv.com/login">https://globalpro.solarmanpv.com/login</option>
+                                        <option
+                                            value="https://pv.polycabmonitoring.com/dist/#/login/index">https://pv.polycabmonitoring.com/dist/#/login/index</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">RMS
+                                    ID</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="rms_id">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">RMS
+                                    Password</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="rms_pass">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">RMS
+                                    Status</label>
+                                <div class="controls">
+                                    <select class="form-control"
+                                        name="rms_status">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="I">Installed</option>
+                                        <option value="NI">Pending</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Geo tag Photo
+                                    (Y/N)</label>
+                                <div class="controls">
+                                    <select class="form-control"
+                                        name="geo_image_status">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Geo tag Photo
+                                    1</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="geo_image1">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Geo tag Photo
+                                    2</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="geo_image2">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Geo tag Photo
+                                    3</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="geo_image3">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Geo tag Photo
+                                    4</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="geo_image4">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="abc_format"> ABC Format</label>
+
+                                <select name="abc_format" id="abc_format"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">ABC
+                                    Photo</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="abc_photo">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="comm_report">Commision
+                                    Report</label>
+                                <select name="comm_report" id="comm_report"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Commision
+                                    Report document</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="cr_doc">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="iv_curv"> IV Curv </label>
+                                <select name="iv_curv" id="iv_curv"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">IV Curv
+                                    document</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="iv_curv_doc">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Inspection
+                                    Photo</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="inspect_image">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="insurance"> Insurance</label>
+                                <select name="insurance" id="insurance"
+                                    class="form-control">
+                                    <option value selected
+                                        disabled>Select</option>
+                                    <option value="YES">YES</option>
+                                    <option value="NO">NO</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1">Insurance
+                                    Copy</label>
+                                <div class="controls">
+                                    <input type="file" class="form-control"
+                                        name="insurance_copy">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1"> WMS</label>
+                                <div class="controls">
+
+                                    <select class="form-control" name="wms">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1"> WMS Login
+                                    Detail</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control"
+                                        name="wms_login">
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputUsername1"> Final
+                                    Inspection Dt.</label>
+                                <div class="controls">
+
+                                    <select class="form-control"
+                                        name="final_i_dt">
+                                        <option value selected
+                                            disabled>Select</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleInputUsername1">Agency
+                                    Remarks</label>
+                                <div class="controls">
+
+                                    <textarea class="form-control"
+                                        name="agency_remarks"
+                                        id="agency_remarks"></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <p
+                                    style="font-weight: bold; font-size: 24px; color: black; border-bottom: 2px dotted rgb(235, 209, 209);">
+                                    SRT AMC
+                                </p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="amc_1st_2">AMC 1</label>
+                                    <select name="amc_1st_2" id="amc_1st_2"
+                                        class="form-control">
+                                        <option value="NO">NO</option>
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="amc_2nd_2	">AMC 2</label>
+                                    <select name="amc_2nd_2" id="amc_2nd_2"
+                                        class="form-control">
+                                        <option value="NO">NO</option>
+                                        <option value="YES">YES</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="amc_3rd_2">AMC 3</label>
+                                    <select name="amc_3rd_2" id="amc_3rd_2"
+                                        class="form-control">
+                                        <option value="NO">NO</option>
+                                        <option value="YES">YES</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="amc_4th_2">AMC 4</label>
+                                    <select name="amc_4th_2" id="amc_4th_2"
+                                        class="form-control">
+                                        <option value="NO">NO</option>
+                                        <option value="YES">YES</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="amc_5th_2">AMC 5</label>
+                                    <select name="amc_5th_2" id="amc_5th_2"
+                                        class="form-control">
+                                        <option value="YES">YES</option>
+                                        <option value="NO">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn export-btn"><i
+                                class="fa-solid fa-paper-plane me-1"></i>
+                            Submit</button>
+                        <button type="reset"
+                            class="btn float-right export-btn"><i
+                                class="fa-solid fa-circle-xmark me-1"></i>
+                            Cancel</button>
+                    </div>
+                    <!-- /.card-footer -->
+                </form>
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@include('component.footer')
