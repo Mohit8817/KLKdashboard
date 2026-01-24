@@ -1,1785 +1,1106 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>AdminLTE 3 | Blank Page</title>
-        <!-- Google Font: Source Sans Pro -->
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="../../plugins/fontawesome-free/css/all.min.css" />
-        <!-- Theme style -->
-        <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
-
-        <!-- ICONS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-            rel="stylesheet" />
-
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-        <style>
-    .main-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-
-
-    /* PROFILE IMAGE */
-    .profile-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 3px solid #d7e9ff;
-      padding: 2px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    /* NOTIFICATION ICON */
-    .notif-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px dotted #c5c5c5;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .notif-btn i {
-      font-size: 16px;
-      color: #444;
-    }
-
-    .notif-badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: #ff4b4b;
-      padding: 1px 6px;
-      border-radius: 50px;
-      font-size: 10px;
-      color: white;
-    }
-
-    .notif-dropdown {
-      width: 250px !important;
-      border-radius: 12px;
-    }
-
-    /* TITLE */
-    .notif-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* HOVER EFFECT */
-    .notif-dropdown .dropdown-item:hover {
-      background: #f5f7ff;
-      border-radius: 8px;
-    }
-
-    /* DOCUMENT BUTTON — LIGHT COLOR */
-    .doc-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      background: #e4edfd;
-      color: #495467;
-      font-weight: 500;
-      font-size: 14px;
-      border: 1px solid #e2e6ee;
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-    }
-
-    .doc-btn:hover {
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    /* DROPDOWN MENU */
-    .dropdown-menu {
-      width: 210px;
-      border-radius: 10px;
-      padding: 0;
-    }
-
-    .user-box {
-      padding: 8px 15px !important;
-      border-bottom: 1px solid #eee;
-    }
-
-    .user-box h6 {
-      font-size: 15px;
-      margin-bottom: 0;
-      color: black;
-    }
-
-    .icon-blue,
-    .icon-pink,
-    .icon-gray,
-    .icon-green,
-    .icon-orange {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      border-radius: 50%;
-    }
-
-    .icon-blue {
-      background: #e8f3ff;
-      color: #4a8cff;
-    }
-
-    .icon-pink {
-      background: #ffe8ef;
-      color: #ff7aa2;
-    }
-
-    .icon-gray {
-      background: #f1f1f1;
-      color: #444444;
-    }
-
-    .icon-orange {
-      background: #fef5e5;
-      color: #ec9829;
-    }
-
-    .icon-green {
-      background: #e8ffe8;
-      color: #33a933;
-    }
-
-    .dropdown-item {
-      font-size: 14px;
-    }
-
-    .dropdown-item:hover {
-      background: #f4f7ff;
-    }
-
-    @media (max-width: 576px) {
-      .header-actions {
-        gap: 12px;
-      }
-
-      .doc-btn span {
-        display: none;
-      }
-    }
-  </style>
-
-        <style>
-    /* Welcome Section ---------------------------------------*/
-
-    /* Left side text styling */
-    .welcome-sub {
-      font-size: 14px;
-      color: #6c757d;
-    }
-
-    .welcome-title {
-      font-size: 22px;
-      color: #333;
-    }
-
-    /* Custom Select Wrapper */
-    .select-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0 0 0 20px;
-      border-radius: 50px;
-      background: #e4edfd;
-      color: #495467;
-      font-weight: 500;
-      font-size: 14px;
-      border: 1px solid #e2e6ee;
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-      width: fit-content;
-    }
-
-    .select-wrapper:hover {
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .custom-select {
-      border: none !important;
-      background: none !important;
-      font-size: 14px;
-      color: #495467;
-      font-weight: 500;
-      outline: none !important;
-      cursor: pointer;
-      box-shadow: none !important;
-      padding-right: 13px;
-      appearance: none;
-    }
-
-    /* Responsive font and icon resizing */
-    @media (max-width: 767px) {
-      .welcome-title {
-        font-size: 18px;
-      }
-
-      .welcome-sub {
-        font-size: 13px;
-      }
-
-      .welcome-icon {
-        width: 35px !important;
-      }
-
-      .select-wrapper {
-        padding: 0 0 0 15px;
-        font-size: 12px;
-      }
-    }
-
-
-    /* Main Card Box -------------------------------*/
-    .dashboard-box {
-      background: #fff;
-      border: 1.2px solid;
-      border-radius: 10px;
-      padding: 10px 15px;
-      min-height: 100px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-      text-decoration: none !important;
-    }
-
-    .dashboard-box:hover {
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
-      transform: translateY(-2px);
-    }
-
-
-    a {
-      text-decoration: none !important;
-      color: inherit;
-    }
-
-
-    .title {
-      font-size: 14px;
-      font-weight: 600;
-      margin: 0;
-      color: #484848;
-    }
-
-    .value {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .subtitle {
-      font-size: 12px;
-      font-weight: 500;
-      color: #7a7a7a;
-      margin: 0;
-    }
-
-    /* Circle Icon */
-    .circle-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .circle-icon img {
-      width: 38px;
-      height: 38px;
-      object-fit: contain;
-    }
-
-    /* Color Themes */
-    .blue {
-      border-color: #007bff;
-    }
-
-    .blue .value {
-      color: #007bff;
-    }
-
-    .blue-border {
-      border: 2px solid #007bff;
-    }
-
-    .green {
-      border-color: #28a745;
-    }
-
-    .green .value {
-      color: #28a745;
-    }
-
-    .green-border {
-      border: 2px solid #28a745;
-    }
-
-    .orange {
-      border-color: #ff8c00;
-    }
-
-    .orange .value {
-      color: #ff8c00;
-    }
-
-    .orange-border {
-      border: 2px solid #ff8c00;
-    }
-
-    .red {
-      border-color: #e74c3c;
-    }
-
-    .red .value {
-      color: #e74c3c;
-    }
-
-    .red-border {
-      border: 2px solid #e74c3c;
-    }
-
-    .purple {
-      border-color: #8a56f6;
-    }
-
-    .purple .value {
-      color: #8a56f6;
-    }
-
-    .purple-border {
-      border: 2px solid #8a56f6;
-    }
-
-    .teal {
-      border-color: #17a2b8;
-    }
-
-    .teal .value {
-      color: #17a2b8;
-    }
-
-    .teal-border {
-      border: 2px solid #17a2b8;
-    }
-
-
-    /* Pink */
-    .pink {
-      border-color: #ff4fa7;
-    }
-
-    .pink .value {
-      color: #ff4fa7;
-    }
-
-    .pink-border {
-      border: 2px solid #ff4fa7;
-    }
-
-    /* Yellow */
-    .yellow {
-      border-color: #f7c600;
-    }
-
-    .yellow .value {
-      color: #f7c600;
-    }
-
-    .yellow-border {
-      border: 2px solid #f7c600;
-    }
-
-    /* Sky Blue */
-    .sky {
-      border-color: #19c2ff;
-    }
-
-    .sky .value {
-      color: #19c2ff;
-    }
-
-    .sky-border {
-      border: 2px solid #19c2ff;
-    }
-
-    /* Dark Blue */
-    .darkblue {
-      border-color: #003f88;
-    }
-
-    .darkblue .value {
-      color: #003f88;
-    }
-
-    .darkblue-border {
-      border: 2px solid #003f88;
-    }
-
-    /* Brown */
-    .brown {
-      border-color: #b05b2b;
-    }
-
-    .brown .value {
-      color: #b05b2b;
-    }
-
-    .brown-border {
-      border: 2px solid #b05b2b;
-    }
-
-
-
-    .blue-border,
-    .green-border,
-    .orange-border,
-    .red-border,
-    .purple-border,
-    .teal-border,
-    .brown-border,
-    .darkblue-border,
-    .sky-border,
-    .yellow-border,
-    .pink-border {
-      border-width: 1.2px !important;
-    }
-
-    /* Responsive */
-    @media (max-width: 576px) {
-      .circle-icon {
-        width: 45px;
-        height: 45px;
-      }
-
-      .circle-icon img {
-        width: 30px;
-        height: 30px;
-      }
-
-      .value {
-        font-size: 18px;
-      }
-    }
-
-
-    /* chart css -------------------------------------------------- */
-
-    /* Chart Wrapper */
-    .chart-card {
-      overflow: hidden;
-      border-radius: 12px;
-      transition: 0.3s;
-      border: 1.2px solid #3facff !important;
-      background: #fff;
-    }
-
-
-    /* Chart Header */
-    .chart-header {
-      background: #3facff;
-      color: #ffffff;
-      padding: 10px 15px;
-      font-size: 16px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    /* Icon Circle like card */
-    .chart-header i {
-      width: 30px;
-      height: 30px;
-      background: #eef6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 15px;
-      color: #3facff;
-    }
-
-    /* Card Inner */
-    .chart-container {
-      position: relative;
-      height: 350px;
-      padding: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .chart-container {
-        height: 300px;
-      }
-
-      .chart-header {
-        font-size: 15px !important;
-        padding: 10px 16px;
-      }
-
-      .chart-header i {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-      }
-
-      .nav-tabs .nav-link {
-        font-size: 9px !important;
-        padding: 10px 12px !important;
-      }
-    }
-
-
-
-    /*  Table css --------------------------------------------- */
-    .modern-table {
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      font-size: 14px;
-      border: none;
-      border: 2px solid #e4e4e4;
-
-    }
-
-
-    .modern-table thead th {
-      font-weight: 600;
-      letter-spacing: .5px;
-      padding: 14px;
-      border: none;
-    }
-
-    .modern-table td {
-      padding: 12px;
-      border-bottom: 1px solid #e7e7e7;
-    }
-
-    /* Total Row */
-
-
-    /* Tab Custom Style */
-    .nav-tabs .nav-link {
-      font-size: 15px;
-      font-weight: 600;
-      padding: 10px 15px;
-      border-radius: 8px 8px 0 0;
-      transition: 0.3s;
-      background: #f1f4ff;
-      margin-right: 4px;
-    }
-
-    .nav-tabs .nav-link.active {
-      background: #3facff;
-      color: white !important;
-      border-color: transparent !important;
-    }
-
-    .tab-content {
-      background: #fff;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Status Icons */
-    .status-icon {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-    }
-
-    .status-active {
-      background: #28a745;
-    }
-
-    .status-pending {
-      background: #ffc107;
-    }
-
-
-
-
-    /* profile side car css  */
-
-
-
-
-    /* RIGHT SIDE MODAL */
-    .right-modal .modal-dialog {
-      position: fixed;
-      right: 0;
-      top: 0;
-      margin: 0;
-      height: 100%;
-      max-width: 340px;
-      width: 100%;
-      transform: translateX(100%);
-      transition: transform .35s ease-out;
-    }
-
-    .right-modal.show .modal-dialog {
-      transform: translateX(0);
-    }
-
-    .modal-backdrop.show {
-      opacity: .1 !important;
-    }
-
-    .profile-modal {
-      height: 100vh;
-      border-radius: 0;
-      padding-top: 30px;
-      position: relative;
-    }
-
-    .close-btn {
-      position: absolute;
-      left: 15px;
-      top: 15px;
-      background: #f2f2f2;
-      border-radius: 50%;
-      width: 33px;
-      height: 33px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 9999;
-    }
-
-    .profile-photo {
-      width: 85px;
-      height: 85px;
-      border-radius: 50%;
-      border: 3px solid #eee;
-      object-fit: cover;
-    }
-
-    .user-name {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .user-email {
-      font-size: 13px;
-      color: gray;
-    }
-
-    .profile-info p {
-      background: #f8f8f8;
-      padding: 8px 10px;
-      font-size: 14px;
-      border-radius: 8px;
-      margin-bottom: 7px;
-      text-align: left;
-    }
-
-    /* input box css  */
-    .password-wrapper {
-      position: relative;
-    }
-
-    .password-wrapper .password-toggle {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
-  </style>
-
-        <!-- NEW Sidebar css here  -->
-        <style>
-    /* SCROLLBAR WIDTH */
-    .main-sidebar .sidebar::-webkit-scrollbar {
-      width: 8px !important;
-    }
-
-    /* SCROLLBAR TRACK */
-    .main-sidebar .sidebar::-webkit-scrollbar-track {
-      background: #f1f1f1 !important;
-      border-radius: 10px !important;
-    }
-
-    /* SCROLLBAR THUMB */
-    .main-sidebar .sidebar::-webkit-scrollbar-thumb {
-      background: linear-gradient(135deg, #49a3e8, #018ffb) !important;
-      border-radius: 10px !important;
-    }
-
-    /* SCROLLBAR HOVER */
-    .main-sidebar .sidebar::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(135deg, #2997eb, #018ffb) !important;
-    }
-
-    .main-sidebar {
-      height: 100vh !important;
-      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
-      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
-      position: fixed !important;
-      overflow: hidden !important;
-
-    }
-
-    .main-sidebar .sidebar {
-      height: calc(100vh - 60px);
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-    }
-
-
-    .nav-sidebar .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 22px;
-      border-radius: 10px;
-      font-size: 14px;
-      color: #4c576c !important;
-      font-weight: 500;
-      transition: 0.2s ease-in-out;
-    }
-
-    .nav-sidebar .nav-link .nav-icon {
-      width: 20px;
-      min-width: 20px;
-      height: 20px;
-      font-size: 17px;
-      color: #677892;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-sidebar .nav-link:hover {
-      background: #edf5fc;
-      color: #2e83ff !important;
-    }
-
-    .nav-sidebar .nav-link.active {
-      background: #e7f2ff !important;
-      color: #2e83ff !important;
-      font-weight: 600;
-      border-left: 4px solid #2e83ff;
-      padding-left: 15px;
-    }
-
-    .nav-sidebar .nav-link.active .nav-icon {
-      color: #2e83ff !important;
-    }
-
-    .nav-sidebar .right {
-      margin-left: auto;
-      font-size: 14px;
-      color: #7b8aa1;
-    }
-
-    .nav-treeview {
-      padding-left: 25px;
-      margin: 0 !important;
-    }
-
-    .nav-treeview .nav-link {
-      margin: 4px 12px !important;
-      padding: 6px 10px !important;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #6b7280 !important;
-    }
-
-    .nav-treeview .nav-link:hover {
-      background: #f3f6fb;
-      color: #2e83ff !important;
-    }
-  </style>
-
-    </head>
-
-    <body class="hold-transition sidebar-mini">
-
-        <!-- Site wrapper -->
-        <div class="wrapper">
-            <nav
-                class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
-                <div class="container-fluid">
-
-                    <!-- Left navbar links -->
-                    <ul class="navbar-nav">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* Welcome Section ---------------------------------------*/
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* Left side text styling */
+        .welcome-sub {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .welcome-title {
+            font-size: 22px;
+            color: #333;
+            font-weight: 600;
+        }
+
+
+
+
+
+
+
+
+        /* chart css -------------------------------------------------- */
+
+        /* Chart Wrapper */
+        .chart-card {
+            overflow: hidden;
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1.2px solid #3facff !important;
+            background: #fff;
+        }
+
+
+        /* Chart Header */
+        .chart-header {
+            background: #3facff;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Icon Circle like card */
+        .chart-header i {
+            width: 30px;
+            height: 30px;
+            background: #eef6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 15px;
+            color: #3facff;
+        }
+
+        /* Card Inner */
+        .chart-container {
+            position: relative;
+            height: 350px;
+            padding: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+
+            .chart-header {
+                font-size: 15px !important;
+                padding: 10px 16px;
+            }
+
+            .chart-header i {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .nav-tabs .nav-link {
+                font-size: 9px !important;
+                padding: 10px 12px !important;
+            }
+        }
+    </style>
+
+    <!-- NEW Sidebar css here  -->
+    <style>
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #4c576c !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #677892;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #edf5fc;
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #e7f2ff !important;
+            color: #2e83ff !important;
+            font-weight: 600;
+            border-left: 4px solid #2e83ff;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #7b8aa1;
+        }
+
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #6b7280 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f3f6fb;
+            color: #2e83ff !important;
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+
+                </ul>
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center">
+                    <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+                </a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar  elevation-4 shadow">
+            <!-- Brand Logo -->
+            <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+                <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+                    class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
+                <span class="brand-text text-dark">KLK Ventures-up</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Dashboard</li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link active">
+                                <i class="bi bi-speedometer2 nav-icon"></i>
+                                <p>
+                                    Dashboard
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard one</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard Two</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit3.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard Three</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit4.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard four</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard five</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="pages/UI/timeline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Timeline</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/ribbons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ribbons</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" data-widget="pushmenu" href="#"
-                                role="button"><i class="fas fa-bars"></i></a>
+                            <a href="./Mohit4.html" class="nav-link">
+                                <i class="bi bi-grid nav-icon"></i>
+
+                                <p>Dashboard 2</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="pages/widgets.html" class="nav-link">
+                                <i class="bi bi-grid nav-icon"></i>
+
+                                <p>Dashboard 3</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Newtable.html" class="nav-link">
+                                <i class="bi bi-bar-chart-line nav-icon"></i>
+                                <p>
+                                    Table
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Userprofile.html" class="nav-link">
+                                <i class="bi bi-bar-chart-line nav-icon"></i>
+                                <p>
+                                    User Profile
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./UserProfilepage.html" class="nav-link">
+                                <i class="bi bi-layers nav-icon"></i>
+                                <p>User Profile View
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Srtdashboard.html" class="nav-link">
+                                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                                <p>SRT Old Dashboard</p>
+                                <i class="right ph ph-caret-right"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Srtdashboarddemo.html" class="nav-link">
+                                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                                <p>SRT Old Dashboard</p>
+                                <i class="right ph ph-caret-right"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">HRM Dashboards</li>
+                        <li class="nav-item">
+                            <a href="./hrmdashboard.html" class="nav-link">
+                                <i class="bi bi-table nav-icon"></i>
+
+                                <p>HRM Main Dashboards</p>
+                                <i class="right ph ph-caret-right"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="./Empdashboard.html" class="nav-link">
+                                <i class="bi bi-calendar-week nav-icon"></i>
+
+                                <p>HRM Employee Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Sidebar Designs </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-exclamation-octagon nav-icon"></i>
+
+                                <p>
+                                    Sidebars
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sidebar one</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit2.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sidebar Two</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit3.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sidebar Three</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit4.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sidebar four</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sidebar five</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="pages/UI/timeline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Timeline</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/ribbons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ribbons</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-list-check nav-icon"></i>
+                                <p>
+                                    Forms
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/forms/general.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>General Elements</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Advanced Elements</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/editors.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Editors</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/validation.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Validation</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-speedometer2 nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-sun nav-icon"></i>
+                                <p>Kusum</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-file-earmark-text nav-icon"></i>
+                                <p>SSL Details</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-lightbulb nav-icon"></i>
+                                <p>SSL 18W</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-building nav-icon"></i>
+                                <p>UP Resco</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-cloud-slash nav-icon"></i>
+                                <p>UP Off Grid Details</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-cloud-check nav-icon"></i>
+                                <p>UP On Grid Details</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-battery-full nav-icon"></i>
+                                <p>Power Pack Details</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-archive nav-icon"></i>
+                                <p>SRLM SRT Details</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-list-check nav-icon"></i>
+                                <p>Task Assign</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-seam nav-icon"></i>
+                                <p>Product</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-exclamation-octagon nav-icon"></i>
+                                <p>Complaints</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-arrow-right nav-icon"></i>
+                                <p>Logout</p>
+                            </a>
                         </li>
 
                     </ul>
-                    <!-- BRAND -->
-                    <a class="navbar-brand d-flex align-items-center">
-                        <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
-                    </a>
-
-                    <!-- RIGHT SIDE ICONS -->
-                    <div class="header-actions">
-                        <!-- DOCUMENT BUTTON -->
-                        <div class="doc-btn">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <span>Document</span>
-                        </div>
-
-                        <!-- NOTIFICATION -->
-                        <div class="dropdown">
-                            <div class="notif-btn" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="bi bi-bell"></i>
-                                <span class="notif-badge">7</span>
-                            </div>
-
-                            <!-- DROPDOWN BOX -->
-                            <ul
-                                class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
-                                <li
-                                    class="dropdown-header fw-bold px-3 text-dark">
-                                    Notifications
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-info-circle text-primary me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">New policy
-                                                update</div>
-                                            <small class="text-muted">5 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">Server
-                                                downtime
-                                                alert</div>
-                                            <small class="text-muted">10 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-check-circle text-success me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">Payment
-                                                completed</div>
-                                            <small class="text-muted">20 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item text-center"
-                                        href="#">View All</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- PROFILE DROPDOWN -->
-                        <div class="dropdown">
-                            <img src="../images/userimg.jpg" class="profile-img"
-                                data-toggle="dropdown" />
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li class="user-box">
-                                    <h6>Login New User</h6>
-                                </li>
-
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center"
-                                        href="#" data-toggle="modal"
-                                        data-bs-target="#profileModal">
-                                        <i
-                                            class="bi bi-person icon-blue me-3"></i>Profile
-                                    </a>
-
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center"
-                                        href="#"><i
-                                            class="bi bi-gear icon-pink me-3"></i>Settings</a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center mb-2"
-                                        href="#"><i
-                                            class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- profile popup  -->
-            <div class="modal fade right-modal" id="profileModal" tabindex="-1">
-                <div class="modal-dialog modal-dialog-right">
-                    <div class="modal-content profile-modal">
-
-                        <span class="close-btn" data-bs-dismiss="modal">
-                            <i class="bi bi-x-lg"></i>
-                        </span>
-
-                        <div class="modal-body text-center p-4">
-                            <img src="../images/userimg.jpg"
-                                class="profile-photo mb-3">
-                            <h5 class="user-name">Pravesh Ahamad</h5>
-                            <p class="user-email">@parvesahamad</p>
-
-                            <hr>
-
-                            <div class="profile-info">
-                                <p><strong>Full Name:</strong> Parves Ahamad</p>
-                                <p><strong>Email:</strong> parves@gmail.com</p>
-                                <p><strong>Gender:</strong> Male</p>
-                                <p><strong>DOB:</strong> 05-01-2001</p>
-                                <p><strong>Phone:</strong> +91 9876543210</p>
-                                <p><strong>State:</strong> Kashmir</p>
-                            </div>
-
-                            <button class="btn btn-dark w-100"
-                                id="changePassBtn">Change Password</button>
-
-                            <!-- Hidden Password Fields -->
-                            <div id="passwordFields"
-                                style="display:none; padding: 15px;">
-
-                                <div class="mb-2 text-start">
-                                    <label class="form-label">New
-                                        Password</label>
-                                    <div class="password-wrapper">
-                                        <input type="password" id="newPass"
-                                            class="form-control"
-                                            placeholder="Enter New Password">
-                                        <i
-                                            class="bi bi-eye-slash password-toggle"
-                                            data-target="newPass"></i>
-                                    </div>
-                                </div>
-
-                                <div class="mb-2 text-start">
-                                    <label class="form-label">Confirm
-                                        Password</label>
-                                    <div class="password-wrapper">
-                                        <input type="password" id="confirmPass"
-                                            class="form-control"
-                                            placeholder="Confirm Password">
-                                        <i
-                                            class="bi bi-eye-slash password-toggle"
-                                            data-target="confirmPass"></i>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex gap-2 mt-3">
-                                    <button class="btn btn-dark w-50"
-                                        id="savePassBtn">Save</button>
-                                    <button class="btn btn-secondary w-50"
-                                        id="cancelPassBtn">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
+            <!-- /.sidebar -->
+        </aside>
 
-            <!-- Main Sidebar Container -->
-            <aside class="main-sidebar  elevation-4 shadow">
-                <!-- Brand Logo -->
-                <a href="./klkhome.html"
-                    class="brand-link border-bottom shadow-sm border-2">
-                    <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-                        class="brand-image  bottom-border img-circle elevation-3"
-                        style="opacity: 0.8" />
-                    <span class="brand-text text-dark">KLK Ventures-up</span>
-                </a>
-
-                <!-- Sidebar -->
-                <div class="sidebar">
-                    <!-- Sidebar Menu -->
-                    <nav class="mt-2">
-                        <ul class="nav nav-pills nav-sidebar flex-column"
-                            data-widget="treeview" role="menu"
-                            data-accordion="false">
-                            <li class="nav-header">Dashboard</li>
-                            <li class="nav-item ">
-                                <a href="#" class="nav-link active">
-                                    <i class="bi bi-speedometer2 nav-icon"></i>
-                                    <p>
-                                        Dashboard
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="./Mohit.html" class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard one</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./klkhome.html"
-                                            class="nav-link active">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard Two</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit3.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard Three</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit4.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard four</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Sidebar.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard five</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Mohit4.html" class="nav-link">
-                                    <i class="bi bi-grid nav-icon"></i>
-
-                                    <p>Dashboard 2</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="pages/widgets.html" class="nav-link">
-                                    <i class="bi bi-grid nav-icon"></i>
-
-                                    <p>Dashboard 3</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Newtable.html" class="nav-link">
-                                    <i
-                                        class="bi bi-bar-chart-line nav-icon"></i>
-                                    <p>
-                                        Table
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Userprofile.html" class="nav-link">
-                                    <i
-                                        class="bi bi-bar-chart-line nav-icon"></i>
-                                    <p>
-                                        User Profile
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./UserProfilepage.html"
-                                    class="nav-link">
-                                    <i class="bi bi-layers nav-icon"></i>
-                                    <p>User Profile View
-                                    </p>
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Srtdashboard.html" class="nav-link">
-                                    <i
-                                        class="bi bi-ui-checks-grid nav-icon"></i>
-
-                                    <p>SRT Old Dashboard</p>
-                                    <i class="right ph ph-caret-right"></i>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Srtdashboarddemo.html"
-                                    class="nav-link">
-                                    <i
-                                        class="bi bi-ui-checks-grid nav-icon"></i>
-
-                                    <p>SRT Old Dashboard</p>
-                                    <i class="right ph ph-caret-right"></i>
-                                </a>
-                            </li>
-
-                            <li class="nav-header">HRM Dashboards</li>
-                            <li class="nav-item">
-                                <a href="./hrmdashboard.html" class="nav-link">
-                                    <i class="bi bi-table nav-icon"></i>
-
-                                    <p>HRM Main Dashboards</p>
-                                    <i class="right ph ph-caret-right"></i>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="./Empdashboard.html" class="nav-link">
-                                    <i class="bi bi-calendar-week nav-icon"></i>
-
-                                    <p>HRM Employee Dashboard</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-header">Sidebar Designs </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i
-                                        class="bi bi-exclamation-octagon nav-icon"></i>
-
-                                    <p>
-                                        Sidebars
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="./Mohit.html" class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar one</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit2.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar Two</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit3.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar Three</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit4.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar four</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Sidebar.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar five</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-list-check nav-icon"></i>
-                                    <p>
-                                        Forms
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/forms/general.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>General Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/advanced.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/editors.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/validation.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-speedometer2 nav-icon"></i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-sun nav-icon"></i>
-                                    <p>Kusum</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i
-                                        class="bi bi-file-earmark-text nav-icon"></i>
-                                    <p>SSL Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-lightbulb nav-icon"></i>
-                                    <p>SSL 18W</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-building nav-icon"></i>
-                                    <p>UP Resco</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-cloud-slash nav-icon"></i>
-                                    <p>UP Off Grid Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-cloud-check nav-icon"></i>
-                                    <p>UP On Grid Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-battery-full nav-icon"></i>
-                                    <p>Power Pack Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-archive nav-icon"></i>
-                                    <p>SRLM SRT Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-list-check nav-icon"></i>
-                                    <p>Task Assign</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-box-seam nav-icon"></i>
-                                    <p>Product</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i
-                                        class="bi bi-exclamation-octagon nav-icon"></i>
-                                    <p>Complaints</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i
-                                        class="bi bi-box-arrow-right nav-icon"></i>
-                                    <p>Logout</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
-                    <!-- /.sidebar-menu -->
-                </div>
-                <!-- /.sidebar -->
-            </aside>
-
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <section class="content">
-                    <!-- welcome Section here  -->
-                    <section class="py-2 py-md-4 mt-5">
-                        <div class="container-fluid">
-                            <div class="row align-items-center g-2">
-                                <!-- LEFT -->
-                                <div
-                                    class="col-md-6 col-12 d-flex align-items-center gap-2">
-                                    <img src="../images/icon (2).svg"
-                                        class="welcome-icon"
-                                        style="width: 50px" />
-                                    <div>
-                                        <div class="welcome-sub">Welcome
-                                            to,</div>
-                                        <h2 class="welcome-title m-0 fw-bold">
-                                            KLK UP SSL Dashboard
-                                        </h2>
-                                    </div>
-                                </div>
-
-                                <!-- RIGHT -->
-                                <div
-                                    class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
-                                    <div class="select-wrapper">
-                                        <i class="bi bi-ui-checks-grid"></i>
-                                        <select
-                                            class="custom-select form-select">
-                                            <option selected>All Volume</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- From Cards Section  -->
-                    <div class="container-fluid py-3">
-
-                        <div class="row">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="mb-0 text-center">DAILY
-                                        PRODUCTION REPORT (DPR)</h4>
-                                </div>
-
-                                <div class="card-body">
-                                    <!-- HEADER INFO -->
-                                    <div class="row">
-                                        <div class="col-md-3 form-group">
-                                            <label>Date</label>
-                                            <input type="date"
-                                                class="form-control"
-                                                name="date">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Shift</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="shift">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Module Type</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="module_type">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Shift Incharge</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="shift_incharge">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Present</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="present">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Absent</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="absent">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>Start Barcode No
-                                                (Layup)</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="start_barcode">
-                                        </div>
-
-                                        <div class="col-md-3 form-group">
-                                            <label>End Barcode No
-                                                (Layup)</label>
-                                            <input type="text"
-                                                class="form-control"
-                                                name="end_barcode">
-                                        </div>
-                                    </div>
-
-                                    <hr>
-
-                                    <!-- PRODUCTION + STORE SECTION -->
-                                    <div class="row">
-                                        <!-- LEFT TABLE -->
-                                        <div class="col-md-8">
-                                            <h5>Production Detail</h5>
-                                            <div class="table-responsive">
-                                                <table
-                                                    class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Work
-                                                                Station</th>
-                                                            <th>Material</th>
-                                                            <th>Made in
-                                                                Process</th>
-                                                            <th>Reject
-                                                                Strings</th>
-                                                            <th>Break Cells</th>
-                                                            <th>Remark /
-                                                                Employee</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Foil Cutter</td>
-                                                            <td>EVA</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>Foil Cutter</td>
-                                                            <td>Backsheet</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>Ribbon
-                                                                Cutter</td>
-                                                            <td>Set (8) Per
-                                                                Module</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>Cell Cutter</td>
-                                                            <td>Full Cells</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-
-                                                        <!-- Repeat rows similarly for Stringer, Layup, Lamination etc -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                        <!-- RIGHT TABLE -->
-                                        <div class="col-md-4">
-                                            <h5>Store Issued Material
-                                                Detail</h5>
-                                            <div class="table-responsive">
-                                                <table
-                                                    class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Material</th>
-                                                            <th>Issued Qty</th>
-                                                            <th>Specification</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>EVA</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Backsheet</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Ribbon 6 mm</td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                            <td><input
-                                                                    type="text"
-                                                                    class="form-control"></td>
-                                                        </tr>
-                                                        <!-- continue remaining materials -->
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <hr>
-
-                                    <!-- FOOTER -->
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label>Breakdown</label>
-                                            <textarea class="form-control"
-                                                rows="2"></textarea>
-                                        </div>
-
-                                        <div class="col-md-12 form-group">
-                                            <label>Remark</label>
-                                            <textarea class="form-control"
-                                                rows="2"></textarea>
-                                        </div>
-
-                                        <div class="col-md-6 form-group">
-                                            <label>Prepared By</label>
-                                            <input type="text"
-                                                class="form-control">
-                                        </div>
-
-                                        <div class="col-md-6 form-group">
-                                            <label>Issued By</label>
-                                            <input type="text"
-                                                class="form-control">
-                                        </div>
-                                    </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content">
+                <!-- welcome Section here  -->
+                <section class="py-2 py-md-4 mt-5">
+                    <div class="container-fluid">
+                        <div class="row align-items-center g-2">
+                            <!-- LEFT -->
+                            <div class="col-md-6 col-12 d-flex align-items-center gap-2">
+                                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
+                                <div>
+                                    <div class="welcome-sub">Welcome
+                                        to,</div>
+                                    <h2 class="welcome-title m-0 fw-bold">
+                                        KLK Ventures Pvt. Ltd.
+                                    </h2>
                                 </div>
                             </div>
 
                         </div>
+                    </div>
+                </section>
 
-                        <!-- footer section -->
-                        <section class>
-                            <div class="container">
+                <!-- From Cards Section  -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="card shadow-sm chart-card border-0">
+                            <!-- Header -->
+                            <div class="card-header table-title border-0 p-0">
+                                <div class="chart-header">
+                                    <i class="fas fa-table"></i> Daily Production Report (DPR)
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+                                <!-- HEADER INFO -->
                                 <div class="row">
-                                    <footer class="footer-area py-2">
-                                        <p
-                                            class="m-0 fw-semibold text-secondary small footer-text">
-                                            Copyright © <span id="year"></span>
-                                            KLK ERP — By
-                                            <span
-                                                class="text-primary fw-bold">ETS
-                                                NETWORKS.</span>
-                                            All rights reserved.
-                                        </p>
-                                    </footer>
+                                    <div class="col-md-3 form-group">
+                                        <label>Date</label>
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Shift</label>
+                                        <input type="text" class="form-control" name="shift">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Module Type</label>
+                                        <input type="text" class="form-control" name="module_type">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Shift Incharge</label>
+                                        <input type="text" class="form-control" name="shift_incharge">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Present</label>
+                                        <input type="text" class="form-control" name="present">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Absent</label>
+                                        <input type="text" class="form-control" name="absent">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>Start Barcode No
+                                            (Layup)</label>
+                                        <input type="text" class="form-control" name="start_barcode">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label>End Barcode No
+                                            (Layup)</label>
+                                        <input type="text" class="form-control" name="end_barcode">
+                                    </div>
                                 </div>
+
+                                <hr>
+
+                                <!-- PRODUCTION + STORE -->
+                                <div class="row">
+
+                                    <!-- PRODUCTION TABLE -->
+                                    <div class="col-md-8">
+                                        <strong class="">Production Detail</strong>
+                                        <div class="table-responsive rounded-4 mt-2">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Work
+                                                            Station</th>
+                                                        <th>Material</th>
+                                                        <th>Made in
+                                                            Process</th>
+                                                        <th>Reject
+                                                            Strings</th>
+                                                        <th>Break Cells</th>
+                                                        <th>Remark /
+                                                            Employee</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <!-- FOIL CUTTER -->
+                                                    <tr>
+                                                        <td rowspan="2">Foil
+                                                            Cutter</td>
+                                                        <td>EVA</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Backsheet</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- RIBBON CUTTER -->
+                                                    <tr>
+                                                        <td>Ribbon
+                                                            Cutter</td>
+                                                        <td>Set (8) Per
+                                                            Module</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- CELL CUTTER -->
+                                                    <tr>
+                                                        <td>Cell Cutter</td>
+                                                        <td>Full Cells</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- STRINGER -->
+                                                    <tr>
+                                                        <td>Stringer Rech
+                                                            Old</td>
+                                                        <td>Strings OK
+                                                            Old</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Stringer Rech
+                                                            1</td>
+                                                        <td>Strings OK
+                                                            1</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Stringer Rech
+                                                            2</td>
+                                                        <td>Strings OK
+                                                            2</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">Total
+                                                            Strings</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">Reject
+                                                            Strings</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- REWORK -->
+                                                    <tr>
+                                                        <td rowspan="2">Rework</td>
+                                                        <td>Strings</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- ALIGNMENT -->
+                                                    <tr>
+                                                        <td>Alignment</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- LAYUP -->
+                                                    <tr>
+                                                        <td>Layup 1</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Layup 2</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Layup 3</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Layup 4</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Layup 5</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Layup 6</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- TOTAL LAY-UP MODULES -->
+                                                    <tr>
+                                                        <td colspan="2">Total
+                                                            Lay-up
+                                                            Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- EL TESTER -->
+                                                    <tr>
+                                                        <td>EL Tester</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- LAMINATION -->
+                                                    <tr>
+                                                        <td>Lamination
+                                                            1</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Lamination
+                                                            2</td>
+                                                        <td>Modules</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- TOTAL LAMINATE -->
+                                                    <tr>
+                                                        <td colspan="2">Total
+                                                            Laminate</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                    <!-- UNLAMINATED -->
+                                                    <tr>
+                                                        <td colspan="2">Unlaminated</td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                        <td><input class="form-control"></td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- STORE TABLE -->
+                                    <div class="col-md-4">
+                                        <strong class="">Store Issued Material
+                                            Detail</strong>
+                                        <table class="table table-bordered mt-2 rounded-4 ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Material</th>
+                                                    <th>Issued Qty</th>
+                                                    <th>Specification</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>EVA</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Backsheet</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ribbon 6 mm</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ribbon 0.6 mm</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>RFID</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Flux</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Solar Cells</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Alignment Tape</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Normal Tape</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Solder Wire</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Logo</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blade</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Barcode</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carbon</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cutter</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Iron Bit</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Iron</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Element</td>
+                                                    <td><input class="form-control"></td>
+                                                    <td><input class="form-control"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <!-- FOOTER -->
+                                <div class="row">
+                                    <div class="col-md-12 form-group">
+                                        <label>Breakdown</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label>Remark</label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label>Prepared By</label>
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label>Issued By</label>
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+
                             </div>
-                        </section>
-                    </section>
-                    <!-- /.content -->
+                        </div>
+
+                    </div>
                 </div>
-                <!-- /.content-wrapper -->
 
-                <!-- Control Sidebar -->
-                <aside class="control-sidebar control-sidebar-dark">
-                    <!-- Control sidebar content goes here -->
-                </aside>
-                <!-- /.control-sidebar -->
-            </div>
-            <!-- ./wrapper -->
+                <!-- footer section -->
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <footer class="footer-area py-2">
+                                <p class="m-0 fw-semibold text-secondary small footer-text">
+                                    Copyright © <span id="year"></span>
+                                    KLK ERP — By
+                                    <span class="text-primary fw-bold">ETS
+                                        NETWORKS.</span>
+                                    All rights reserved.
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
 
-            <!-- Chart.js Library -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
 
-            <script>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- Chart.js Library -->
+
+    <script>
 
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
-            <!-- jQuery -->
-            <script src="../../plugins/jquery/jquery.min.js"></script>
-            <!-- Bootstrap 4 -->
-            <script
-                src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <!-- AdminLTE App -->
-            <script src="../../dist/js/adminlte.min.js"></script>
-            <!-- AdminLTE for demo purposes -->
-            <script src="../../dist/js/demo.js"></script>
-        </body>
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
 
-    </html>
+</html>
