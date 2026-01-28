@@ -202,6 +202,10 @@
         display: none;
       }
     }
+
+
+
+
   </style>
 
     <!-- NEW Sidebar css here  -->
@@ -355,6 +359,7 @@
     }
 
 
+
     /* Responsive ------------------- */
     @media (max-width: 768px) {
       .table-header-inner {
@@ -382,7 +387,7 @@
       border-collapse: separate;
       border-spacing: 0;
       border-radius: 12px;
-      overflow: hidden;
+      /* overflow: hidden; */
       font-size: 14px;
       border: 2px solid #e4e4e4;
     }
@@ -412,6 +417,48 @@
       vertical-align: middle;
       border-radius: 0px !important;
     }
+
+
+    /* ============================= */
+/*  FIXED ACTION COLUMN (RIGHT)  */
+/* ============================= */
+
+.table-responsive {
+  overflow-x: auto;
+  position: relative;
+}
+
+
+.modern-table {
+  table-layout: fixed;
+  width: max-content;
+  min-width: 100%;
+}
+
+.modern-table th:last-child,
+.modern-table td:last-child {
+  position: sticky;
+  right: 0;
+  min-width: 100px;
+  background: #ffffff;
+  z-index: 20;
+}
+
+.modern-table thead th:last-child {
+  position: sticky;
+  right: 0;
+  top: 0;
+  background: #3facff !important;
+  color: #ffffff;
+  z-index: 30; 
+}
+
+
+.modern-table th,
+.modern-table td {
+  white-space: nowrap;
+}
+
   </style>
 
     <style>
@@ -1018,7 +1065,7 @@
 
                   <div class="table-responsive p-3">
                     <table
-                      class="table modern-table table-hover text-center mb-0 w-100"
+                      class="table modern-table table-hover text-center mb-0 "
                       id="example1">
                       <thead>
                         <tr>
@@ -1069,11 +1116,31 @@
                                 style="color: #3facff;"></i></a> </td>
                           <td>-</td>
                           <td>NULL</td>
-                          <td>
-                            <a href="#" class="view-icon me-2"><i
-                                class="fa-solid fa-eye"></i></a>
-                            <a href="#" class="view-icon"><i
-                                class="fa-solid fa-pen-to-square"></i></a>
+
+                          <td class="action-col">
+
+                            <div class="btn-group">
+                              <button type="button"
+                                class="btn btn-outline-info">Action</button>
+                              <button type="button"
+                                class="btn btn-info dropdown-toggle dropdown-icon"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <span class="sr-only">Toggle
+                                  Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right"
+                                role="menu">
+                                <button type="button"
+                                  class="btn btn-default dropdown-item edit_btn"
+                                  data-toggle="modal"
+                                  data-target="#exampleModalupdate"
+                                  data-id="{{ $claim->id }}">
+                                  <i
+                                    class="fa fa-pen-to-square"></i>&emsp;Verify
+                                </button>
+                              </div>
+                            </div>
+
                           </td>
                         </tr>
 
@@ -1099,11 +1166,37 @@
                                 style="color: #3facff;"></i></a> </td>
                           <td>-</td>
                           <td>NULL</td>
-                          <td>
+                          <!-- <td>
                             <a href="#" data-toggle="modal"
                               data-target="#passwordModal">
                               <i class="fas fa-eye"></i>
                             </a>
+                          </td> -->
+
+                          <td class="action-col">
+
+                            <div class="btn-group">
+                              <button type="button"
+                                class="btn btn-outline-info">Action</button>
+                              <button type="button"
+                                class="btn btn-info dropdown-toggle dropdown-icon"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <span class="sr-only">Toggle
+                                  Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right"
+                                role="menu">
+                                <button type="button"
+                                  class="btn btn-default dropdown-item edit_btn"
+                                  data-toggle="modal"
+                                  data-target="#exampleModalupdate"
+                                  data-id="{{ $claim->id }}">
+                                  <i
+                                    class="fa fa-pen-to-square"></i>&emsp;Verify
+                                </button>
+                              </div>
+                            </div>
+
                           </td>
 
                         </tr>
