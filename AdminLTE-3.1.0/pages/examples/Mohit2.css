@@ -82,7 +82,9 @@
       justify-content: space-between;
       background: #f6f7fb;
       padding: 12px;
+      border: 1.5px solid #e6e6e6;
       border-radius: 10px;
+      box-shadow: #dcdcdc 0px 0px 9px -3px;
       margin-bottom: 15px;
     }
 
@@ -121,8 +123,9 @@
       flex-direction: column;
       gap: 10px;
     }
-
+    
     .note-item {
+      box-shadow: #dcdcdc 0px 0px 9px -3px;
       display: flex;
       justify-content: space-between;
       align-items: center;
