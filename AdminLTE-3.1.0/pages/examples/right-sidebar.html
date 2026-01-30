@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AdminLTE | Right Sidebar Bootstrap Tabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <!-- AdminLTE -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+
+  <!-- CUSTOM CSS -->
+  <style>
+    /* ================= RIGHT SIDEBAR ================= */
+
+    .right-sidebar {
+      position: fixed;
+      top: 0;
+      right: -360px;
+      width: 360px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+      transition: right 0.3s ease;
+      z-index: 1050;
+      overflow-y: auto;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .right-sidebar.open {
+      right: 0;
+    }
+
+    /* ================= OVERLAY ================= */
+
+    .right-sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1040;
+      display: none;
+    }
+
+    .right-sidebar-overlay.show {
+      display: block;
+    }
+
+    /* ================= CLOSE BUTTON ================= */
+
+    .right-sidebar-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      color: #fff;
+      z-index: 10;
+    }
+
+    /* ================= BOOTSTRAP TABS ================= */
+
+    .qs-tabs {
+      background: #223a63;
+      border-bottom: none;
+    }
+
+    .qs-tabs .nav-link {
+      border: none;
+      color: #bfc9dc;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .qs-tabs .nav-link.active {
+      background: transparent;
+      color: #fff;
+      border-bottom: 3px solid #3b82f6;
+    }
+
+    /* ================= TAB CONTENT ================= */
+
+    .tab-content {
+      padding: 15px;
+    }
+
+    /* ================= NOTES HEADER ================= */
+
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f6f7fb;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .notes-header h5 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .notes-header p {
+      margin: 0;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ================= ICON BUTTON ================= */
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: none;
+      background: #e9ecf3;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .icon-btn:hover {
+      background: #dfe3ee;
+    }
+
+    /* ================= NOTES LIST ================= */
+
+    .notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .note-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #eee;
+    }
+
+    .note-item h6 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .note-item span {
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ================= ACTION BUTTONS ================= */
+
+    .actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .actions button {
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .actions .edit {
+      background: #3b82f6;
+    }
+
+    .actions .delete {
+      background: #ef4444;
+    }
+
+    /* ================= EMPTY TEXT ================= */
+
+    .empty-text {
+      text-align: center;
+      color: #888;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    /* ================= NAV ICON ================= */
+
+    .sidebar-toggle {
+      cursor: pointer;
+    }
+
+    .sidebar-toggle i {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-light bg-white">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link sidebar-toggle" id="rightSidebarToggle">
+          <i class="bi bi-ui-checks-grid"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="right-sidebar" id="rightSidebar">
+
+    <button class="right-sidebar-close" id="closeSidebar">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- BOOTSTRAP TABS -->
+    <ul class="nav nav-tabs qs-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#notes" role="tab">NOTES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#alerts" role="tab">ALERTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#chat" role="tab">CHAT</a>
+      </li>
+    </ul>
+
+    <!-- TAB CONTENT -->
+    <div class="tab-content">
+
+      <!-- NOTES -->
+      <div class="tab-pane fade show active" id="notes">
+        <div class="notes-header">
+          <button class="icon-btn">+</button>
+          <div>
+            <h5>Notes</h5>
+            <p>Add New Notes</p>
+          </div>
+          <button class="icon-btn">🔍</button>
+        </div>
+
+        <div class="notes-list">
+          <div class="note-item">
+            <div>
+              <h6>New order placed..</h6>
+              <span>10 Aug 2020</span>
+            </div>
+            <div class="actions">
+              <button class="edit">✏️</button>
+              <button class="delete">🗑</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALERTS -->
+      <div class="tab-pane fade" id="alerts">
+        <p class="empty-text">No alerts available</p>
+      </div>
+
+      <!-- CHAT -->
+      <div class="tab-pane fade" id="chat">
+        <p class="empty-text">Chat section coming soon</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="right-sidebar-overlay" id="rightSidebarOverlay"></div>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(function () {
+      $('#rightSidebarToggle').on('click', function () {
+        $('#rightSidebar').addClass('open');
+        $('#rightSidebarOverlay').addClass('show');
+        $('body').css('overflow', 'hidden');
+      });
+
+      function closeSidebar() {
+        $('#rightSidebar').removeClass('open');
+        $('#rightSidebarOverlay').removeClass('show');
+        $('body').css('overflow', '');
+      }
+
+      $('#closeSidebar, #rightSidebarOverlay').on('click', closeSidebar);
+    });
+  </script>
+
+</body>
+</html>
