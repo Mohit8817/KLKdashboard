@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="./Mohit2.css" />
 
   <!-- ICONS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
@@ -19,9 +20,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-
-
 
   <style>
     .header-actions {
@@ -324,99 +322,90 @@
     }
   </style>
 
-
+  <!-- NEW Sidebar css here  -->
   <style>
-    .sidebar-light-custom {
-      background: #2f3b63;
-      font-family: "Poppins", sans-serif;
-      width: 260px;
+    .main-sidebar {
+      height: 100vh !important;
+      background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+      box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+      position: fixed !important;
+      overflow: hidden !important;
+
     }
 
-    .brand-custom {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .main-sidebar .sidebar {
+      height: calc(100vh - 60px);
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
     }
 
-    .nav-sidebar {
-      margin-top: 12px;
-    }
 
-    .nav-link {
+    .nav-sidebar .nav-link {
       display: flex;
       align-items: center;
-      gap: 14px;
-      color: #f1f1f1 !important;
-      padding: 10px 12px;
+      gap: 10px;
+      padding: 8px 22px;
       border-radius: 10px;
-      font-size: 15px;
+      font-size: 14px;
+      color: #4c576c !important;
       font-weight: 500;
-      transition: 0.25s ease;
+      transition: 0.2s ease-in-out;
     }
 
-    .nav-link:hover {
-      background: rgba(255, 255, 255, 0.12);
+    .nav-sidebar .nav-link .nav-icon {
+      width: 20px;
+      min-width: 20px;
+      height: 20px;
+      font-size: 17px;
+      color: #677892;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .nav-link.active {
-      background: #3facff !important;
-      color: white !important;
+    .nav-sidebar .nav-link:hover {
+      background: #edf5fc;
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .nav-link.active {
+      background: #e7f2ff !important;
+      color: #2e83ff !important;
       font-weight: 600;
+      border-left: 4px solid #2e83ff;
+      padding-left: 15px;
+    }
+
+    .nav-sidebar .nav-link.active .nav-icon {
+      color: #2e83ff !important;
+    }
+
+    .nav-sidebar .right {
+      margin-left: auto;
+      font-size: 14px;
+      color: #7b8aa1;
+    }
+
+    .nav-treeview {
+      padding-left: 25px;
+      margin: 0 !important;
     }
 
     .nav-treeview .nav-link {
-      padding-left: 48px;
-      font-size: 14px;
-      background: transparent;
+      margin: 4px 12px !important;
+      padding: 6px 10px !important;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #6b7280 !important;
     }
 
     .nav-treeview .nav-link:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: #f3f6fb;
+      color: #2e83ff !important;
     }
-
-    .side-circle-icon i {
-      font-size: 18px;
-    }
-
-    .logout-link {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    .side-circle-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #ffffff;        /* white circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.side-circle-icon i {
-  font-size: 18px;
-  color: #2f3b63;             /* Icon color (blue) */
-  font-weight: 600;
-}
-
-.nav-link:hover .side-circle-icon {
-  background: #e6f3ff;        /* Light hover */
-}
-
-.nav-link.active .side-circle-icon {
-  background: #ffffff;
-}
-
-.nav-link.active .side-circle-icon i {
-  color: #38487c;             /* Active icon color dark */
-}
-
   </style>
 
-
 </head>
-
-
-
 
 <body class="hold-transition sidebar-mini">
   <!-- Site wrapper -->
@@ -428,20 +417,10 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <!-- <li class="nav-item d-none d-sm-inline-block">
-          <a href="../../index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li> -->
       </ul>
-
-
-
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto header-actions align-items-center">
-
         <!-- Notification code -->
         <div class="dropdown">
           <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
@@ -512,7 +491,6 @@
               </a>
             </li>
 
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <span class="icon-pink mr-2">
@@ -532,27 +510,21 @@
             </li>
           </ul>
         </div>
-
-
-
         <!-- Profile code End  -->
-        <li class="nav-item">
-          <!-- expand page view  -->
-          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-            <i class="fas fa-expand-arrows-alt"></i>
+
+        <!-- right sidebar toggle button  -->
+        <div class="nav-item">
+          <a class="nav-link sidebar-toggle" id="rightSidebarToggle">
+            <i class="bi bi-ui-checks-grid"></i>
           </a>
-        </li>
+        </div>
+
       </ul>
-
-
-
-
-
-
     </nav>
     <!-- /.navbar -->
-    <!-- profile side bar code  -->
 
+
+    <!-- profile side bar code  -->
     <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-slideout" role="document">
         <div class="modal-content profile-modal p-3">
@@ -618,16 +590,114 @@
     </div>
 
 
+    <!-- RIGHT SIDEBAR -->
+    <div class="right-sidebar" id="rightSidebar">
 
-      <!-- Main Sidebar Container -->
-    <aside class="main-sidebar  elevation-4">
+      <button class="right-sidebar-close" id="closeSidebar">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- BOOTSTRAP TABS -->
+      <ul class="nav nav-tabs qs-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#notes" role="tab">NOTES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#alerts" role="tab">ALERTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#chat" role="tab">CHATS</a>
+        </li>
+      </ul>
+
+      <!-- TAB CONTENT -->
+      <div class="tab-content">
+
+        <!-- NOTES -->
+        <div class="tab-pane fade show active" id="notes">
+          <div class="notes-header">
+            <button class="icon-btn">+</button>
+            <div>
+              <h5>Notes</h5>
+              <p>Add New Notes</p>
+            </div>
+            <button class="icon-btn">🔍</button>
+          </div>
+
+          <div class="notes-list">
+            <div class="note-item">
+              <div>
+                <h6>New order placed..</h6>
+                <span>10 Aug 2020</span>
+              </div>
+              <div class="actions">
+                <button class="edit">✏️</button>
+                <button class="delete">🗑</button>
+              </div>
+            </div>
+
+            <div class="note-item">
+              <div>
+                <h6>New order placed..</h6>
+                <span>10 Aug 2020</span>
+              </div>
+              <div class="actions">
+                <button class="edit">✏️</button>
+                <button class="delete">🗑</button>
+              </div>
+            </div>
+
+
+            <div class="note-item">
+              <div>
+                <h6>New order placed..</h6>
+                <span>10 Aug 2020</span>
+              </div>
+              <div class="actions">
+                <button class="edit">✏️</button>
+                <button class="delete">🗑</button>
+              </div>
+            </div>
+
+
+            <div class="note-item">
+              <div>
+                <h6>New order placed..</h6>
+                <span>10 Aug 2020</span>
+              </div>
+              <div class="actions">
+                <button class="edit">✏️</button>
+                <button class="delete">🗑</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALERTS -->
+        <div class="tab-pane fade" id="alerts">
+          <p class="empty-text">No alerts available</p>
+        </div>
+
+        <!-- CHAT -->
+        <div class="tab-pane fade" id="chat">
+          <p class="empty-text">Chat section coming soon</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="right-sidebar-overlay" id="rightSidebarOverlay"></div>
+
+    <!-- RIGHT SIDEBAR END -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4 shadow">
       <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link border-bottom shadow-sm">
+      <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
         <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
           class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Jammu </span>
+        <span class="brand-text text-dark">KLK Ventures-up</span>
       </a>
-
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -647,59 +717,136 @@
                 <li class="nav-item">
                   <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammu SRT</p>
+                    <p>Dashboard one</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="./klkhome.html" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammu 70MW SRT</p>
+                    <p>Dashboard Two</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Mohit3.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammu SWP</p>
+                    <p>Dashboard Three</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Mohit4.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammuj SSL</p>
+                    <p>Dashboard four</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Sidebar.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammu SHL</p>
+                    <p>Dashboard five</p>
                   </a>
                 </li>
 
                 <li class="nav-item">
                   <a href="pages/UI/timeline.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Jammu Resco</p>
+                    <p>Timeline</p>
                   </a>
                 </li>
-
+                <li class="nav-item">
+                  <a href="pages/UI/ribbons.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Ribbons</p>
+                  </a>
+                </li>
               </ul>
             </li>
 
-
             <li class="nav-item">
               <a href="./Mohit4.html" class="nav-link">
-                <i class="bi bi-diagram-3 nav-icon"></i>
-                <p>SRT</p>
+                <i class="bi bi-grid nav-icon"></i>
+
+                <p>Dashboard 2</p>
               </a>
             </li>
 
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="bi bi-grid nav-icon"></i>
 
+                <p>Dashboard 3</p>
+              </a>
+            </li>
 
-            <li class="nav-item ">
-              <a href="#" class="nav-link ">
-                <i class="bi bi-lightning-charge nav-icon"></i>
+            <li class="nav-item">
+              <a href="./Newtable.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-icon"></i>
                 <p>
-                  Jammu SRT 70MW
+                  Table
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Userprofile.html" class="nav-link">
+                <i class="bi bi-bar-chart-line nav-icon"></i>
+                <p>
+                  User Profile
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./UserProfilepage.html" class="nav-link">
+                <i class="bi bi-layers nav-icon"></i>
+                <p>User Profile View
+                </p>
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+              <a href="./Srtdashboard.html" class="nav-link">
+                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                <p>SRT Old Dashboard</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Srtdashboarddemo.html" class="nav-link">
+                <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                <p>SRT Old Dashboard</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-header">HRM Dashboards</li>
+            <li class="nav-item">
+              <a href="./hrmdashboard.html" class="nav-link">
+                <i class="bi bi-table nav-icon"></i>
+
+                <p>HRM Main Dashboards</p>
+                <i class="right ph ph-caret-right"></i>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="./Empdashboard.html" class="nav-link">
+                <i class="bi bi-calendar-week nav-icon"></i>
+
+                <p>HRM Employee Dashboard</p>
+              </a>
+            </li>
+
+            <li class="nav-header">Sidebar Designs </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-exclamation-octagon nav-icon"></i>
+
+                <p>
+                  Sidebars
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -707,365 +854,167 @@
                 <li class="nav-item">
                   <a href="./Mohit.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add SRT 70MW</p>
+                    <p>Sidebar one</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Mohit2.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Upload SRT 70MW</p>
+                    <p>Sidebar Two</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Mohit3.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View SRT 70MW SWP</p>
+                    <p>Sidebar Three</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Mohit4.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>HO Panel No. Import</p>
+                    <p>Sidebar four</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="./Sidebar.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View Dispatch</p>
+                    <p>Sidebar five</p>
                   </a>
                 </li>
 
-
-
-              </ul>
-            </li>
-
-
-            <li class="nav-item ">
-              <a href="#" class="nav-link ">
-<i class="bi bi-clipboard-check nav-icon"></i>
-                <p>
-                  Survey
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
+                  <a href="pages/UI/timeline.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add Survey</p>
+                    <p>Timeline</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="pages/UI/ribbons.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View Survey</p>
+                    <p>Ribbons</p>
                   </a>
                 </li>
-
-
-
               </ul>
             </li>
 
-
-            <li class="nav-header">Resco</li>
             <li class="nav-item">
-              <a href="./hrmdashboard.html" class="nav-link">
-                <i class="bi bi-plus-circle nav-icon"></i>
-
-                <p>Add Resco</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Empdashboard.html" class="nav-link">
-                <i class="bi bi-eye nav-icon"></i>
-                <p>View Resco</p>
-              </a>
-            </li>
-
-
-            <li class="nav-header">More Links</li>
-            <li class="nav-item ">
               <a href="#" class="nav-link">
-<i class="bi bi-person-check nav-icon"></i>
+                <i class="bi bi-list-check nav-icon"></i>
                 <p>
-                  Task Assign
+                  Forms
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
+                  <a href="pages/forms/general.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Add Task Assign</p>
+                    <p>General Elements</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="pages/forms/advanced.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View Task Assign</p>
+                    <p>Advanced Elements</p>
                   </a>
                 </li>
-
                 <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
+                  <a href="pages/forms/editors.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Task Assign By Me</p>
+                    <p>Editors</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/validation.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Validation</p>
                   </a>
                 </li>
               </ul>
             </li>
-
-
-
-
-
-            <li class="nav-item ">
-              <a href="#" class="nav-link">
-<i class="bi bi-file-earmark-text nav-icon"></i>
-                <p>
-                  SSL Details
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add SSL Details</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View SSL Details</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Upload SSL Details</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-
-
-            <li class="nav-item ">
-              <a href="#" class="nav-link">
-<i class="bi bi-file-earmark-medical nav-icon"></i>
-                <p>
-                  SHL Details
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add SHL Details</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View SHL Details</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Upload SHL Details</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            <li class="nav-header">SWP Details</li>
-            <li class="nav-item">
-              <a href="./hrmdashboard.html" class="nav-link">
-            <i class="bi bi-droplet nav-icon"></i>
-
-                <p>Add SWP Details</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Empdashboard.html" class="nav-link">
-               <i class="bi bi-eye nav-icon"></i>
-
-
-                <p>View SWP Details</p>
-              </a>
-            </li>
-
-
-
-
-
-
 
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="bi bi-speedometer2 nav-icon"></i>
-                <p>
-                  Material Status
-                  <i class="fas fa-angle-left right"></i>
-                </p>
+                <p>Dashboard</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Add Material</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>View Material</p>
-                  </a>
-                </li>
-
-
-              </ul>
             </li>
-
-
-
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-<i class="bi bi-bag nav-icon"></i>
-                <p>
-                  Products
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Products Deatils</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Request Deatils</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dispatch Details</p>
-                  </a>
-                </li>
-
-
-              </ul>
-            </li>
-
-
-            <li class="nav-header">Complaints</li>
-            <li class="nav-item">
-              <a href="./hrmdashboard.html" class="nav-link">
-               <i class="bi bi-exclamation-triangle nav-icon"></i>
-                <p>SSL Complaints</p>
-                <i class="right ph ph-caret-right"></i>
+                <i class="bi bi-sun nav-icon"></i>
+                <p>Kusum</p>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="./Empdashboard.html" class="nav-link">
-<i class="bi bi-exclamation-octagon nav-icon"></i>
-                <p>SWP Complaints</p>
-              </a>
-            </li>
-
-
-
-
-
-
-
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-<i class="bi bi-truck nav-icon"></i>
-                <p>
-                  HO Dispatch
-                  <i class="fas fa-angle-left right"></i>
-                </p>
+                <i class="bi bi-file-earmark-text nav-icon"></i>
+                <p>SSL Details</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dispatch Sim No </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dispatch Panel No </p>
-                  </a>
-                </li>
-
-
-
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dispatch Battery No </p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dispatch IMEI No </p>
-                  </a>
-                </li>
-              </ul>
             </li>
-
-
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-<i class="bi bi-person-badge nav-icon"></i>
-                  <p>
-                  Jammu Registeration
-                  <i class="fas fa-angle-left right"></i>
-                </p>
+                <i class="bi bi-lightbulb nav-icon"></i>
+                <p>SSL 18W</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Kusum B Registeration</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Kusum C Registeration</p>
-                  </a>
-                </li>
+            </li>
 
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-building nav-icon"></i>
+                <p>UP Resco</p>
+              </a>
+            </li>
 
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-cloud-slash nav-icon"></i>
+                <p>UP Off Grid Details</p>
+              </a>
+            </li>
 
-              </ul>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-cloud-check nav-icon"></i>
+                <p>UP On Grid Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-battery-full nav-icon"></i>
+                <p>Power Pack Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-archive nav-icon"></i>
+                <p>SRLM SRT Details</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-list-check nav-icon"></i>
+                <p>Task Assign</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-box-seam nav-icon"></i>
+                <p>Product</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-exclamation-octagon nav-icon"></i>
+                <p>Complaints</p>
+              </a>
             </li>
 
             <li class="nav-item">
@@ -1075,9 +1024,6 @@
               </a>
             </li>
 
-
-
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -1085,15 +1031,10 @@
       <!-- /.sidebar -->
     </aside>
 
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-
-
-
 
       </section>
       <!-- /.content -->
@@ -1114,6 +1055,7 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+
 
 
   <script>
@@ -1185,9 +1127,29 @@
     });
   </script>
 
-
-
   <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Custom Right Sidebar Script -->
+  <script>
+    $(function () {
+      $('#rightSidebarToggle').on('click', function () {
+        $('#rightSidebar').addClass('open');
+        $('#rightSidebarOverlay').addClass('show');
+        $('body').css('overflow', 'hidden');
+      });
+
+      function closeSidebar() {
+        $('#rightSidebar').removeClass('open');
+        $('#rightSidebarOverlay').removeClass('show');
+        $('body').css('overflow', '');
+      }
+
+      $('#closeSidebar, #rightSidebarOverlay').on('click', closeSidebar);
+    });
+  </script>
+
+
   <script src="../../plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
