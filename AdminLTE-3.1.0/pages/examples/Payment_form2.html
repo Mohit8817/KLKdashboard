@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+
+        /* PROFILE IMAGE */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* NOTIFICATION ICON */
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        /* TITLE */
+        .notif-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* HOVER EFFECT */
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        /* DOCUMENT BUTTON — LIGHT COLOR */
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Dashboard css  -->
+    <style>
+        .welcome-sub {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fd663c;
+        }
+
+        .welcome-title {
+            font-weight: 600;
+            font-size: 22px;
+            color: #333;
+        }
+
+
+        /* Responsive font and icon resizing */
+        @media (max-width: 767px) {
+            .welcome-title {
+                font-size: 18px;
+            }
+
+            .welcome-sub {
+                font-size: 13px;
+            }
+
+            .welcome-icon {
+                width: 35px !important;
+            }
+
+            .select-wrapper {
+                padding: 0 0 0 15px;
+                font-size: 12px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /* from card css ------------------- */
+
+        .chart-card {
+            overflow: hidden;
+            border-radius: 12px;
+            transition: 0.3s;
+            background: #fff;
+            position: relative;
+            padding: 0;
+            border: 0;
+            background: linear-gradient(#ffffff, #ffffff) padding-box,
+                linear-gradient(135deg, #f68555, #e06468, #e4744f, #fd6c30) border-box;
+            border: 1.5px solid transparent !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .chart-header {
+            background: linear-gradient(135deg, #f68555, #fd6c30);
+            color: #ffffff;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .chart-header i {
+            width: 30px;
+            height: 30px;
+            background: #ffe1d6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 15px;
+            color: #fd6c30;
+            transition: 0.3s;
+        }
+
+        .chart-header i:hover {
+            background: #f68555;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+
+            .chart-header {
+                font-size: 15px !important;
+                padding: 10px 16px;
+            }
+
+            .chart-header i {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .nav-tabs .nav-link {
+                font-size: 9px !important;
+                padding: 10px 12px !important;
+            }
+        }
+    </style>
+
+    <!-- NEW Sidebar css here  -->
+    <style>
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+        }
+
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #636363 !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #636363;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #fbeae6 !important;
+            color: #fd663c !important;
+            font-weight: 600;
+            border-left: 4px solid #fd663c;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #ff8528 !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #FEB47B;
+        }
+
+        /* Sub-menu links */
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #636363 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+
+                </ul>
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center">
+                    <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+                </a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+                    <!-- DOCUMENT BUTTON -->
+                    <div class="doc-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </div>
+
+                    <!-- NOTIFICATION -->
+                    <div class="dropdown">
+                        <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-badge">7</span>
+                        </div>
+
+                        <!-- DROPDOWN BOX -->
+                        <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                            <li class="dropdown-header fw-bold px-3 text-dark">
+                                Notifications
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">New policy
+                                            update</div>
+                                        <small class="text-muted">5 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Server
+                                            downtime
+                                            alert</div>
+                                        <small class="text-muted">10 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Payment
+                                            completed</div>
+                                        <small class="text-muted">20 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item text-center" href="#">View All</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="dropdown">
+                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li class="user-box">
+                                <h6>Login New User</h6>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                    data-bs-target="#profileModal">
+                                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                                </a>
+
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                        class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                                        class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- profile popup  -->
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-right">
+                <div class="modal-content profile-modal">
+
+                    <span class="close-btn" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                    </span>
+
+                    <div class="modal-body text-center p-4">
+                        <img src="../images/userimg.jpg" class="profile-photo mb-2">
+                        <h5 class="user-name">Pravesh Ahamad</h5>
+                        <p class="user-email">@parvesahamad</p>
+
+                        <hr>
+
+                        <div class="profile-info">
+                            <p><strong>Full Name:</strong> Parves Ahamad</p>
+                            <p><strong>Email:</strong> parves@gmail.com</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>DOB:</strong> 05-01-2001</p>
+                            <p><strong>Phone:</strong> +91 9876543210</p>
+                            <p><strong>State:</strong> Kashmir</p>
+                        </div>
+
+                        <button class="btn btn-dark w-100" id="changePassBtn">Change
+                            Password</button>
+
+                        <!-- Hidden Password Fields -->
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+
+                            <div class="mb-2 text-start">
+                                <label class="form-label">New
+                                    Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-start">
+                                <label class="form-label">Confirm
+                                    Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar  elevation-4 shadow">
+            <!-- Brand Logo -->
+            <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+                <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+                    class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+                <span class="brand-text text-dark">KLK Vendor</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Dashboard </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="bi bi-speedometer2 nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Vendor Management</li>
+
+                        <!-- Vendor -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-badge nav-icon"></i>
+                                <p>
+                                    Vendor
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Vendor</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Vendor</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Work Order -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-file-earmark-text nav-icon"></i>
+                                <p>
+                                    Work Order
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Work Order</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Work Order</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Work Order Assign -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-journal-check nav-icon"></i>
+                                <p>
+                                    Work Order Assign
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Work Order Assign</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Work Order Assign</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Return & Maintenance -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-arrow-repeat nav-icon"></i>
+                                <p>
+                                    Return & Maintanence
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Return & Maintanence</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Payment -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-credit-card nav-icon"></i>
+                                <!-- changed -->
+                                <p>
+                                    Payment
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Payemnt</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- States -->
+
+                        <li class="nav-header">Bihar</li>
+
+                        <!-- 🔧 Installation -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-layers nav-icon"></i>
+                                <p>Installation <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- SSL -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SSL <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SRT -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- 🛠 AMC SECTION -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-wrench-adjustable nav-icon"></i>
+                                <p>AMC <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- SSL -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SSL <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Bihar SSL</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>AMC Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign SSL</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SRT -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Bihar SRT</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- 📋 Survey -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-clipboard-data nav-icon"></i>
+                                <p>Survey <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT 200MW Survey <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>SRT200MW Survey</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Survey</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Survey</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- SRT SUBMENU -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-geo-alt nav-icon"></i>
+                                <p>
+                                    SRT
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./vendorbiharsrt.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-assign-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Assign Light</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-verify-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Verify Light</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- Jammuu  -->
+                        <li class="nav-header">Jammu</li>
+                        <!-- 📋 Survey -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-clipboard-data nav-icon"></i>
+                                <p>Survey <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT 70MW Survey <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify 70MW Survey</p>
+                                            </a></li>
+
+                                    </ul>
+                                </li>
+
+                                <!-- Resco -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Resco Survey <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Resco Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Survey</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign View Survey</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assigned Survey
+                                                    vendor</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Survey</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- 🔧 Installation -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-layers nav-icon"></i>
+                                <p>Installation <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- SRT -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SSL -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SSL <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SWP  -->
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SWP <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Resco -->
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Resco <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Assign Light</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Verify Light</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 🔧 SRT 70MW -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-cash-stack nav-icon"></i>
+                                <p>SRT 70MW Expense <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- SRT -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SRT <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>Claim Request</p>
+                                            </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link"><i
+                                                    class="far fa-circle nav-icon"></i>
+                                                <p>View Payments</p>
+                                            </a></li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- 🟩 UP -->
+                        <li class="nav-header">UP</li>
+
+                        <!-- 🔧 Installation -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-tools nav-icon"></i>
+                                <p>Installation <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- Kusum C -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Kusum C <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign Installation</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>View Assign</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Installation</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Resco -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Resco <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign Installation</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>View Assign</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Installation</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SSL 18W -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SSL 18W <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign Installation</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>View Assign</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Installation</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- 🛠️ AMC -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-gear nav-icon"></i>
+                                <p>AMC <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- Off Grid -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Off Grid <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>UP Off Grid</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>UP Off Grid AMC
+                                                    Dashboard</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Power Pack -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Power Pack <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign PP</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                                <!-- SSL -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>SSL <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Dashboard</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign SSL</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <!-- 📝 Survey -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-clipboard-data nav-icon"></i>
+                                <p>Survey <i class="fas fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <!-- Resco Survey -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Resco Survey <i class="fas fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Resco Dashboard</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign Survey</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assign View Survey</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Verify Survey</p>
+                                            </a></li>
+                                        <li><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i>
+                                                <p>Assigned Sites Update</p>
+                                            </a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                <p class="text-danger">Logout</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper mt-5 pt-4">
+
+            <section class="content">
+                <!-- welcome Section here  -->
+                <section class="py-2 py-md-4">
+                    <div class="container-fluid">
+                        <div class="row align-items-center g-2">
+                            <!-- LEFT -->
+                            <div class="col-md-6 col-12 d-flex align-items-center gap-3">
+                                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
+                                <div>
+                                    <div class="welcome-sub">Welcome
+                                        to,</div>
+                                    <h2 class="welcome-title m-0 fw-bold">
+                                        KLK Vendor Dashboard
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT -->
+                            <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                                <!-- Volume -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Form section start  -->
+                <div class="container-fluid pt-2">
+                    <div class="row">
+                        <!-- Form -->
+                        <div class="col">
+                            <div class="card chart-card shadow-sm">
+                                <div class="chart-header">
+                                    <i class="fas fa-file-invoice"></i> Payment Summary
+                                </div>
+                                <div class="card-body">
+                                    <div class="card p-3">
+                                        <div class="row align-items-center g-3">
+
+                                            <!-- Document Upload -->
+                                            <div class="col-md-4 d-flex flex-column">
+                                                <label class="form-label mb-1 fw-semibold">Document</label>
+                                                <input class="form-control" type="file" name="document">
+                                            </div>
+
+                                            <!-- Date Picker -->
+                                            <div class="col-md-4 d-flex flex-column">
+                                                <label class="form-label mb-1 fw-semibold">Date</label>
+                                                <input class="form-control" type="date" name="document_date">
+                                            </div>
+
+                                            <!-- Payment Type -->
+                                            <div class="col-md-4 d-flex flex-column">
+                                                <label class="form-label mb-1 fw-semibold">Payment Type</label>
+                                                <select class="form-control" name="payment_type">
+                                                    <option value="">Select Payment</option>
+                                                    <option>Advance</option>
+                                                    <option>Partial</option>
+                                                    <option>Final</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <!-- PAYMENT TABLE -->
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered align-middle text-center">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Select</th>
+                                                        <th>Applicant Name</th>
+                                                        <th>Amount</th>
+                                                        <th>Percentage (%)</th>
+                                                        <th>Calculated Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="checkbox" class=""></td>
+                                                        <td>Site A</td>
+                                                        <td>10000</td>
+                                                        <td>10</td>
+                                                        <td>1000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class=""></td>
+                                                        <td>Site B</td>
+                                                        <td>20000</td>
+                                                        <td>15</td>
+                                                        <td>3000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class=""></td>
+                                                        <td>Site C</td>
+                                                        <td>15000</td>
+                                                        <td>20</td>
+                                                        <td>3000</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- footer section -->
+                <section class>
+                    <div class="container">
+                        <div class="row">   
+                            <footer class="footer-area py-2">
+                                <p class="m-0 fw-semibold text-secondary small footer-text">
+                                    Copyright © <span id="year"></span> KLK
+                                    ERP — By
+                                    <span class="text-primary fw-bold">ETS
+                                        NETWORKS.</span>
+                                    All rights reserved.
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- Chart.js Library -->
+
+    <!-- payment form  -->
+
+
+
+    <script>
+        const changeBtn = document.getElementById("changePassBtn");
+        const passFields = document.getElementById("passwordFields");
+        const profileInfo = document.querySelector(".profile-info");
+        const cancelBtn = document.getElementById("cancelPassBtn");
+
+        // Change Password Button
+        changeBtn.addEventListener("click", function () {
+            passFields.style.display = "block";
+            profileInfo.style.display = "none";
+            changeBtn.style.display = "none";
+        });
+
+        // Cancel
+        cancelBtn.addEventListener("click", function () {
+            passFields.style.display = "none";
+            profileInfo.style.display = "block";
+            changeBtn.style.display = "block";
+        });
+
+        // Password Show/Hide
+        document.querySelectorAll(".password-toggle").forEach(icon => {
+            icon.addEventListener("click", () => {
+                const input = document.getElementById(icon.getAttribute("data-target"));
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("bi-eye-slash");
+                    icon.classList.add("bi-eye");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("bi-eye");
+                    icon.classList.add("bi-eye-slash");
+                }
+            });
+
+            // Reset modal on close
+            const profileModal = document.getElementById('profileModal');
+            profileModal.addEventListener('hidden.bs.modal', function () {
+                resetProfileModal();
+            });
+
+            // Reset Function
+            function resetProfileModal() {
+                passFields.style.display = "none";
+                profileInfo.style.display = "block";
+                changeBtn.style.display = "block";
+
+                document.getElementById("newPass").value = "";
+                document.getElementById("confirmPass").value = "";
+            }
+
+        });
+
+
+        // Cancel Button
+        cancelBtn.addEventListener("click", function () {
+            resetProfileModal();
+        });
+
+
+
+    </script>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
