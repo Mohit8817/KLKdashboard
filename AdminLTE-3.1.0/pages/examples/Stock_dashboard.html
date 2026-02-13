@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AdminLTE 3 | Blank Page</title>
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
-    <link rel="stylesheet" href="./Mohit2.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AdminLTE 3 | Blank Page</title>
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="../../plugins/fontawesome-free/css/all.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+        <link rel="stylesheet" href="./Mohit2.css" />
 
-    <!-- ICONS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- ICONS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+            rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <style>
+        <style>
         body {
             background: #d7e8f2 !important;
             font-family: Arial, Helvetica, sans-serif;
@@ -67,7 +72,7 @@
         }
     </style>
 
-    <style>
+        <style>
         .custom-sidebar {
             background: #2b5c6f !important;
             overflow: hidden;
@@ -155,8 +160,8 @@
         }
     </style>
 
-    <!-- top cards section  -->
-    <style>
+        <!-- top cards section  -->
+        <style>
         .overview-wrapper {
             background: #f7fbfd;
             padding: 18px 20px 25px;
@@ -222,7 +227,7 @@
         }
     </style>
 
-    <style>
+        <style>
         /* ===== DASHBOARD ROW FIX ===== */
         .dashboard-row,
         .row {
@@ -325,10 +330,7 @@
             background: #547b8d;
         }
 
-        /* ===== SALES CHART ===== */
-        #storeSalesChart {
-            height: 700px;
-        }
+   
 
         /* ===== RESPONSIVE FIX ===== */
         @media (max-width: 768px) {
@@ -337,260 +339,291 @@
             }
 
             .graph-card {
-                gap: 20px;
+                gap: 10px;
             }
 
             .chart-box {
-                width: 130px;
+                width: 150px;
             }
+
+            #expenseChart{
+                width: 80px;
+            }
+
         }
     </style>
 
-</head>
+    </head>
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
-            <div class="container-fluid">
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            <nav
+                class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+                <div class="container-fluid">
 
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-
-                        <!-- AdminLTE connected hamburger -->
-                        <a class="nav-link admin-toggle" data-widget="pushmenu" href="#" role="button">
-                            <svg viewBox="0 0 32 32" width="28">
-                                <path class="line line-top-bottom"
-                                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
-                                </path>
-                                <path class="line" d="M7 16 27 16"></path>
-                            </svg>
-                        </a>
-
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
-
-        <aside class="main-sidebar custom-sidebar">
-
-            <div class="profile-area">
-                <div class="avatar">
-                    <img src="../images/profileimg3.jpg">
-                </div>
-                <h4>Nirmal Kumar P</h4>
-                <span>nirmalcmn10@gmail.com</span>
-            </div>
-
-            <div class="sidebar">
-                <nav>
-                    <ul class="nav nav-pills nav-sidebar flex-column custom-menu">
-
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="bi bi-grid nav-icon"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-box nav-icon"></i>
-                                <p>Inventory</p>
+                            <!-- AdminLTE connected hamburger -->
+                            <a class="nav-link admin-toggle"
+                                data-widget="pushmenu" href="#" role="button">
+                                <svg viewBox="0 0 32 32" width="28">
+                                    <path class="line line-top-bottom"
+                                        d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                                    </path>
+                                    <path class="line" d="M7 16 27 16"></path>
+                                </svg>
                             </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-layers nav-icon"></i>
-                                <p>Orders</p>
-                            </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-cart nav-icon"></i>
-                                <p>Purchase</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-bar-chart nav-icon"></i>
-                                <p>Reporting</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-wrench nav-icon"></i>
-                                <p>Support</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-gear nav-icon"></i>
-                                <p>Settings</p>
-                            </a>
-                        </li>
-
                     </ul>
-                </nav>
-            </div>
 
-            <div class="logout-admin">
-                <i class="bi bi-power"></i> Logout
-            </div>
+                </div>
+            </nav>
 
-        </aside>
+            <aside class="main-sidebar custom-sidebar">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper p-4" style="background-color: #d7e8f2;">
-            <section class="content">
-
-                <div class="overview-wrapper">
-                    <h3>Over View</h3>
-
-                    <div class="row">
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3  mt-2 mt-sm-0">
-                            <div class="stat-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-box-seam"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <h2>5483</h2>
-                                    <p>Total Products</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
-                            <div class="stat-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-layers"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <h2>2859</h2>
-                                    <p>Orders</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
-                            <div class="stat-card">
-                                <div class="icon-box">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <h2>5483</h2>
-                                    <p>Total Stock</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
-                            <div class="stat-card orange">
-                                <div class="icon-box">
-                                    <i class="bi bi-box-arrow-up"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <h2>38</h2>
-                                    <p>Out of Stock</p>
-                                </div>
-                            </div>
-                        </div>
-
+                <div class="profile-area">
+                    <div class="avatar">
+                        <img src="../images/profileimg3.jpg">
                     </div>
+                    <h4>Nirmal Kumar P</h4>
+                    <span>nirmalcmn10@gmail.com</span>
                 </div>
 
-                <!-- user card and chart section -->
-                <div class="dashboard-row row mt-3">
+                <div class="sidebar">
+                    <nav>
+                        <ul
+                            class="nav nav-pills nav-sidebar flex-column custom-menu">
 
-                    <!-- LEFT MAIN AREA -->
-                    <div class="col-lg-8 col-md-12">
-                        <div class="row ">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">
+                                    <i class="bi bi-grid nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
 
-                            <!-- USER CARD -->
-                            <div class="col-lg-4 col-md-5 col-sm-12">
-                                <div class="user-card ">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-box nav-icon"></i>
+                                    <p>Inventory</p>
+                                </a>
+                            </li>
 
-                                    <div class="card-title">No of
-                                        users</div>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-layers nav-icon"></i>
+                                    <p>Orders</p>
+                                </a>
+                            </li>
 
-                                    <div class="user-icon">
-                                        <i class="bi bi-people-fill"></i>
-                                    </div>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-cart nav-icon"></i>
+                                    <p>Purchase</p>
+                                </a>
+                            </li>
 
-                                    <div class="user-number">583 K</div>
-                                    <div class="user-label">Total
-                                        Customers</div>
-                                </div>
-                            </div>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-bar-chart nav-icon"></i>
+                                    <p>Reporting</p>
+                                </a>
+                            </li>
 
-                            <!-- GRAPH CARD -->
-                            <div class="col-lg-8 col-md-7 col-sm-12 mt-3 mt-sm-0">
-                                <div class="graph-card">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-wrench nav-icon"></i>
+                                    <p>Support</p>
+                                </a>
+                            </li>
 
-                                    <div>
-                                        <div class="card-title">Inventory
-                                            Values</div>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-gear nav-icon"></i>
+                                    <p>Settings</p>
+                                </a>
+                            </li>
 
-                                        <div class="chart-box">
-                                            <canvas id="inventoryChart"></canvas>
-                                        </div>
-                                    </div>
+                        </ul>
+                    </nav>
+                </div>
 
-                                    <div class="legend">
-                                        <div class="legend-item">
-                                            <div class="legend-color sold"></div>
-                                            Sold units
-                                        </div>
-                                        <div class="legend-item">
-                                            <div class="legend-color total"></div>
-                                            Total units
-                                        </div>
-                                    </div>
+                <div class="logout-admin">
+                    <i class="bi bi-power"></i> Logout
+                </div>
 
-                                </div>
-                            </div>
+            </aside>
 
-                        </div>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper p-4" style="background-color: #c8e1ed;">
+                <section class="content">
+
+                    <div class="overview-wrapper">
+                        <h3>Over View</h3>
 
                         <div class="row">
-                            <div class="col-12">
-                                asdf
+
+                            <div
+                                class="col-12 col-sm-6 col-md-6 col-lg-3  mt-2 mt-sm-0">
+                                <div class="stat-card">
+                                    <div class="icon-box">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h2>5483</h2>
+                                        <p>Total Products</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                                <div class="stat-card">
+                                    <div class="icon-box">
+                                        <i class="bi bi-layers"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h2>2859</h2>
+                                        <p>Orders</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                                <div class="stat-card">
+                                    <div class="icon-box">
+                                        <i class="bi bi-graph-up-arrow"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h2>5483</h2>
+                                        <p>Total Stock</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                                <div class="stat-card orange">
+                                    <div class="icon-box">
+                                        <i class="bi bi-box-arrow-up"></i>
+                                    </div>
+                                    <div class="stat-info">
+                                        <h2>38</h2>
+                                        <p>Out of Stock</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- user card and chart section -->
+                    <div class="dashboard-row row mt-3">
+
+                        <!-- LEFT MAIN AREA -->
+                        <div class="col-lg-8 col-md-12">
+                            <div class="row ">
+
+                                <!-- USER CARD -->
+                                <div class="col-lg-4 col-md-5 col-sm-12">
+                                    <div class="user-card ">
+
+                                        <div class="card-title">No of
+                                            users</div>
+
+                                        <div class="user-icon">
+                                            <i class="bi bi-people-fill"></i>
+                                        </div>
+
+                                        <div class="user-number">583 K</div>
+                                        <div class="user-label">Total
+                                            Customers</div>
+                                    </div>
+                                </div>
+
+                                <!-- GRAPH CARD -->
+                                <div
+                                    class="col-lg-8 col-md-7 col-sm-12 mt-3 mt-sm-0">
+                                    <div class="graph-card">
+
+                                        <div>
+                                            <div class="card-title">Inventory
+                                                Values</div>
+
+                                            <div class="chart-box">
+                                                <canvas
+                                                    id="inventoryChart"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <div class="legend">
+                                            <div class="legend-item">
+                                                <div
+                                                    class="legend-color sold"></div>
+                                                Sold units
+                                            </div>
+                                            <div class="legend-item">
+                                                <div
+                                                    class="legend-color total"></div>
+                                                Total units
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="card shadow-sm p-3"
+                                        style="border-radius:15px;">
+                                        <div
+                                            class="d-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="mb-0 card-title ">Expense</h4>
+                                            <span class="text-muted">Last 6
+                                                months</span>
+                                        </div>
+
+                                        <div
+                                            style="width:100%; max-width:100%; margin:20px auto;">
+                                            <canvas id="expenseChart"  height="100"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT SIDE AREA -->
+                        <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
+                            <div class="graph-card d-block">
+                                <h4 class="sales-title">Top 10 Stores by
+                                    sales</h4>
+                                <canvas id="storeSalesChart"
+                                    height="480"></canvas>
                             </div>
                         </div>
+
                     </div>
 
-                    <!-- RIGHT SIDE AREA -->
-                    <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
-                        <div class="graph-card d-block">
-                            <h4 class="sales-title">Top 10 Stores by
-                                sales</h4>
-                            <canvas id="storeSalesChart" height="560"></canvas>
-                        </div>
-                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
 
-                </div>
-
-            </section>
-            <!-- /.content -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- ./wrapper -->
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-
-    <!-- toggle js here  -->
-    <script>
+        <!-- toggle js here  -->
+        <script>
 
         document.getElementById("menuToggle").addEventListener("change", function () {
 
@@ -603,11 +636,11 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
-
-    <script>
+        <script>
         const ctx = document.getElementById('inventoryChart');
 
         new Chart(ctx, {
@@ -639,8 +672,8 @@
         });
     </script>
 
-<!-- right side bar graph  -->
-    <script>
+        <!-- right side bar graph  -->
+        <script>
         document.addEventListener("DOMContentLoaded", function () {
 
             const values = [874, 721, 598, 586, 395, 344, 274, 213, 183, 176];
@@ -667,8 +700,8 @@
                         data: values,
                         backgroundColor: "#5a7f92",
                         borderRadius: 20,
-                         categoryPercentage: 0.5,   
-                        barPercentage: 0.1 ,
+                        categoryPercentage: 0.5,
+                        barPercentage: 0.1,
                         barThickness: 14
                     }]
                 },
@@ -701,17 +734,48 @@
         });
     </script>
 
+        <!-- bottom chart  -->
 
+        <script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const ctx = document.getElementById('expenseChart');
 
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
-</body>
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                data: [25000, 18000, 23000, 21000, 30000, 28000, 35000],
+                borderColor: '#2e7d6b',
+                backgroundColor: 'rgba(46,125,107,0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+});
+</script>
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script
+            src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+    </body>
 
 </html>

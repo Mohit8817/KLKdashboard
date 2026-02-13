@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="./Mohit2.css" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #d7e8f2 !important;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger input {
+            display: none;
+        }
+
+        .hamburger svg {
+            height: 2.2em;
+            transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line {
+            fill: none;
+            stroke: #255267;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line-top-bottom {
+            stroke-dasharray: 12 63;
+        }
+
+        .hamburger input:checked+svg {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger input:checked+svg .line-top-bottom {
+            stroke-dasharray: 20 300;
+            stroke-dashoffset: -32.42;
+        }
+    </style>
+
+    <style>
+        .custom-sidebar {
+            background: #2b5c6f !important;
+            overflow: hidden;
+        }
+
+        .profile-area {
+            padding: 12px 12px;
+            text-align: center;
+        }
+
+        .profile-area img {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, .4);
+        }
+
+        .profile-area h4 {
+            margin-top: 8px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .profile-area span {
+            font-size: 12px;
+            color: #cfe8f3;
+        }
+
+        .custom-menu {
+            padding: 2px 8px;
+        }
+
+        .custom-menu .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px 0 0 50px;
+            padding: 6px 14px;
+            color: #fff !important;
+            transition: .3s;
+        }
+
+        .custom-menu .nav-link:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .custom-menu .nav-link.active {
+            background: #d7e8f2 !important;
+            color: #2b5c6f !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            font-weight: bold;
+        }
+
+        .custom-menu .nav-icon {
+            font-size: 15px;
+        }
+
+        .logout-admin {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #ffb3b3;
+            display: flex;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+
+        .sidebar-collapse .profile-area h4,
+        .sidebar-collapse .profile-area span {
+            display: none;
+        }
+
+        .sidebar-collapse .profile-area img {
+            width: 42px;
+            height: 42px;
+        }
+
+        .sidebar-collapse .profile-area {
+            text-align: center;
+        }
+
+        .sidebar-collapse .custom-menu p {
+            display: none;
+        }
+    </style>
+
+    <!-- top cards section  -->
+    <style>
+        .overview-wrapper {
+            background: #f7fbfd;
+            padding: 18px 20px 25px;
+            border-radius: 8px;
+        }
+
+        .overview-wrapper h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2b4e5e;
+            margin-bottom: 16px;
+        }
+
+        .cards-row {
+            display: flex;
+            gap: 18px;
+        }
+
+        .stat-card {
+            flex: 1;
+            border: 2px solid #9fd2c3;
+            border-radius: 16px;
+            padding: 25px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f2f6f5;
+        }
+
+        .stat-card.orange {
+            border-color: #e0a07c;
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #d1f2e9;
+            border: 0.9px solid #9fd2c3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #245a53;
+        }
+
+        .orange .icon-box {
+            background: #fde7d8;
+            color: #8a4b2d;
+        }
+
+        .stat-info h2 {
+            font-size: 23px;
+            font-weight: 600;
+            margin: 0;
+            color: #2f3e45;
+        }
+
+        .stat-info p {
+            font-size: 14px;
+            margin: 5px 0 0;
+            color: #3c484d;
+        }
+    </style>
+
+    <style>
+        /* ===== DASHBOARD ROW FIX ===== */
+        .dashboard-row,
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* ===== COMMON CARD STYLE ===== */
+        .user-card,
+        .graph-card {
+            background: #f7fbfd;
+            border-radius: 12px;
+            padding: 18px;
+            height: 100%;
+        }
+
+        /* ===== USER CARD ===== */
+        .user-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* ===== GRAPH CARD ===== */
+        .graph-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ===== TITLES ===== */
+        .card-title,
+        .sales-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2b4e5e;
+            margin-bottom: 10px;
+        }
+
+        /* ===== USER ICON ===== */
+        .user-icon {
+            width: 60px;
+            height: 60px;
+            background: #d9edf5;
+            border-radius: 12px;
+            border: 1px solid #2c5c70;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #2f5c6e;
+            margin: 15px 0;
+        }
+
+        /* ===== USER TEXT ===== */
+        .user-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2f3e45;
+        }
+
+        .user-label {
+            color: #6d7e85;
+            font-size: 15px;
+        }
+
+        /* ===== CHART AREA ===== */
+        .chart-box {
+            width: 155px;
+        }
+
+        /* ===== LEGEND ===== */
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #3a4a50;
+        }
+
+        .legend-color {
+            width: 26px;
+            height: 22px;
+            border-radius: 4px;
+        }
+
+        .sold {
+            background: #c7d8e1;
+        }
+
+        .total {
+            background: #547b8d;
+        }
+
+
+
+        /* ===== RESPONSIVE FIX ===== */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .graph-card {
+                gap: 10px;
+            }
+
+            .chart-box {
+                width: 150px;
+            }
+
+            #expenseChart {
+                width: 80px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+
+                        <!-- AdminLTE connected hamburger -->
+                        <a class="nav-link admin-toggle" data-widget="pushmenu" href="#" role="button">
+                            <svg viewBox="0 0 32 32" width="28">
+                                <path class="line line-top-bottom"
+                                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                                </path>
+                                <path class="line" d="M7 16 27 16"></path>
+                            </svg>
+                        </a>
+
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <aside class="main-sidebar custom-sidebar">
+
+            <div class="profile-area">
+                <div class="avatar">
+                    <img src="../images/profileimg3.jpg">
+                </div>
+                <h4>Nirmal Kumar P</h4>
+                <span>nirmalcmn10@gmail.com</span>
+            </div>
+
+            <div class="sidebar">
+                <nav>
+                    <ul class="nav nav-pills nav-sidebar flex-column custom-menu">
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="bi bi-grid nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box nav-icon"></i>
+                                <p>Inventory</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-layers nav-icon"></i>
+                                <p>Orders</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-cart nav-icon"></i>
+                                <p>Purchase</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-bar-chart nav-icon"></i>
+                                <p>Reporting</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-wrench nav-icon"></i>
+                                <p>Support</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-gear nav-icon"></i>
+                                <p>Settings</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="logout-admin">
+                <i class="bi bi-power"></i> Logout
+            </div>
+
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper p-4" style="background-color: #c8e1ed;">
+            <section class="content">
+
+                <div class="overview-wrapper">
+                    <h3>Over View</h3>
+
+                    <div class="row">
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3  mt-2 mt-sm-0">
+                            <div class="stat-card">
+                                <div class="icon-box">
+                                    <i class="bi bi-box-seam"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h2>5483</h2>
+                                    <p>Total Products</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                            <div class="stat-card">
+                                <div class="icon-box">
+                                    <i class="bi bi-layers"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h2>2859</h2>
+                                    <p>Orders</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                            <div class="stat-card">
+                                <div class="icon-box">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h2>5483</h2>
+                                    <p>Total Stock</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
+                            <div class="stat-card orange">
+                                <div class="icon-box">
+                                    <i class="bi bi-box-arrow-up"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h2>38</h2>
+                                    <p>Out of Stock</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- user card and chart section -->
+                <div class="dashboard-row row mt-3">
+
+                    <!-- LEFT MAIN AREA -->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="row ">
+
+                            <!-- USER CARD -->
+                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                <div class="user-card ">
+
+                                    <div class="card-title">No of
+                                        users</div>
+
+                                    <div class="user-icon">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+
+                                    <div class="user-number">583 K</div>
+                                    <div class="user-label">Total
+                                        Customers</div>
+                                </div>
+                            </div>
+
+                            <!-- GRAPH CARD -->
+                            <div class="col-lg-8 col-md-7 col-sm-12 mt-3 mt-sm-0">
+                                <div class="graph-card">
+
+                                    <div>
+                                        <div class="card-title">Inventory
+                                            Values</div>
+
+                                        <div class="chart-box">
+                                            <canvas id="inventoryChart"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="legend">
+                                        <div class="legend-item">
+                                            <div class="legend-color sold"></div>
+                                            Sold units
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color total"></div>
+                                            Total units
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="card shadow-sm p-3" style="border-radius:15px;">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="mb-0 card-title ">Expense</h4>
+                                        <span class="text-muted">Last 6
+                                            months</span>
+                                    </div>
+
+                                    <div style="width:100%; max-width:100%; margin:20px auto;">
+                                        <canvas id="expenseChart" height="100"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDE AREA -->
+                    <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
+                        <div class="graph-card d-block">
+                            <h4 class="sales-title">Top 10 Stores by
+                                sales</h4>
+                            <canvas id="storeSalesChart" height="480"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- toggle js here  -->
+    <script>
+
+        document.getElementById("menuToggle").addEventListener("change", function () {
+
+            if (window.innerWidth <= 768) {
+                document.body.classList.toggle("sidebar-open");
+            } else {
+                document.body.classList.toggle("sidebar-collapse");
+            }
+
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+    <script>
+        const ctx = document.getElementById('inventoryChart');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Sold units', 'Total units'],
+                datasets: [{
+                    data: [32, 68],
+                    backgroundColor: ['#c7d8e1', '#547b8d'],
+                    borderWidth: 0,
+                    offset: [40, 0]
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: false },
+
+                    datalabels: {
+                        color: '#ffffff',
+                        font: {
+                            weight: 'bold',
+                            size: 16
+                        },
+                        formatter: (value) => value + '%'
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    </script>
+
+    <!-- right side bar graph  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const values = [874, 721, 598, 586, 395, 344, 274, 213, 183, 176];
+            const max = Math.max(...values);
+
+            const ctx = document.getElementById("storeSalesChart").getContext("2d");
+
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Gateway str",
+                        "The Rustic Fox",
+                        "Velvet Vine",
+                        "Blue Harbor",
+                        "Nebula Novelties",
+                        "Crimson Crafters",
+                        "Tidal Treasures",
+                        "Whimsy Wid",
+                        "Mercantile",
+                        "Emporium"
+                    ],
+                    datasets: [{
+                        data: values,
+                        backgroundColor: "#5a7f92",
+                        borderRadius: 20,
+                        categoryPercentage: 0.5,
+                        barPercentage: 0.1,
+                        barThickness: 14
+                    }]
+                },
+                options: {
+                    indexAxis: "y",
+                    plugins: {
+                        legend: { display: false },
+
+                        datalabels: {
+                            anchor: "end",
+                            align: "end",
+                            offset: -4,
+                            color: "#ffffff",
+                            font: {
+                                weight: "600",
+                                size: 10
+                            },
+                            formatter: (value) =>
+                                Math.round((value / max) * 100) + "%"
+                        }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { grid: { display: false } }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+
+        });
+    </script>
+
+    <!-- bottom chart  -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const ctx = document.getElementById('expenseChart');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        data: [25000, 18000, 23000, 21000, 30000, 28000, 35000],
+                        borderColor: '#2e7d6b',
+                        backgroundColor: 'rgba(46,125,107,0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
