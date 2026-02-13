@@ -223,24 +223,31 @@
     </style>
 
     <style>
-        .dashboard-row {
+        /* ===== DASHBOARD ROW FIX ===== */
+        .dashboard-row,
+        .row {
             display: flex;
-            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
+        /* ===== COMMON CARD STYLE ===== */
         .user-card,
         .graph-card {
             background: #f7fbfd;
             border-radius: 12px;
             padding: 18px;
+            height: 100%;
         }
 
+        /* ===== USER CARD ===== */
         .user-card {
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: flex-start;
         }
 
+        /* ===== GRAPH CARD ===== */
         .graph-card {
             flex: 1;
             display: flex;
@@ -248,13 +255,16 @@
             justify-content: space-between;
         }
 
-        .card-title {
+        /* ===== TITLES ===== */
+        .card-title,
+        .sales-title {
             font-size: 18px;
             font-weight: 600;
             color: #2b4e5e;
+            margin-bottom: 10px;
         }
 
-
+        /* ===== USER ICON ===== */
         .user-icon {
             width: 60px;
             height: 60px;
@@ -267,10 +277,9 @@
             font-size: 28px;
             color: #2f5c6e;
             margin: 15px 0;
-            align-self: flex-start;
         }
 
-
+        /* ===== USER TEXT ===== */
         .user-number {
             font-size: 28px;
             font-weight: 700;
@@ -282,10 +291,12 @@
             font-size: 15px;
         }
 
+        /* ===== CHART AREA ===== */
         .chart-box {
-            width: 220px;
+            width: 155px;
         }
 
+        /* ===== LEGEND ===== */
         .legend {
             display: flex;
             flex-direction: column;
@@ -314,15 +325,24 @@
             background: #547b8d;
         }
 
-        .sales-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2b4e5e;
-            margin-bottom: 10px;
-        }
-
+        /* ===== SALES CHART ===== */
         #storeSalesChart {
             height: 700px;
+        }
+
+        /* ===== RESPONSIVE FIX ===== */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .graph-card {
+                gap: 20px;
+            }
+
+            .chart-box {
+                width: 130px;
+            }
         }
     </style>
 
@@ -486,7 +506,7 @@
                 </div>
 
                 <!-- user card and chart section -->
-                <div class="dashboard-row row">
+                <div class="dashboard-row row mt-3">
 
                     <!-- LEFT MAIN AREA -->
                     <div class="col-lg-8 col-md-12">
@@ -494,7 +514,7 @@
 
                             <!-- USER CARD -->
                             <div class="col-lg-4 col-md-5 col-sm-12">
-                                <div class="user-card h-100">
+                                <div class="user-card ">
 
                                     <div class="card-title">No of
                                         users</div>
@@ -510,8 +530,8 @@
                             </div>
 
                             <!-- GRAPH CARD -->
-                            <div class="col-lg-8 col-md-7 col-sm-12">
-                                <div class="graph-card h-100">
+                            <div class="col-lg-8 col-md-7 col-sm-12 mt-3 mt-sm-0">
+                                <div class="graph-card">
 
                                     <div>
                                         <div class="card-title">Inventory
@@ -550,7 +570,7 @@
                         <div class="graph-card d-block">
                             <h4 class="sales-title">Top 10 Stores by
                                 sales</h4>
-                            <canvas id="storeSalesChart" height="550"></canvas>
+                            <canvas id="storeSalesChart" height="560"></canvas>
                         </div>
                     </div>
 
@@ -619,8 +639,7 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<!-- right side bar graph  -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -648,6 +667,8 @@
                         data: values,
                         backgroundColor: "#5a7f92",
                         borderRadius: 20,
+                         categoryPercentage: 0.5,   
+                        barPercentage: 0.1 ,
                         barThickness: 14
                     }]
                 },
@@ -663,7 +684,7 @@
                             color: "#ffffff",
                             font: {
                                 weight: "600",
-                                size: 12
+                                size: 10
                             },
                             formatter: (value) =>
                                 Math.round((value / max) * 100) + "%"
@@ -679,6 +700,8 @@
 
         });
     </script>
+
+
 
 
     <!-- jQuery -->
