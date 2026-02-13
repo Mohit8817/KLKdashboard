@@ -153,6 +153,36 @@
         .sidebar-collapse .custom-menu p {
             display: none;
         }
+
+
+
+        .submenu-list {
+            padding-left: 32px;
+            margin-top: 6px;
+        }
+
+        .submenu-list li a {
+            display: block;
+            padding: 6px 12px;
+            font-size: 13px;
+            color: #cfe8f3;
+            border-radius: 20px;
+            transition: .25s;
+        }
+
+        .submenu-list li a:hover {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        .arrow {
+            transition: .3s;
+        }
+
+        /* Rotate arrow when open */
+        .nav-link[aria-expanded="true"] .arrow {
+            transform: rotate(90deg);
+        }
     </style>
 
     <!-- top cards section  -->
@@ -388,6 +418,7 @@
                 <nav>
                     <ul class="nav nav-pills nav-sidebar flex-column custom-menu">
 
+                        <!-- Dashboard -->
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
                                 <i class="bi bi-grid nav-icon"></i>
@@ -395,20 +426,57 @@
                             </a>
                         </li>
 
+                        <!-- PRODUCTS DROPDOWN -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-box nav-icon"></i>
-                                <p>Inventory</p>
+
+                            <a href="#productsMenu" class="nav-link d-flex justify-content-between align-items-center"
+                                data-toggle="collapse">
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-box nav-icon"></i>
+                                    <p class="mb-0">Products</p>
+                                </div>
+
+                                <i class="bi bi-chevron-right arrow"></i>
                             </a>
+
+                            <div class="collapse" id="productsMenu">
+                                <ul class="submenu-list">
+                                    <li><a href="#">Add Adjustment</a></li>
+                                    <li><a href="#">Add Product</a></li>
+                                    <li><a href="#">Category</a></li>
+                                    <li><a href="#">Type</a></li>
+                                    <li><a href="#">Adjustment List</a></li>
+                                    <li><a href="#">Product List</a></li>
+                                </ul>
+                            </div>
+
                         </li>
 
+                        <!-- MATERIAL REQUEST DROPDOWN -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-layers nav-icon"></i>
-                                <p>Orders</p>
+
+                            <a href="#materialMenu" class="nav-link d-flex justify-content-between align-items-center"
+                                data-toggle="collapse">
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-layers nav-icon"></i>
+                                    <p class="mb-0">Material Request</p>
+                                </div>
+
+                                <i class="bi bi-chevron-right arrow"></i>
                             </a>
+
+                            <div class="collapse" id="materialMenu">
+                                <ul class="submenu-list">
+                                    <li><a href="#">Add Request</a></li>
+                                    <li><a href="#">View Request</a></li>
+                                </ul>
+                            </div>
+
                         </li>
 
+                        <!-- Normal Items -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="bi bi-cart nav-icon"></i>
@@ -418,26 +486,20 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="bi bi-bar-chart nav-icon"></i>
-                                <p>Reporting</p>
+                                <i class="bi bi-truck nav-icon"></i>
+                                <p>Dispatch</p>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="bi bi-wrench nav-icon"></i>
-                                <p>Support</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="bi bi-gear nav-icon"></i>
-                                <p>Settings</p>
+                                <i class="bi bi-lightning nav-icon"></i>
+                                <p>Consumption</p>
                             </a>
                         </li>
 
                     </ul>
+
                 </nav>
             </div>
 
@@ -458,7 +520,7 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3  mt-2 mt-sm-0">
                             <div class="stat-card">
                                 <div class="icon-box">
-                                     <i class="bi bi-people"></i>
+                                    <i class="bi bi-people"></i>
                                 </div>
                                 <div class="stat-info">
                                     <h2>54</h2>
@@ -612,6 +674,8 @@
             }
 
         });
+
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -650,69 +714,68 @@
     </script>
 
     <!-- right side bar graph  -->
-   <script>
-document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-    // Same real data as pie chart
-    const values = [160,150,130, 105, 90, 70, 50, 20,10];
+            // Same real data as pie chart
+            const values = [160, 150, 130, 105, 90, 70, 50, 20, 10];
 
-    const labels = [
-        "2010-07",
-        "2009-02",
-        "2005-09",
-        "2002-09",
-        "2000-11",
-        "1995-05",
-        "1995-05",
-        "1995-05",
-        "1995-05"
-    ];
+            const labels = [
+                "2010-07",
+                "2009-02",
+                "2005-09",
+                "2002-09",
+                "2000-11",
+                "1995-05",
+                "1995-05",
+                "1995-05",
+                "1995-05"
+            ];
 
-    const max = Math.max(...values);
+            const max = Math.max(...values);
 
-    const ctx = document.getElementById("storeSalesChart").getContext("2d");
+            const ctx = document.getElementById("storeSalesChart").getContext("2d");
 
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: labels,
-            datasets: [{
-                data: values,
-                backgroundColor: "#5a7f92",
-                borderRadius: 20,
-                barThickness: 18
-            }]
-        },
-        options: {
-            indexAxis: "y",
-            plugins: {
-                legend: { display: false },
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: "#5a7f92",
+                        borderRadius: 20,
+                        barThickness: 18
+                    }]
+                },
+                options: {
+                    indexAxis: "y",
+                    plugins: {
+                        legend: { display: false },
 
-                datalabels: {
-                    anchor: "end",
-                    align: "end",
-                    color: "#fff",
-                    font: {
-                        weight: "600",
-                        size: 12
+                        datalabels: {
+                            anchor: "end",
+                            align: "end",
+                            color: "#fff",
+                            font: {
+                                weight: "600",
+                                size: 12
+                            },
+                            formatter: (value) => {
+                                const percent = (value / values.reduce((a, b) => a + b, 0) * 100).toFixed(1);
+                                return percent + "%";
+                            }
+                        }
                     },
-                    formatter: (value) => {
-                        const percent = (value / values.reduce((a,b)=>a+b,0) * 100).toFixed(1);
-                        return percent + "%";
+                    scales: {
+                        x: { display: false },
+                        y: { grid: { display: false } }
                     }
-                }
-            },
-            scales: {
-                x: { display: false },
-                y: { grid: { display: false } }
-            }
-        },
-        plugins: [ChartDataLabels]
-    });
+                },
+                plugins: [ChartDataLabels]
+            });
 
-});
-</script>
-
+        });
+    </script>
 
     <!-- bottom chart  -->
 
