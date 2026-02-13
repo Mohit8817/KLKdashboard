@@ -155,7 +155,6 @@
         }
     </style>
 
-
     <!-- top cards section  -->
     <style>
         .overview-wrapper {
@@ -223,12 +222,10 @@
         }
     </style>
 
-
     <style>
         .dashboard-row {
             display: flex;
-            gap: 20px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .user-card,
@@ -239,8 +236,9 @@
         }
 
         .user-card {
-            width: 240px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .graph-card {
@@ -256,26 +254,22 @@
             color: #2b4e5e;
         }
 
-        .menu-dots {
-            position: absolute;
-            right: 16px;
-            top: 16px;
-            font-size: 20px;
-            color: #7a8b92;
-        }
 
         .user-icon {
             width: 60px;
             height: 60px;
             background: #d9edf5;
             border-radius: 12px;
+            border: 1px solid #2c5c70;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
             color: #2f5c6e;
-            margin: 18px 0;
+            margin: 15px 0;
+            align-self: flex-start;
         }
+
 
         .user-number {
             font-size: 28px;
@@ -319,9 +313,18 @@
         .total {
             background: #547b8d;
         }
+
+        .sales-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2b4e5e;
+            margin-bottom: 10px;
+        }
+
+        #storeSalesChart {
+            height: 700px;
+        }
     </style>
-
-
 
 </head>
 
@@ -348,7 +351,6 @@
 
             </div>
         </nav>
-
 
         <aside class="main-sidebar custom-sidebar">
 
@@ -483,10 +485,76 @@
                     </div>
                 </div>
 
+                <!-- user card and chart section -->
+                <div class="dashboard-row row">
 
-                <!-- user card and chart chart  -->
+                    <!-- LEFT MAIN AREA -->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="row ">
 
+                            <!-- USER CARD -->
+                            <div class="col-lg-4 col-md-5 col-sm-12">
+                                <div class="user-card h-100">
 
+                                    <div class="card-title">No of
+                                        users</div>
+
+                                    <div class="user-icon">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+
+                                    <div class="user-number">583 K</div>
+                                    <div class="user-label">Total
+                                        Customers</div>
+                                </div>
+                            </div>
+
+                            <!-- GRAPH CARD -->
+                            <div class="col-lg-8 col-md-7 col-sm-12">
+                                <div class="graph-card h-100">
+
+                                    <div>
+                                        <div class="card-title">Inventory
+                                            Values</div>
+
+                                        <div class="chart-box">
+                                            <canvas id="inventoryChart"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="legend">
+                                        <div class="legend-item">
+                                            <div class="legend-color sold"></div>
+                                            Sold units
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color total"></div>
+                                            Total units
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                asdf
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SIDE AREA -->
+                    <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
+                        <div class="graph-card d-block">
+                            <h4 class="sales-title">Top 10 Stores by
+                                sales</h4>
+                            <canvas id="storeSalesChart" height="550"></canvas>
+                        </div>
+                    </div>
+
+                </div>
 
             </section>
             <!-- /.content -->
@@ -516,6 +584,7 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
 
     <script>
@@ -527,22 +596,89 @@
                 labels: ['Sold units', 'Total units'],
                 datasets: [{
                     data: [32, 68],
-                    backgroundColor: [
-                        '#c7d8e1',
-                        '#547b8d'
-                    ],
+                    backgroundColor: ['#c7d8e1', '#547b8d'],
                     borderWidth: 0,
-                    offset: [12, 0]
+                    offset: [40, 0]
                 }]
             },
             options: {
                 plugins: {
-                    legend: { display: false }
+                    legend: { display: false },
+
+                    datalabels: {
+                        color: '#ffffff',
+                        font: {
+                            weight: 'bold',
+                            size: 16
+                        },
+                        formatter: (value) => value + '%'
+                    }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const values = [874, 721, 598, 586, 395, 344, 274, 213, 183, 176];
+            const max = Math.max(...values);
+
+            const ctx = document.getElementById("storeSalesChart").getContext("2d");
+
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Gateway str",
+                        "The Rustic Fox",
+                        "Velvet Vine",
+                        "Blue Harbor",
+                        "Nebula Novelties",
+                        "Crimson Crafters",
+                        "Tidal Treasures",
+                        "Whimsy Wid",
+                        "Mercantile",
+                        "Emporium"
+                    ],
+                    datasets: [{
+                        data: values,
+                        backgroundColor: "#5a7f92",
+                        borderRadius: 20,
+                        barThickness: 14
+                    }]
+                },
+                options: {
+                    indexAxis: "y",
+                    plugins: {
+                        legend: { display: false },
+
+                        datalabels: {
+                            anchor: "end",
+                            align: "end",
+                            offset: -4,
+                            color: "#ffffff",
+                            font: {
+                                weight: "600",
+                                size: 12
+                            },
+                            formatter: (value) =>
+                                Math.round((value / max) * 100) + "%"
+                        }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { grid: { display: false } }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+
+        });
+    </script>
 
 
     <!-- jQuery -->
