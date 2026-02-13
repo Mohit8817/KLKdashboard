@@ -455,15 +455,14 @@
                     <h3>Over View</h3>
 
                     <div class="row">
-
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3  mt-2 mt-sm-0">
                             <div class="stat-card">
                                 <div class="icon-box">
-                                    <i class="bi bi-box-seam"></i>
+                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="stat-info">
-                                    <h2>5483</h2>
-                                    <p>Total Products</p>
+                                    <h2>54</h2>
+                                    <p>Total Employee</p>
                                 </div>
                             </div>
                         </div>
@@ -471,11 +470,11 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
                             <div class="stat-card">
                                 <div class="icon-box">
-                                    <i class="bi bi-layers"></i>
+                                    <i class="bi bi-truck"></i>
                                 </div>
                                 <div class="stat-info">
                                     <h2>2859</h2>
-                                    <p>Orders</p>
+                                    <p>Total Suppliers</p>
                                 </div>
                             </div>
                         </div>
@@ -483,11 +482,11 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
                             <div class="stat-card">
                                 <div class="icon-box">
-                                    <i class="bi bi-graph-up-arrow"></i>
+                                    <i class="bi bi-receipt"></i>
                                 </div>
                                 <div class="stat-info">
                                     <h2>5483</h2>
-                                    <p>Total Stock</p>
+                                    <p>Total Billers</p>
                                 </div>
                             </div>
                         </div>
@@ -495,11 +494,11 @@
                         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-2 mt-sm-0">
                             <div class="stat-card orange">
                                 <div class="icon-box">
-                                    <i class="bi bi-box-arrow-up"></i>
+                                    <i class="bi bi-person-check"></i>
                                 </div>
                                 <div class="stat-info">
                                     <h2>38</h2>
-                                    <p>Out of Stock</p>
+                                    <p>Total Users </p>
                                 </div>
                             </div>
                         </div>
@@ -525,7 +524,7 @@
                                         <i class="bi bi-people-fill"></i>
                                     </div>
 
-                                    <div class="user-number">583 K</div>
+                                    <div class="user-number">583</div>
                                     <div class="user-label">Total
                                         Customers</div>
                                 </div>
@@ -581,8 +580,7 @@
                     <!-- RIGHT SIDE AREA -->
                     <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
                         <div class="graph-card d-block">
-                            <h4 class="sales-title">Top 10 Stores by
-                                sales</h4>
+                            <h4 class="sales-title">Monthwise Purchase</h4>
                             <canvas id="storeSalesChart" height="480"></canvas>
                         </div>
                     </div>
@@ -630,7 +628,7 @@
                     data: [32, 68],
                     backgroundColor: ['#c7d8e1', '#547b8d'],
                     borderWidth: 0,
-                    offset: [40, 0]
+                    offset: [30, 0]
                 }]
             },
             options: {
@@ -652,66 +650,69 @@
     </script>
 
     <!-- right side bar graph  -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-            const values = [874, 721, 598, 586, 395, 344, 274, 213, 183, 176];
-            const max = Math.max(...values);
+    // Same real data as pie chart
+    const values = [160,150,130, 105, 90, 70, 50, 20,10];
 
-            const ctx = document.getElementById("storeSalesChart").getContext("2d");
+    const labels = [
+        "2010-07",
+        "2009-02",
+        "2005-09",
+        "2002-09",
+        "2000-11",
+        "1995-05",
+        "1995-05",
+        "1995-05",
+        "1995-05"
+    ];
 
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: [
-                        "Gateway str",
-                        "The Rustic Fox",
-                        "Velvet Vine",
-                        "Blue Harbor",
-                        "Nebula Novelties",
-                        "Crimson Crafters",
-                        "Tidal Treasures",
-                        "Whimsy Wid",
-                        "Mercantile",
-                        "Emporium"
-                    ],
-                    datasets: [{
-                        data: values,
-                        backgroundColor: "#5a7f92",
-                        borderRadius: 20,
-                        categoryPercentage: 0.5,
-                        barPercentage: 0.1,
-                        barThickness: 14
-                    }]
-                },
-                options: {
-                    indexAxis: "y",
-                    plugins: {
-                        legend: { display: false },
+    const max = Math.max(...values);
 
-                        datalabels: {
-                            anchor: "end",
-                            align: "end",
-                            offset: -4,
-                            color: "#ffffff",
-                            font: {
-                                weight: "600",
-                                size: 10
-                            },
-                            formatter: (value) =>
-                                Math.round((value / max) * 100) + "%"
-                        }
+    const ctx = document.getElementById("storeSalesChart").getContext("2d");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: "#5a7f92",
+                borderRadius: 20,
+                barThickness: 18
+            }]
+        },
+        options: {
+            indexAxis: "y",
+            plugins: {
+                legend: { display: false },
+
+                datalabels: {
+                    anchor: "end",
+                    align: "end",
+                    color: "#fff",
+                    font: {
+                        weight: "600",
+                        size: 12
                     },
-                    scales: {
-                        x: { display: false },
-                        y: { grid: { display: false } }
+                    formatter: (value) => {
+                        const percent = (value / values.reduce((a,b)=>a+b,0) * 100).toFixed(1);
+                        return percent + "%";
                     }
-                },
-                plugins: [ChartDataLabels]
-            });
+                }
+            },
+            scales: {
+                x: { display: false },
+                y: { grid: { display: false } }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
 
-        });
-    </script>
+});
+</script>
+
 
     <!-- bottom chart  -->
 
