@@ -367,12 +367,7 @@
         }
 
 
-        .chart-wrapper {
-            position: relative;
-            width: 480px;
-            height: 380px;
-            margin: auto;
-        }
+   
 
         .chart-center {
             position: absolute;
@@ -391,6 +386,60 @@
             color: #888;
             font-size: 14px;
         }
+
+
+        .chart-wrapper canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+
+
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            height: 320px;
+        }
+
+
+        /* mobile  */
+@media (max-width: 576px) {
+
+         .chart-center {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+           
+        }
+    .chart-center h2 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .chart-center span {
+        font-size: 15px;
+    }
+}
+
+
+
+        /* Tablet */
+        @media (min-width: 768px) {
+
+       
+
+            .chart-wrapper {
+                height: 360px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1200px) {
+            .chart-wrapper {
+                height: 400px;
+            }
+        }
+
 
 
 
@@ -926,7 +975,7 @@
                                 <!-- Header -->
                                 <div class="">
                                     <h5 class="chart-title">
-                                     Installation Status Details
+                                        Installation Status Details
                                         <hr class="red-hr">
                                     </h5>
                                 </div>
@@ -1344,28 +1393,40 @@
                 return;
             }
 
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels,
-                    datasets: [{
-                        data: values,
-                        backgroundColor: colors,
-                        borderRadius: 14,
-                        barThickness: 28
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: { beginAtZero: true }
+           new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels,
+        datasets: [{
+            data: values,
+            backgroundColor: colors,
+            borderRadius: 12,
+            barThickness: window.innerWidth < 600 ? 14 : 28
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            },
+            x: {
+                ticks: {
+                    maxRotation: 45,
+                    minRotation: 45,
+                    font: {
+                        size: window.innerWidth < 600 ? 10 : 12
                     }
                 }
-            });
+            }
+        }
+    }
+});
+
 
         };
     </script>
