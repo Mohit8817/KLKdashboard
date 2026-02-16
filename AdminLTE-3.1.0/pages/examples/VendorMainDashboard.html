@@ -367,11 +367,11 @@
         }
 
 
-   
+
 
         .chart-center {
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -403,30 +403,31 @@
 
 
         /* mobile  */
-@media (max-width: 576px) {
+        @media (max-width: 576px) {
 
-         .chart-center {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-           
+            .chart-center {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+
+            }
+
+            .chart-center h2 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .chart-center span {
+                font-size: 15px;
+            }
         }
-    .chart-center h2 {
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    .chart-center span {
-        font-size: 15px;
-    }
-}
 
 
 
         /* Tablet */
         @media (min-width: 768px) {
 
-       
+
 
             .chart-wrapper {
                 height: 360px;
@@ -939,7 +940,7 @@
 
                 <div class="row">
                     <!-- pie chart -->
-                    <div class="col-lg-6 col-md-6 col-12 mt-3">
+                    <div class="col-lg-4 col-md-6 col-12 mt-3">
                         <div class="chart-card-modern">
                             <h5 class="chart-title">Vendor State Wise</h5>
                             <hr class="red-hr">
@@ -954,8 +955,23 @@
                         </div>
                     </div>
 
-                    <!-- bar chart  -->
-                    <div class="col-lg-6 col-md-6 col-12 mt-3">
+
+                    <!-- double dataa bar chart  -->
+                    <div class="col-lg-8 col-md-6 col-12 mt-3">
+                        <div class="chart-card-modern">
+                            <h5 class="chart-title">State Wise Work Status</h5>
+                            <hr class="red-hr">
+                            <div class="chart-wrapper">
+                                <canvas id="stateDoubleBarChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-12">
                         <div class="chart-card-modern">
                             <h5 class="chart-title">Total States</h5>
                             <hr class="red-hr">
@@ -964,7 +980,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- Table Section -->
@@ -1366,10 +1381,12 @@
         });
     </script>
 
-    <canvas id="stateBarChart"></canvas>
+
+
+    <!-- Total States wise vendor  -->
 
     <script>
-        window.onload = function () {
+        function loadStateBarChart() {
 
             const values = [90, 80, 55, 10, 85, 50, 70, 30, 25, 20, 15, 10];
 
@@ -1378,58 +1395,78 @@
                 'Himachal Pradesh', 'Jammu', 'Karnataka',
                 'Maharashtra', 'Rajasthan', 'Telangana', 'UP'
             ];
+
             const colors = [
                 '#ff9b70', '#f9c4b3', '#f7a68f', '#f5804d',
                 '#fb6f34', '#f45c2c', '#ff8b6a', '#ffd2c5',
                 '#f87f68', '#fb6f34cc', '#f5804dcc', '#f7a68fcc'
             ];
 
-
-
-            const ctx = document.getElementById('stateBarChart');
-
-            if (!ctx) {
-                console.error("Canvas not found!");
-                return;
-            }
-
-           new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels,
-        datasets: [{
-            data: values,
-            backgroundColor: colors,
-            borderRadius: 12,
-            barThickness: window.innerWidth < 600 ? 14 : 28
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: { display: false }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
-            },
-            x: {
-                ticks: {
-                    maxRotation: 45,
-                    minRotation: 45,
-                    font: {
-                        size: window.innerWidth < 600 ? 10 : 12
-                    }
+            new Chart(document.getElementById('stateBarChart'), {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderRadius: 12,
+                        barThickness: 28
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
                 }
-            }
+            });
         }
-    }
-});
 
-
-        };
     </script>
+
+
+    <!-- Double bar chart script -->
+    <script>
+        function loadDoubleBarChart() {
+            const labels = ['Jammu', 'Bihar', 'Delhi', 'Haryana', 'Karnataka', 'Maharashtra', 'Rajasthan', 'UP', 'kashmir', 'assam', 'gujarat', 'punjab'];
+
+            const completeData = [70, 45, 80, 60, 85, 90, 65, 75, 32, 87, 54, 23];
+            const incompleteData = [30, 55, 20, 40, 15, 10, 35, 25, 12, 68, 43, 7];
+
+            new Chart(document.getElementById('stateDoubleBarChart'), {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [
+                        {
+                            label: "Complete",
+                            data: completeData,
+                            barThickness: 18,
+                            backgroundColor: '#fb6f34',
+                            borderRadius: 12
+                        },
+                        {
+                            label: "Incomplete",
+                            data: incompleteData,
+                            barThickness: 18,
+                            backgroundColor: '#ffd2c5',
+                            borderRadius: 12
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: { y: { beginAtZero: true, max: 100 } }
+                }
+            });
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadStateBarChart();
+            loadDoubleBarChart();
+        });
+    </script>
+
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
