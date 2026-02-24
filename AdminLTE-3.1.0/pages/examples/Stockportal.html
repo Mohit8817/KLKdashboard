@@ -205,75 +205,86 @@
             font-weight: 600;
         }
 
-        .custom-card {
-            background: white;
-            border-radius: 15px;
+
+
+
+
+
+
+        .dashboard-card {
+            border-radius: 16px;
             padding: 20px;
             height: 140px;
-            box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
             position: relative;
+            overflow: hidden;
+            color: white;
+            transition: 0.3s ease;
         }
 
-        /* Bottom Borders */
-        .border-blue {
-            border-bottom: 4px solid #6c7cff;
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .border-yellow {
-            border-bottom: 4px solid #ffc107;
+        /* Gradient Themes (Replace with your colors later) */
+        .theme-blue {
+            background: linear-gradient(135deg, #6c7cff, #4f5bff);
         }
 
-        .border-red {
-            border-bottom: 4px solid #ff6b6b;
+        .theme-yellow {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
         }
 
-        .border-cyan {
-            border-bottom: 4px solid #5bc0de;
+        .theme-red {
+            background: linear-gradient(135deg, #ff6b6b, #ff4d4d);
         }
 
-        /* Icons */
-        .icon-box {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+        .theme-cyan {
+            background: linear-gradient(135deg, #5bc0de, #36a2c9);
+        }
+
+        /* Icon Circle */
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 22px;
         }
 
-        .icon-blue {
-            background: #eef0ff;
-            color: #6c7cff;
+        /* Numbers */
+        .card-value {
+            font-size: 34px;
+            font-weight: 700;
+            margin: 0;
         }
 
-        .icon-yellow {
-            background: #fff4d6;
-            color: #ffc107;
+        /* Title */
+        .card-label {
+            font-size: 15px;
+            opacity: 0.9;
+            margin-top: 10px;
         }
 
-        .icon-red {
-            background: #ffe6e6;
-            color: #ff6b6b;
+        /* Background Shape */
+        .dashboard-card::after {
+            content: "";
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
 
-        .icon-cyan {
-            background: #e6f7fb;
-            color: #5bc0de;
-        }
 
-        /* Text */
-        .card-number {
-            font-size: 32px;
-            font-weight: 600;
-            color: #1b1b1bc4;
-        }
 
-        .card-title {
-            margin-top: 15px;
-            color: #363a3e;
-            font-size: 16px;
-        }
+
+
 
 
         /* stats cards  */
@@ -465,6 +476,57 @@
         .nav-treeview .nav-link:hover {
             background: #f3f6fb;
             color: #2e83ff !important;
+        }
+    </style>
+
+    <!-- table css  -->
+
+    <style>
+        .custom-card {
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .export-btn {
+            background: #e9e9f7;
+            border-radius: 8px;
+        }
+
+        .add-btn {
+            background: #6366f1;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .custom-table thead th {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #059669;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .badge-warning {
+            background: #fde68a;
+            color: #92400e;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .action-icon {
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+
+        .btn-group-right {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
         }
     </style>
 
@@ -955,79 +1017,68 @@
                     </div>
                 </section>
 
-                <!-- Cards Section  -->
-                <div class="container-fluid ">
-                    <div class="row">
-                        <!-- Total Employee -->
+                <div class="container-fluid">
+                    <div class="row g-3">
+
+                        <!-- Employee -->
                         <div class="col-lg-3 col-6">
-                            <div class="custom-card border-blue">
-                                <div class="d-flex justify-content-between">
-                                    <div class="icon-box icon-blue">
+                            <div class="dashboard-card theme-blue">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="card-icon">
                                         <i class="fas fa-users"></i>
                                     </div>
-                                    <h2 class="card-number">292</h2>
+                                    <h2 class="card-value">292</h2>
                                 </div>
-                                <p class="card-title">Total Employee</p>
-                                <p class="card-subtext text-success">
-                                </p>
+                                <div class="card-label">Total Employee</div>
                             </div>
                         </div>
 
-                        <!-- Total Suppliers -->
+                        <!-- Suppliers -->
                         <div class="col-lg-3 col-6">
-                            <div class="custom-card border-yellow">
-                                <div class="d-flex justify-content-between">
-                                    <div class="icon-box icon-yellow">
+                            <div class="dashboard-card theme-yellow">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="card-icon">
                                         <i class="fas fa-truck"></i>
                                     </div>
-                                    <h2 class="card-number">218</h2>
+                                    <h2 class="card-value">218</h2>
                                 </div>
-                                <p class="card-title">Total Suppliers</p>
-                                <p class="card-subtext text-danger">
-                                </p>
+                                <div class="card-label">Total
+                                    Suppliers</div>
                             </div>
                         </div>
 
-                        <!-- Total Billers -->
+                        <!-- Billers -->
                         <div class="col-lg-3 col-6">
-                            <div class="custom-card border-red">
-                                <div class="d-flex justify-content-between">
-                                    <div class="icon-box icon-red">
+                            <div class="dashboard-card theme-red">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="card-icon">
                                         <i class="fas fa-file-invoice"></i>
                                     </div>
-                                    <h2 class="card-number">5</h2>
+                                    <h2 class="card-value">5</h2>
                                 </div>
-                                <p class="card-title">Total Billers</p>
-                                <p class="card-subtext text-success">
-                                </p>
+                                <div class="card-label">Total Billers</div>
                             </div>
                         </div>
 
-                        <!-- Total Users -->
+                        <!-- Users -->
                         <div class="col-lg-3 col-6">
-                            <div class="custom-card border-cyan">
-                                <div class="d-flex justify-content-between">
-                                    <div class="icon-box icon-cyan">
+                            <div class="dashboard-card theme-cyan">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="card-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <h2 class="card-number">10</h2>
+                                    <h2 class="card-value">10</h2>
                                 </div>
-                                <p class="card-title">Total Users</p>
-                                <p class="card-subtext text-danger">
-                                </p>
+                                <div class="card-label">Total Users</div>
                             </div>
                         </div>
-
 
                     </div>
                 </div>
 
-
-
-
                 <div class="row">
                     <div class="col-md-12 mt-3">
-                        <div class="">
+                        <div class>
                             <div class="row mt-2">
 
                                 <!-- Warehouse -->
@@ -1038,7 +1089,8 @@
                                                 <i class="fas fa-warehouse"></i>
                                             </div>
                                             <div class="stats-text ms-3">
-                                                <div class="stats-label">Total Warehouse</div>
+                                                <div class="stats-label">Total
+                                                    Warehouse</div>
                                                 <div class="stats-value">1</div>
                                             </div>
                                         </div>
@@ -1053,7 +1105,8 @@
                                                 <i class="fas fa-box"></i>
                                             </div>
                                             <div class="stats-text ms-3">
-                                                <div class="stats-label">Total Product</div>
+                                                <div class="stats-label">Total
+                                                    Product</div>
                                                 <div class="stats-value">1042</div>
                                             </div>
                                         </div>
@@ -1068,7 +1121,8 @@
                                                 <i class="fas fa-rupee-sign"></i>
                                             </div>
                                             <div class="stats-text ms-3">
-                                                <div class="stats-label">Monthly Expense</div>
+                                                <div class="stats-label">Monthly
+                                                    Expense</div>
                                                 <div class="stats-value">0</div>
                                             </div>
                                         </div>
@@ -1140,6 +1194,150 @@
                     </div>
                 </div>
 
+                <!-- table here start-->
+
+                <div class="container-fluid mt-4">
+                    <div class="card custom-card">
+
+                        <!-- Header -->
+                        <div class="card-header">
+                            <div class="d-flex align-items-center w-100">
+
+                                <h4 class="mb-0">DataTable with Buttons</h4>
+
+                                <div class="btn-group-right">
+                                    <button class="btn export-btn">
+                                        <i class="bi bi-box-arrow-up"></i>
+                                        Export
+                                    </button>
+
+                                    <button class="btn add-btn">
+                                        <i class="bi bi-plus"></i> Add New
+                                        Record
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table align-middle custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>EMAIL</th>
+                                            <th>DATE</th>
+                                            <th>SALARY</th>
+                                            <th>STATUS</th>
+                                            <th>ACTIONS</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>EMP001</td>
+                                            <td>user1@gmail.com</td>
+                                            <td>04/15/2021</td>
+                                            <td>$24973.48</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="bi bi-three-dots-vertical action-icon"
+                                                        data-bs-toggle="dropdown"></i>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">
+                                                                <i class="bi bi-pencil"></i>
+                                                                Edit
+                                                            </a></li>
+
+                                                        <li><a class="dropdown-item" href="#">
+                                                                <i class="bi bi-arrow-repeat"></i>
+                                                                Update
+                                                            </a></li>
+
+                                                        <li><a class="dropdown-item text-danger" href="#">
+                                                                <i class="bi bi-trash"></i>
+                                                                Delete
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>EMP002</td>
+                                            <td>user2@gmail.com</td>
+                                            <td>01/26/2021</td>
+                                            <td>$23704.82</td>
+                                            <td><span class="badge badge-warning">Inactive</span></td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="bi bi-three-dots-vertical action-icon"
+                                                        data-bs-toggle="dropdown"></i>
+
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">
+                                                                <i class="bi bi-pencil"></i>
+                                                                Edit
+                                                            </a></li>
+
+                                                        <li><a class="dropdown-item" href="#">
+                                                                <i class="bi bi-arrow-repeat"></i>
+                                                                Update
+                                                            </a></li>
+
+                                                        <li><a class="dropdown-item text-danger" href="#">
+                                                                <i class="bi bi-trash"></i>
+                                                                Delete
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>EMP003</td>
+                                            <td>user3@gmail.com</td>
+                                            <td>04/09/2021</td>
+                                            <td>$15211.60</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="fas fa-ellipsis-v action-icon" data-toggle="dropdown"
+                                                        style="cursor:pointer;"></i>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-edit"></i> Edit
+                                                        </a>
+
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-sync"></i> Update
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+
+                                                        <a class="dropdown-item text-danger" href="#">
+                                                            <i class="fas fa-trash"></i> Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- footer section -->
                 <section class>
                     <div class="container">
@@ -1173,7 +1371,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 
     <script>
         const ctxPie = document.getElementById('deviceChart');
