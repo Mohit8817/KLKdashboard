@@ -4,6 +4,131 @@ body {
 }
 
 
+.main-sidebar {
+    background: #fbfbf7 !important;
+   
+}
+
+.brand-link {
+    background: #fbfbf7 !important;
+    padding: 18px 19px;
+}
+
+.brand-text {
+    font-weight: 600;
+    color: #064e3b !important;
+    font-size: 19px;
+}
+
+.brand-image {
+    border-radius: 8px;
+    padding: 3px !important;
+    background: #e7fae3;
+}
+
+.nav-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af !important;
+    padding-left: 14px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.nav-sidebar .nav-link {
+    border-radius: 10px;
+    margin: 2px 5px;  
+    padding: 5px 10px;
+    color: #374151;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.nav-sidebar .nav-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #6b7280;
+    width: 20px;
+    text-align: center;
+}
+
+
+.nav-sidebar .nav-link:hover {
+    background: #f0fde8;
+    color: #064e3b !important;
+}
+
+
+.nav-sidebar .nav-link.active {
+    background: linear-gradient(135deg,#e7fae3,#d9f99d);
+    border: 1px solid #b7f091;
+    color: #064e3b !important;
+    font-weight: 600;
+}
+
+
+.nav-sidebar .nav-link.active::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: #22c55e;
+    border-radius: 4px;
+}
+
+
+.nav-treeview {
+    padding-left: 0px;
+    margin: 2px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+
+.nav-treeview .nav-link {
+    font-size: 12.5px;
+    border-radius: 8px;
+    margin: 2px 0;
+    padding: 6px 10px;
+    width: 85%;
+    text-align: center;
+    background: #f9fff5;
+    border: 1px solid #ecfdf5;
+}
+
+
+.nav-treeview .nav-link:hover {
+    background: #eaffea;
+}
+
+
+.nav-treeview .nav-link.active {
+    background: #d9f99d;
+    border: 1px solid #b7f091;
+}
+
+
+.right {
+    margin-left: auto;
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
 
 .toggle-btn {
     width: 38px;
@@ -34,9 +159,11 @@ body {
 
 
 .profile-img {
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    padding: 3px;
+    border: 2px solid #a4f870;
 }
 
 
