@@ -4,6 +4,42 @@ body {
 }
 
 
+
+.toggle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #e7fae3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    border: 1px solid #a4f870;
+}
+
+.toggle-btn i {
+    font-size: 16px;
+    color: #333;
+}
+
+
+.toggle-btn:hover {
+    background: #e0ffce;
+    color: #b1f2a6;
+}
+
+.toggle-btn:hover i {
+    color: #4df130;
+}
+
+
+.profile-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+
 .dashboard-card {
     background: #ffffff;
     border-radius: 16px;
@@ -13,7 +49,7 @@ body {
     gap: 18px;
     position: relative;
     overflow: hidden;
-    border: 1px solid #d9f99d;   /* soft green border */
+    border: 1px solid #d3ff81;  
     box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     transition: all 0.3s ease;
 }
@@ -194,9 +230,6 @@ body {
     border-bottom-right-radius: 10px;
 }
 
-
-
-
 /* circle pie chart css here */
 
 .center-text{
@@ -228,4 +261,5 @@ body {
     background:#e5e7eb;
     color:#374151;
 }
+
 
