@@ -1,0 +1,231 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #fbfbf7 !important;
+}
+
+
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d9f99d;   /* soft green border */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+    border-color: #81d682;
+}
+
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    background: linear-gradient(135deg, #b7f091, #aef3af);
+    color: #065f46;
+    box-shadow: 0 6px 16px rgba(160, 236, 161, 0.4);
+}
+
+
+.card-title {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.card-value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #065f46;
+}
+
+
+.warehouse-card {
+    background: linear-gradient(135deg, #bff999 0%, #ffffff 90%);
+}
+
+
+
+
+
+/* sectoin section cards css  */
+
+.ai-container {
+    background: #f9fafb;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+}
+
+.main_title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.ai-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid #a5f3c1;
+    transition: 0.2s;
+}
+
+.ai-card:hover {
+    border-color: #23fc73;
+    box-shadow: 0 4px 12px rgba(34,197,94,0.08);
+}
+
+.icon-box {
+    width: 42px;
+    height: 42px;
+    background: #c2fb9c;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e;
+   
+    font-size: 20px;
+}
+
+.card-title-text {
+    font-size: 15px;
+    margin-left: 8px;
+    color: #6b7280;
+}
+
+.amount {
+    margin: 0;
+    font-weight: 600;
+    color: #0e1513 !important;
+}
+
+.percent {
+    background: #c2fb9c;
+    color: #22c55e;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+
+
+.cashflow-container {
+    background: #f9fafb;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.cashflow-header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+}
+.chart-container {
+    margin-top: 30px;
+}
+
+
+
+
+
+/* Table Styling  css*/
+.custom-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-table thead {
+    background: #f1f5f9;
+}
+
+.custom-table thead th {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    padding: 14px;
+    text-align: left;
+}
+
+.custom-table tbody tr {
+    background: #ffffff;
+    transition: 0.2s;
+}
+
+.custom-table tbody tr:hover {
+    background: #f0fdf4;
+}
+
+.custom-table tbody td {
+    padding: 14px;
+    font-size: 14px;
+    color: #111827;
+    border-top: 1px solid #e5e7eb;
+}
+
+.custom-table thead tr th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.custom-table thead tr th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.custom-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.custom-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+
+
+
+/* circle pie chart css here */
+
+.center-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
+
+.badge-percent{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.dark-green{
+    background:#064e3b;
+    color:#ffffff;
+}
+
+.light-green{
+    background:#8ddf65;
+    color:#064e3b;
+}
+
+.soft-gray{
+    background:#e5e7eb;
+    color:#374151;
+}
+
