@@ -13,7 +13,7 @@
             href="../../plugins/fontawesome-free/css/all.min.css" />
         <!-- Theme style -->
         <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
-        <link rel="stylesheet" href="./Mohit2.css" />
+        <!-- <link rel="stylesheet" href="./Mohit2.css" /> -->
         <link rel="stylesheet" href="./stockportal.css" />
 
         <!-- ICONS -->
@@ -33,148 +33,43 @@
 
         <!-- Site wrapper -->
         <div class="wrapper">
-            <nav
-                class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
-                <div class="container-fluid">
-
-                    <!-- Left navbar links -->
+           <nav class="navbar px-lg-3 main-header navbar navbar-expand bg-white">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="d-flex align-items-center gap-3">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" data-widget="pushmenu" href="#"
-                                role="button"><i
-                                    class="fas fa-bars"></i></a>
+                            <a class="nav-link toggle-btn" data-widget="pushmenu" href="#" role="button">
+                                <i class="fas fa-bars"></i>
+                            </a>
                         </li>
                     </ul>
 
-                    <!-- RIGHT SIDE ICONS -->
-                    <div class="header-actions">
-                        <!-- DOCUMENT BUTTON -->
-                        <div class="doc-btn">
-                            <i class="bi bi-file-earmark-text"></i>
-                            <span>Document</span>
-                        </div>
-
-                        <!-- NOTIFICATION -->
-                        <div class="dropdown">
-                            <div class="notif-btn" data-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="bi bi-bell"></i>
-                                <span class="notif-badge">7</span>
-                            </div>
-
-                            <!-- DROPDOWN BOX -->
-                            <ul
-                                class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
-                                <li
-                                    class="dropdown-header fw-bold px-3 text-dark">
-                                    Notifications
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-info-circle text-primary me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">New policy
-                                                update</div>
-                                            <small class="text-muted">5 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">Server
-                                                downtime
-                                                alert</div>
-                                            <small class="text-muted">10 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#"
-                                        class="dropdown-item d-flex align-items-start">
-                                        <i
-                                            class="bi bi-check-circle text-success me-3 fs-5"></i>
-                                        <div>
-                                            <div class="notif-title">Payment
-                                                completed</div>
-                                            <small class="text-muted">20 min
-                                                ago</small>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-
-                                <li>
-                                    <a class="dropdown-item text-center"
-                                        href="#">View All</a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                        <!-- PROFILE DROPDOWN -->
-                        <div class="dropdown">
-                            <img src="../images/userimg.jpg" class="profile-img"
-                                data-toggle="dropdown" />
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li class="user-box">
-                                    <h6>Login New User</h6>
-                                </li>
-
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center"
-                                        href="#" data-toggle="modal"
-                                        data-target="#profileModal">
-                                        <i
-                                            class="bi bi-person icon-blue me-3"></i>Profile
-                                    </a>
-
-                                </li>
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center"
-                                        href="#"><i
-                                            class="bi bi-gear icon-pink me-3"></i>Settings</a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        class="dropdown-item d-flex align-items-center mb-2"
-                                        href="#"><i
-                                            class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
-                                </li>
-                            </ul>
-                        </div>
-
+                    <div class="mx-2">
+                        <h6 class="mb-0 main_title">Dashboard</h6>
+                        <small class="text-muted">
+                            Smart stock management with real-time inventory updates. </small>
                     </div>
+
                 </div>
 
-            </nav>
-            <!-- RIGHT SIDEBAR END -->
+                <!-- Profile Right Side -->
+                <div class="ms-auto">
+                    <img src="https://i.pravatar.cc/40" class="profile-img">
+                </div>
+
+            </div>
+        </nav>
+         
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar  elevation-4 shadow">
+            <aside class="main-sidebar  elevation-4 ">
                 <!-- Brand Logo -->
                 <a href="./klkhome.html"
-                    class="brand-link border-bottom shadow-sm border-2">
+                    class="brand-link border-bottom  border-2">
                     <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-                        class="brand-image  bottom-border img-circle elevation-3"
+                        class="brand-image "
                         style="opacity: 0.8" />
-                    <span class="brand-text text-dark">KLK Ventures-up</span>
+                    <span class="brand-text">KLK Ventures</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -201,73 +96,13 @@
                                             <p>Dashboard one</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="./klkhome.html"
-                                            class="nav-link active">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard Two</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit3.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard Three</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit4.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard four</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Sidebar.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Dashboard five</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
-                                        </a>
-                                    </li>
+                      
+                                                                     
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="./Mohit4.html" class="nav-link">
-                                    <i class="bi bi-grid nav-icon"></i>
 
-                                    <p>Dashboard 2</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="pages/widgets.html" class="nav-link">
-                                    <i class="bi bi-grid nav-icon"></i>
-
-                                    <p>Dashboard 3</p>
-                                </a>
-                            </li>
+                     
 
                             <li class="nav-item">
                                 <a href="./Newtable.html" class="nav-link">
@@ -279,25 +114,8 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="./Userprofile.html" class="nav-link">
-                                    <i
-                                        class="bi bi-bar-chart-line nav-icon"></i>
-                                    <p>
-                                        User Profile
-                                    </p>
-                                </a>
-                            </li>
+                          
 
-                            <li class="nav-item">
-                                <a href="./UserProfilepage.html"
-                                    class="nav-link">
-                                    <i class="bi bi-layers nav-icon"></i>
-                                    <p>User Profile View
-                                    </p>
-                                </a>
-
-                            </li>
 
                             <li class="nav-item">
                                 <a href="./Srtdashboard.html" class="nav-link">
@@ -358,22 +176,7 @@
                                             <p>Sidebar one</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit2.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar Two</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./Mohit3.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Sidebar Three</p>
-                                        </a>
-                                    </li>
+                          
                                     <li class="nav-item">
                                         <a href="./Mohit4.html"
                                             class="nav-link">
@@ -391,22 +194,6 @@
                                         </a>
                                     </li>
 
-                                    <li class="nav-item">
-                                        <a href="pages/UI/timeline.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Timeline</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/UI/ribbons.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Ribbons</p>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 
@@ -427,30 +214,7 @@
                                             <p>General Elements</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/advanced.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/editors.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/validation.html"
-                                            class="nav-link">
-                                            <i
-                                                class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
-                                        </a>
-                                    </li>
+                                   
                                 </ul>
                             </li>
 
@@ -461,12 +225,6 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-sun nav-icon"></i>
-                                    <p>Kusum</p>
-                                </a>
-                            </li>
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -497,40 +255,9 @@
                                 </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-cloud-check nav-icon"></i>
-                                    <p>UP On Grid Details</p>
-                                </a>
-                            </li>
+                            
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-battery-full nav-icon"></i>
-                                    <p>Power Pack Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-archive nav-icon"></i>
-                                    <p>SRLM SRT Details</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-list-check nav-icon"></i>
-                                    <p>Task Assign</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-box-seam nav-icon"></i>
-                                    <p>Product</p>
-                                </a>
-                            </li>
+                     
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -737,21 +464,7 @@
                             <!-- Header -->
                             <div class="card-header">
                                 <div class="d-flex align-items-center w-100">
-
-                                    <h4 class="mb-0">DataTable with Buttons</h4>
-
-                                    <div class="btn-group-right">
-                                        <button class="btn export-btn">
-                                            <i class="bi bi-box-arrow-up"></i>
-                                            Export
-                                        </button>
-
-                                        <button class="btn add-btn">
-                                            <i class="bi bi-plus"></i> Add New
-                                            Record
-                                        </button>
-                                    </div>
-
+                                    <h4 class="mb-0">DataTable with Buttons</h4>                                  
                                 </div>
                             </div>
 
