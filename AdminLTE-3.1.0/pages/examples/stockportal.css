@@ -239,38 +239,38 @@
 
 
     /* TOP SHAPE */
-.main-sidebar::before {
-    content: "";
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 250px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-}
+    .main-sidebar::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 250px;
+        height: 250px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+    }
 
 
-/* BOTTOM SHAPE */
-.main-sidebar::after {
-    content: "";
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 270px;
-    height: 270px;
-    background: rgba(255, 255, 255, 0.095);
-    border-radius: 50%;
-}
-
-
-
+    /* BOTTOM SHAPE */
+    .main-sidebar::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 270px;
+        height: 270px;
+        background: rgba(255, 255, 255, 0.095);
+        border-radius: 50%;
+    }
 
 
 
 
- /* Quarter Circle Shape */
-/* .main-sidebar::after {
+
+
+
+    /* Quarter Circle Shape */
+    /* .main-sidebar::after {
     content: "";
     position: absolute;
     bottom: -30px;
