@@ -1,7 +1,7 @@
 /* navbar css  */
 
 .custom-navbar {
-    background: #f3f3f3 !important;
+    background: #f7f7f5 !important;
     height: 70px;
     border-bottom: none !important;
 }
@@ -226,21 +226,31 @@
 
 
 
-
+/* Sidebar fixed */
 .main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 260px;
     height: 100vh;
     background: #f7f7f5;
     border-right: 1px solid #e6e6e6;
-    position: fixed;
-    top: 0;
-    left: 0;
     overflow: hidden;
+    z-index: 1000;
 }
 
+/* Sidebar ke andar scroll */
 .sidebar {
-    height: calc(100vh - 70px);
+    height: calc(110vh - 50px) !important;
     overflow-y: auto;
+}
+
+/* Content wrapper scroll kare */
+.content-wrapper {
+    margin-left: 260px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #f8f9fa;
 }
 .main-sidebar.collapsed {
     width: 80px;
@@ -315,6 +325,7 @@
     cursor: pointer;
     transition: 0.2s;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .menu-item i {
@@ -327,8 +338,9 @@
 
 .arrow {
     margin-left: auto;
-    font-size: 12px !important;
-    transition: 0.3s;
+
+    font-size: 15px !important;
+    transition: 0.6s !important;
 }
 
 .menu-item:hover {
