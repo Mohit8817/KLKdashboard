@@ -239,13 +239,11 @@
     z-index: 1000;
 }
 
-/* Sidebar ke andar scroll */
 .sidebar {
     height: calc(110vh - 50px) !important;
     overflow-y: auto;
 }
 
-/* Content wrapper scroll kare */
 .content-wrapper {
     margin-left: 260px;
     height: 100vh;
