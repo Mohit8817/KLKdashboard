@@ -222,120 +222,164 @@
 
 
 
-/* <!-- NEW Sidebar css here  --> */
 
-/* MAIN SIDEBAR */
+
+
+
+
 .main-sidebar {
-    position: fixed !important;
-    height: 100vh !important;
-    background: #f4f4f2 !important;
-    border-right: 1px solid #e2e2e2;
+    width: 260px;
+    height: 100vh;
+    background: #f7f7f5;
+    border-right: 1px solid #e6e6e6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
-/* Sidebar scroll */
-.main-sidebar .sidebar {
-    height: calc(100vh - 60px);
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    padding-top: 10px;
+.sidebar {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+.main-sidebar.collapsed {
+    width: 80px;
 }
 
-/* Brand */
+.main-sidebar.collapsed:hover {
+    width: 260px;
+}
+
 .brand-link {
-    padding: 14px 15px !important;
-    border-bottom: 1px solid #e2e2e2;
-    background: #f4f4f2 !important;
-}
-
-.brand-text {
-    color: #6b7280 !important;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-/* Header Text */
-.nav-header {
-    color: #9ca3af !important;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 10px 16px 6px 16px;
-}
-
-/* Menu Items */
-.nav-sidebar .nav-link {
     display: flex;
     align-items: center;
-    padding: 10px 14px;
-    margin: 4px 10px;
-    border-radius: 10px;
-    font-size: 15px;
-    color: #6b7280 !important;
-    font-weight: 500;
-    transition: 0.2s;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e6e6e6;
+    white-space: nowrap;
 }
 
-/* Icons */
-.nav-sidebar .nav-icon {
-    width: 22px;
-    font-size: 18px;
-    color: #9ca3 tem;
+.brand-image {
+    width: 30px;
+    min-width: 30px;
     margin-right: 10px;
 }
 
-/* Arrow */
-.nav-sidebar .right {
+.brand-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #9ca3af;
+    transition: 0.2s;
+}
+
+.main-sidebar.collapsed .brand-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-sidebar.collapsed:hover .brand-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    font-size: 12px;
+    color: #a1a1aa;
+    font-weight: 700;
+    padding: 15px 22px 8px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.main-sidebar.collapsed .sidebar-title {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-sidebar.collapsed:hover .sidebar-title {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    color: #6b7280;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.menu-item i {
+    font-size: 18px;
+    margin-right: 14px;
+    color: #9ca3af;
+    min-width: 20px;
+    text-align: center;
+}
+
+.arrow {
     margin-left: auto;
+    font-size: 12px !important;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background: #eeeeee;
+}
+
+.menu-item.active {
+    color: #ff6b2c;
+    font-weight: 600;
+}
+
+.menu-item.active i {
+    color: #ff6b2c;
+}
+
+.main-sidebar.collapsed .menu-item span,
+.main-sidebar.collapsed .arrow {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-sidebar.collapsed .menu-item {
+    justify-content: center;
+}
+
+.main-sidebar.collapsed:hover .menu-item {
+    justify-content: flex-start;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 50px;
+    transition: max-height 0.4s ease;
+}
+
+.menu-group:hover .submenu {
+    max-height: 200px;
+}
+
+.submenu-item {
+    padding: 6px 0;
     font-size: 14px;
     color: #9ca3af;
+    cursor: pointer;
 }
 
-/* Hover */
-.nav-sidebar .nav-link:hover {
-    background: #ececec;
-    color: #374151 !important;
+.submenu-item:hover {
+    color: #ff6b2c;
 }
 
-/* Active */
-.nav-sidebar .nav-link.active {
-    background: #fff;
-    color: #ff6b2c !important;
-    font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+.menu-group:hover .arrow {
+    transform: rotate(180deg);
 }
-
-.nav-sidebar .nav-link.active .nav-icon {
-    color: #ff6b2c !important;
-}
-
-/* Submenu */
-.nav-treeview {
-    padding-left: 20px;
-}
-
-.nav-treeview .nav-link {
-    padding: 8px 12px !important;
-    margin: 2px 8px !important;
-    font-size: 14px;
-    color: #9ca3af !important;
-}
-
-/* Submenu Hover */
-.nav-treeview .nav-link:hover {
-    background: #ececec;
-    color: #374151 !important;
-}
-
-/* Scrollbar */
-.sidebar::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 10px;
-}
-
-
-
-
-
