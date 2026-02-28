@@ -534,15 +534,11 @@
         document.querySelectorAll(".menu-group .menu-item").forEach(menu => {
             menu.addEventListener("click", function () {
                 let parent = this.parentElement;
-
-                // Close other menus (optional)
-                document.querySelectorAll(".menu-group").forEach(group => {
+             document.querySelectorAll(".menu-group").forEach(group => {
                     if (group !== parent) {
                         group.classList.remove("active");
                     }
                 });
-
-                // Toggle current menu
                 parent.classList.toggle("active");
             });
         });
