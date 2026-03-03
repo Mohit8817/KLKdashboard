@@ -20,7 +20,7 @@
 @if (in_array('SRT', $categoryData) && in_array('installation', $typeData))
 <li class="nav-item sidesEle {{ request()->routeIs('v-bihar-vendor-srt-installation-dashboard') ? 'activeside' : '' }}">
     <a href="{{ route('v-bihar-vendor-srt-installation-dashboard') }}" class="nav-link">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <i class="nav-icon fas fa-chart-line"></i>
         <p>
             SRT Dashboard
         </p>
@@ -32,7 +32,7 @@
 <li
     class="nav-item sidesEle {{ request()->routeIs('v-srt.viewassignsite') || request()->routeIs('v-srt.installationsite') || request()->routeIs('v-srt.allassignsite') || request()->routeIs('v-srt.paymentVendor') ? 'menu-open' : '' }} ">
     <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-user"></i>
+        <i class="nav-icon fas fa-tools"></i>
         <p>
             Bihar SRT Install
             <i class="fas fa-angle-left right"></i>
@@ -79,7 +79,7 @@
 <li
     class="nav-item sidesEle {{ request()->routeIs('bihar-srt200mw-survey') || request()->routeIs('bihar-srt200mw-view-survey') ? 'menu-open' : '' }} ">
     <a href="#" class="nav-link">
-        <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+        <i class="nav-icon fas fa-search-location"></i>
         <p>
             Bihar SRT 200MW Survey
             <i class="fas fa-angle-left right"></i>
@@ -105,7 +105,7 @@
 <li
     class="nav-item sidesEle {{ request()->routeIs('v-view-assigned-bihar-ssl-site') || request()->routeIs('v-install-bihar-ssl-site') || request()->routeIs('v-view-ssl-complete-site') || request()->routeIs('v-view-claim-request-deatils') || request()->routeIs('bihar-ssl-light-supply-inspection') || request()->routeIs('bihar-ssl-light-installation-inspection') ? 'menu-open' : '' }} ">
     <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-user"></i>
+        <i class="nav-icon fas fa-solar-panel"></i>
         <p>
             Bihar SSL Installation
             <i class="fas fa-angle-left right"></i>
@@ -159,7 +159,7 @@
 <li
     class="nav-item sidesEle {{ request()->routeIs('v-edit-biharssl') || request()->routeIs('v-view-biharssl') || request()->routeIs('v-view-bihar-ssl-complaint') ? 'menu-open' : '' }} ">
     <a href="#" class="nav-link">
-        <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+        <i class="nav-icon fas fa-cogs"></i>
         <p>
             Bihar SSl AMC
             <i class="fas fa-angle-left right"></i>
@@ -191,7 +191,7 @@
 <li
     class="nav-item sidesEle {{ request()->routeIs('v-bihar-add-srt-amc') || request()->routeIs('v-bihar-view-srt-amc') || request()->routeIs('v-bihar-view-srt-amc-complaint') ? 'menu-open' : '' }} ">
     <a href="#" class="nav-link">
-        <i class="nav-icon fa-solid fa-screwdriver-wrench"></i>
+        <i class="nav-icon fas-fa-wrench"></i>
         <p>
             Bihar SRT AMC
             <i class="fas fa-angle-left right"></i>
