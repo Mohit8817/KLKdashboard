@@ -39,6 +39,61 @@
             </form>
         </div>
     </div>
+
+
+
+
+    <div class="card innerBox mode1 p-0 col-12 col-md-8 col-lg-6 mx-auto">
+    <div class="card-body">
+
+        <h5 class="card-title font-weight-bold d-flex justify-content-between align-items-center">
+            Add Category
+            <span style="cursor:pointer;" onclick="closeMe()">
+                <i class="fa fa-close"></i>
+            </span>
+        </h5>
+
+        <hr>
+
+        <h6 class="card-subtitle mb-3 text-muted small">
+            The field labels marked with * are required input fields.
+        </h6>
+
+        <form action="{{ route('save-product-category') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="form-row">
+
+                <div class="col-12 col-md-6 form-group">
+                    <label for="catName">Name *</label>
+                    <input type="text" class="form-control" name="name" id="catName">
+                </div>
+
+                <div class="col-12 col-md-6 form-group">
+                    <label for="img">Image</label>
+                    <input type="file" accept="image/*" class="form-control" name="catimg" id="img">
+                </div>
+
+                <div class="col-12 col-md-6 form-group">
+                    <label for="parent">Parent Category *</label>
+                    <select name="parent_category" id="parent" class="form-control">
+                        <option value="dis" selected disabled>No Parent</option>
+                        @foreach ($category as $categories)
+                            <option value="{{ $categories->name }}">{{ $categories->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary btn-block">Submit</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
 </div>
 
 
@@ -88,6 +143,90 @@
 </div>
 
 
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold">Update Category</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+                <p class="text-muted small mb-3">
+                    The field labels marked with <span class="text-danger">*</span> are required.
+                </p>
+
+                <form action="{{ route('update-product-category') }}" method="POST" enctype="multipart/form-data">
+
+                    @csrf
+                    @method('put')
+
+                    <input type="hidden" class="form-control" id="category_id" name="category_id" required>
+
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <!-- Category Name -->
+                            <div class="col-12 col-md-6 mb-3">
+                                <label class="font-weight-semibold">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="name" id="name">
+                            </div>
+
+                            <!-- Image -->
+                            <div class="col-12 col-md-6 mb-3">
+                                <label>Image</label>
+                                <input type="file" accept="image/*" class="form-control" name="catimg" id="catimg">
+                            </div>
+
+                            <!-- Parent Category -->
+                            <div class="col-12 col-md-6 mb-3">
+                                <label>Parent Category <span class="text-danger">*</span></label>
+                                <select name="parent_category" class="form-control" id="parent_category">
+
+                                    @foreach ($category as $categories)
+                                        <option value="{{ $categories->name }}">
+                                            {{ $categories->name }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Modal Footer Buttons -->
+                    <div class="modal-footer px-0">
+
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">
+                            Cancel
+                        </button>
+
+                        <button type="submit" class="btn btn-primary">
+                            Update Category
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <section class="content-header">
