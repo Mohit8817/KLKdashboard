@@ -4,46 +4,7 @@
 
 <div class="mainBox m-0 py-0">
 
-    <!-- Add Category -->
-    <div class="card innerBox mode1  p-0">
-        <div class="card-body">
-            <h5 class="card-title w-100 text-bold">Add Category<span class="float-right" style="cursor:pointer;"
-                    onclick="closeMe()"><i class="fa fa-close"></i></span></h5><br>
-            <hr>
-            <h6 class="card-subtitle mb-2 text-muted small">The field labels marked with * are required input
-                fields.</h6>
-            <form action="{{ route('save-product-category') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-12 col-md-6 form-group">
-                        <label for="catName">Name *</label>
-                        <input type="text" class="form-control" name="name" id="catName">
-                    </div>
-                    <div class="col-12 col-md-6 form-group">
-                        <label for="img">Image</label>
-                        <input type="file" accept="image/*" class="form-control" name="catimg" id="img">
-                    </div>
-                    <div class="col-12 col-md-6 form-group">
-                        <label for="parent">Parent Category *</label>
-                        <select name="parent_category" id="parent" class="form-control">
-                            <option value="dis" selected disabled>No Parent</option>
-                            @foreach ($category as $categories)
-                                <option value="{{ $categories->name }}">{{ $categories->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-12 text-left">
-                        <button class="btn-add ml-1 ">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
-
-    <div class="card innerBox mode1 p-0 col-12 col-md-8 col-lg-6 mx-auto">
+     <div class="card innerBox mode1 p-0 col-12 col-md-8 col-lg-6 mx-auto">
     <div class="card-body">
 
         <h5 class="card-title font-weight-bold d-flex justify-content-between align-items-center">
@@ -275,9 +236,11 @@
                     </div>
 
                     <div class="col-6 text-right">
-                        <button type="button" class="export-btn mb-2" onclick="openMode1()">
+                        <button type="button" class="export-btn mb-2"  data-toggle="modal" data-target="#addCategoryModal" onclick="openMode1()">
                             <i class="fa fa-plus"></i> Add Category
                         </button>
+
+                       
                     </div>
                 </div>
             </div>
