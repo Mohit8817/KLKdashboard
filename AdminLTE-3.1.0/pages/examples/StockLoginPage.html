@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KLK Stock  Login</title>
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLK Stock Login</title>
 
-        <style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -42,7 +40,7 @@
             opacity: 0.35;
         }
 
-             .icon1 {
+        .icon1 {
             top: 5%;
             left: 5%;
         }
@@ -142,7 +140,7 @@
             right: 1%;
         }
 
-           .center-img {
+        .center-img {
             width: 70%;
             z-index: 2;
             position: relative;
@@ -153,6 +151,7 @@
             height: 55vh;
             object-fit: cover;
         }
+
         .right {
             width: 60%;
             display: flex;
@@ -302,6 +301,7 @@
 
             body {
                 flex-direction: column;
+                background: #f5cfbc;
             }
 
             .left {
@@ -312,12 +312,18 @@
                 width: 100%;
                 height: 100vh;
                 padding: 30px;
+                background: transparent;
+
             }
 
             .login-box {
                 width: 100%;
                 max-width: 420px;
                 margin: auto;
+                background: #fff;
+                padding: 35px;
+                border-radius: 14px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             }
 
         }
@@ -374,90 +380,138 @@
         }
     </style>
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <!-- LEFT SECTION -->
+    <!-- LEFT SECTION -->
 
-        <div class="left">
+    <div class="left">
 
-            <!-- floating icons -->
+        <!-- floating icons -->
 
-            <i class="fa-solid fa-box icon icon1"></i>
-            <i class="fa-solid fa-warehouse icon icon2"></i>
-            <i class="fa-solid fa-truck icon icon3"></i>
-            <i class="fa-solid fa-industry icon icon4"></i>
-            <i class="fa-solid fa-solar-panel icon icon5"></i>
-            <i class="fa-solid fa-cubes icon icon6"></i>
-            <i class="fa-solid fa-toolbox icon icon7"></i>
-            <i class="fa-solid fa-chart-column icon icon8"></i>
+        <i class="fa-solid fa-box icon icon1"></i>
+        <i class="fa-solid fa-warehouse icon icon2"></i>
+        <i class="fa-solid fa-truck icon icon3"></i>
+        <i class="fa-solid fa-industry icon icon4"></i>
+        <i class="fa-solid fa-solar-panel icon icon5"></i>
+        <i class="fa-solid fa-cubes icon icon6"></i>
+        <i class="fa-solid fa-toolbox icon icon7"></i>
+        <i class="fa-solid fa-chart-column icon icon8"></i>
 
-            <i class="fa-solid fa-bolt icon icon9"></i>
-            <i class="fa-solid fa-battery-full icon icon10"></i>
-            <i class="fa-solid fa-gears icon icon11"></i>
-            <i class="fa-solid fa-wrench icon icon12"></i>
-            <i class="fa-solid fa-screwdriver-wrench icon icon13"></i>
-            <i class="fa-solid fa-layer-group icon icon14"></i>
-            <i class="fa-solid fa-building icon icon15"></i>
-            <i class="fa-solid fa-truck-ramp-box icon icon16"></i>
-            <i class="fa-solid fa-box-open icon icon17"></i>
-            <i class="fa-solid fa-network-wired icon icon18"></i>
-            <i class="fa-solid fa-clipboard-list icon icon19"></i>
-            <i class="fa-solid fa-microchip icon icon20"></i>
+        <i class="fa-solid fa-bolt icon icon9"></i>
+        <i class="fa-solid fa-battery-full icon icon10"></i>
+        <i class="fa-solid fa-gears icon icon11"></i>
+        <i class="fa-solid fa-wrench icon icon12"></i>
+        <i class="fa-solid fa-screwdriver-wrench icon icon13"></i>
+        <i class="fa-solid fa-layer-group icon icon14"></i>
+        <i class="fa-solid fa-building icon icon15"></i>
+        <i class="fa-solid fa-truck-ramp-box icon icon16"></i>
+        <i class="fa-solid fa-box-open icon icon17"></i>
+        <i class="fa-solid fa-network-wired icon icon18"></i>
+        <i class="fa-solid fa-clipboard-list icon icon19"></i>
+        <i class="fa-solid fa-microchip icon icon20"></i>
 
-            <!-- center image -->
+        <!-- center image -->
 
-            <div class="center-img">
-                <img src="../images/stock3.png" alt="Login Image">
-            </div>
-
+        <div class="center-img">
+            <img src="../images/stock3.png" alt="Login Image">
+            
         </div>
 
-        <!-- RIGHT SECTION -->
+    </div>
 
-        <div class="right">
+    <!-- RIGHT SECTION -->
 
-            <div class="login-box">
-                <div class="login-header">
-                    <img src="../images/logo-s.png" class="logo" alt="Logo">
-                    <div class="title-box">
-                        <h2>Welcome!</h2>
-                        <p>Login to your dashboard</p>
-                    </div>
+    <div class="right">
 
-                </div>
+     <div class="login-box">
+    <div class="login-header">
+        <img src="../images/logo-s.png" class="logo" alt="Logo">
+        <!-- <img src="{{asset('images/logo-s.png')}}" class="logo"> -->
+        <div class="title-box">
+            <h2>Welcome!</h2>
+            <p>Login to your dashboard</p>
+        </div>
+    </div>
 
-                <div class="login-text">Enter your credentials to access your
-                    account</div>
+    <div class="login-text">
+        Enter your credentials to access your account
+    </div>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <div class="input-box">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Enter email">
-                    </div>
-                </div>
+    <!-- SESSION MESSAGE -->
 
-                <div class="form-group">
-                    <label>Password</label>
-                    <div class="input-box">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Enter password">
-                    </div>
-                </div>
+    @if(session()->has('status'))
+    <div style="color:red; margin-bottom:10px;">
+        {{session('status')}}
+    </div>
+    @endif
 
-                <div class="extra">
-                    <a href="#">Forgot Password?</a>
-                    <span>Don't have account? <a href="#">Register</a></span>
-                </div>
+    <!-- VALIDATION ERRORS -->
 
-                <button>Login</button>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        <div style="color:red;">
+            {{ $error }}
+        </div>
+        @endforeach
+    @endif
 
+    <form action="{{route('loginuser')}}" method="post"  enctype="multipart/form-data">
+        @csrf
+
+        <!-- USER ID -->
+
+        <div class="form-group">
+            <label>User ID</label>
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="employee_id" placeholder="Enter User ID" required>
             </div>
-
         </div>
 
-    </body>
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+            <label>Password</label>
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Enter password" required>
+
+                <i class="fa fa-eye"
+                   style="cursor:pointer"
+                   onclick="showPass()"></i>
+            </div>
+        </div>
+
+        <!-- EXTRA OPTIONS -->
+
+        <div class="extra">
+            <label style="display:flex; align-items:center; gap:5px;">
+                <input type="checkbox" name="remember">
+                Remember me
+            </label>
+
+            <a href="#">
+                Forgot Password?
+            </a>
+        </div>
+
+        <button type="submit">Login</button>
+
+    </form>
+</div>
+
+    </div>
+
+</body>
 
 </html>
+<script>
+  function showPass(){
+    document.getElementById('password').type = "text";
+    setTimeout(() => {
+    document.getElementById('password').type = "password";
+    },2000);
+  }
+</script>
