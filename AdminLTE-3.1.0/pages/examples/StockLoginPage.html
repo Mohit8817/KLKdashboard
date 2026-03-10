@@ -415,8 +415,11 @@
         <!-- center image -->
 
         <div class="center-img">
+
             <img src="../images/stock3.png" alt="Login Image">
             
+            <!-- <img src="{{ asset('dist/img/logo-s (2).jpeg') }}" alt="Login Image"> -->
+
         </div>
 
     </div>
@@ -425,82 +428,82 @@
 
     <div class="right">
 
-     <div class="login-box">
-    <div class="login-header">
-        <img src="../images/logo-s.png" class="logo" alt="Logo">
-        <!-- <img src="{{asset('images/logo-s.png')}}" class="logo"> -->
-        <div class="title-box">
-            <h2>Welcome!</h2>
-            <p>Login to your dashboard</p>
-        </div>
-    </div>
+        <div class="login-box">
+            <div class="login-header">
+                <img src="../images/logo-s.png" class="logo" alt="Logo">
 
-    <div class="login-text">
-        Enter your credentials to access your account
-    </div>
+                <!-- <img src="{{ asset('dist/img/logo-s (1).jpeg') }}" class="logo"> -->
 
-    <!-- SESSION MESSAGE -->
-
-    @if(session()->has('status'))
-    <div style="color:red; margin-bottom:10px;">
-        {{session('status')}}
-    </div>
-    @endif
-
-    <!-- VALIDATION ERRORS -->
-
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-        <div style="color:red;">
-            {{ $error }}
-        </div>
-        @endforeach
-    @endif
-
-    <form action="{{route('loginuser')}}" method="post"  enctype="multipart/form-data">
-        @csrf
-
-        <!-- USER ID -->
-
-        <div class="form-group">
-            <label>User ID</label>
-            <div class="input-box">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" name="employee_id" placeholder="Enter User ID" required>
+                <div class="title-box">
+                    <h2>Welcome!</h2>
+                    <p>Login to your dashboard</p>
+                </div>
             </div>
-        </div>
 
-        <!-- PASSWORD -->
-
-        <div class="form-group">
-            <label>Password</label>
-            <div class="input-box">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" name="password" id="password" placeholder="Enter password" required>
-
-                <i class="fa fa-eye"
-                   style="cursor:pointer"
-                   onclick="showPass()"></i>
+            <div class="login-text">
+                Enter your credentials to access your account
             </div>
+
+            <!-- SESSION MESSAGE -->
+
+            @if(session()->has('status'))
+            <div style="color:red; margin-bottom:10px;">
+                {{session('status')}}
+            </div>
+            @endif
+
+            <!-- VALIDATION ERRORS -->
+
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <div style="color:red;">
+                {{ $error }}
+            </div>
+            @endforeach
+            @endif
+
+            <form action="{{route('loginuser')}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <!-- USER ID -->
+
+                <div class="form-group">
+                    <label>User ID</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="employee_id" placeholder="Enter User ID" required>
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Enter password" required>
+
+                        <i class="fa fa-eye" style="cursor:pointer" onclick="showPass()"></i>
+                    </div>
+                </div>
+
+                <!-- EXTRA OPTIONS -->
+
+                <div class="extra">
+                    <label style="display:flex; align-items:center; gap:5px;">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit">Login</button>
+
+            </form>
         </div>
-
-        <!-- EXTRA OPTIONS -->
-
-        <div class="extra">
-            <label style="display:flex; align-items:center; gap:5px;">
-                <input type="checkbox" name="remember">
-                Remember me
-            </label>
-
-            <a href="#">
-                Forgot Password?
-            </a>
-        </div>
-
-        <button type="submit">Login</button>
-
-    </form>
-</div>
 
     </div>
 
@@ -508,10 +511,10 @@
 
 </html>
 <script>
-  function showPass(){
-    document.getElementById('password').type = "text";
-    setTimeout(() => {
-    document.getElementById('password').type = "password";
-    },2000);
-  }
+    function showPass() {
+        document.getElementById('password').type = "text";
+        setTimeout(() => {
+            document.getElementById('password').type = "password";
+        }, 2000);
+    }
 </script>
