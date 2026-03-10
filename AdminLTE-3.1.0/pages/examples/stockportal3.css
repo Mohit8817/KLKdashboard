@@ -1,8 +1,7 @@
 /* navbar css  */
 
 .custom-navbar {
-    background: #f7f7f5 !important;
-    height: 70px;
+    background: #fffffa !important;
     border-bottom: 0.5px solid #e6e6e6 !important;
 }
 
@@ -219,17 +218,23 @@
 
 
 
-
-
+:root{
+    --sidebar-bg:#1f2937;
+    --sidebar-border:#374151;
+    --sidebar-text:#d1d5db;
+    --sidebar-icon:#9ca3af;
+    --sidebar-hover:#374151;
+    --sidebar-active:#ff6b2c;
+    --sidebar-title:#9ca3af;
+    --content-bg:#f8f9fa;
+}
 
 .main-sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 260px;
-    height: 100vh;
-    background: #f7f7f5;
-    border-right: 1px solid #e6e6e6;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
     overflow: hidden;
     z-index: 1000;
 }
@@ -243,7 +248,7 @@
     margin-left: 260px;
     height: 100vh;
     overflow-y: auto;
-    background: #f8f9fa;
+    background: var(--content-bg);
 }
 
 .main-sidebar.collapsed {
@@ -257,21 +262,26 @@
 .brand-link {
     display: flex;
     align-items: center;
-    padding: 18px 20px;
-    border-bottom: 1px solid #e6e6e6;
+    padding: 13px 1px;
+    border-bottom: 0.2px solid #e5e7eb91 !important;
     white-space: nowrap;
 }
 
 .brand-image {
-    width: 30px;
-    min-width: 30px;
+    width: 20px;
+    min-width: 20px;
     margin-right: 10px;
+    background-color: white;
+    border-radius: 50px;
+    padding: 4px;
+
 }
+
 
 .brand-text {
     font-size: 16px;
     font-weight: 600;
-    color: #9ca3af;
+    color: #e8ecef;
     transition: 0.2s;
 }
 
@@ -292,7 +302,7 @@
 
 .sidebar-title {
     font-size: 12px;
-    color: #a1a1aa;
+    color: var(--sidebar-title);
     font-weight: 700;
     padding: 15px 22px 8px;
     letter-spacing: 1px;
@@ -314,7 +324,7 @@
     display: flex;
     align-items: center;
     padding: 10px 30px;
-    color: #6b7280;
+    color: var(--sidebar-text);
     font-size: 15px;
     cursor: pointer;
     transition: 0.2s;
@@ -325,22 +335,22 @@
 .menu-item i {
     font-size: 18px;
     margin-right: 14px;
-    color: #9ca3af;
+    color: var(--sidebar-icon);
     min-width: 20px;
     text-align: center;
 }
 
 .menu-item:hover {
-    background: #eeeeee;
+    background: var(--sidebar-hover);
 }
 
 .menu-item.active {
-    color: #ff6b2c;
+    color: var(--sidebar-active);
     font-weight: 600;
 }
 
 .menu-item.active i {
-    color: #ff6b2c;
+    color: var(--sidebar-active);
 }
 
 .arrow {
@@ -367,7 +377,6 @@
     justify-content: flex-start;
 }
 
-
 .submenu {
     max-height: 0;
     overflow: hidden;
@@ -382,15 +391,13 @@
 .submenu-item {
     padding: 6px 0;
     font-size: 14px;
-    color: #9ca3af;
+    color: var(--sidebar-icon);
     cursor: pointer;
 }
 
 .submenu-item:hover {
-    color: #ff6b2c;
+    color: var(--sidebar-active);
 }
-
-
 
 
 
