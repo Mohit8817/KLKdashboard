@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KLK Stock  Login</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+
+        .left {
+            width: 42%;
+            background: #f5cebc;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 28px;
+            color: #ff6b2d;
+            opacity: 0.35;
+        }
+
+             .icon1 {
+            top: 5%;
+            left: 5%;
+        }
+
+        .icon2 {
+            top: 10%;
+            left: 18%;
+        }
+
+        .icon3 {
+            top: 15%;
+            left: 40%;
+        }
+
+        .icon4 {
+            top: 24%;
+            left: 10%;
+        }
+
+        .icon5 {
+            top: 40%;
+            left: 6%;
+        }
+
+        .icon6 {
+            top: 52%;
+            left: 10%;
+        }
+
+        .icon7 {
+            top: 65%;
+            left: 5%;
+        }
+
+        .icon8 {
+            top: 75%;
+            left: 2%;
+        }
+
+        .icon9 {
+            bottom: 10%;
+            left: 6%;
+        }
+
+        .icon10 {
+            bottom: 15%;
+            left: 33%;
+        }
+
+        .icon11 {
+            top: 8%;
+            right: 30%;
+        }
+
+        .icon12 {
+            top: 18%;
+            right: 14%;
+        }
+
+        .icon13 {
+            top: 28%;
+            right: 2%;
+        }
+
+        .icon14 {
+            top: 38%;
+            right: 14%;
+        }
+
+        .icon15 {
+            top: 50%;
+            right: 8%;
+        }
+
+        .icon16 {
+            top: 94%;
+            right: 33%;
+        }
+
+        .icon17 {
+            top: 72%;
+            right: 5%;
+        }
+
+        .icon18 {
+            bottom: 12%;
+            right: 15%;
+        }
+
+        .icon19 {
+            bottom: 94%;
+            right: 8%;
+        }
+
+        .icon20 {
+            bottom: 35%;
+            right: 1%;
+        }
+
+           .center-img {
+            width: 70%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .center-img img {
+            width: 100%;
+            height: 55vh;
+            object-fit: cover;
+        }
+        .right {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .login-box {
+            width: 380px;
+        }
+
+        .login-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        .title-box h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .title-box p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .login-text {
+            font-size: 14px;
+            color: #525252;
+            margin-bottom: 30px;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-box {
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            transition: .3s;
+        }
+
+        .input-box:hover {
+            border-color: #ff6b2d;
+        }
+
+        .input-box i {
+            margin-right: 10px;
+            color: #ff6b2d;
+        }
+
+        .input-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .extra {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .extra a {
+            color: #ff6b2d;
+            text-decoration: none;
+        }
+
+        .extra a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #ff6b2d;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #fe6c28;
+            transform: translateY(-1px);
+        }
+
+
+        /* ===== LARGE LAPTOP ========== */
+
+        @media (max-width:1200px) {
+
+            .login-box {
+                width: 340px;
+            }
+
+            .center-img {
+                width: 80%;
+            }
+
+            .center-img img {
+                height: 45vh;
+            }
+
+            .logo {
+                width: 80px;
+            }
+
+            .title-box h2 {
+                font-size: 22px;
+            }
+
+        }
+
+
+        /* ================= TABLET ============== */
+
+        @media (max-width:900px) {
+
+            body {
+                flex-direction: column;
+            }
+
+            .left {
+                display: none;
+            }
+
+            .right {
+                width: 100%;
+                height: 100vh;
+                padding: 30px;
+            }
+
+            .login-box {
+                width: 100%;
+                max-width: 420px;
+                margin: auto;
+            }
+
+        }
+
+
+        /* =========   MOBILE  ===== */
+
+        @media (max-width:600px) {
+
+            .right {
+                padding: 20px;
+            }
+
+            .login-header {
+                gap: 10px;
+            }
+
+            .logo {
+                width: 70px;
+            }
+
+            .title-box h2 {
+                font-size: 20px;
+            }
+
+            .title-box p {
+                font-size: 13px;
+            }
+
+            .login-text {
+                font-size: 13px;
+                margin-bottom: 25px;
+            }
+
+            .input-box {
+                padding: 10px;
+            }
+
+            .input-box input {
+                font-size: 13px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .extra {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 12px;
+            }
+
+        }
+    </style>
+
+    </head>
+
+    <body>
+
+        <!-- LEFT SECTION -->
+
+        <div class="left">
+
+            <!-- floating icons -->
+
+            <i class="fa-solid fa-box icon icon1"></i>
+            <i class="fa-solid fa-warehouse icon icon2"></i>
+            <i class="fa-solid fa-truck icon icon3"></i>
+            <i class="fa-solid fa-industry icon icon4"></i>
+            <i class="fa-solid fa-solar-panel icon icon5"></i>
+            <i class="fa-solid fa-cubes icon icon6"></i>
+            <i class="fa-solid fa-toolbox icon icon7"></i>
+            <i class="fa-solid fa-chart-column icon icon8"></i>
+
+            <i class="fa-solid fa-bolt icon icon9"></i>
+            <i class="fa-solid fa-battery-full icon icon10"></i>
+            <i class="fa-solid fa-gears icon icon11"></i>
+            <i class="fa-solid fa-wrench icon icon12"></i>
+            <i class="fa-solid fa-screwdriver-wrench icon icon13"></i>
+            <i class="fa-solid fa-layer-group icon icon14"></i>
+            <i class="fa-solid fa-building icon icon15"></i>
+            <i class="fa-solid fa-truck-ramp-box icon icon16"></i>
+            <i class="fa-solid fa-box-open icon icon17"></i>
+            <i class="fa-solid fa-network-wired icon icon18"></i>
+            <i class="fa-solid fa-clipboard-list icon icon19"></i>
+            <i class="fa-solid fa-microchip icon icon20"></i>
+
+            <!-- center image -->
+
+            <div class="center-img">
+                <img src="../images/stock3.png" alt="Login Image">
+            </div>
+
+        </div>
+
+        <!-- RIGHT SECTION -->
+
+        <div class="right">
+
+            <div class="login-box">
+                <div class="login-header">
+                    <img src="../images/logo-s.png" class="logo" alt="Logo">
+                    <div class="title-box">
+                        <h2>Welcome!</h2>
+                        <p>Login to your dashboard</p>
+                    </div>
+
+                </div>
+
+                <div class="login-text">Enter your credentials to access your
+                    account</div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Enter email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Enter password">
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <a href="#">Forgot Password?</a>
+                    <span>Don't have account? <a href="#">Register</a></span>
+                </div>
+
+                <button>Login</button>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

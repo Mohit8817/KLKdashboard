@@ -262,7 +262,7 @@
 .brand-link {
     display: flex;
     align-items: center;
-    padding: 13px 1px;
+    padding: 13px 15px;
     border-bottom: 0.2px solid #e5e7eb91 !important;
     white-space: nowrap;
 }
