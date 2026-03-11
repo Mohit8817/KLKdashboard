@@ -1,0 +1,235 @@
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                </li>
+                <!--<li class="nav-item d-none d-sm-inline-block">-->
+                <!--        <a class="nav-link" data-widget="fullscreen" href="#" role="button">-->
+                <!--      <i class="fas fa-expand-arrows-alt"></i>-->
+                <!--    </a>-->
+                <!--  </li>  -->
+                <!--
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li> -->
+            </ul>
+
+
+
+
+            <!-- Right navbar links -->
+            <div class="navbar-nav ml-auto header-actions align-items-center">
+
+                <!-- Notification code -->
+                <div class="dropdown">
+                    <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell"></i>
+                        <span class="notif-badge">7</span>
+                    </div>
+
+                    <ul class="dropdown-menu dropdown-menu-right notif-dropdown shadow">
+                        <li class="notify-header">Notifications</li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring info"><i class="fas fa-info-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">New policy update</div>
+                                    <small class="text-muted">5 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring warning"><i class="fas fa-exclamation-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">Server downtime alert</div>
+                                    <small class="text-muted">10 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring success"><i class="fas fa-check-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">Payment completed</div>
+                                    <small class="text-muted">20 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+
+                        <li class="view-all"><a href="#">View All</a></li>
+                    </ul>
+                </div>
+
+                <!-- End notificat  ion code  -->
+                @php $userdata = DB::table('users')->where('id', session('loginId'))->first(); @endphp
+                <!-- PROFILE DROPDOWN CODE -->
+                <div class="dropdown ">
+                    <img src="{{ $userdata->image ? asset('uploads/employee/' . $userdata->image) : asset('images/userimg3.jpeg') }}"
+                        class="profile-img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                    <ul class="dropdown-menu dropdown-menu-right shadow">
+                        <li class="user-box">
+                            <h6>Login New User</h6>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                data-target="#profileModal">
+                                <span class="icon-blue mr-2">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                Profile
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="{{ route('view-employee') }}">
+                                <span class="icon-pink mr-2">
+                                    <i class="fas fa-cog"></i>
+                                </span>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center mb-2" href="{{ route('logout') }}">
+                                <span class="icon-gray mr-2">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </span>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Profile code End  -->
+            </div>
+
+        </nav>
+        <!-- /.navbar -->
+        <!-- profile side bar code  -->
+
+
+        <div class="modal fade" id="faceModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Register Your Face</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body text-center">
+
+                        <video id="video" width="450" height="350" autoplay muted></video>
+                        <br><br>
+
+                        <button class="btn btn-success" onclick="captureFace()">
+                            Capture Face
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content profile-modal p-3">
+
+                    <!-- Close Button -->
+                    <div class="close-btn" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+
+                    <!-- Modal Body Content -->
+                    <div class="text-center mt-3">
+                        <!-- Profile Image -->
+                        <img src="{{ $userdata->image ? asset('uploads/employee/' . $userdata->image) : asset('images/userimg3.jpeg') }}"
+                            class="profile-photo mb-2" alt="User Photo">
+                        <h5 class="user-name">{{ session('login') ?? 'NA' }}</h5>
+                        <hr>
+
+                        <!-- Profile Info -->
+                        <div class="profile-info mt-3 px-2">
+                            <p><strong>Full Name:</strong> {{ $userdata->name ?? 'NA' }}</p>
+                            <p><strong>Email:</strong> {{ $userdata->email ?? 'NA' }}</p>
+                            <p><strong>Gender:</strong> {{ $userdata->gender ?? 'NA' }}</p>
+                            <p><strong>DOJ:</strong> {{ $userdata->doj ?? 'NA' }}</p>
+                            <p><strong>Phone:</strong> {{ $userdata->whatsapp_number ?? 'NA' }}</p>
+                            <p><strong>State Access:</strong>
+                                @if ($role != 0)
+                                    {{ $userdata->state_access ?? 'NA' }}
+                                @else
+                                    All
+                                @endif
+                            </p>
+                        </div>
+
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#faceModal">
+                            Add Your Face
+                        </button>
+
+                        <!-- Change Password Button -->
+                        <button class="btn btn-block mt-3 text-white" style="background-color:#38487c"
+                            id="changePassBtn">Change Password</button>
+
+                        <!-- Hidden Change Password Fields -->
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+
+                            <div class="text-left mb-2">
+                                <label>Current Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-left mb-2">
+                                <label>New Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-left mb-2">
+                                <label>Confirm Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn w-50 mr-2 text-white" style="background-color:#38487c"
+                                    id="savePassBtn">Save</button>
+                                <button class="btn btn-danger w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>

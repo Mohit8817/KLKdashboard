@@ -231,18 +231,18 @@
     left: 0;
     background: #1f2937;
     border-right: 1px solid #374151;
-    overflow: hidden;
-    z-index: 1000;
+    overflow: auto;
+    z-index: 2000;
 }
 
-.sidebar {
+/* .sidebar {
     height: calc(110vh - 50px) !important;
     overflow-y: auto;
-}
+} */
 
 .content-wrapper {
     margin-left: 260px;
-    height: 100vh;
+    height: auto;
     overflow-y: auto;
     background: #f8f9fa;
 }
@@ -317,7 +317,7 @@
 .menu-item {
     display: flex;
     align-items: center;
-    padding: 10px 30px;
+    padding: 10px 21px;
     color: #d1d5db;
     font-size: 15px;
     cursor: pointer;
@@ -328,7 +328,7 @@
 
 .menu-item i {
     font-size: 18px;
-    margin-right: 14px;
+    margin-right: 27px !important;
     color: #9ca3af;
     min-width: 20px;
     text-align: center;
@@ -374,7 +374,7 @@
 .submenu {
     max-height: 0;
     overflow: hidden;
-    padding-left: 50px;
+    padding-left: 60px !important;
     transition: max-height 0.35s ease;
 }
 

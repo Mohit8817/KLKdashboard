@@ -1,0 +1,256 @@
+<style>
+            /* RIGHT SIDE MODAL */
+    .right-modal .modal-dialog {
+      position: fixed;
+      right: 0;
+      top: 0;
+      margin: 0;
+      height: 100%;
+      max-width: 340px;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform .35s ease-out;
+    }
+
+    .right-modal.show .modal-dialog {
+      transform: translateX(0);
+    }
+
+    .modal-backdrop.show {
+      opacity: .1 !important;
+    }
+
+    .profile-modal {
+      height: 100vh;
+      border-radius: 0;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      background: #f2f2f2;
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    .profile-photo {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 13px;
+      color: gray;
+    }
+
+    .profile-info p {
+      background: #f8f8f8;
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      margin-bottom: 7px;
+      text-align: left;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light bg-white shadow-sm px-lg-3">
+        <div class="container-fluid">
+            <!-- BRAND -->
+       <a href="{{route('state')}}" class="navbar-brand d-flex align-items-center">
+       <img src="{{asset('dist/img/klk.png')}}"
+       style="height: 50px;"> <span class="heading logo-heading"
+       class="text-center">KLK <span style="color: brown;">Ventures</span> Pvt
+       Ltd.</span>
+            </a>
+
+            <!-- RIGHT SIDE ICONS -->
+            <div class="header-actions text-center">
+                <!-- DOCUMENT BUTTON -->
+                <div class="doc-btn">
+                    <a style="text-decoration:none" href="{{ route('klk-documents')}}">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Document</span>
+                    </a>
+                </div>
+
+                <!-- NOTIFICATION -->
+                <!-- NOTIFICATION -->
+                <div class="dropdown">
+                    <div class="notif-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell"></i>
+                        <span class="notif-badge">7</span>
+                    </div>
+
+                    <!-- DROPDOWN BOX -->
+                    <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                        <li class="dropdown-header fw-bold px-3 text-dark">
+                            Notifications
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">New policy update</div>
+                                    <small class="text-muted">5 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">Server downtime alert</div>
+                                    <small class="text-muted">10 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="dropdown-item d-flex align-items-start">
+                                <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                                <div>
+                                    <div class="notif-title">Payment completed</div>
+                                    <small class="text-muted">20 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider" />
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item text-center" href="#">View All</a>
+                        </li>
+                    </ul>
+                </div>
+ @php $userdata = DB::table('users')->where('id', session('loginId'))->first(); @endphp
+                <!-- PROFILE DROPDOWN -->
+           <!-- PROFILE DROPDOWN -->
+        <div class="dropdown">
+          <img src="{{ $userdata->image ? asset('uploads/employee/' . $userdata->image) : asset('images/userimg3.jpeg') }}" class="profile-img" data-bs-toggle="dropdown" />
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li class="user-box">
+              <h6>Login New User</h6>
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#" data-bs-toggle="modal"
+                data-bs-target="#profileModal">
+                <i class="bi bi-person icon-blue me-3"></i>Profile
+              </a>
+
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{{route('view-employee')}}"><i
+                  class="bi bi-gear icon-pink me-3"></i>Settings</a>
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center mb-2" href="{{route('logout')}}"><i
+                  class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- profile popup  -->
+
+    <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-slideout" role="document">
+        <div class="modal-content profile-modal p-3">
+
+          <!-- Close Button -->
+          <div class="close-btn" data-dismiss="modal" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </div>
+
+
+          <!-- Modal Body Content -->
+          <div class="text-center mt-3">
+            <!-- Profile Image -->
+            <img src="{{ $userdata->image ? asset('uploads/employee/' . $userdata->image) : asset('images/userimg3.jpeg') }}"  class="profile-photo mb-2" alt="User Photo">
+             <h5 class="user-name">{{ session('login') ?? 'NA' }}</h5>
+            <hr>
+           
+            <!-- Profile Info -->
+            <div class="profile-info mt-3 px-2">
+                  <p><strong>Full Name:</strong> {{ $userdata->name ?? 'NA' }}</p>
+                  <p><strong>Email:</strong> {{ $userdata->email ?? 'NA' }}</p>
+                  <p><strong>Gender:</strong> {{ $userdata->gender ?? 'NA' }}</p>
+                  <p><strong>DOJ:</strong> {{ $userdata->doj ?? 'NA' }}</p>
+                  <p><strong>Phone:</strong> {{ $userdata->whatsapp_number ?? 'NA' }}</p>
+                  <p><strong>State Access:</strong> @if($role != 0)
+                            {{ $userdata->state_access ?? 'NA' }}
+                        @else
+                            All
+                        @endif
+                        </p>
+            </div>
+            
+            <button class="btn btn-block mt-3 text-white" style="background-color:#38487c" data-bs-target="#faceModal">Add Your Face</button>
+
+            <!-- Change Password Button -->
+            <button class="btn btn-block mt-3 text-white" style="background-color:#38487c" id="changePassBtn">Change Password</button>
+
+            <!-- Hidden Change Password Fields -->
+            <div id="passwordFields" style="display:none; padding: 15px;">
+
+                <div class="text-left mb-2">
+                <label>Current Password</label>
+                <div class="password-wrapper position-relative">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+              
+              <div class="text-left mb-2">
+                <label>New Password</label>
+                <div class="password-wrapper position-relative">
+                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                  <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                </div>
+              </div>
+
+              <div class="text-left mb-2">
+                <label>Confirm Password</label>
+                <div class="password-wrapper position-relative">
+                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                  <i class="fas fa-eye-slash password-toggle" data-target="confirmPass"></i>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between mt-3">
+                <button class="btn w-50 mr-2 text-white"  style="background-color:#38487c" id="savePassBtn">Save</button>
+                <button class="btn btn-danger w-50" id="cancelPassBtn">Cancel</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+            </div>
+        </div>
+    </nav>
