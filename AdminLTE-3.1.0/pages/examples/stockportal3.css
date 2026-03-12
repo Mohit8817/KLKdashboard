@@ -1,8 +1,16 @@
 /* navbar css  */
 
-.custom-navbar {
-    background: #fffffa !important;
-    border-bottom: 0.5px solid #e6e6e6 !important;
+
+
+.custom-navbar{
+    background:#fffffa !important;
+    border-bottom:0.5px solid #e6e6e6 !important;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    height:60px;
 }
 
 .welcome-text {
@@ -225,14 +233,17 @@
 /* ---------------- */
 
 
-.main-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #1f2937;
-    border-right: 1px solid #374151;
-    overflow: auto;
-    z-index: 2000;
+
+
+.main-sidebar{
+    position: fixed !important;
+    top:60px;         
+    left:0;
+    height:calc(100vh - 60px);
+    background:#1f2937;
+    border-right:1px solid #374151;
+    overflow-y:auto;
+    z-index:2000;
 }
 
 /* .sidebar {
@@ -241,9 +252,9 @@
 } */
 
 .content-wrapper {
-    margin-left: 260px;
+    /* margin-left: 260px;
     height: auto;
-    overflow-y: auto;
+    overflow-y: auto; */
     background: #f8f9fa;
 }
 
