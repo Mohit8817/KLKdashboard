@@ -242,6 +242,7 @@
       letter-spacing: .5px;
       padding: 14px;
       border: none;
+       background: #3facff !important;
     }
 
     .modern-table td {
