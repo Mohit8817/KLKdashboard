@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AdminLTE 3 | Blank Page</title>
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
-  <link rel="stylesheet" href="./Mohit2.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="./Mohit2.css" />
 
+    <!-- ICONS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet" />
 
-  <!-- ICONS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-  <style>
+    <style>
     .main-header {
       position: fixed;
       top: 0;
@@ -193,7 +197,7 @@
     }
   </style>
 
-  <style>
+    <style>
     /* Welcome Section ---------------------------------------*/
 
     /* Left side text styling */
@@ -509,14 +513,14 @@
       overflow: hidden;
       border-radius: 12px;
       transition: 0.3s;
-      border: 1.2px solid #6a6cfe !important;
+      border: 1.2px solid #018ffb !important;
       background: #fff;
     }
 
 
     /* Chart Header */
     .chart-header {
-      background: #6a6cfe;
+      background: #018ffb;
       color: #ffffff;
       padding: 10px 15px;
       font-size: 16px;
@@ -536,7 +540,7 @@
       justify-content: center;
       border-radius: 50%;
       font-size: 15px;
-      color: #6a6cfe;
+      color: #018ffb;
     }
 
     /* Card Inner */
@@ -611,7 +615,7 @@
     }
 
     .nav-tabs .nav-link.active {
-      background: #6a6cfe;
+      background: #018ffb;
       color: white !important;
       border-color: transparent !important;
     }
@@ -731,8 +735,8 @@
     }
   </style>
 
-  <!-- NEW Sidebar css here  -->
-  <style>
+    <!-- NEW Sidebar css here  -->
+    <style>
     .main-sidebar {
       height: 100vh !important;
       background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
@@ -814,1143 +818,1171 @@
     }
   </style>
 
-</head>
+  </head>
 
-<body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini">
 
-  <!-- Site wrapper -->
-  <div class="wrapper">
-    <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
-      <div class="container-fluid">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      <nav
+        class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+        <div class="container-fluid">
 
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
+          <!-- Left navbar links -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-widget="pushmenu" href="#"
+                role="button"><i class="fas fa-bars"></i></a>
+            </li>
+          </ul>
+
+          <!-- RIGHT SIDE ICONS -->
+          <div class="header-actions">
+            <!-- DOCUMENT BUTTON -->
+            <div class="doc-btn">
+              <i class="bi bi-file-earmark-text"></i>
+              <span>Document</span>
+            </div>
+
+            <!-- NOTIFICATION -->
+            <div class="dropdown">
+              <div class="notif-btn" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-bell"></i>
+                <span class="notif-badge">7</span>
+              </div>
+
+              <!-- DROPDOWN BOX -->
+              <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                <li class="dropdown-header fw-bold px-3 text-dark">
+                  Notifications
+                </li>
+
+                <li>
+                  <a href="#" class="dropdown-item d-flex align-items-start">
+                    <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                    <div>
+                      <div class="notif-title">New policy
+                        update</div>
+                      <small class="text-muted">5 min
+                        ago</small>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="dropdown-item d-flex align-items-start">
+                    <i
+                      class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                    <div>
+                      <div class="notif-title">Server downtime
+                        alert</div>
+                      <small class="text-muted">10 min
+                        ago</small>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="dropdown-item d-flex align-items-start">
+                    <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                    <div>
+                      <div class="notif-title">Payment
+                        completed</div>
+                      <small class="text-muted">20 min
+                        ago</small>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+
+                <li>
+                  <a class="dropdown-item text-center" href="#">View All</a>
+                </li>
+
+              </ul>
+            </div>
+
+            <!-- PROFILE DROPDOWN -->
+            <div class="dropdown">
+              <img src="../images/userimg.jpg" class="profile-img"
+                data-toggle="dropdown" />
+              <ul class="dropdown-menu dropdown-menu-end shadow">
+                <li class="user-box">
+                  <h6>Login New User</h6>
+                </li>
+
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#"
+                    data-toggle="modal"
+                    data-target="#profileModal">
+                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                  </a>
+
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#"><i
+                      class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item d-flex align-items-center mb-2"
+                    href="#"><i
+                      class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- right sidebar toggle button  -->
+            <div class="nav-item">
+              <a class="nav-link sidebar-toggle" id="rightSidebarToggle">
+                <i class="bi bi-ui-checks-grid"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </nav>
+
+      <!-- profile popup  -->
+      <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-right">
+          <div class="modal-content profile-modal">
+
+            <span class="close-btn" data-dismiss="modal">
+              <i class="bi bi-x-lg"></i>
+            </span>
+
+            <div class="modal-body text-center p-4">
+              <img src="../images/userimg.jpg" class="profile-photo mb-3">
+              <h5 class="user-name">Pravesh Ahamad</h5>
+              <p class="user-email">@parvesahamad</p>
+
+              <hr>
+
+              <div class="profile-info">
+                <p><strong>Full Name:</strong> Parves Ahamad</p>
+                <p><strong>Email:</strong> parves@gmail.com</p>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>DOB:</strong> 05-01-2001</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>State:</strong> Kashmir</p>
+              </div>
+
+                <button class="btn btn-dark w-100" id="">Add face</button>
+
+              <button class="btn btn-dark w-100" id="changePassBtn">Change
+                Password</button>
+
+              <!-- Hidden Password Fields -->
+              <div id="passwordFields" style="display:none; padding: 15px;">
+
+                <div class="mb-2 text-start">
+                  <label class="form-label">New Password</label>
+                  <div class="password-wrapper">
+                    <input type="password" id="newPass" class="form-control"
+                      placeholder="Enter New Password">
+                    <i class="bi bi-eye-slash password-toggle"
+                      data-target="newPass"></i>
+                  </div>
+                </div>
+
+                <div class="mb-2 text-start">
+                  <label class="form-label">Confirm Password</label>
+                  <div class="password-wrapper">
+                    <input type="password" id="confirmPass" class="form-control"
+                      placeholder="Confirm Password">
+                    <i class="bi bi-eye-slash password-toggle"
+                      data-target="confirmPass"></i>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-3">
+                  <button class="btn btn-dark w-50"
+                    id="savePassBtn">Save</button>
+                  <button class="btn btn-secondary w-50"
+                    id="cancelPassBtn">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW RIGHT SIDEBAR -->
+      <div class="right-sidebar" id="rightSidebar">
+
+        <button class="right-sidebar-close" id="closeSidebar">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <!-- BOOTSTRAP TABS -->
+        <ul class="nav nav-tabs qs-tabs" role="tablist">
           <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            <a class="nav-link active" data-toggle="tab" href="#notes"
+              role="tab">NOTES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#alerts"
+              role="tab">ALERTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#chat"
+              role="tab">CHATS</a>
           </li>
         </ul>
 
-    
-
-        <!-- RIGHT SIDE ICONS -->
-        <div class="header-actions">
-          <!-- DOCUMENT BUTTON -->
-          <div class="doc-btn">
-            <i class="bi bi-file-earmark-text"></i>
-            <span>Document</span>
-          </div>
-
-          <!-- NOTIFICATION -->
-          <div class="dropdown">
-            <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-bell"></i>
-              <span class="notif-badge">7</span>
-            </div>
-
-            <!-- DROPDOWN BOX -->
-            <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
-              <li class="dropdown-header fw-bold px-3 text-dark">
-                Notifications
-              </li>
-
-              <li>
-                <a href="#" class="dropdown-item d-flex align-items-start">
-                  <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
-                  <div>
-                    <div class="notif-title">New policy
-                      update</div>
-                    <small class="text-muted">5 min
-                      ago</small>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="dropdown-item d-flex align-items-start">
-                  <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
-                  <div>
-                    <div class="notif-title">Server downtime
-                      alert</div>
-                    <small class="text-muted">10 min
-                      ago</small>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="dropdown-item d-flex align-items-start">
-                  <i class="bi bi-check-circle text-success me-3 fs-5"></i>
-                  <div>
-                    <div class="notif-title">Payment
-                      completed</div>
-                    <small class="text-muted">20 min
-                      ago</small>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a class="dropdown-item text-center" href="#">View All</a>
-              </li>
-
-
-
-            </ul>
-          </div>
-
-          <!-- PROFILE DROPDOWN -->
-          <div class="dropdown">
-            <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
-            <ul class="dropdown-menu dropdown-menu-end shadow">
-              <li class="user-box">
-                <h6>Login New User</h6>
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
-                  data-target="#profileModal">
-                  <i class="bi bi-person icon-blue me-3"></i>Profile
-                </a>
-
-              </li>
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#"><i
-                    class="bi bi-gear icon-pink me-3"></i>Settings</a>
-              </li>
-
-              <li>
-                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
-                    class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
-              </li>
-            </ul>
-          </div>
-
-
-          <!-- right sidebar toggle button  -->
-          <div class="nav-item">
-            <a class="nav-link sidebar-toggle" id="rightSidebarToggle">
-              <i class="bi bi-ui-checks-grid"></i>
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-
-    </nav>
-
-    <!-- profile popup  -->
-    <div class="modal fade right-modal" id="profileModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-right">
-        <div class="modal-content profile-modal">
-
-          <span class="close-btn" data-dismiss="modal">
-            <i class="bi bi-x-lg"></i>
-          </span>
-
-          <div class="modal-body text-center p-4">
-            <img src="../images/userimg.jpg" class="profile-photo mb-3">
-            <h5 class="user-name">Pravesh Ahamad</h5>
-            <p class="user-email">@parvesahamad</p>
-
-            <hr>
-
-            <div class="profile-info">
-              <p><strong>Full Name:</strong> Parves Ahamad</p>
-              <p><strong>Email:</strong> parves@gmail.com</p>
-              <p><strong>Gender:</strong> Male</p>
-              <p><strong>DOB:</strong> 05-01-2001</p>
-              <p><strong>Phone:</strong> +91 9876543210</p>
-              <p><strong>State:</strong> Kashmir</p>
-            </div>
-
-            <button class="btn btn-dark w-100" id="changePassBtn">Change
-              Password</button>
-
-            <!-- Hidden Password Fields -->
-            <div id="passwordFields" style="display:none; padding: 15px;">
-
-              <div class="mb-2 text-start">
-                <label class="form-label">New Password</label>
-                <div class="password-wrapper">
-                  <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
-                  <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
-                </div>
-              </div>
-
-              <div class="mb-2 text-start">
-                <label class="form-label">Confirm Password</label>
-                <div class="password-wrapper">
-                  <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
-                  <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
-                </div>
-              </div>
-
-              <div class="d-flex gap-2 mt-3">
-                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
-                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <!-- NEW RIGHT SIDEBAR -->
-    <div class="right-sidebar" id="rightSidebar">
-
-      <button class="right-sidebar-close" id="closeSidebar">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <!-- BOOTSTRAP TABS -->
-      <ul class="nav nav-tabs qs-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#notes" role="tab">NOTES</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#alerts" role="tab">ALERTS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#chat" role="tab">CHATS</a>
-        </li>
-      </ul>
-
-      <!-- TAB CONTENT -->
-      <div class="tab-content">
-        <!-- NOTES -->
-        <div class="tab-pane fade show active" id="notes">
-          <div class="notes-header">
-            <div>
-              <h5>Notes</h5>
-              <p>Add New Notes</p>
-            </div>
-            <button class="icon-btn">+</button>
-          </div>
-
-          <div class="notes-list">
-            <div class="note-item">
+        <!-- TAB CONTENT -->
+        <div class="tab-content">
+          <!-- NOTES -->
+          <div class="tab-pane fade show active" id="notes">
+            <div class="notes-header">
               <div>
-                <h6>New order placed..</h6>
-                <span>10 Aug 2020</span>
+                <h5>Notes</h5>
+                <p>Add New Notes</p>
               </div>
-              <div class="actions">
-                <button class="edit">✏️</button>
-                <button class="delete">🗑</button>
-              </div>
+              <button class="icon-btn">+</button>
             </div>
 
-            <div class="note-item">
-              <div>
-                <h6>New order placed..</h6>
-                <span>10 Aug 2020</span>
-              </div>
-              <div class="actions">
-                <button class="edit">✏️</button>
-                <button class="delete">🗑</button>
-              </div>
-            </div>
-
-
-            <div class="note-item">
-              <div>
-                <h6>New order placed..</h6>
-                <span>10 Aug 2020</span>
-              </div>
-              <div class="actions">
-                <button class="edit">✏️</button>
-                <button class="delete">🗑</button>
-              </div>
-            </div>
-
-
-            <div class="note-item">
-              <div>
-                <h6>New order placed..</h6>
-                <span>10 Aug 2020</span>
-              </div>
-              <div class="actions">
-                <button class="edit">✏️</button>
-                <button class="delete">🗑</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ALERTS -->
-        <div class="tab-pane fade" id="alerts">
-          <p class="empty-text">No alerts available</p>
-        </div>
-
-        <!-- CHAT -->
-        <div class="tab-pane fade" id="chat">
-          <p class="empty-text">Chat section coming soon</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="right-sidebar-overlay" id="rightSidebarOverlay"></div>
-
-    <!-- RIGHT SIDEBAR END -->
-
-
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar  elevation-4 shadow">
-      <!-- Brand Logo -->
-      <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
-        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
-          class="brand-image  bottom-border img-circle elevation-3" style="opacity: 0.8" />
-        <span class="brand-text text-dark">KLK Ventures-up</span>
-      </a>
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-header">Dashboard</li>
-            <li class="nav-item ">
-              <a href="#" class="nav-link active">
-                <i class="bi bi-speedometer2 nav-icon"></i>
-                <p>
-                  Dashboard
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard one</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./klkhome.html" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard Two</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard Three</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit4.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard four</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard five</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="pages/UI/timeline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Timeline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/UI/ribbons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ribbons</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Mohit4.html" class="nav-link">
-                <i class="bi bi-grid nav-icon"></i>
-
-                <p>Dashboard 2</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="bi bi-grid nav-icon"></i>
-
-                <p>Dashboard 3</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Newtable.html" class="nav-link">
-                <i class="bi bi-bar-chart-line nav-icon"></i>
-                <p>
-                  Table
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Userprofile.html" class="nav-link">
-                <i class="bi bi-bar-chart-line nav-icon"></i>
-                <p>
-                  User Profile
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./UserProfilepage.html" class="nav-link">
-                <i class="bi bi-layers nav-icon"></i>
-                <p>User Profile View
-                </p>
-              </a>
-
-            </li>
-
-            <li class="nav-item">
-              <a href="./Srtdashboard.html" class="nav-link">
-                <i class="bi bi-ui-checks-grid nav-icon"></i>
-
-                <p>SRT Old Dashboard</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Srtdashboarddemo.html" class="nav-link">
-                <i class="bi bi-ui-checks-grid nav-icon"></i>
-
-                <p>SRT Old Dashboard</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-header">HRM Dashboards</li>
-            <li class="nav-item">
-              <a href="./hrmdashboard.html" class="nav-link">
-                <i class="bi bi-table nav-icon"></i>
-
-                <p>HRM Main Dashboards</p>
-                <i class="right ph ph-caret-right"></i>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="./Empdashboard.html" class="nav-link">
-                <i class="bi bi-calendar-week nav-icon"></i>
-
-                <p>HRM Employee Dashboard</p>
-              </a>
-            </li>
-
-            <li class="nav-header">Sidebar Designs </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-exclamation-octagon nav-icon"></i>
-
-                <p>
-                  Sidebars
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="./Mohit.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sidebar one</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit2.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sidebar Two</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit3.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sidebar Three</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Mohit4.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sidebar four</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./Sidebar.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Sidebar five</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="pages/UI/timeline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Timeline</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/UI/ribbons.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Ribbons</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-list-check nav-icon"></i>
-                <p>
-                  Forms
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>General Elements</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/advanced.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Advanced Elements</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/editors.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editors</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/validation.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Validation</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-speedometer2 nav-icon"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-sun nav-icon"></i>
-                <p>Kusum</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-file-earmark-text nav-icon"></i>
-                <p>SSL Details</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-lightbulb nav-icon"></i>
-                <p>SSL 18W</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-building nav-icon"></i>
-                <p>UP Resco</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-cloud-slash nav-icon"></i>
-                <p>UP Off Grid Details</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-cloud-check nav-icon"></i>
-                <p>UP On Grid Details</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-battery-full nav-icon"></i>
-                <p>Power Pack Details</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-archive nav-icon"></i>
-                <p>SRLM SRT Details</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-list-check nav-icon"></i>
-                <p>Task Assign</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-box-seam nav-icon"></i>
-                <p>Product</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-exclamation-octagon nav-icon"></i>
-                <p>Complaints</p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="bi bi-box-arrow-right nav-icon"></i>
-                <p>Logout</p>
-              </a>
-            </li>
-
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-
-      <section class="content">
-
-        <!-- welcome Section here  -->
-        <section class="py-2 py-md-4 mt-5">
-          <div class="container-fluid">
-            <div class="row align-items-center g-2">
-              <!-- LEFT -->
-              <div class="col-md-6 col-12 d-flex align-items-center gap-2">
-                <img src="../images/icon (2).svg" class="welcome-icon" style="width: 50px" />
+            <div class="notes-list">
+              <div class="note-item">
                 <div>
-                  <div class="welcome-sub">Welcome to,</div>
-                  <h2 class="welcome-title m-0 fw-bold">
-                    KLK UP SSL Dashboard
-                  </h2>
+                  <h6>New order placed..</h6>
+                  <span>10 Aug 2020</span>
+                </div>
+                <div class="actions">
+                  <button class="edit">✏️</button>
+                  <button class="delete">🗑</button>
                 </div>
               </div>
 
-              <!-- RIGHT -->
-              <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
-                <div class="select-wrapper">
-                  <i class="bi bi-ui-checks-grid"></i>
-                  <select class="custom-select form-select">
-                    <option selected>All Volume</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
+              <div class="note-item">
+                <div>
+                  <h6>New order placed..</h6>
+                  <span>10 Aug 2020</span>
+                </div>
+                <div class="actions">
+                  <button class="edit">✏️</button>
+                  <button class="delete">🗑</button>
+                </div>
+              </div>
+
+              <div class="note-item">
+                <div>
+                  <h6>New order placed..</h6>
+                  <span>10 Aug 2020</span>
+                </div>
+                <div class="actions">
+                  <button class="edit">✏️</button>
+                  <button class="delete">🗑</button>
+                </div>
+              </div>
+
+              <div class="note-item">
+                <div>
+                  <h6>New order placed..</h6>
+                  <span>10 Aug 2020</span>
+                </div>
+                <div class="actions">
+                  <button class="edit">✏️</button>
+                  <button class="delete">🗑</button>
                 </div>
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Cards Section  -->
-        <div class="container-fluid py-2">
-          <div class="row g-3">
-            <!-- Card 1 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="./Newtable.html">
-                <div class="dashboard-box blue">
-                  <div class="circle-icon blue-border">
-                    <img src="../images/icon1.png" alt="target">
-                  </div>
-                  <div>
-                    <p class="title">Total Allocated Target</p>
-                    <p class="value">73330</p>
-                    <p class="subtitle">Total Sites</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="./Newtable.html">
-                <div class="dashboard-box green">
-                  <div class="circle-icon green-border">
-                    <img src="../images/icon2.png" alt="material">
-                  </div>
-                  <div>
-                    <p class="title">Material Supply Status</p>
-                    <p class="value">73330 / 0</p>
-                    <p class="subtitle">Supplied / Pending</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="#">
-                <div class="dashboard-box orange">
-                  <div class="circle-icon orange-border">
-                    <img src="../images/icon3.png" alt="installation">
-                  </div>
-                  <div>
-                    <p class="title">Installation</p>
-                    <p class="value">73330 / 0</p>
-                    <p class="subtitle">Installed / Pending</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="#">
-                <div class="dashboard-box red">
-                  <div class="circle-icon red-border">
-                    <img src="../images/icon4.png" alt="document">
-                  </div>
-                  <div>
-                    <p class="title">Document Status</p>
-                    <p class="value">73330 / 0</p>
-                    <p class="subtitle">Submitted / Pending</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="#">
-                <div class="dashboard-box purple">
-                  <div class="circle-icon purple-border">
-                    <img src="../images/icon5.png" alt="payment">
-                  </div>
-                  <div>
-                    <p class="title">85% Payment Status</p>
-                    <p class="value">73329 / 1</p>
-                    <p class="subtitle">Done / Pending</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="col-lg-4 col-md-6 col-12 mb-2">
-              <a href="#">
-                <div class="dashboard-box teal">
-                  <div class="circle-icon teal-border">
-                    <img src="../images/icon6.png" alt="amc">
-                  </div>
-                  <div>
-                    <p class="title">AMC Visit Status</p>
-                    <p class="value">73330 / 0</p>
-                    <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
+          <!-- ALERTS -->
+          <div class="tab-pane fade" id="alerts">
+            <p class="empty-text">No alerts available</p>
           </div>
+
+          <!-- CHAT -->
+          <div class="tab-pane fade" id="chat">
+            <p class="empty-text">Chat section coming soon</p>
+          </div>
+
         </div>
+      </div>
 
-        <!-- chart section start  -->
-        <div class="container-fluid ">
-          <div class="row">
-            <!-- Donut Chart -->
-            <div class="col-12 col-lg-6">
-              <div class="card chart-card shadow-sm">
-                <div class="chart-header">
-                  <i class="fas fa-chart-pie"></i>
-                  Department Distribution
-                </div>
-                <div class="card-body">
-                  <div class="chart-container">
-                    <canvas id="donutChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="right-sidebar-overlay" id="rightSidebarOverlay"></div>
 
-            <!-- Bar Chart -->
-            <div class="col-12 col-lg-6">
-              <div class="card chart-card shadow-sm">
-                <div class="chart-header">
-                  <i class="fas fa-chart-bar"></i>
-                  Monthly Progress Overview
-                </div>
-                <div class="card-body">
-                  <div class="chart-container">
-                    <canvas id="barChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <!-- RIGHT SIDEBAR END -->
 
-            <!-- Line Chart -->
-            <div class="col-12">
-              <div class="card chart-card shadow-sm">
-                <div class="chart-header">
-                  <i class="fas fa-chart-line"></i>
-                  Installation Trend Analysis
-                </div>
-                <div class="card-body">
-                  <div class="chart-container">
-                    <canvas id="lineChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar  elevation-4 shadow">
+        <!-- Brand Logo -->
+        <a href="./klkhome.html"
+          class="brand-link border-bottom shadow-sm border-2">
+          <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+            class="brand-image  bottom-border img-circle elevation-3"
+            style="opacity: 0.8" />
+          <span class="brand-text text-dark">KLK Ventures-up</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column"
+              data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-header">Dashboard</li>
+              <li class="nav-item ">
+                <a href="#" class="nav-link active">
+                  <i class="bi bi-speedometer2 nav-icon"></i>
+                  <p>
+                    Dashboard
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./Mohit.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard one</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./klkhome.html" class="nav-link active">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard Two</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Mohit3.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard Three</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Mohit4.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard four</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Sidebar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Dashboard five</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="pages/UI/timeline.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Timeline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/UI/ribbons.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Ribbons</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="./Mohit4.html" class="nav-link">
+                  <i class="bi bi-grid nav-icon"></i>
+
+                  <p>Dashboard 2</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/widgets.html" class="nav-link">
+                  <i class="bi bi-grid nav-icon"></i>
+
+                  <p>Dashboard 3</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./Newtable.html" class="nav-link">
+                  <i class="bi bi-bar-chart-line nav-icon"></i>
+                  <p>
+                    Table
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./Userprofile.html" class="nav-link">
+                  <i class="bi bi-bar-chart-line nav-icon"></i>
+                  <p>
+                    User Profile
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./UserProfilepage.html" class="nav-link">
+                  <i class="bi bi-layers nav-icon"></i>
+                  <p>User Profile View
+                  </p>
+                </a>
+
+              </li>
+
+              <li class="nav-item">
+                <a href="./Srtdashboard.html" class="nav-link">
+                  <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                  <p>SRT Old Dashboard</p>
+                  <i class="right ph ph-caret-right"></i>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./Srtdashboarddemo.html" class="nav-link">
+                  <i class="bi bi-ui-checks-grid nav-icon"></i>
+
+                  <p>SRT Old Dashboard</p>
+                  <i class="right ph ph-caret-right"></i>
+                </a>
+              </li>
+
+              <li class="nav-header">HRM Dashboards</li>
+              <li class="nav-item">
+                <a href="./hrmdashboard.html" class="nav-link">
+                  <i class="bi bi-table nav-icon"></i>
+
+                  <p>HRM Main Dashboards</p>
+                  <i class="right ph ph-caret-right"></i>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="./Empdashboard.html" class="nav-link">
+                  <i class="bi bi-calendar-week nav-icon"></i>
+
+                  <p>HRM Employee Dashboard</p>
+                </a>
+              </li>
+
+              <li class="nav-header">Sidebar Designs </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-exclamation-octagon nav-icon"></i>
+
+                  <p>
+                    Sidebars
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="./Mohit.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sidebar one</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Mohit2.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sidebar Two</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Mohit3.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sidebar Three</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Mohit4.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sidebar four</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./Sidebar.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Sidebar five</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="pages/UI/timeline.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Timeline</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/UI/ribbons.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Ribbons</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-list-check nav-icon"></i>
+                  <p>
+                    Forms
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="pages/forms/general.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>General Elements</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/forms/advanced.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Advanced Elements</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/forms/editors.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Editors</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="pages/forms/validation.html" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Validation</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-speedometer2 nav-icon"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-sun nav-icon"></i>
+                  <p>Kusum</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-file-earmark-text nav-icon"></i>
+                  <p>SSL Details</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-lightbulb nav-icon"></i>
+                  <p>SSL 18W</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-building nav-icon"></i>
+                  <p>UP Resco</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-cloud-slash nav-icon"></i>
+                  <p>UP Off Grid Details</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-cloud-check nav-icon"></i>
+                  <p>UP On Grid Details</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-battery-full nav-icon"></i>
+                  <p>Power Pack Details</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-archive nav-icon"></i>
+                  <p>SRLM SRT Details</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-list-check nav-icon"></i>
+                  <p>Task Assign</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-box-seam nav-icon"></i>
+                  <p>Product</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-exclamation-octagon nav-icon"></i>
+                  <p>Complaints</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="bi bi-box-arrow-right nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+          <!-- /.sidebar-menu -->
         </div>
+        <!-- /.sidebar -->
+      </aside>
 
-        <!-- Table Section -->
-        <div class="container-fluid pb-2">
-          <div class="row">
-            <div class="col-12">
-              <div class="shadow-sm chart-card border-0">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
 
-                <!-- Header -->
-                <div class="card-header table-title border-0 p-0">
-                  <div class="chart-header">
-                    <i class="fas fa-table"></i> Installation Status Details
+        <section class="content">
+
+          <!-- welcome Section here  -->
+          <section class="py-2 py-md-4 mt-5">
+            <div class="container-fluid">
+              <div class="row align-items-center g-2">
+                <!-- LEFT -->
+                <div class="col-md-6 col-12 d-flex align-items-center gap-2">
+                  <img src="../images/icon (2).svg" class="welcome-icon"
+                    style="width: 50px" />
+                  <div>
+                    <div class="welcome-sub">Welcome to,</div>
+                    <h2 class="welcome-title m-0 fw-bold">
+                      KLK UP SSL Dashboard
+                    </h2>
                   </div>
                 </div>
 
-                <!-- Bootstrap Tab System -->
-                <nav class="px-3 pt-2">
-                  <div class="nav nav-tabs" id="table-tab" role="tablist">
-                    <a class="nav-item nav-link active text-dark" id="phase-tab" data-toggle="tab" href="#phase"
-                      role="tab" aria-controls="phase" aria-selected="true">Phase Wise</a>
-
-                    <a class="nav-item nav-link text-dark" id="district-tab" data-toggle="tab" href="#district"
-                      role="tab" aria-controls="district" aria-selected="false">District Wise</a>
-
-                    <a class="nav-item nav-link text-dark" id="vendor-tab" data-toggle="tab" href="#vendor" role="tab"
-                      aria-controls="vendor" aria-selected="false">Vendor
-                      Wise</a>
+                <!-- RIGHT -->
+                <div
+                  class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                  <div class="select-wrapper">
+                    <i class="bi bi-ui-checks-grid"></i>
+                    <select class="custom-select form-select">
+                      <option selected>All Volume</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
                   </div>
-                </nav>
+                </div>
+              </div>
+            </div>
+          </section>
 
-                <!-- Tab Content -->
-                <div class="tab-content p-3" id="table-tabContent">
-
-                  <!-- PHASE TAB -->
-
-                  <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class>
-                          <tr>
-                            <th>Sr. No.</th>
-                            <th>District</th>
-                            <th>Total</th>
-                            <th>WO Received</th>
-                            <th>WO Pending</th>
-                            <th>Material Supplied</th>
-                            <th>Material Pending</th>
-                            <th>Material Inspection</th>
-                            <th>Material Inspection Pending</th>
-                            <th>Installed</th>
-                            <th>Pending</th>
-                            <th>Installation Inspection</th>
-                            <th>Installation Inspection Pending</th>
-                            <th>85% Bill Submitted</th>
-                            <th>85% Bill Pending</th>
-                            <th>85% Payment Complete</th>
-                            <th>85% Payment Pending</th>
-                            <th>AMC 1 Complete</th>
-                            <th>AMC 1 Pending</th>
-                            <th>AMC 2 Complete</th>
-                            <th>AMC 2 Pending</th>
-                            <th>AMC 3 Complete</th>
-                            <th>AMC 3 Pending</th>
-                            <th>AMC 4 Complete</th>
-                            <th>AMC 4 Pending</th>
-                            <th>AMC 5 Complete</th>
-                            <th>AMC 5 Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Aligarh</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>AMBEDKAR NAGAR</td>
-                            <td>510</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>510</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Amroha (J.P. NAGAR)</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                            <td>0</td>
-                            <td>19</td>
-                          </tr>
-                        </tbody>
-                      </table>
+          <!-- Cards Section  -->
+          <div class="container-fluid py-2">
+            <div class="row g-3">
+              <!-- Card 1 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="./Newtable.html">
+                  <div class="dashboard-box blue">
+                    <div class="circle-icon blue-border">
+                      <img src="../images/icon1.png" alt="target">
+                    </div>
+                    <div>
+                      <p class="title">Total Allocated Target</p>
+                      <p class="value">73330</p>
+                      <p class="subtitle">Total Sites</p>
                     </div>
                   </div>
-
-                  <!-- DISTRICT TAB -->
-                  <div class="tab-pane fade" id="district" role="tabpanel" aria-labelledby="district-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class>
-                          <tr>
-                            <th>Sr No</th>
-                            <th>District</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td><span class="status-icon status-active"></span>District
-                              A</td>
-                            <td>10</td>
-                            <td>45</td>
-                            <td>20</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>25</td>
-                            <td>5</td>
-                            <td>8</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td><span class="status-icon status-pending"></span>District
-                              B</td>
-                            <td>5</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td>20</td>
-                            <td>10</td>
-                            <td>18</td>
-                            <td>3</td>
-                            <td>5</td>
-                          </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>15</td>
-                            <td>75</td>
-                            <td>35</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>43</td>
-                            <td>8</td>
-                            <td>13</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <!-- VENDOR TAB -->
-                  <div class="tab-pane fade" id="vendor" role="tabpanel" aria-labelledby="vendor-tab">
-                    <div class="table-responsive">
-                      <table class="table modern-table table-hover text-center mb-0">
-                        <thead class>
-                          <tr>
-                            <th>Sr No</th>
-                            <th>Vendor</th>
-                            <th>Material Dispatch Pending</th>
-                            <th>Site Installed</th>
-                            <th>Site Not Installed</th>
-                            <th>Meter Installed</th>
-                            <th>Meter Not Installed</th>
-                            <th>RMS Installed</th>
-                            <th>RMS Not Installed</th>
-                            <th>Image Pending</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td><span class="status-icon status-active"></span>Vendor
-                              X</td>
-                            <td>8</td>
-                            <td>50</td>
-                            <td>25</td>
-                            <td>35</td>
-                            <td>18</td>
-                            <td>30</td>
-                            <td>6</td>
-                            <td>10</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td><span class="status-icon status-pending"></span>Vendor
-                              Y</td>
-                            <td>12</td>
-                            <td>40</td>
-                            <td>20</td>
-                            <td>28</td>
-                            <td>12</td>
-                            <td>22</td>
-                            <td>4</td>
-                            <td>7</td>
-                          </tr>
-                          <tr class="total-row">
-                            <td colspan="2"><i class="fas fa-calculator me-2"></i>TOTAL</td>
-                            <td>20</td>
-                            <td>90</td>
-                            <td>45</td>
-                            <td>63</td>
-                            <td>30</td>
-                            <td>52</td>
-                            <td>10</td>
-                            <td>17</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                </div>
+                </a>
               </div>
+
+              <!-- Card 2 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="./Newtable.html">
+                  <div class="dashboard-box green">
+                    <div class="circle-icon green-border">
+                      <img src="../images/icon2.png" alt="material">
+                    </div>
+                    <div>
+                      <p class="title">Material Supply Status</p>
+                      <p class="value">73330 / 0</p>
+                      <p class="subtitle">Supplied / Pending</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="#">
+                  <div class="dashboard-box orange">
+                    <div class="circle-icon orange-border">
+                      <img src="../images/icon3.png" alt="installation">
+                    </div>
+                    <div>
+                      <p class="title">Installation</p>
+                      <p class="value">73330 / 0</p>
+                      <p class="subtitle">Installed / Pending</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="#">
+                  <div class="dashboard-box red">
+                    <div class="circle-icon red-border">
+                      <img src="../images/icon4.png" alt="document">
+                    </div>
+                    <div>
+                      <p class="title">Document Status</p>
+                      <p class="value">73330 / 0</p>
+                      <p class="subtitle">Submitted / Pending</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="#">
+                  <div class="dashboard-box purple">
+                    <div class="circle-icon purple-border">
+                      <img src="../images/icon5.png" alt="payment">
+                    </div>
+                    <div>
+                      <p class="title">85% Payment Status</p>
+                      <p class="value">73329 / 1</p>
+                      <p class="subtitle">Done / Pending</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="col-lg-4 col-md-6 col-12 mb-2">
+                <a href="#">
+                  <div class="dashboard-box teal">
+                    <div class="circle-icon teal-border">
+                      <img src="../images/icon6.png" alt="amc">
+                    </div>
+                    <div>
+                      <p class="title">AMC Visit Status</p>
+                      <p class="value">73330 / 0</p>
+                      <p class="subtitle">1 / 2 / 3 / 4 / 5</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
             </div>
           </div>
-        </div>
 
-        <!-- footer section -->
-        <section class>
-          <div class="container">
+          <!-- chart section start  -->
+          <div class="container-fluid ">
             <div class="row">
-              <footer class="footer-area py-2">
-                <p class="m-0 fw-semibold text-secondary small footer-text">
-                  Copyright © <span id="year"></span> KLK ERP — By
-                  <span class="text-primary fw-bold">ETS NETWORKS.</span>
-                  All rights reserved.
-                </p>
-              </footer>
+              <!-- Donut Chart -->
+              <div class="col-12 col-lg-6">
+                <div class="card chart-card shadow-sm">
+                  <div class="chart-header">
+                    <i class="fas fa-chart-pie"></i>
+                    Department Distribution
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-container">
+                      <canvas id="donutChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bar Chart -->
+              <div class="col-12 col-lg-6">
+                <div class="card chart-card shadow-sm">
+                  <div class="chart-header">
+                    <i class="fas fa-chart-bar"></i>
+                    Monthly Progress Overview
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-container">
+                      <canvas id="barChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Line Chart -->
+              <div class="col-12">
+                <div class="card chart-card shadow-sm">
+                  <div class="chart-header">
+                    <i class="fas fa-chart-line"></i>
+                    Installation Trend Analysis
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-container">
+                      <canvas id="lineChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Table Section -->
+          <div class="container-fluid pb-2">
+            <div class="row">
+              <div class="col-12">
+                <div class="shadow-sm chart-card border-0">
+
+                  <!-- Header -->
+                  <div class="card-header table-title border-0 p-0">
+                    <div class="chart-header">
+                      <i class="fas fa-table"></i> Installation Status Details
+                    </div>
+                  </div>
+
+                  <!-- Bootstrap Tab System -->
+                  <nav class="px-3 pt-2">
+                    <div class="nav nav-tabs" id="table-tab" role="tablist">
+                      <a class="nav-item nav-link active text-dark"
+                        id="phase-tab" data-toggle="tab" href="#phase"
+                        role="tab" aria-controls="phase"
+                        aria-selected="true">Phase Wise</a>
+
+                      <a class="nav-item nav-link text-dark" id="district-tab"
+                        data-toggle="tab" href="#district"
+                        role="tab" aria-controls="district"
+                        aria-selected="false">District Wise</a>
+
+                      <a class="nav-item nav-link text-dark" id="vendor-tab"
+                        data-toggle="tab" href="#vendor" role="tab"
+                        aria-controls="vendor" aria-selected="false">Vendor
+                        Wise</a>
+                    </div>
+                  </nav>
+
+                  <!-- Tab Content -->
+                  <div class="tab-content p-3" id="table-tabContent">
+
+                    <!-- PHASE TAB -->
+
+                    <div class="tab-pane fade show active" id="phase"
+                      role="tabpanel" aria-labelledby="phase-tab">
+                      <div class="table-responsive">
+                        <table
+                          class="table modern-table table-hover text-center mb-0">
+                          <thead class>
+                            <tr>
+                              <th>Sr. No.</th>
+                              <th>District</th>
+                              <th>Total</th>
+                              <th>WO Received</th>
+                              <th>WO Pending</th>
+                              <th>Material Supplied</th>
+                              <th>Material Pending</th>
+                              <th>Material Inspection</th>
+                              <th>Material Inspection Pending</th>
+                              <th>Installed</th>
+                              <th>Pending</th>
+                              <th>Installation Inspection</th>
+                              <th>Installation Inspection Pending</th>
+                              <th>85% Bill Submitted</th>
+                              <th>85% Bill Pending</th>
+                              <th>85% Payment Complete</th>
+                              <th>85% Payment Pending</th>
+                              <th>AMC 1 Complete</th>
+                              <th>AMC 1 Pending</th>
+                              <th>AMC 2 Complete</th>
+                              <th>AMC 2 Pending</th>
+                              <th>AMC 3 Complete</th>
+                              <th>AMC 3 Pending</th>
+                              <th>AMC 4 Complete</th>
+                              <th>AMC 4 Pending</th>
+                              <th>AMC 5 Complete</th>
+                              <th>AMC 5 Pending</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Aligarh</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>AMBEDKAR NAGAR</td>
+                              <td>510</td>
+                              <td>510</td>
+                              <td>0</td>
+                              <td>510</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>510</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>Amroha (J.P. NAGAR)</td>
+                              <td>19</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                              <td>0</td>
+                              <td>19</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- DISTRICT TAB -->
+                    <div class="tab-pane fade" id="district" role="tabpanel"
+                      aria-labelledby="district-tab">
+                      <div class="table-responsive">
+                        <table
+                          class="table modern-table table-hover text-center mb-0">
+                          <thead class>
+                            <tr>
+                              <th>Sr No</th>
+                              <th>District</th>
+                              <th>Material Dispatch Pending</th>
+                              <th>Site Installed</th>
+                              <th>Site Not Installed</th>
+                              <th>Meter Installed</th>
+                              <th>Meter Not Installed</th>
+                              <th>RMS Installed</th>
+                              <th>RMS Not Installed</th>
+                              <th>Image Pending</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td><span
+                                  class="status-icon status-active"></span>District
+                                A</td>
+                              <td>10</td>
+                              <td>45</td>
+                              <td>20</td>
+                              <td>30</td>
+                              <td>15</td>
+                              <td>25</td>
+                              <td>5</td>
+                              <td>8</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td><span
+                                  class="status-icon status-pending"></span>District
+                                B</td>
+                              <td>5</td>
+                              <td>30</td>
+                              <td>15</td>
+                              <td>20</td>
+                              <td>10</td>
+                              <td>18</td>
+                              <td>3</td>
+                              <td>5</td>
+                            </tr>
+                            <tr class="total-row">
+                              <td colspan="2"><i
+                                  class="fas fa-calculator me-2"></i>TOTAL</td>
+                              <td>15</td>
+                              <td>75</td>
+                              <td>35</td>
+                              <td>50</td>
+                              <td>25</td>
+                              <td>43</td>
+                              <td>8</td>
+                              <td>13</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <!-- VENDOR TAB -->
+                    <div class="tab-pane fade" id="vendor" role="tabpanel"
+                      aria-labelledby="vendor-tab">
+                      <div class="table-responsive">
+                        <table
+                          class="table modern-table table-hover text-center mb-0">
+                          <thead class>
+                            <tr>
+                              <th>Sr No</th>
+                              <th>Vendor</th>
+                              <th>Material Dispatch Pending</th>
+                              <th>Site Installed</th>
+                              <th>Site Not Installed</th>
+                              <th>Meter Installed</th>
+                              <th>Meter Not Installed</th>
+                              <th>RMS Installed</th>
+                              <th>RMS Not Installed</th>
+                              <th>Image Pending</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td><span
+                                  class="status-icon status-active"></span>Vendor
+                                X</td>
+                              <td>8</td>
+                              <td>50</td>
+                              <td>25</td>
+                              <td>35</td>
+                              <td>18</td>
+                              <td>30</td>
+                              <td>6</td>
+                              <td>10</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td><span
+                                  class="status-icon status-pending"></span>Vendor
+                                Y</td>
+                              <td>12</td>
+                              <td>40</td>
+                              <td>20</td>
+                              <td>28</td>
+                              <td>12</td>
+                              <td>22</td>
+                              <td>4</td>
+                              <td>7</td>
+                            </tr>
+                            <tr class="total-row">
+                              <td colspan="2"><i
+                                  class="fas fa-calculator me-2"></i>TOTAL</td>
+                              <td>20</td>
+                              <td>90</td>
+                              <td>45</td>
+                              <td>63</td>
+                              <td>30</td>
+                              <td>52</td>
+                              <td>10</td>
+                              <td>17</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- footer section -->
+          <section >
+            <div class="container">
+              <div class="row">
+                <footer class="footer-area py-2">
+                  <p class="m-0 fw-semibold text-secondary small footer-text">
+                    Copyright © <span id="year"></span> KLK ERP — By
+                    <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                    All rights reserved.
+                  </p>
+                </footer>
+              </div>
+            </div>
+          </section>
         </section>
-      </section>
-      <!-- /.content -->
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-  </div>
-  <!-- ./wrapper -->
+    <!-- Chart.js Library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 
-  <!-- Chart.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-
-  <script>
+    <script>
     // Donut Chart
     const donutCtx = document.getElementById("donutChart").getContext("2d");
     new Chart(donutCtx, {
@@ -2104,7 +2136,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-  <script>
+    <script>
     const changeBtn = document.getElementById("changePassBtn");
     const passFields = document.getElementById("passwordFields");
     const profileInfo = document.querySelector(".profile-info");
@@ -2167,12 +2199,11 @@
 
   </script>
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- Custom Right Sidebar Script -->
-  <script>
+    <!-- Custom Right Sidebar Script -->
+    <script>
     $(function () {
       $('#rightSidebarToggle').on('click', function () {
         $('#rightSidebar').addClass('open');
@@ -2190,14 +2221,17 @@
     });
   </script>
 
-  <!-- jQuery -->
-  <script src="../../plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
-</body>
+
+
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+  </body>
 
 </html>

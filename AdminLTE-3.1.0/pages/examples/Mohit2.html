@@ -320,6 +320,221 @@
       font-size: 18px;
       color: #666;
     }
+
+    /* MODAL BOX */
+
+    .face-modal-box {
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .face-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .face-subtext {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+
+    /* SCAN AREA */
+    .face-scan-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      margin: auto;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #e9ecef;
+    }
+
+    #camera {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* overlay */
+
+    .scan-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* corner brackets */
+
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #7c7c92;
+      border-radius: 10px;
+    }
+
+    .tl {
+      top: 15px;
+      left: 15px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .tr {
+      top: 15px;
+      right: 15px;
+      border-left: none;
+      border-bottom: none;
+    }
+
+    .bl {
+      bottom: 15px;
+      left: 15px;
+      border-right: none;
+      border-top: none;
+    }
+
+    .br {
+      bottom: 15px;
+      right: 15px;
+      border-left: none;
+      border-top: none;
+    }
+
+    /* hexagon */
+
+    .hexagon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 160px;
+      height: 160px;
+      transform: translate(-50%, -50%);
+      border: 2px solid #8a8fa3;
+      clip-path: polygon(25% 6%,
+          75% 6%,
+          100% 50%,
+          75% 94%,
+          25% 94%,
+          0% 50%);
+    }
+
+    /* face icon */
+
+    .face-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .head {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #8a8fa3;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    .shoulder {
+      width: 80px;
+      height: 40px;
+      border: 2px solid #8a8fa3;
+      border-top: none;
+      border-radius: 0 0 40px 40px;
+      margin: auto;
+      margin-top: 5px;
+    }
+
+    /* curved scan line */
+
+    .scan-curve {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg,
+          transparent,
+          #00ff6a,
+          #00ff9d,
+          #00ff6a,
+          transparent);
+
+      transform: translateY(-0px);
+      will-change: transform;
+
+      box-shadow:
+        0 0 8px #00ff6a,
+        0 0 18px rgba(0, 255, 106, 0.8),
+        0 0 30px rgba(0, 255, 106, 0.6);
+    }
+
+
+    /* animation */
+
+    @keyframes scanMove {
+
+      0% {
+        transform: translateY(-70px);
+        opacity: .5;
+      }
+
+      50% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(70px);
+        opacity: .5;
+      }
+
+    }
+
+    /* captured image */
+
+    #snapshot {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* BUTTONS */
+
+    .face-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .capture-btn {
+      background: #3facff;
+      border: none;
+      color: #fff;
+    }
+
+    .capture-btn:hover {
+      background: #2b8cd6;
+    }
+
+    .save-btn {
+      background: #28a745;
+      border: none;
+      color: #fff;
+    }
   </style>
 
   <!-- NEW Sidebar css here  -->
@@ -523,6 +738,57 @@
     </nav>
     <!-- /.navbar -->
 
+    <!-- FACE LOGIN MODAL -->
+    <div class="modal fade face-login-modal" id="faceModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content face-modal-box">
+
+          <div class="face-header">
+            <h5>Add Face Login</h5>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <p class="face-subtext">Align your face inside the frame</p>
+
+          <div class="face-scan-wrapper">
+
+            <video id="camera" autoplay playsinline></video>
+
+            <div class="scan-overlay">
+
+              <!-- corner brackets -->
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+              <!-- hexagon frame -->
+              <div class="hexagon"></div>
+
+              <!-- face icon -->
+              <div class="face-icon">
+                <div class="head"></div>
+                <div class="shoulder"></div>
+              </div>
+
+              <!-- curved scan line -->
+              <div class="scan-curve"></div>
+
+            </div>
+
+            <canvas id="snapshot"></canvas>
+
+          </div>
+
+          <div class="face-actions">
+            <button class="btn btn-primary capture-btn" id="captureFace">Capture Face</button>
+            <button class="btn btn-success save-btn" id="saveFace">Save Face</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <!-- profile side bar code  -->
     <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-slideout" role="document">
@@ -554,6 +820,7 @@
             </div>
 
             <!-- Change Password Button -->
+            <button class="btn btn-dark btn-block mt-3" id="addFaceBtn">Add Face</button>
             <button class="btn btn-dark btn-block mt-3" id="changePassBtn">Change Password</button>
 
             <!-- Hidden Change Password Fields -->
@@ -1189,7 +1456,7 @@
   <!-- ./wrapper -->
 
 
-
+  <!-- Change password script  -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // Elements
@@ -1255,6 +1522,137 @@
         resetProfileModal();
       });
 
+
+    });
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const addFaceBtn = document.getElementById("addFaceBtn");
+      const faceModal = $('#faceModal');
+
+      const video = document.getElementById("camera");
+      const captureBtn = document.getElementById("captureFace");
+
+      const canvas = document.getElementById("snapshot");
+
+      const hexagon = document.querySelector(".hexagon");
+      const scanCurve = document.querySelector(".scan-curve");
+      const faceIcon = document.querySelector(".face-icon");
+
+      let stream = null;
+      let scanAnimation = null;
+      let scanY = -70;
+      let direction = 1;
+
+
+      /* OPEN FACE MODAL */
+
+      addFaceBtn.addEventListener("click", function () {
+
+        $('#profileModal').modal('hide');
+
+        setTimeout(function () {
+          faceModal.modal('show');
+        }, 400);
+
+      });
+
+
+      /* SMOOTH SCANNING EFFECT */
+
+      function startScan() {
+
+        function animate() {
+
+          scanY += direction * 0.8;
+
+          if (scanY > 70) direction = -1;
+          if (scanY < -70) direction = 1;
+
+          scanCurve.style.transform = `translateY(${scanY}px)`;
+
+          scanAnimation = requestAnimationFrame(animate);
+        }
+
+        animate();
+      }
+
+
+      function stopScan() {
+
+        cancelAnimationFrame(scanAnimation);
+
+      }
+
+
+      /* START CAMERA */
+
+      faceModal.on('shown.bs.modal', async function () {
+
+        try {
+
+          video.style.display = "block";
+          canvas.style.display = "none";
+
+          hexagon.style.display = "block";
+          scanCurve.style.display = "block";
+          faceIcon.style.display = "block";
+
+          startScan();
+
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: true
+          });
+
+          video.srcObject = stream;
+
+        } catch (error) {
+
+          alert("Camera permission denied");
+
+        }
+
+      });
+
+
+      /* CAPTURE FACE */
+
+      captureBtn.addEventListener("click", function () {
+
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        ctx.drawImage(video, 0, 0);
+
+        stopScan();
+
+        video.style.display = "none";
+        hexagon.style.display = "none";
+        scanCurve.style.display = "none";
+        faceIcon.style.display = "none";
+
+        canvas.style.display = "block";
+
+      });
+
+
+      /* STOP CAMERA */
+
+      faceModal.on('hidden.bs.modal', function () {
+
+        stopScan();
+
+        if (stream) {
+          stream.getTracks().forEach(track => track.stop());
+          stream = null;
+        }
+
+      });
 
     });
   </script>
