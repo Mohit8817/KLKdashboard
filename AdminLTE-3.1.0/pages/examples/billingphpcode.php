@@ -8,6 +8,12 @@
     <title>Billing_Document 7.5HP</title>
 </head>
 
+<style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+</style>
 
 <body
     style="margin: 0; padding: 0; font-family: Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact;">
@@ -15,14 +21,23 @@
     <!--------------------------------- page one ----------------------------- -->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
-        <div style="text-align:center; font-weight:bold; font-size:16px; margin-bottom:5px;">
-            KLK VENTURES PVT LTD.
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+            <div style=" text-align: center; font-weight: bold; font-size: 15px;">
+                KLK VENTURES PVT LTD.
+            </div>
+
+            <div style=" text-align: right; font-size: 12px;">
+                KREDL ID : {{ $billing->application_no }}
+            </div>
+
         </div>
 
-        <div style="text-align:center; font-size:14px; margin-bottom:40px;">
-            CHECK LIST FOR BILLING DOCUMENT
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <div style="flex: 1; text-align: center; font-size: 14px;">
+                CHECK LIST FOR BILLING DOCUMENT
+            </div>
         </div>
 
         <table style="width:100%; border-collapse:collapse; margin-bottom:15px;">
@@ -148,12 +163,34 @@
             </tr>
         </table>
 
+         <table style="width:100%; border-collapse:collapse;">
+            <tr>
+                <td style="border:none; padding:8px 10px; width:82%; vertical-align:top; font-size:13px;">
+                    <b>9.</b> Copy of JSR and agreement copy between AEE and former need to attach <br>
+                </td>
+                <td style="border:none; padding:8px 10px; width:18%; text-align:right; vertical-align:top;">
+                    <div style="width:80px; height:30px; border:2px solid #000; display:inline-block;"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table style="width:100%; border-collapse:collapse;">
+            <tr>
+                <td style="border:none; padding:8px 10px; width:82%; vertical-align:top; font-size:13px;">
+                    <b>10.</b> Copy of Insurance<br>
+                </td>
+                <td style="border:none; padding:8px 10px; width:18%; text-align:right; vertical-align:top;">
+                    <div style="width:80px; height:30px; border:2px solid #000; display:inline-block;"></div>
+                </td>
+            </tr>
+        </table>
+
     </div>
 
     <!---------------------------------- Second page  ---------------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <div style="text-align:center; font-weight:bold;">
             ACKNOWLEDGEMENT FOR RECEIPT OF MATERIALS UNDER
@@ -162,7 +199,7 @@
             COMPONENT-BOFPM-KUSUM SCHEME
         </div>
 
-        <div style="text-align:right; margin-bottom:15px;">
+        <div style=" margin-bottom:15px; margin-left:500px;">
             Date:
         </div>
 
@@ -339,7 +376,7 @@
     <!------------------------------------ Third page ------------------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <div style="text-align:center; font-weight:bold; font-size:14px;">
             COMMISSIONING CERTIFICATE
@@ -349,7 +386,7 @@
             OFF-GRID SOLAR WATER PUMPING SYSTEM UNDER COMPONENT-B OF <strong>PM-KUSUM SCHEME</strong>
         </div>
 
-        <table style="width:100%; border-collapse:collapse; margin-bottom:15px;">
+        {{-- <table style="width:100%; border-collapse:collapse; margin-bottom:15px;">
 
             <tr>
                 <td style="border:1px solid #000; padding:8px; width:25%;">Name of the Farmer</td>
@@ -357,13 +394,13 @@
                     {{ $billing->f_farmer_name }}
                 </td>
                 <td style="border:1px solid #000; padding:8px; width:25%;">Date of</td>
-                <td style="border:1px solid #000; padding:8px; width:25%;">{{ $billing->work_order_date }}</td>
+                <td style="border:1px solid #000; padding:8px; width:25%;">
+                    {{ \Carbon\Carbon::now()->format('d-m-Y') }}</td>
             </tr>
 
             <tr>
                 <td style="border:1px solid #000; padding:8px;">Beneficiary ID no.</td>
                 <td style="border:1px solid #000; padding:8px;">
-                    {{-- {{ $billing->f_customer_no }} --}}
                     {{ $billing->application_no }}
                 </td>
                 <td style="border:1px solid #000; padding:8px;">Village</td>
@@ -385,7 +422,7 @@
 
             <tr>
                 <td style="border:1px solid #000; padding:8px;">Pump Capacity</td>
-                <td style="border:1px solid #000; padding:8px;">7.5HP</td>
+                <td style="border:1px solid #000; padding:8px;">{{ $billing->pump_capacity }}</td>
                 <td style="border:1px solid #000; padding:8px;">Panel</td>
                 <td style="border:1px solid #000; padding:8px;">6760 WATT</td>
             </tr>
@@ -398,11 +435,84 @@
             <tr>
                 <td style="border:1px solid #000; padding:8px;">Pump Geo Co-ordinates</td>
                 <td style="border:1px solid #000; padding:8px; text-align:center;">Latitude</td>
+                <td style="border:1px solid #000; padding:8px;">{{ $billing->latitude ?? '' }}</td>
                 <td style="border:1px solid #000; padding:8px; text-align:center;">Longitude</td>
+                <td style="border:1px solid #000; padding:8px;">{{ $billing->longitude ?? '' }}</td>
+            </tr>
+            
+        </table> --}}
+
+        <table style="width:100%; border-collapse:collapse; margin-bottom:15px; font-size:14px;">
+
+            <tr>
+                <td style="border:1px solid #000; padding:8px; width:25%;">Name of the Farmer</td>
+                <td style="border:1px solid #000; padding:8px; width:25%;">
+                    {{ $billing->f_farmer_name }}
+                </td>
+                <td style="border:1px solid #000; padding:8px; width:25%;">Date</td>
+                <td style="border:1px solid #000; padding:8px; width:25%;">
+                    {{ \Carbon\Carbon::now()->format('d-m-Y') }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border:1px solid #000; padding:8px;">Beneficiary ID No.</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    {{ $billing->application_no }}
+                </td>
+                <td style="border:1px solid #000; padding:8px;">Village</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    {{ $billing->f_village }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border:1px solid #000; padding:8px;">Taluk</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    {{ $billing->f_tehsil }}
+                </td>
+                <td style="border:1px solid #000; padding:8px;">District</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    {{ $billing->district }}
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border:1px solid #000; padding:8px;">Pump Capacity</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    {{ $billing->pump_capacity }}
+                </td>
+                <td style="border:1px solid #000; padding:8px;">Panel</td>
+                <td style="border:1px solid #000; padding:8px;">
+                    6760 WATT
+                </td>
+            </tr>
+
+            <tr>
+                <td style="border:1px solid #000; padding:8px;">Name of the Contractor</td>
+                <td colspan="3" style="border:1px solid #000; padding:8px;">
+                    KLK Ventures Pvt Ltd
+                </td>
+            </tr>
+
+            <!--  FIXED Pump Geo Coordinates Row -->
+            <tr>
+                <td style="border:1px solid #000; padding:8px;">
+                    Pump Geo Co-ordinates
+                </td>
+                <td style="border:1px solid #000; padding:8px;">
+                    Latitude :
+                    {{ $billing->latitude ?? '' }}
+                </td>
+                <td style="border:1px solid #000; padding:8px;">
+                    Longitude :
+                    {{ $billing->longitude ?? '' }}
+                </td>
                 <td style="border:1px solid #000; padding:8px;"></td>
             </tr>
 
         </table>
+
 
         <table style="width:100%; border-collapse:collapse; margin-bottom:15px;">
 
@@ -465,7 +575,7 @@
             Seal and Signatures of:
         </div>
 
-        <div style="margin-left:20px; line-height:1.8;">
+        <div style="margin-left:20px; line-height:7.8;">
             <strong>• Beneficiary-Farmer &nbsp; ________ </strong><br>
             <strong>• Contractor/Supplier &nbsp; ________ </strong><br>
             <strong>• Inspecting Authority (Representative from ESCOM) &nbsp; ________</strong>
@@ -476,7 +586,7 @@
     <!-------------------------------------- Page Four ------------------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <div style="text-align:center; font-weight:bold; margin-bottom:25px; font-size:14px;">
             DETAILS OF MATERIALS INSTALLED
@@ -511,7 +621,7 @@
             <tr>
                 <td style="border:none; padding:5px 0;"><strong>Pump set Capacity</strong></td>
                 <td style="border:none; padding:5px 5px;">:</td>
-                <td style="border:none; padding:5px 0;"><strong>7.5hp</strong></td>
+                <td style="border:none; padding:5px 0;"><strong>{{ $billing->pump_capacity }}</strong></td>
             </tr>
         </table>
 
@@ -614,6 +724,23 @@
                 <td style="width:50%; border:1px solid #000; padding:8px; height:25px;"></td>
             </tr>
 
+            <tr>
+                <td style="width:50%; border:1px solid #000; padding:8px; text-align:center;">10.</td>
+                <td style="width:50%; border:1px solid #000; padding:8px; height:25px;"></td>
+            </tr>
+
+            <tr>
+                <td style="width:50%; border:1px solid #000; padding:8px; text-align:center;">11.</td>
+                <td style="width:50%; border:1px solid #000; padding:8px; height:25px;"></td>
+            </tr>
+
+            <tr>
+                <td style="width:50%; border:1px solid #000; padding:8px; text-align:center;">12.</td>
+                <td style="width:50%; border:1px solid #000; padding:8px; height:25px;"></td>
+            </tr>
+
+     
+
         </table>
 
         <div style="text-align:right; font-weight:600; margin-top:80px;">
@@ -625,7 +752,7 @@
     <!-- -----------------------------    Page Five ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <h3 style="text-align:center; margin:5px 0;">MNRE FORMATS</h3>
         <h4 style="text-align:center; margin:5px 0;">
@@ -643,7 +770,7 @@
             <tr>
                 <td style="border:1px solid #000; padding:8px;">1</td>
                 <td style="border:1px solid #000; padding:8px;"><b>Sanction No & Date</b></td>
-                <td style="border:1px solid #000; padding:8px;"></td>
+                <td style="border:1px solid #000; padding:8px;">32/54/2018-SPV DIVISION ; 06/12/2023</td>
             </tr>
 
             <tr>
@@ -687,6 +814,8 @@
                     District: {{ $billing->district ?? '-' }},
                     State: {{ $billing->state ?? '-' }} –
                     {{ $billing->f_pincode ?? '' }}
+
+                    <p>{{ $billing->pump_sub_type }}</p>
                 </td>
             </tr>
 
@@ -723,7 +852,7 @@
                     IEC 61701<br>
                     <b>Maxop Research & Testing Institute Pvt Ltd </b> <br>
                     06-12-2023<br>
-                    06-12-2025 <br>
+                    06-12-2026 <br>
                     ENCLOSED
                 </td>
             </tr>
@@ -775,7 +904,7 @@
     <!-- -----------------------------    Page Six ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <table style="width:100%; border-collapse:collapse;">
             <tr>
@@ -789,7 +918,7 @@
                     V. Any other type of motor pump set
                 </td>
                 <td style="border:1px solid #000; padding:8px; width:48%;">
-                    Submersible DC motor pump set
+                    {{ $billing->pump_sub_type }}
                 </td>
             </tr>
 
@@ -800,7 +929,7 @@
                     Whether indigenous or imported?
                 </td>
                 <td style="border:1px solid #000; padding:8px;">
-                    7.5HP, KLK Ventures Pvt Ltd<br>
+                    {{ $billing->pump_capacity }} KLK Ventures Pvt Ltd<br>
                     Indigenous
                 </td>
             </tr>
@@ -824,7 +953,7 @@
                     3.7 KWH/sq.m/day
                 </td>
                 <td style="border:1px solid #000; padding:8px;">
-                    100000 above Liters/Day
+                    85,410 Liters/Day
                 </td>
             </tr>
 
@@ -897,7 +1026,17 @@
                     Technical Person Trained to maintain the System<br>
                     Name of the person with Mobile no.
                 </td>
-                <td style="border:1px solid #000; padding:8px;"></td>
+
+                <td style="border:1px solid #000; padding:8px;">
+                    {{-- @php
+                        $vendor = DB::table('vendors')->where('id', $billing->inst_vendor)->first();
+                    @endphp
+
+                    {{ $vendor->name ?? 'NA' }}
+                    <br>
+                    <small>Contact : {{ $vendor->contact ?? 'NA' }}</small> --}}
+                </td>
+
             </tr>
 
         </table>
@@ -906,7 +1045,7 @@
     <!-- -----------------------------    Page Seven ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <table style="width:100%; border-collapse:collapse;">
             <tr>
@@ -959,7 +1098,7 @@
     <!-- -----------------------------Page Eight ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <h4 style="text-align:center; margin:10px 0;">PART-B</h4>
         <h4 style="text-align:center; margin:5px 0 20px 0;">(By the customer)</h4>
@@ -997,7 +1136,7 @@
                     Location
                 </td>
                 <td style="border:1px solid #000; padding:8px;">
-                    6760Wp, 7.5HP
+                    6760Wp, {{ $billing->pump_capacity }}
                     <hr style="margin:8px 0; border:none; border-top:1px solid #000;">
                     Village: {{ $billing->f_village ?? '-' }},
                     GP: {{ $billing->gpanchayat ?? '-' }},
@@ -1086,7 +1225,7 @@
     <!-- ----------------------------- Page Nine ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <h4 style="text-align:center; margin:10px 0;">PART-C</h4>
         <h4 style="text-align:center; margin:5px 0;">Inspection report</h4>
@@ -1221,15 +1360,16 @@
     <!-- ----------------------------- Page Ten ----------------------->
 
     <div
-        style="width:100%; max-width:800px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
+        style="width:100%; max-width:700px; margin:auto; font-family:Arial; font-size:13px; padding:40px 20px; page-break-after:always; box-sizing:border-box;">
 
         <h4 style="text-align:center; margin:20px 0;">SAFETY CERTIFICATE</h4>
 
         <p style="text-align:center; line-height:2; margin:20px 0;">
             It is certified that the Solar Irrigation water pump set has been inspected and
             it is in accordance with safety procedures of Indian Electricity Act. There is no
-            existing power supply from grid to the SWP and the beneficiary has not availed
-            benefit under Gangakalyana scheme.
+            existing power supply from grid to the SWP and the beneficiary has only one solar pump under subsidory
+            Scheme.
+
         </p>
 
         <br><br>
@@ -1286,112 +1426,107 @@
 
     <!-- ----------------------------- Page Eleven ----------------------->
 
-    <div class="page">
+    {{-- <div class="page"
+        style= "width: 100%;
+        max-width: 700px;
+        margin: auto;
+        font-family: 'Noto Sans Kannada', 'Tunga', 'Baloo Tamma 2', sans-serif;
+        font-size: 13px;
+        line-height: 1.2;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        background: #fff;
+        page-break-inside: avoid;
+        page-break-before: auto;
+        page-break-after: auto;
+        break-inside: avoid;">
 
-        <h4 style="text-align:center;text-decoration:underline;margin-bottom:15px;">
-            ಪ್ರಾಮಾಣಿಕ ಪ್ರಮಾಣ ಪತ್ರ
-        </h4>
-
-        <p style="margin-bottom:20px;">
-            ಈ ಮೂಲಕ ನಾನು ಎಂ/ಎಸ್ ಕೆಎಲ್‌ಕೆ ವೆಂಚರ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್
-            <b>M/S KLK Ventures Private Limited, A-52 Sector 58, Noida, Uttar Pradesh-201301</b> ರವರಿಂದ
-            7.5 ಕೆ.ವಾಟ್ ಸಾಮರ್ಥ್ಯದ ಸೌರ ವಿದ್ಯುತ್ ಘಟಕವನ್ನು ಸ್ಥಾಪಿಸಿಕೊಂಡಿದ್ದೇನೆ.
+        <p style="text-align:center; font-family: 'Noto Sans Kannada', 'Tunga', 'Baloo Tamma 2', sans-serif; text-decoration:underline; font-size: 23px !important">
+            ಹಸ್ತಾಂತರ ಧೃಢೀಕರಣ ವರದಿ
         </p>
 
-        <ol style="padding-left:25px; margin-bottom:20px;">
-            <li>ಫಲಾನುಭವಿಯ ಹೆಸರು :</li>
-            <li>ಗ್ರಾಮ, ತಾಲ್ಲೂಕು, ಜಿಲ್ಲೆ :</li>
-            <li>ಫಲಾನುಭವಿಯ ಸಂಪರ್ಕ ಸಂಖ್ಯೆ :</li>
-            <li>ಕೇಂದ್ರ ಸರ್ಕಾರ / ಸಬ್ಸಿಡಿಯ ವಿವರ :</li>
-            <li>ಸೌರ ಘಟಕ ಸ್ಥಾಪನೆಯ ದಿನಾಂಕ :</li>
-            <li>ಮೀಟರ್ ಸಂಖ್ಯೆ ಮತ್ತು ದಿನಾಂಕ :</li>
-            <li>ಸೀರಿಯಲ್ ನಂಬರ್ / ಇನ್ವಾಯ್ಸ್ :</li>
-            <li>ಕಾರ್ಯ ಮತ್ತು ನಿರ್ವಹಣೆ ಅವಧಿ (O & M) : <b>Manual ಪ್ರಕಾರವಾಗಿ ಫಲಾನುಭವಿಗೆ ನೀಡಲಾಗಿದೆ.</b></li>
-            <li>ಸೌರ ಘಟಕಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ಮಾಹಿತಿಯನ್ನು <b>Warranty Certificate ಸಹಿತ ಫಲಾನುಭವಿಗೆ ನೀಡಲಾಗಿದೆ.</b></li>
-        </ol>
-
-        <p style="margin-bottom:15px;">
-            7.5 ಕೆ.ವಾಟ್ ಸೌರ ಘಟಕವನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಪರಿಶೀಲಿಸಿ, ಮಾನದಂಡಗಳ ಪ್ರಕಾರ ಸ್ಥಾಪಿಸಲಾಗಿದೆ.
-            ಎಲ್ಲಾ ಘಟಕಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿವೆ ಎಂದು ದೃಢಪಡಿಸಲಾಗುತ್ತದೆ.
-            ಭವಿಷ್ಯದಲ್ಲಿ ಯಾವುದೇ ತಾಂತ್ರಿಕ ಸಮಸ್ಯೆ ಉಂಟಾದಲ್ಲಿ ಕಂಪನಿಯ ನಿಯಮಾವಳಿಯ ಪ್ರಕಾರ ಸೇವೆ ಒದಗಿಸಲಾಗುತ್ತದೆ.
+        <p>
+            ಕರ್ನಾಟಕ ಸರ್ಕಾರ ಹಾಗೂ ಎಂ.ಎನ್.ಆರ್.ಇ ರವರ ಸಹಯೋಗದೊಂದಿಗೆ ಕೆ.ಆರ್.ಇ.ಡಿ.ಎಲ್. ವತಿಯಿಂದ
+            ಸೌರವಿದ್ಯುತ್ ಪಂಪ್‌ಸೆಟ್‌ಗಳ ಅಡವಳಿಕೆ ಕಾರ್ಯಕ್ರಮದ ಅಡಿಯಲ್ಲಿ
+            <b> M/S KLK Ventures Private Limited A-52 Sector 58 Noida, Uttar Pradesh-201301 </b> ಸಂಸ್ಥೆಯು
+            <b>{{ $billing->pump_capacity }}</b> ಸಾಮರ್ಥ್ಯದ ಸೌರ ವಿದ್ಯುತ್ ಪಂಪ್ ಸೆಟ್‌ಗಳನ್ನು ಕೆಳಕಾಣಿಸಿದ ಫಲಾನುಭವಿಗೆ
+            ಹಸ್ತಾಂತರಿಸಲಾಗಿದೆ.
         </p>
 
-        <p style="margin-bottom:20px;">
-            ಮೇಲ್ಕಂಡ ವಿವರಗಳು ಸತ್ಯ ಹಾಗೂ ಸರಿಯೆಂದು ದೃಢಪಡಿಸುತ್ತೇನೆ.
-        </p>
+        <table width="100%" cellpadding="4" cellspacing="0"
+            style="border-collapse: collapse; font-size:12.5px; margin-bottom:5px;">
 
-        <p style="margin-bottom:20px;">
-            ಸೌರ ಘಟಕಕ್ಕೆ 5 ವರ್ಷಗಳ ಸೇವಾ ನಿರ್ವಹಣೆ ಹಾಗೂ ನಿಗದಿತ ಅವಧಿಗೆ ಉತ್ಪಾದಕರ ವಾರಂಟಿ ಅನ್ವಯವಾಗಿರುತ್ತದೆ.
-        </p>
-
-        <p style="margin-bottom:40px;"><b>M/S KLK Ventures Private Limited, A-52 Sector 58, Noida, Uttar
-                Pradesh-201301</b></p>
-
-        <table style="width:100%; border-collapse:collapse; border:none;">
             <tr>
-                <td style="border:none; width:50%; padding:5px;">ಫಲಾನುಭವಿಯ ಸಹಿ</td>
-                <td style="border:none; width:50%; text-align:right; padding:5px;">ಅಧಿಕೃತ ಸಹಿ</td>
+                <td width="4%" valign="top">1.</td>
+                <td width="36%" valign="top">ಫಲಾನುಭವಿಯ ಹೆಸರು</td>
+                <td width="4%" valign="top">:</td>
+                <td valign="top">{{ $billing->f_farmer_name }}</td>
             </tr>
-        </table>
 
-        <div style="text-align:right; font-weight:bold;">M/S KLK Ventures Private Limited</div>
+            <tr>
+                <td valign="top">2.</td>
+                <td valign="top">ಗ್ರಾಮ, ತಾಲ್ಲೂಕು, ಜಿಲ್ಲೆ</td>
+                <td valign="top">:</td>
+                <td valign="top">
+                    Village: {{ $billing->f_village ?? '-' }},
+                    Taluk: {{ $billing->f_tehsil ?? '-' }},
+                    District: {{ $billing->district ?? '-' }}
+                </td>
+            </tr>
 
-    </div>
+            <tr>
+                <td valign="top">3.</td>
+                <td valign="top">ಘಟಕದ ಗುರುತಿನ ಸಂಖ್ಯೆ</td>
+                <td valign="top">:</td>
+                <td valign="top">{{ $billing->application_no }}</td>
+            </tr>
 
+            <tr>
+                <td valign="top">4.</td>
+                <td valign="top">ಕೆಲಸ ನಿರ್ವಹಿಸಿದವರ / ಸರಬರಾಜುದಾರರ ಹೆಸರು</td>
+                <td valign="top">:</td>
+                <td valign="top">KLK Ventures Pvt. Ltd</td>
+            </tr>
 
+            <tr>
+                <td valign="top">5.</td>
+                <td valign="top">ಸೌರ ಪ್ಯಾನಲ್ ತಯಾರಕರ ಹೆಸರು</td>
+                <td valign="top">:</td>
+                <td valign="top">KLK Ventures Pvt. Ltd</td>
+            </tr>
 
+            <tr>
+                <td valign="top">6.</td>
+                <td valign="top">ಮೋಟರ್ ಪಂಪ್ ತಯಾರಕರ ಹೆಸರು</td>
+                <td valign="top">:</td>
+                <td valign="top">KLK Ventures Pvt. Ltd</td>
+            </tr>
 
-    <!-- ----------------------------- Last Page letter head  ----------------------->
+            <tr>
+                <td valign="top">7.</td>
+                <td valign="top">ಸೋಲಾರ್ ಪ್ಯಾನಲ್ ಸಾಮರ್ಥ್ಯ</td>
+                <td valign="top">:</td>
+                <td valign="top">{{ $billing->pump_capacity }}</td>
+            </tr>
 
-    <div
-        style="width:210mm; min-height:297mm; margin:0 auto; position:relative; font-family:Arial; font-size:13px; overflow:hidden; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; page-break-after:auto;">
+            <tr>
+                <td valign="top">8.</td>
+                <td valign="top">
+                    ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲೀಷ್ ನಲ್ಲಿ ಮುದ್ರಿಸಿರುವ <b>(O & M) </b><br>
+                    <span style="font-size:12px;">
+                        <b>Manual </b> ಪ್ರತಿಯನ್ನು ಫಲಾನುಭವಿಗೆ ನೀಡಲಾಗಿದೆ.
+                    </span>
+                </td>
+                <td valign="top">:</td>
+                <td valign="top">Yes</td>
+            </tr>
 
-        <div
-            style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('{{ asset('images/bgimg.png') }}'); background-repeat:no-repeat; background-position:center; background-size:contain; z-index:0;">
-        </div>
-
-        <div style="position:relative; z-index:1; padding:160px 60px 50px; box-sizing:border-box;">
-
-            <h4 style="text-align:center; margin:30px 0 25px;">
-                Undertaking Agreement
-            </h4>
-
-            <p style="line-height:1.8;">
-                To,<br><br>
-                The Managing Director,<br><br>
-                Karnataka Renewable Energy Development,<br><br>
-                No.6/13/1, 10<sup>th</sup> Block, 2<sup>nd</sup> Stage,
-                Nagarabhavi, Bangalore – 560072.
-            </p>
-
-            <br><br>
-            <p>Respected Sir/Madam,</p>
-
-            <br>
-
-            <p>
-                <b>Subject:</b> Undertaking with respect to withstand ability of
-                SPWPS to the Wind Speed of 150km/hr in all weather conditions.
-            </p>
-
-            <p style="text-align:justify; line-height:2;">
-                This undertaking is made to confirm that SPWPS installed and
-                commissioned for the beneficiary:
-                <b>KREDL_______________________</b>,
-                Name __________________________ General,
-                is having ability to withstand Wind Speed of 150km/hr
-                in all weather conditions.
-            </p>
-            <br><br>
-            <p>Signature : __________________________</p>
-            <p>Name : Roopa M</p>
-            <p>Position : State Head, Karnataka</p>
-            <p>Company Name : KLK Ventures Pvt. Ltd.</p>
-            <p>Date :</p>
-
-        </div>
-    </div>
-
-</body>
-
-</html>
+            <tr>
+                <td valign="top">9.</td>
+                <td valign="top">
+                    ಸೌರ ಪಂಪ್ ಸೆಟ್ಟಿಗೆ ಸಂಬಧಿಸಿದ ಎಲ್ಲಾ ವಸ್ತುಗಳನ್ನು ಮತ್ತು <br>
+                    <span style="font-size:12px;">
+                        <b>Warranty Certificate </b> ಗಳನ್ನು ಫಲಾನುಭವಿಗೆ ನೀಡಲಾಗಿದೆ
+                    </span>
+                </td>
+                <td valign="to

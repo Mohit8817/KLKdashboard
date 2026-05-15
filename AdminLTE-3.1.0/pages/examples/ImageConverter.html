@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: beige;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 30px 20px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* ── LEFT: Form ── */
+    .form-control {
+      background: #fffdf7;
+      border: 1px solid #d9d0bc;
+      border-radius: 6px;
+      padding: 18px;
+      width: 240px;
+      flex-shrink: 0;
+      box-shadow: 3px 3px 0 #d9d0bc;
+    }
+
+    .form-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin-bottom: 14px;
+    }
+
+    .inputBox { margin-bottom: 10px; }
+
+    .input-field {
+      width: 100%;
+      padding: 8px 10px;
+      box-sizing: border-box;
+      border: 1px solid #d9d0bc;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      background: #f5f0e8;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .input-field:focus { border-color: #c0392b; }
+
+    .file-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 7px 11px;
+      border: 2px dashed #d9d0bc;
+      border-radius: 4px;
+      background: #f5f0e8;
+      font-size: 0.8rem;
+      color: #6b6b6b;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .file-label:hover { border-color: #c0392b; background: #fdf0ee; color: #c0392b; }
+    #imageAccept { display: none; }
+    #fileName { font-size: 0.65rem; color: #6b6b6b; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .btn-convert {
+      width: 100%;
+      padding: 9px;
+      background-color: #940000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .btn-convert:hover { background: #c0392b; }
+
+    /* ── RIGHT: Preview + Download ── */
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .preview-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #6b6b6b;
+    }
+
+    /* EditImage: the live preview div (html2canvas captures this) */
+    .EditImage {
+      height: 400px;
+      width: 600px;
+      border: 1px solid #d9d0bc;
+      border-radius: 6px;
+      box-shadow: 3px 3px 0 #d9d0bc;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-color: #ddd8cc;
+      overflow: hidden;
+    }
+
+    /* Placeholder when no image */
+    .img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #6b6b6b;
+    }
+    .img-placeholder svg { width: 44px; height: 44px; opacity: 0.22; }
+    .img-placeholder p { font-size: 0.8rem; }
+
+    /* Text overlay — bottom-left, no bg in preview */
+    .content {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-size: 0.72rem;
+      line-height: 1.45;
+    }
+    .content p {
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+      font-weight: bold;
+    }
+
+    /* "Powered by NoteCam" — red, bottom-right, preview only (visual hint) */
+    .brand-preview {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      font-size: 0.6rem;
+      font-style: italic;
+      font-weight: bold;
+      color: #e53935;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .btn-download {
+      width: 100%;
+      padding: 9px;
+      background-color: #940000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: none;
+      transition: background 0.2s;
+    }
+    .btn-download:hover { background: #c0392b; }
+    .btn-download.visible { display: block; }
+
+    @media screen and (max-width: 768px) {
+      .container { flex-direction: column; align-items: center; }
+      .EditImage { width: 100%; max-width: 600px; height: 300px; }
+      .form-control { width: 100%; max-width: 600px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT: Form -->
+  <div class="form-control">
+    <div class="form-title">📷 Image Editor</div>
+
+    <form id="mainForm">
+      <div class="inputBox">
+        <input class="input-field" id="latitude"  type="text" placeholder="Enter Latitude">
+      </div>
+      <div class="inputBox">
+        <input class="input-field" id="longitude" type="text" placeholder="Enter Longitude">
+      </div>
+      <div class="inputBox">
+        <input class="input-field" id="Elevation" type="text" placeholder="Enter Elevation">
+      </div>
+      <div class="inputBox">
+        <input class="input-field" id="Accuracy"  type="text" placeholder="Enter Accuracy">
+      </div>
+      <div class="inputBox">
+        <input class="input-field" id="Time"      type="text" placeholder="Enter Time">
+      </div>
+      <div class="inputBox">
+        <input class="input-field" id="Note"      type="text" placeholder="Enter Note">
+      </div>
+
+      <div class="inputBox">
+        <label class="file-label" for="imageAccept">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          Choose Image
+        </label>
+        <input type="file" id="imageAccept" accept="image/*">
+        <div id="fileName">No file chosen</div>
+      </div>
+
+      <button type="submit" class="btn-convert">Convert</button>
+    </form>
+  </div>
+
+  <!-- RIGHT: Preview -->
+  <div class="main">
+    <div class="preview-label">Live Preview</div>
+
+    <div class="EditImage" id="setBack">
+      <div class="img-placeholder" id="imgPlaceholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <p>Select an image to begin</p>
+      </div>
+
+      <!-- Text overlay (preview — no white bg) -->
+      <div class="content" id="textContent"></div>
+
+      <!-- Brand watermark (preview hint) -->
+      <div class="brand-preview">Powered by NoteCam</div>
+    </div>
+
+    <button class="btn-download" id="downloadBtn" onclick="downloadImage()">↓ Download Image</button>
+  </div>
+
+</div>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+  const form        = document.getElementById('mainForm');
+  const imageInput  = document.getElementById('imageAccept');
+  const setBack     = document.getElementById('setBack');
+  const textContent = document.getElementById('textContent');
+  const placeholder = document.getElementById('imgPlaceholder');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  let imageLoaded = false;
+
+  // ── Image picker ──────────────────────────────────────────────────────────
+  imageInput.addEventListener('change', () => {
+    if (imageInput.files.length > 0) {
+      document.getElementById('fileName').textContent = imageInput.files[0].name;
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(imageInput.files[0]);
+      fileReader.onloadend = function () {
+        setBack.style.backgroundImage = `url('${fileReader.result}')`;
+        placeholder.style.display = 'none';
+        imageLoaded = true;
+      };
+    }
+  });
+
+  // ── Form submit → render text overlay ────────────────────────────────────
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const latitude  = document.getElementById('latitude').value.trim();
+    const longitude = document.getElementById('longitude').value.trim();
+    const elevation = document.getElementById('Elevation').value.trim();
+    const accuracy  = document.getElementById('Accuracy').value.trim();
+    const time      = document.getElementById('Time').value.trim();
+    const note      = document.getElementById('Note').value.trim();
+
+    if (!latitude || !longitude || !elevation || !accuracy) {
+      alert('Please enter at least Latitude, Longitude, Elevation and Accuracy');
+      return;
+    }
+
+    if (!imageLoaded) {
+      alert('Please select an image first');
+      return;
+    }
+
+    // Trim lat/lon to 9 chars like original JS
+    const lat  = newLatLong(latitude);
+    const lon  = newLatLong(longitude);
+
+    // Clear previous text
+    textContent.innerHTML = '';
+
+    const lines = [
+      `Latitude: ${lat}`,
+      `Longitude: ${lon}`,
+      `Elevation: ${elevation}`,
+      `Accuracy: ${accuracy}`,
+      time ? `Time: ${time}` : null,
+      note ? `Note: ${note}` : null,
+    ].filter(Boolean);
+
+    lines.forEach(line => paragraphAppend(line));
+
+    downloadBtn.classList.add('visible');
+  });
+
+  function paragraphAppend(value) {
+    const p    = document.createElement('p');
+    p.textContent = value;
+    textContent.appendChild(p);
+  }
+
+  // Trim to 9 chars (original newLatLong logic)
+  function newLatLong(val) {
+    return val.toString().trim().slice(0, 9);
+  }
+
+  // ── DOWNLOAD ─────────────────────────────────────────────────────────────
+  // Uses canvas API directly on the original image for crisp output.
+  // White box behind text (left-bottom, touching edges), red brand right-bottom.
+  function downloadImage() {
+    if (!imageLoaded) { alert('No image loaded'); return; }
+
+    const lines = Array.from(textContent.querySelectorAll('p')).map(p => p.textContent);
+    if (lines.length === 0) { alert('Please convert first'); return; }
+
+    const img = new Image();
+    img.onload = function () {
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+
+      const dlCanvas = document.createElement('canvas');
+      dlCanvas.width  = iw;
+      dlCanvas.height = ih;
+      const ctx = dlCanvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      // Scale text: base sizes defined at 600px preview width
+      const ratio   = iw / 600;
+      const FONT    = Math.round(11 * ratio);   // ← DOWNLOAD text size
+      const LH      = Math.round(17 * ratio);
+      const PADX    = Math.round(8  * ratio);
+      const BOXP    = Math.round(5  * ratio);
+      const BRAND   = Math.round(9  * ratio);   // ← DOWNLOAD brand size
+
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur  = 0;
+
+      // Measure widest line for white box width
+      ctx.font = `bold ${FONT}px Arial, sans-serif`;
+      ctx.textBaseline = 'top';
+      ctx.textAlign    = 'left';
+
+      const maxW = Math.max(...lines.map(l => ctx.measureText(l).width));
+
+      // White box: sticks to left (x=0) and bottom (y=ih)
+      const boxX = 0;
+      const boxY = ih - lines.length * LH - BOXP * 2;
+      const boxW = maxW + PADX + BOXP * 2;
+      const boxH = ih - boxY;
+
+      ctx.fillStyle = 'rgba(255,255,255,0.95)';
+      ctx.fillRect(boxX, boxY, boxW, boxH);
+
+      // Black text inside box
+      ctx.fillStyle = '#111111';
+      lines.forEach((line, i) => {
+        const x = PADX;
+        const y = ih - BOXP - (lines.length - i) * LH;
+        ctx.fillText(line, x, y);
+      });
+
+      // Red "Powered by NoteCam" — bottom-right, no bg
+      ctx.save();
+      ctx.font         = `italic bold ${BRAND}px Arial, sans-serif`;
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign    = 'right';
+      ctx.fillStyle    = '#e53935';
+      ctx.fillText('Powered by NoteCam', iw - PADX, ih - BOXP);
+      ctx.restore();
+
+      const link    = document.createElement('a');
+      link.download = 'notecam-image.png';
+      link.href     = dlCanvas.toDataURL('image/png');
+      link.click();
+    };
+
+    // Load original image from file input
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => { img.src = fileReader.result; };
+    fileReader.readAsDataURL(imageInput.files[0]);
+  }
+</script>
+</body>
+</html>

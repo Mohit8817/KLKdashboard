@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Editor</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .form-Control {
+      width: 100%;
+      max-width: 380px;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #ececec;
+    }
+
+    .form-Control form {
+      width: 100%;
+    }
+
+    .inputBox {
+      margin-bottom: 18px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 10px;
+      border: 1px solid #d8d8d8;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s;
+      background-color: #fafafa;
+    }
+
+    .input-field:focus {
+      border-color: #940000;
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(148, 0, 0, 0.08);
+    }
+
+    textarea.input-field {
+      resize: none;
+      height: 90px;
+    }
+
+    .buttons_upload {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px dashed #b7b7b7;
+      background-color: #fafafa;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #940000, #c40000);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(148, 0, 0, 0.2);
+    }
+
+    .main {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .whole {
+      background: white;
+      /* padding: 15px; */
+      /* border-radius: 18px; */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      /* border: 1px solid #ececec; */
+    }
+
+    .EditImage {
+      height: 400px;
+      width: 600px;
+      /* border-radius: 14px; */
+      /* border: 2px solid #f0f0f0; */
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      /* background-color: #d8d8d8; */
+    }
+
+    /* NORMAL PREVIEW STYLE */
+
+    .content {
+      position: absolute;
+      bottom: 1%;
+      left: 1%;
+      font-size: 0.8rem;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
+    }
+
+    .content p {
+      color: white;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    #Download {
+      margin-top: 18px;
+      position: static;
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    /* DOWNLOAD MODE */
+
+    .download-mode .content {
+
+      left: 2px !important;
+      bottom: 2px !important;
+      background: rgba(255, 255, 255, 0.545) !important;
+      padding: 3px 6px 3px 3px !important;
+      border-radius: 0px !important;
+    }
+
+    .download-mode .content p {
+      color: black !important;
+      margin-bottom: 0px !important;
+      line-height: 1.1;
+      font-size: 12px;
+    }
+
+    .powerText {
+      position: absolute;
+      bottom: 1%;
+      right: 1%;
+      color: red;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      display: none;
+    }
+
+    .download-mode .powerText {
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-Control {
+        max-width: 100%;
+      }
+
+      .EditImage {
+        width: 100%;
+        max-width: 100%;
+        height: 320px;
+      }
+
+      .whole {
+        width: 100%;
+      }
+
+      .main {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 468px) {
+
+      .EditImage {
+        height: 260px;
+      }
+
+      .content {
+        font-size: 0.72rem;
+        padding: 7px;
+      }
+
+      .input-field,
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="form-Control">
+
+      <form>
+
+              <!-- IMAGE -->
+
+        <div class="btns inputBox">
+          <input class="buttons_upload" type="file" id="imageAccept">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" id="latitude" type="text" placeholder="Enter Latitude">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="longitude" placeholder="Enter Longitude">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="Elevation" placeholder="Enter Elevation">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="Accuracy" placeholder="Enter Accuracy">
+        </div>
+
+        <!-- DATE TIME -->
+
+        <div class="inputBox">
+          <input class="input-field" type="datetime-local" id="DateTime">
+        </div>
+
+        <!-- NOTE -->
+
+        <div class="inputBox">
+          <textarea class="input-field" id="Note" placeholder="Enter Note"></textarea>
+        </div>
+
+  
+
+        <button type="submit">Convert</button>
+
+      </form>
+
+    </div>
+
+    <div class="main">
+
+      <div class="whole">
+
+        <div class="EditImage" id="setBack">
+
+          <div class="content"></div>
+
+          <!-- POWERED TEXT -->
+
+          <div class="powerText">
+            Powered by NoteCam
+          </div>
+
+        </div>
+
+      </div>
+
+      <button id="Download" onclick="downloadJPG()">
+        Download Image
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <script>
+
+    const form = document.querySelector("form");
+    const image = document.querySelector("#imageAccept");
+    const setBack = document.getElementById("setBack");
+    const divAdd = document.querySelector(".content");
+
+    // IMAGE PREVIEW
+
+    image.addEventListener("change", () => {
+
+      if (image.files.length > 0) {
+
+        let fileReader = new FileReader();
+
+        fileReader.readAsDataURL(image.files[0]);
+
+        fileReader.onloadend = function () {
+
+          setBack.style.backgroundImage = `url('${fileReader.result}')`;
+
+        };
+
+      }
+
+    });
+
+    // FORMAT DATE TIME
+
+    function formatDateTime(dateTime) {
+
+      let [date, time] = dateTime.split("T");
+
+      let [year, month, day] = date.split("-");
+
+      return `${day}-${month}-${year} ${time}`;
+
+    }
+
+    // FORM SUBMIT
+
+    form.addEventListener("submit", (e) => {
+
+      e.preventDefault();
+
+      const latitude = document.querySelector("#latitude").value;
+      const longitude = document.querySelector("#longitude").value;
+      const elevation = document.querySelector("#Elevation").value;
+      const accuracy = document.querySelector("#Accuracy").value;
+
+      const rawDateTime = document.querySelector("#DateTime").value;
+
+      const note = document.querySelector("#Note").value;
+
+      if (
+        latitude === "" ||
+        longitude === "" ||
+        elevation === "" ||
+        accuracy === "" ||
+        rawDateTime === "" ||
+        note === ""
+      ) {
+
+        alert("Please Enter The Full Detail");
+
+      } else {
+
+        // CLEAR OLD DATA
+
+        divAdd.innerHTML = "";
+
+        let lat = newLatLong(latitude);
+        let long = newLatLong(longitude);
+
+        // FORMAT DATE
+
+        const formattedDateTime = formatDateTime(rawDateTime);
+
+        paragraphAppend(`Latitude: ${lat}`);
+        paragraphAppend(`Longitude: ${long}`);
+        paragraphAppend(`Elevation: ${elevation}`);
+        paragraphAppend(`Accuracy: ${accuracy}`);
+        paragraphAppend(`Time: ${formattedDateTime}`);
+        paragraphAppend(`Note: ${note}`);
+
+      }
+
+    });
+
+    // CREATE PARAGRAPH
+
+    function paragraphAppend(value) {
+
+      const p = document.createElement("p");
+
+      p.innerText = value;
+
+      divAdd.appendChild(p);
+
+    }
+
+    // LIMIT LAT LONG
+
+    function newLatLong(latLong) {
+
+      let latLongStr = latLong.toString().trim();
+
+      let newLat = "";
+
+      let count = 0;
+
+      for (let i of latLongStr) {
+
+        if (count === 9) {
+          break;
+        } else {
+          newLat += i;
+          count++;
+        }
+
+      }
+
+      return newLat;
+
+    }
+
+    // DOWNLOAD IMAGE
+
+    function downloadJPG() {
+
+      let element = document.getElementById("setBack");
+
+      // ENABLE DOWNLOAD MODE
+
+      element.classList.add("download-mode");
+
+      html2canvas(element).then(function (canvas) {
+
+        let dataURL = canvas.toDataURL("image/jpeg");
+
+        let link = document.createElement("a");
+
+        link.href = dataURL;
+
+        link.download = "Image.jpg";
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        // REMOVE DOWNLOAD MODE
+
+        element.classList.remove("download-mode");
+
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>

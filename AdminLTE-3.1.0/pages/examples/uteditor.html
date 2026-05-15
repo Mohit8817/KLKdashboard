@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Tag Image Processor</title>
+    <style>
+        :root {
+            --primary-red: #8B0000;
+            --bg-cream: #F5F5DC;
+            --border-color: #999;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-cream);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            width: 95%;
+            padding: 20px;
+        }
+
+        /* Sidebar Styling */
+        .controls {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input[type="text"], input[type="number"], input[type="datetime-local"] {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        #convertBtn {
+            background-color: var(--primary-red);
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        #downloadBtn {
+            background-color: var(--primary-red);
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            display: none; /* Hidden until image is processed */
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Preview Area */
+        .preview-area {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #canvasContainer {
+            border: 1px solid #000;
+            background-color: white;
+            width: 100%;
+            min-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        canvas {
+            max-width: 100%;
+            max-height: 70vh;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        label {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: -10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Sidebar: Controls -->
+    <div class="controls">
+        <input type="text" id="lat" placeholder="Enter Latitude">
+        <input type="text" id="long" placeholder="Enter Longitude">
+        <input type="text" id="elev" placeholder="Enter Elevation">
+        <input type="text" id="acc" placeholder="Enter Accuracy">
+        <input type="text" id="note" placeholder="Enter School Name/Note">
+        
+        <label>Time of Capture</label>
+        <input type="datetime-local" id="timestamp">
+
+        <input type="file" id="imageInput" accept="image/*">
+        
+        <button id="convertBtn">Convert</button>
+    </div>
+
+    <!-- Right Side: Preview & Download -->
+    <div class="preview-area">
+        <div id="canvasContainer">
+            <canvas id="outputCanvas"></canvas>
+        </div>
+        <button id="downloadBtn">Download Image</button>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('outputCanvas');
+    const ctx = canvas.getContext('2d');
+    const imageInput = document.getElementById('imageInput');
+    const convertBtn = document.getElementById('convertBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // Set default time to now
+    document.getElementById('timestamp').value = new Date().toISOString().slice(0, 16);
+
+    convertBtn.addEventListener('click', () => {
+        const file = imageInput.files[0];
+        if (!file) {
+            alert("Please select an image first");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const img = new Image();
+            img.onload = function() {
+                processImage(img);
+            };
+            img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+
+    function processImage(img) {
+        // 1. Set canvas dimensions to match original image for high quality
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        // 2. Draw the base image
+        ctx.drawImage(img, 0, 0);
+
+        // 3. Prepare Metadata text
+        const lat = document.getElementById('lat').value || 'N/A';
+        const lon = document.getElementById('long').value || 'N/A';
+        const elev = document.getElementById('elev').value || 'N/A';
+        const acc = document.getElementById('acc').value || 'N/A';
+        const note = document.getElementById('note').value || 'N/A';
+        const time = document.getElementById('timestamp').value.replace('T', ' ');
+
+        const lines = [
+            `Latitude: ${lat}`,
+            `Longitude: ${lon}`,
+            `Elevation: ${elev}`,
+            `Accuracy: ${acc}`,
+            `Time: ${time}`,
+            `Note: ${note}`
+        ];
+
+        // 4. Styling the Watermark Box
+        // We scale font size based on image width for responsiveness
+        const fontSize = Math.floor(img.width * 0.02); 
+        const padding = fontSize;
+        ctx.font = `${fontSize}px Arial`;
+        
+        // Calculate box dimensions
+        const boxWidth = img.width * 0.35; // Box takes 35% of width
+        const boxHeight = (lines.length * (fontSize * 1.4)) + (padding * 2);
+
+        // Draw semi-transparent white background box
+        ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+        ctx.fillRect(0, canvas.height - boxHeight, boxWidth, boxHeight);
+
+        // Draw Text
+        ctx.fillStyle = "black";
+        ctx.textAlign = "left";
+        lines.forEach((line, index) => {
+            ctx.fillText(
+                line, 
+                padding, 
+                (canvas.height - boxHeight) + padding + (index * fontSize * 1.4) + fontSize
+            );
+        });
+
+        // Show the download button
+        downloadBtn.style.display = 'block';
+    }
+
+    // Download functionality
+    downloadBtn.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.download = 'geotagged-image.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.9);
+        link.click();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        .notif-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- NEW Sidebar css here  -->
+    <style>
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #636363 !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #636363;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #fbeae6 !important;
+            color: #fd663c !important;
+            font-weight: 600;
+            border-left: 4px solid #fd663c;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #ff8528 !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #FEB47B;
+        }
+
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #636363 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+    </style>
+
+    <!--  dashboard Cards/ slider card   css  -->
+
+    <style>
+        .welcome-sub {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fd663c;
+        }
+
+        .welcome-title {
+            font-weight: 600;
+            font-size: 22px;
+            color: #333;
+        }
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+        .cards-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            padding: 10px 4px 4px;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .kcard {
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 148px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            cursor: default;
+        }
+
+        .kcard:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
+        }
+
+        .kcard.c-sites {
+            /* Purple Theme */
+            background: linear-gradient(135deg, #570ea3 0%, #7e22ce 50%, #c084fc 100%);
+        }
+
+        .kcard.c-install {
+            /* Blue Theme */
+            background: linear-gradient(135deg, #051749 0%, #1d4ed8 50%, #60a5fa 100%);
+        }
+
+        .kcard.c-payment {
+            /* Dark Indigo Theme */
+            background: linear-gradient(135deg, #320f6d 0%, #4338ca 50%, #818cf8 100%);
+        }
+
+        .kcard::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.09);
+            pointer-events: none;
+        }
+
+        .kcard::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            right: 60px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            pointer-events: none;
+        }
+
+        .card-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.9px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+            margin-bottom: 10px;
+        }
+
+        .card-value {
+            font-size: 38px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .card-value span {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.55;
+        }
+
+        .card-sub {
+            font-size: 12.5px;
+            color: rgba(255, 255, 255, 0.68);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        @media (max-width: 560px) {
+            .cards-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+/* Swiper fix */
+.mySwiper .swiper-wrapper {
+    display: flex !important;
+    align-items: stretch;
+}
+
+.mySwiper .swiper-slide {
+    height: auto;
+    flex-shrink: 0;
+}
+
+/* Slider Section */
+.slider-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-card {
+    min-width: 240px !important;
+    background: white;
+    border-radius: 14px;
+    text-align: center;
+    padding: 15px 10px 12px;
+    box-shadow: 0 5px 20px rgba(77, 29, 149, 0.216);
+    position: relative;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(167, 139, 250, 0.15);
+}
+
+.slider-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(133, 80, 224, 0.317);
+    border-color: rgba(167, 139, 250, 0.35);
+}
+
+/* ICON TOP LEFT */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    color: #ffffff;
+}
+
+/* TEXT */
+.text-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1c1359;
+}
+
+.text-label {
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    color: #16103b;
+}
+
+/* ICON COLORS - purple shades */
+.blue {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.red {
+    background: linear-gradient(135deg, #c026d3, #9333ea);
+}
+
+.green {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.purple {
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+}
+
+.yellow {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.my_containers {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+
+    /* Chart Wrapper -  */
+    .chart-card {
+      overflow: hidden;
+      border-radius: 12px;
+      transition: 0.3s;
+      position: relative;
+      padding: 0;
+      border: 0;
+      border: 1.5px solid transparent !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    }
+
+    .chart-header {
+      background: linear-gradient(135deg, #001945, #7200A1);
+      color: #ffffff;
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px 12px 0 0;
+    }
+
+
+    .chart-header i {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #ffffff;
+      transition: 0.3s;
+    }
+
+    .chart-header i:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+
+    .chart-container {
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 0 0 12px 12px;
+    }
+
+
+    #donutChart {
+      transition: transform 0.3s;
+    }
+
+    #donutChart:hover {
+      transform: scale(1.02);
+    }
+
+    .chart-container {
+      position: relative;
+      height: 350px;
+      padding: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-header {
+        font-size: 15px !important;
+        padding: 10px 16px;
+      }
+
+      .chart-header i {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+      }
+
+      .nav-tabs .nav-link {
+        font-size: 9px !important;
+        padding: 10px 12px !important;
+      }
+    }
+
+
+
+
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+
+                </ul>
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center">
+                    <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+                </a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+                    <!-- DOCUMENT BUTTON -->
+                    <div class="doc-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </div>
+
+                    <!-- NOTIFICATION -->
+                    <div class="dropdown">
+                        <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-badge">7</span>
+                        </div>
+
+                        <!-- DROPDOWN BOX -->
+                        <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                            <li class="dropdown-header fw-bold px-3 text-dark">
+                                Notifications
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">New policy
+                                            update</div>
+                                        <small class="text-muted">5 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Server
+                                            downtime
+                                            alert</div>
+                                        <small class="text-muted">10 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Payment
+                                            completed</div>
+                                        <small class="text-muted">20 min
+                                            ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item text-center" href="#">View All</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="dropdown">
+                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li class="user-box">
+                                <h6>Login New User</h6>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                    data-bs-target="#profileModal">
+                                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                                </a>
+
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                        class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                                        class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- profile popup  -->
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-right">
+                <div class="modal-content profile-modal">
+
+                    <span class="close-btn" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                    </span>
+
+                    <div class="modal-body text-center p-4">
+                        <img src="../images/userimg.jpg" class="profile-photo mb-3">
+                        <h5 class="user-name">Pravesh Ahamad</h5>
+                        <p class="user-email">@parvesahamad</p>
+
+                        <hr>
+
+                        <div class="profile-info">
+                            <p><strong>Full Name:</strong> Parves Ahamad</p>
+                            <p><strong>Email:</strong> parves@gmail.com</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>DOB:</strong> 05-01-2001</p>
+                            <p><strong>Phone:</strong> +91 9876543210</p>
+                            <p><strong>State:</strong> Kashmir</p>
+                        </div>
+
+                        <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+                        <!-- Hidden Password Fields -->
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+
+                            <div class="mb-2 text-start">
+                                <label class="form-label">New
+                                    Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-start">
+                                <label class="form-label">Confirm
+                                    Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar  elevation-4 shadow">
+            <!-- Brand Logo -->
+            <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+                <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+                    class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+                <span class="brand-text text-dark">KLK Vendor</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Dashboard </li>
+                        <li class="nav-item">
+                            <a href="./vendordashboard2.html" class="nav-link active">
+                                <i class="bi bi-speedometer2 nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Vendor Management</li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+
+                                <i class="bi bi-people nav-icon"></i>
+                                <p>
+                                    Vendor
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Vendor</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Vendor</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-journal-text nav-icon"></i>
+                                <p>Work Order</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-check nav-icon"></i>
+                                <p>Work Order Assign</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-tools nav-icon"></i>
+                                <p>Return & Maintanence</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-credit-card-2-front nav-icon"></i>
+                                <p>Payment</p>
+                            </a>
+                        </li>
+
+                        <!-- States -->
+
+                        <!-- Bihar Management -->
+                        <li class="nav-header">Bihar</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-geo-alt nav-icon"></i>
+                                <p>
+                                    SSL
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Assign Light</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Verify Light</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- SRT SUBMENU -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-geo-alt nav-icon"></i>
+                                <p>
+                                    SRT
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./vendorbiharsrt.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-assign-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Assign Light</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-verify-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Verify Light</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>UP</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>Karnataka</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>Assam</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-chat-dots nav-icon"></i>
+                                <p>Vendor Complaint</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-graph-up-arrow nav-icon"></i>
+                                <p>Vendor Report</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                <p class="text-danger">Logout</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper mt-5 pt-4">
+
+            <section class="content">
+                <!-- welcome Section here  -->
+                <section class="py-1">
+                    <div class="container-fluid">
+                        <div class="row align-items-center g-2">
+                            <!-- LEFT -->
+                            <div class="col-md-6 col-12 d-flex align-items-center gap-2">
+                                <img src="../images/icon (2).svg" class="welcome-icon mx-1" style="width: 50px" />
+                                <div>
+                                    <div class="welcome-sub">Welcome
+                                        to,</div>
+                                    <h2 class="welcome-title m-0">
+                                        Vendor Dashboard
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </section>
+
+                <!-- Cards section  -->
+
+                <div class="container-fluid mt-3">
+                    <div class="cards-wrap">
+
+                        <div class="kcard c-sites">
+                            <div class="card-label">Total Sites</div>
+                            <div>
+                                <div class="card-value">27</div>
+                                <div class="card-sub">
+                                    <span class="pill">2 Installed</span>
+                                    <span>25 Pending</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kcard c-install">
+                            <div class="card-label">Installation</div>
+                            <div>
+                                <div class="card-value">2<span> / 25</span></div>
+                                <div class="card-sub">
+                                    <span class="pill">2 Done</span>
+                                    <span>25 Remaining</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="kcard c-payment">
+                            <div class="card-label">Payment</div>
+                            <div>
+                                <div class="card-value">0<span> / 0 / 0</span></div>
+                                <div class="card-sub">
+                                    <span class="pill">Paid</span>
+                                    <span>Partial · Pending</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                
+
+                <!-- Slider Section -->
+                <section class="my_containers slider-section mb-4 pb-3 mt-4">
+                    <div class="swiper mySwiper pt-4">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box green"><i class="bi bi-box"></i></div>
+                                <div class="text-number">530</div>
+                                <div class="text-label">
+                                    <span>Kashmir</span> | <span>Solar Rooftop</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box purple"><i class="bi bi-box"></i></div>
+                                <div class="text-number">230</div>
+                                <div class="text-label">
+                                    <span>Jammu</span> | <span>70 MW Rooftop</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box blue"><i class="bi bi-box"></i></div>
+                                <div class="text-number">800</div>
+                                <div class="text-label">
+                                    <span>HP</span> | <span>Irrigation Pump</span>
+                                </div>
+                            </div>
+
+
+                                     <div class="swiper-slide slider-card">
+                                <div class="icon-box blue"><i class="bi bi-box"></i></div>
+                                <div class="text-number">800</div>
+                                <div class="text-label">
+                                    <span>HP</span> | <span>Irrigation Pump</span>
+                                </div>
+                            </div>
+
+
+                                     <div class="swiper-slide slider-card">
+                                <div class="icon-box blue"><i class="bi bi-box"></i></div>
+                                <div class="text-number">800</div>
+                                <div class="text-label">
+                                    <span>HP</span> | <span>Irrigation Pump</span>
+                                </div>
+                            </div>
+
+
+                                     <div class="swiper-slide slider-card">
+                                <div class="icon-box blue"><i class="bi bi-box"></i></div>
+                                <div class="text-number">800</div>
+                                <div class="text-label">
+                                    <span>HP</span> | <span>Irrigation Pump</span>
+                                </div>
+                            </div>
+
+                           
+
+                            
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box green"><i class="bi bi-file-earmark"></i></div>
+                                <div class="text-number">800</div>
+                                <div class="text-label">
+                                    <span>Bihar</span> | <span>Home Lighting</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box purple"><i class="bi bi-bag-check"></i></div>
+                                <div class="text-number">300</div>
+                                <div class="text-label">
+                                    <span>Bihar</span> | <span>On Grid</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide slider-card">
+                                <div class="icon-box yellow"><i class="bi bi-receipt"></i></div>
+                                <div class="text-number">500</div>
+                                <div class="text-label">
+                                    <span>Bihar</span> | <span>Power Pack</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </section>
+
+
+                
+        <!-- chart section start  -->
+        <div class="container-fluid mt-2">
+          <div class="row">
+            <!-- Donut Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-pie"></i>
+                  Assigned Vendors
+
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="donutChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bar Chart -->
+            <div class="col-12 col-lg-6">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-bar"></i>
+                  Monthly Installation
+
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="col-12">
+              <div class="card chart-card shadow-sm">
+                <div class="chart-header">
+                  <i class="fas fa-chart-line"></i>
+                  Installation Trend Analysis
+                </div>
+                <div class="card-body">
+                  <div class="chart-container">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+                <!-- footer section -->
+                <section class>
+                    <div class="container">
+                        <div class="row">
+                            <footer class="footer-area py-2">
+                                <p class="m-0 fw-semibold text-secondary small footer-text">
+                                    Copyright © <span id="year"></span> KLK
+                                    ERP — By
+                                    <span class="text-primary fw-bold">ETS
+                                        NETWORKS.</span>
+                                    All rights reserved.
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Slider Script ----------------
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 6,
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+            loop: true,
+            autoplay: {
+                delay: 1000,
+                disableOnInteraction: false
+            },
+            speed: 900,
+           breakpoints: {
+    320: { slidesPerView: 2 },
+    576: { slidesPerView: 3 },
+    768: { slidesPerView: 3 },
+    992: { slidesPerView: 4 },
+    1200: { slidesPerView: 5 }   /* kam cards = zyada width */
+}
+        });
+    </script> 
+
+
+  <!-- Chart.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script>
+    const donutCtx = document.getElementById("donutChart").getContext("2d");
+    new Chart(donutCtx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Unknown",
+          "Vipin Kumar Yadav",
+          "Vinay kumar Singh",
+          " Anurag Tiwari",
+          "Himachal Pradesh",
+          "Jammu & Kashmir",
+          "Pintu",
+          "Reena Kumari",
+          "Ravi Chaudhary ",
+          "ANIL KUMAR",
+          "Gautam Kumar",
+          "Anand kumar"
+        ],
+        datasets: [
+          {
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+            backgroundColor: [
+              "#1E6DF2",
+              "#7200A1",
+              "#1F7A5D",
+              "#E96D0C",
+              "#007B7F",
+              "#6F2DBD",
+              "#1E6DF2",
+              "#7200A1",
+              "#1F7A5D",
+              "#E96D0C"
+            ],
+            borderWidth: 2,
+            borderColor: "#ffffff"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              padding: 10,
+              font: { size: 12 },
+              usePointStyle: true,
+            },
+          },
+        },
+      },
+    });
+  </script>
+
+  <script>
+    const barCtx = document.getElementById("barChart").getContext("2d");
+    new Chart(barCtx, {
+      type: "bar",
+      data: {
+        labels: ["2025-10", "2025-09", "2025-08", "2025-07", "2025-06", "2025-05", "2025-04", "2025-03", "2025-02"],
+        datasets: [
+          {
+            label: "Monthly Installation",
+            data: [20, 69, 10, 40, 22, 31, 60, 40, 1],
+            backgroundColor: [
+              "#0e1750", "#6c019c", "#0e1750", "#6c019c", "#0e1750",
+              "#6c019c", "#0e1750", "#6c019c", "#0e1750"
+            ],
+            borderRadius: 6,
+            borderSkipped: false,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 80,
+            grid: { color: "#f6f6f6" },
+          },
+          x: {
+            grid: { display: false },
+          },
+        },
+        plugins: {
+          legend: { display: false },
+        },
+      }
+    });
+  </script>
+
+  <script>
+
+    const lineCtx = document.getElementById("lineChart").getContext("2d");
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Unknown",
+          "Vipin Kumar Yadav",
+          "Vinay kumar Singh",
+          "Anurag Tiwari",
+          "Himachal Pradesh",
+          "Jammu & Kashmir",
+          "Pintu",
+          "Reena Kumari",
+          "Ravi Chaudhary",
+          "ANIL KUMAR",
+          "Gautam Kumar",
+          "Anand kumar"
+        ],
+        datasets: [
+          {
+            label: "User Data",
+            data: [12, 18, 14, 10, 8, 16, 20, 22, 15, 12, 23, 22],
+            borderColor: "#6c019c",
+            backgroundColor: "rgba(108, 1, 156, 0.15)",
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#6c019c",
+            pointBorderColor: "#ffffff",
+            pointBorderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: "rgba(14, 23, 80, 0.08)" },
+            ticks: { color: "#0e1750" }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { color: "#0e1750" }
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: "#6c019c",
+            titleColor: "#fff",
+            bodyColor: "#fff",
+            borderColor: "#0e1750",
+            borderWidth: 1,
+          },
+        },
+      },
+    });
+  </script>
+    
+    
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
