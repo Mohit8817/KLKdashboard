@@ -898,89 +898,51 @@
                                                 <!-- BEFORE CLEANING -->
                                                 <div
                                                     class="col-md-6 form-group">
-                                                    <label>Before Cleaning Photo
-                                                        *</label>
-
+                                                    <label>Before Cleaning
+                                                        Photos *</label>
                                                     <input type="file"
                                                         id="inp_before"
-                                                        name="before_cleaning_photo"
+                                                        name="before_cleaning_photo[]"
                                                         accept="image/*"
                                                         capture="environment"
-                                                        required
+                                                        multiple
                                                         style="display:none">
-
                                                     <button type="button"
                                                         class="btn btn-outline-primary rounded w-100"
                                                         onclick="document.getElementById('inp_before').click()">
                                                         <i
-                                                            class="fas fa-camera me-2"></i>
-                                                        Open Camera
+                                                            class="fas fa-camera me-2"></i>Open
+                                                        Camera
                                                     </button>
-
-                                                    <div
-                                                        class="image-preview-box mt-3 d-none"
-                                                        id="pw_before">
-                                                        <span
-                                                            class="close-preview"
-                                                            onclick="removePhoto('before')">
-                                                            <i
-                                                                class="fas fa-times"></i>
-                                                        </span>
-                                                        <canvas id="cv_before"
-                                                            class="preview-image"
-                                                            style="width:100%; border-radius:8px; cursor:pointer; display:block;">
-                                                        </canvas>
-                                                        <div
-                                                            class="preview-info">
-                                                            <small
-                                                                class="file-name"
-                                                                id="fn_before"></small>
-                                                        </div>
-                                                    </div>
+                                                    <div id="pw_before"
+                                                        class="mt-2"></div>
+                                                    <small class="text-muted"
+                                                        id="count_before"></small>
                                                 </div>
 
                                                 <!-- AFTER CLEANING -->
                                                 <div
                                                     class="col-md-6 form-group">
-                                                    <label>After Cleaning Photo
+                                                    <label>After Cleaning Photos
                                                         *</label>
-
                                                     <input type="file"
                                                         id="inp_after"
-                                                        name="after_cleaning_photo"
+                                                        name="after_cleaning_photo[]"
                                                         accept="image/*"
                                                         capture="environment"
-                                                        required
+                                                        multiple
                                                         style="display:none">
-
                                                     <button type="button"
                                                         class="btn btn-outline-primary rounded w-100"
                                                         onclick="document.getElementById('inp_after').click()">
                                                         <i
-                                                            class="fas fa-camera me-2"></i>
-                                                        Open Camera
+                                                            class="fas fa-camera me-2"></i>Open
+                                                        Camera
                                                     </button>
-
-                                                    <div
-                                                        class="image-preview-box mt-3 d-none"
-                                                        id="pw_after">
-                                                        <span
-                                                            class="close-preview"
-                                                            onclick="removePhoto('after')">
-                                                            <i
-                                                                class="fas fa-times"></i>
-                                                        </span>
-                                                        <canvas id="cv_after"
-                                                            class="preview-image"
-                                                            style="width:100%; border-radius:8px; cursor:pointer; display:block;">
-                                                        </canvas>
-                                                        <div
-                                                            class="preview-info">
-                                                            <small
-                                                                class="file-name"
-                                                                id="fn_after"></small>
-                                                        </div>
-                                                    </div>
+                                                    <div id="pw_after"
+                                                        class="mt-2"></div>
+                                                    <small class="text-muted"
+                                                        id="count_after"></small>
                                                 </div>
 
                                             </div>
@@ -1417,336 +1379,366 @@
 
         <script>
 
-    // AUTO DATE & TIME
-    const today = new Date();
+        // AUTO DATE & TIME
+        const today = new Date();
 
-    document.querySelector('[name="visit_date"]').value =
-        today.toISOString().split('T')[0];
+        document.querySelector('[name="visit_date"]').value =
+            today.toISOString().split('T')[0];
 
-    document.querySelector('[name="visit_time"]').value =
-        today.toTimeString().slice(0, 5);
+        document.querySelector('[name="visit_time"]').value =
+            today.toTimeString().slice(0, 5);
 
-    // INVERTER REMARKS REQUIRED
-    const inverterStatus =
-        document.getElementById('inverter_status');
+        // INVERTER REMARKS REQUIRED
+        const inverterStatus =
+            document.getElementById('inverter_status');
 
-    const inverterRemarks =
-        document.getElementById('inverter_remarks');
+        const inverterRemarks =
+            document.getElementById('inverter_remarks');
 
-    inverterStatus.addEventListener('change', function () {
+        inverterStatus.addEventListener('change', function () {
 
-        if (
-            this.value === 'Non-Working' ||
-            this.value === 'Other'
-        ) {
+            if (
+                this.value === 'Non-Working' ||
+                this.value === 'Other'
+            ) {
 
-            inverterRemarks.setAttribute('required', true);
+                inverterRemarks.setAttribute('required', true);
 
-        } else {
+            } else {
 
-            inverterRemarks.removeAttribute('required');
-
-        }
-
-    });
-
-    // ─────────────────────────────────────────────
-    // GPS LOCATION FETCH (page load + cache)
-    // ─────────────────────────────────────────────
-    const gpsCache = { lat: null, lng: null };
-
-    if (navigator.geolocation) {
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-
-            gpsCache.lat = position.coords.latitude.toFixed(6);
-            gpsCache.lng = position.coords.longitude.toFixed(6);
-
-            document.querySelector('[name="gps_location"]').value =
-                gpsCache.lat + ', ' + gpsCache.lng;
-
-        }, function () {}, { timeout: 8000 });
-
-    }
-
-    // ─────────────────────────────────────────────
-    // ROUNDED RECT HELPER (for canvas stamp)
-    // ─────────────────────────────────────────────
-    function drawRoundedRect(ctx, x, y, w, h, r) {
-
-        ctx.beginPath();
-        ctx.moveTo(x + r, y);
-        ctx.lineTo(x + w - r, y);
-        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-        ctx.lineTo(x + w, y + h - r);
-        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-        ctx.lineTo(x + r, y + h);
-        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-        ctx.lineTo(x, y + r);
-        ctx.quadraticCurveTo(x, y, x + r, y);
-        ctx.closePath();
-
-    }
-
-    // ─────────────────────────────────────────────
-    // STAMP GPS + TIMESTAMP ONTO CANVAS
-    // ─────────────────────────────────────────────
-    function stampImageOnCanvas(file, canvasEl, lat, lng) {
-
-        const img = new Image();
-        const url = URL.createObjectURL(file);
-
-        img.onload = function () {
-
-            canvasEl.width  = img.naturalWidth;
-            canvasEl.height = img.naturalHeight;
-
-            const ctx = canvasEl.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-
-            const now     = new Date();
-            const dateStr = now.toLocaleDateString('en-IN', {
-                day: '2-digit', month: 'short', year: 'numeric'
-            });
-            const timeStr = now.toLocaleTimeString('en-IN', {
-                hour: '2-digit', minute: '2-digit', second: '2-digit'
-            });
-
-            const line1 = (lat && lng)
-                ? 'Lat: ' + lat + '   Lng: ' + lng
-                : 'GPS: Permission Denied';
-
-            const line2 = dateStr + '   ' + timeStr;
-
-            const fontSize = Math.max(20, Math.round(canvasEl.width * 0.022));
-            ctx.font = 'bold ' + fontSize + 'px monospace';
-
-            const pad  = 16;
-            const lh   = fontSize + 10;
-            const boxW = Math.max(
-                ctx.measureText(line1).width,
-                ctx.measureText(line2).width
-            ) + pad * 2;
-            const boxH = lh * 2 + pad;
-            const bx   = 16;
-            const by   = canvasEl.height - boxH - 16;
-
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.60)';
-            drawRoundedRect(ctx, bx, by, boxW, boxH, 10);
-            ctx.fill();
-
-            ctx.fillStyle = '#ffffff';
-            ctx.fillText(line1, bx + pad, by + pad + fontSize);
-            ctx.fillText(line2, bx + pad, by + pad + fontSize + lh);
-
-            URL.revokeObjectURL(url);
-
-        };
-
-        img.src = url;
-
-    }
-
-    // ─────────────────────────────────────────────
-    // CLEANING MODULE - CAMERA CAPTURE HANDLER
-    // ─────────────────────────────────────────────
-    function handleCameraCapture(id) {
-
-        const inp      = document.getElementById('inp_' + id);
-        const pw       = document.getElementById('pw_' + id);
-        const cv       = document.getElementById('cv_' + id);
-        const fn       = document.getElementById('fn_' + id);
-        const file     = inp.files[0];
-
-        if (!file) return;
-
-        fn.textContent = file.name;
-        pw.classList.remove('d-none');
-
-        if (gpsCache.lat && gpsCache.lng) {
-
-            stampImageOnCanvas(file, cv, gpsCache.lat, gpsCache.lng);
-
-        } else if (navigator.geolocation) {
-
-            navigator.geolocation.getCurrentPosition(
-
-                function (position) {
-
-                    gpsCache.lat = position.coords.latitude.toFixed(6);
-                    gpsCache.lng = position.coords.longitude.toFixed(6);
-
-                    stampImageOnCanvas(file, cv, gpsCache.lat, gpsCache.lng);
-
-                },
-
-                function () {
-
-                    stampImageOnCanvas(file, cv, null, null);
-
-                },
-
-                { timeout: 6000 }
-
-            );
-
-        } else {
-
-            stampImageOnCanvas(file, cv, null, null);
-
-        }
-
-    }
-
-    // REMOVE CLEANING PHOTO
-    function removePhoto(id) {
-
-        const inp = document.getElementById('inp_' + id);
-        const pw  = document.getElementById('pw_' + id);
-        const cv  = document.getElementById('cv_' + id);
-        const fn  = document.getElementById('fn_' + id);
-
-        inp.value      = '';
-        fn.textContent = '';
-        pw.classList.add('d-none');
-        cv.getContext('2d').clearRect(0, 0, cv.width, cv.height);
-
-    }
-
-    // ATTACH LISTENERS FOR CLEANING INPUTS
-    document.getElementById('inp_before').addEventListener('change', function () {
-        handleCameraCapture('before');
-    });
-
-    document.getElementById('inp_after').addEventListener('change', function () {
-        handleCameraCapture('after');
-    });
-
-    // ─────────────────────────────────────────────
-    // OTHER IMAGE INPUTS (non-cleaning, existing logic)
-    // ─────────────────────────────────────────────
-    document.querySelectorAll('.image-input').forEach(function (input) {
-
-        input.addEventListener('change', function () {
-
-            const file = this.files[0];
-
-            if (!file) return;
-
-            const previewBox  = this.parentElement.querySelector('.image-preview-box');
-            const previewImage = previewBox.querySelector('.preview-image');
-            const fileName    = previewBox.querySelector('.file-name');
-            const latitudeText = previewBox.querySelector('.latitude-text');
-            const longitudeText = previewBox.querySelector('.longitude-text');
-            const timeText    = previewBox.querySelector('.time-text');
-
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-
-                previewImage.src       = e.target.result;
-                fileName.textContent   = file.name;
-                previewBox.classList.remove('d-none');
-
-            };
-
-            reader.readAsDataURL(file);
-
-            if (navigator.geolocation) {
-
-                navigator.geolocation.getCurrentPosition(
-
-                    function (position) {
-
-                        const lat = position.coords.latitude.toFixed(6);
-                        const lng = position.coords.longitude.toFixed(6);
-
-                        if (latitudeText)  latitudeText.textContent  = 'Lat: ' + lat;
-                        if (longitudeText) longitudeText.textContent = 'Lng: ' + lng;
-
-                        if (timeText) {
-                            const now = new Date();
-                            timeText.textContent = 'Time: ' + now.toLocaleString();
-                        }
-
-                    },
-
-                    function () {
-
-                        if (latitudeText)  latitudeText.textContent  = 'Lat: Permission Denied';
-                        if (longitudeText) longitudeText.textContent = 'Lng: Permission Denied';
-
-                    }
-
-                );
+                inverterRemarks.removeAttribute('required');
 
             }
 
         });
 
+        // ─────────────────────────────────────────────
+        // GPS LOCATION FETCH (page load + cache)
+        // ─────────────────────────────────────────────
+        const gpsCache = { lat: null, lng: null };
+
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                gpsCache.lat = position.coords.latitude.toFixed(6);
+                gpsCache.lng = position.coords.longitude.toFixed(6);
+
+                document.querySelector('[name="gps_location"]').value =
+                    gpsCache.lat + ', ' + gpsCache.lng;
+
+            }, function () { }, { timeout: 8000 });
+
+        }
+
+        // ─────────────────────────────────────────────
+        // ROUNDED RECT HELPER (for canvas stamp)
+        // ─────────────────────────────────────────────
+        function drawRoundedRect(ctx, x, y, w, h, r) {
+
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+
+        }
+
+        // ─────────────────────────────────────────────
+        // STAMP GPS + TIMESTAMP ONTO CANVAS
+        // ─────────────────────────────────────────────
+        function stampImageOnCanvas(file, canvasEl, lat, lng) {
+
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+
+            img.onload = function () {
+
+                canvasEl.width = img.naturalWidth;
+                canvasEl.height = img.naturalHeight;
+
+                const ctx = canvasEl.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('en-IN', {
+                    day: '2-digit', month: 'short', year: 'numeric'
+                });
+                const timeStr = now.toLocaleTimeString('en-IN', {
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+
+                const line1 = (lat && lng)
+                    ? 'Lat: ' + lat + '   Lng: ' + lng
+                    : 'GPS: Permission Denied';
+
+                const line2 = dateStr + '   ' + timeStr;
+
+                const fontSize = Math.max(20, Math.round(canvasEl.width * 0.022));
+                ctx.font = 'bold ' + fontSize + 'px monospace';
+
+                const pad = 16;
+                const lh = fontSize + 10;
+                const boxW = Math.max(
+                    ctx.measureText(line1).width,
+                    ctx.measureText(line2).width
+                ) + pad * 2;
+                const boxH = lh * 2 + pad;
+                const bx = 16;
+                const by = canvasEl.height - boxH - 16;
+
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.60)';
+                drawRoundedRect(ctx, bx, by, boxW, boxH, 10);
+                ctx.fill();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.fillText(line1, bx + pad, by + pad + fontSize);
+                ctx.fillText(line2, bx + pad, by + pad + fontSize + lh);
+
+                URL.revokeObjectURL(url);
+
+            };
+
+            img.src = url;
+
+        }
+
+// ─────────────────────────────────────────────
+// MULTI-IMAGE CLEANING MODULE
+// ─────────────────────────────────────────────
+const photoStore = { before: [], after: [] };   // stores { file, canvas } per slot
+
+function handleCameraCapture(id) {
+    const inp   = document.getElementById('inp_' + id);
+    const pw    = document.getElementById('pw_' + id);
+    const count = document.getElementById('count_' + id);
+    const files = Array.from(inp.files);
+
+    if (!files.length) return;
+
+    files.forEach(file => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'position-relative d-inline-block me-2 mb-2';
+        wrapper.style.cssText = 'width:120px; vertical-align:top;';
+
+        const cv = document.createElement('canvas');
+        cv.className = 'preview-image';
+        cv.style.cssText = 'width:120px; height:90px; object-fit:cover; border-radius:8px; cursor:pointer; display:block; border:1px solid #dee2e6;';
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        removeBtn.className = 'btn btn-sm btn-danger position-absolute';
+        removeBtn.style.cssText = 'top:4px; right:4px; padding:2px 6px; font-size:10px; line-height:1;';
+
+        const entry = { file, canvas: cv };
+        photoStore[id].push(entry);
+
+        removeBtn.addEventListener('click', function () {
+            const idx = photoStore[id].indexOf(entry);
+            if (idx !== -1) photoStore[id].splice(idx, 1);
+            wrapper.remove();
+            updateCount(id);
+        });
+
+        wrapper.appendChild(cv);
+        wrapper.appendChild(removeBtn);
+        pw.appendChild(wrapper);
+
+        // Stamp GPS onto canvas
+        if (gpsCache.lat && gpsCache.lng) {
+            stampImageOnCanvas(file, cv, gpsCache.lat, gpsCache.lng);
+        } else if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    gpsCache.lat = pos.coords.latitude.toFixed(6);
+                    gpsCache.lng = pos.coords.longitude.toFixed(6);
+                    stampImageOnCanvas(file, cv, gpsCache.lat, gpsCache.lng);
+                },
+                () => stampImageOnCanvas(file, cv, null, null),
+                { timeout: 6000 }
+            );
+        } else {
+            stampImageOnCanvas(file, cv, null, null);
+        }
     });
 
-    // REMOVE OTHER IMAGES
-    document.querySelectorAll('.close-preview').forEach(function (btn) {
+    // Reset input so same file can be added again if needed
+    inp.value = '';
+    updateCount(id);
+}
 
-        btn.addEventListener('click', function () {
+function updateCount(id) {
+    const count = document.getElementById('count_' + id);
+    const n = photoStore[id].length;
+    count.textContent = n > 0 ? n + ' photo' + (n > 1 ? 's' : '') + ' added' : '';
+}
 
-            const previewBox = this.closest('.image-preview-box');
-            const input = previewBox.parentElement.querySelector('.image-input');
+function removePhoto(id) {
+    // legacy single-remove — no longer used, kept for safety
+}
 
-            if (input) input.value = '';
+document.getElementById('inp_before').addEventListener('change', function () {
+    handleCameraCapture('before');
+});
+document.getElementById('inp_after').addEventListener('change', function () {
+    handleCameraCapture('after');
+});
+        // REMOVE CLEANING PHOTO
+        function removePhoto(id) {
 
-            previewBox.classList.add('d-none');
+            const inp = document.getElementById('inp_' + id);
+            const pw = document.getElementById('pw_' + id);
+            const cv = document.getElementById('cv_' + id);
+            const fn = document.getElementById('fn_' + id);
+
+            inp.value = '';
+            fn.textContent = '';
+            pw.classList.add('d-none');
+            cv.getContext('2d').clearRect(0, 0, cv.width, cv.height);
+
+        }
+
+        // ATTACH LISTENERS FOR CLEANING INPUTS
+        document.getElementById('inp_before').addEventListener('change', function () {
+            handleCameraCapture('before');
+        });
+
+        document.getElementById('inp_after').addEventListener('change', function () {
+            handleCameraCapture('after');
+        });
+
+        // ─────────────────────────────────────────────
+        // OTHER IMAGE INPUTS (non-cleaning, existing logic)
+        // ─────────────────────────────────────────────
+        document.querySelectorAll('.image-input').forEach(function (input) {
+
+            input.addEventListener('change', function () {
+
+                const file = this.files[0];
+
+                if (!file) return;
+
+                const previewBox = this.parentElement.querySelector('.image-preview-box');
+                const previewImage = previewBox.querySelector('.preview-image');
+                const fileName = previewBox.querySelector('.file-name');
+                const latitudeText = previewBox.querySelector('.latitude-text');
+                const longitudeText = previewBox.querySelector('.longitude-text');
+                const timeText = previewBox.querySelector('.time-text');
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    previewImage.src = e.target.result;
+                    fileName.textContent = file.name;
+                    previewBox.classList.remove('d-none');
+
+                };
+
+                reader.readAsDataURL(file);
+
+                if (navigator.geolocation) {
+
+                    navigator.geolocation.getCurrentPosition(
+
+                        function (position) {
+
+                            const lat = position.coords.latitude.toFixed(6);
+                            const lng = position.coords.longitude.toFixed(6);
+
+                            if (latitudeText) latitudeText.textContent = 'Lat: ' + lat;
+                            if (longitudeText) longitudeText.textContent = 'Lng: ' + lng;
+
+                            if (timeText) {
+                                const now = new Date();
+                                timeText.textContent = 'Time: ' + now.toLocaleString();
+                            }
+
+                        },
+
+                        function () {
+
+                            if (latitudeText) latitudeText.textContent = 'Lat: Permission Denied';
+                            if (longitudeText) longitudeText.textContent = 'Lng: Permission Denied';
+
+                        }
+
+                    );
+
+                }
+
+            });
 
         });
 
-    });
+        // REMOVE OTHER IMAGES
+        document.querySelectorAll('.close-preview').forEach(function (btn) {
 
-    // ─────────────────────────────────────────────
-    // IMAGE MODAL
-    // ─────────────────────────────────────────────
-    const modal      = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
+            btn.addEventListener('click', function () {
 
-    document.addEventListener('click', function (e) {
+                const previewBox = this.closest('.image-preview-box');
+                const input = previewBox.parentElement.querySelector('.image-input');
 
-        // Handle canvas click (cleaning photos)
-        if (e.target.tagName === 'CANVAS' && e.target.classList.contains('preview-image')) {
+                if (input) input.value = '';
 
-            modalImage.src     = e.target.toDataURL('image/jpeg');
-            modal.style.display = 'flex';
+                previewBox.classList.add('d-none');
 
-        }
+            });
 
-        // Handle img click (other photos)
-        if (e.target.tagName === 'IMG' && e.target.classList.contains('preview-image')) {
+        });
 
-            modalImage.src     = e.target.src;
-            modal.style.display = 'flex';
+        // ─────────────────────────────────────────────
+        // IMAGE MODAL
+        // ─────────────────────────────────────────────
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
 
-        }
+        document.addEventListener('click', function (e) {
 
-    });
+            // Handle canvas click (cleaning photos)
+            if (e.target.tagName === 'CANVAS' && e.target.classList.contains('preview-image')) {
 
-    // CLOSE MODAL BUTTON
-    document.querySelector('.close-modal').addEventListener('click', function () {
+                modalImage.src = e.target.toDataURL('image/jpeg');
+                modal.style.display = 'flex';
 
-        modal.style.display = 'none';
+            }
 
-    });
+            // Handle img click (other photos)
+            if (e.target.tagName === 'IMG' && e.target.classList.contains('preview-image')) {
 
-    // CLOSE MODAL OUTSIDE CLICK
-    modal.addEventListener('click', function (e) {
+                modalImage.src = e.target.src;
+                modal.style.display = 'flex';
 
-        if (e.target === modal) {
+            }
+
+        });
+
+        // CLOSE MODAL BUTTON
+        document.querySelector('.close-modal').addEventListener('click', function () {
 
             modal.style.display = 'none';
 
-        }
+        });
 
-    });
+        // CLOSE MODAL OUTSIDE CLICK
+        modal.addEventListener('click', function (e) {
 
-</script>
+            if (e.target === modal) {
+
+                modal.style.display = 'none';
+
+            }
+
+        });
+
+    </script>
 
         <!-- jQuery -->
         <script src="../../plugins/jquery/jquery.min.js"></script>
