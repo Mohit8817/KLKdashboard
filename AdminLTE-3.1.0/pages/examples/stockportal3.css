@@ -456,3 +456,145 @@
 .custom-table tbody tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
+
+
+
+
+
+
+
+
+
+/*==============================
+   Report Dashboard Cards
+==============================*/
+
+.report-card{
+    background:#fff;
+    border-radius:18px;
+    padding:26px;
+    border:1px solid #ececec;
+    box-shadow:0 4px 18px rgba(0,0,0,.06);
+    transition:.35s;
+    height:100%;
+}
+
+.report-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 28px rgba(0,0,0,.10);
+}
+
+.report-card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:13px;
+}
+
+.report-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#f4cdbd;
+    color:#ff6b2c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+}
+
+.report-title{
+    font-size:20px;
+    color:#5d6b82;
+    font-weight:500;
+}
+
+.report-value{
+    font-size:26px;
+    font-weight:700;
+    color:#22395d;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.report-badge{
+    padding:6px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.report-success{
+    background:#e5f9ef;
+    color:#17b26a;
+}
+
+.report-danger{
+    background:#fde9e9;
+    color:#ef4444;
+}
+
+.report-compare{
+    margin-top:2px;
+    font-size:15px;
+    color:#67748e;
+    line-height:1.8;
+}
+
+.report-compare strong{
+    color:#22395d;
+    font-weight:700;
+}
+
+@media(max-width:991px){
+
+.report-card{
+    padding:22px;
+}
+
+.report-value{
+    font-size:34px;
+}
+
+.report-title{
+    font-size:18px;
+}
+
+.report-compare{
+    font-size:16px;
+}
+
+}
+
+@media(max-width:576px){
+
+.report-card{
+    padding:20px;
+}
+
+.report-value{
+    font-size:28px;
+}
+
+.report-title{
+    font-size:17px;
+}
+
+.report-icon{
+    width:38px;
+    height:38px;
+    font-size:16px;
+}
+
+}
+
+
+
+
+
+
+
+
+

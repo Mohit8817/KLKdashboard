@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <!-- <link rel="stylesheet" href="./Mohit2.css" /> -->
+    <link rel="stylesheet" href="./stockportal3.css" />
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <nav class="navbar px-lg-3  main-header navbar navbar-expand custom-navbar">
+            <div class="container-fluid d-flex align-items-center">
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link toggle-btn" data-widget="pushmenu" href="#" role="button">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="mx-2">
+                        <h5 class="mb-0 welcome-text">WELCOME!</h5>
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="ms-auto d-flex align-items-center gap-4">
+
+                    <!-- Profile -->
+                    <img src="https://i.pravatar.cc/40" class="profile-img">
+                </div>
+
+            </div>
+        </nav>
+
+        <aside class="main-sidebar">
+
+            <!-- Brand -->
+            <div class="brand-link ">
+                <img src="../images/klkhalflogo.webp" class="brand-image">
+                <span class="brand-text">KLK Ventures</span>
+            </div>
+
+            <div class="sidebar">
+
+                <!-- <div class="sidebar-title">GENERAL</div> -->
+
+                <div class="menu">
+
+                    <a href="dashboard.html" class="menu-item active">
+                        <i class="bi bi-grid"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <!-- Settings -->
+                    <a href="settings.html" class="menu-item">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+
+                    <!-- Products -->
+                    <div class="menu-group">
+                        <div class="menu-item">
+                            <i class="bi bi-box"></i>
+                            <span>Products</span>
+                            <i class="bi bi-chevron-down arrow"></i>
+                        </div>
+
+                        <div class="submenu">
+                            <div class="submenu-item">All Products</div>
+                            <div class="submenu-item">Add Product</div>
+                            <div class="submenu-item">Stock</div>
+                        </div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="menu-group">
+                        <div class="menu-item">
+                            <i class="bi bi-list"></i>
+                            <span>Category</span>
+                            <i class="bi bi-chevron-down arrow"></i>
+                        </div>
+
+                        <div class="submenu">
+                            <div class="submenu-item">All Category</div>
+                            <div class="submenu-item">Add Category</div>
+                        </div>
+                    </div>
+
+                    <!-- Orders -->
+                    <div class="menu-group">
+                        <div class="menu-item">
+                            <i class="bi bi-bag"></i>
+                            <span>Orders</span>
+                            <i class="bi bi-chevron-down arrow"></i>
+                        </div>
+
+                        <div class="submenu">
+                            <div class="submenu-item">Pending</div>
+                            <div class="submenu-item">Completed</div>
+                        </div>
+                    </div>
+
+                    <!-- Orders -->
+                    <div class="menu-group">
+                        <div class="menu-item">
+                            <i class="bi bi-bag"></i>
+                            <span>Orders</span>
+                            <i class="bi bi-chevron-down arrow"></i>
+                        </div>
+
+                        <div class="submenu">
+                            <div class="submenu-item">Pending</div>
+                            <div class="submenu-item">Completed</div>
+                        </div>
+                    </div>
+
+                    <!-- Settings -->
+                    <div class="menu-item">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content">
+
+                <div class="container-fluid pt-5 mt-3 px-3">
+                    <div class="row g-4">
+
+                        <!-- Card 1 -->
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="report-card">
+                                <div class="report-card-head">
+                                    <div class="report-icon">
+                                        <i class="fas fa-boxes"></i>
+                                    </div>
+
+                                    <div class="report-title">
+                                        Total Stock
+                                    </div>
+                                </div>
+
+                                <div class="report-card-body">
+                                    <div class="report-value">
+                                        12,548
+                                        <span class="report-badge report-success">
+                                            +12.65%
+                                        </span>
+                                    </div>
+
+                                    <div class="report-compare">
+                                        vs last month:
+                                        <strong>11,250</strong>
+                                        Items
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="report-card">
+                                <div class="report-card-head">
+                                    <div class="report-icon">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </div>
+
+                                    <div class="report-title">
+                                        Stock In
+                                    </div>
+                                </div>
+
+                                <div class="report-card-body">
+                                    <div class="report-value">
+                                        5,462
+                                        <span class="report-badge report-danger">
+                                            -4.32%
+                                        </span>
+                                    </div>
+
+                                    <div class="report-compare">
+                                        vs last month:
+                                        <strong>5,820</strong>
+                                        Items
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="report-card">
+                                <div class="report-card-head">
+                                    <div class="report-icon">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </div>
+
+                                    <div class="report-title">
+                                        Stock Out
+                                    </div>
+                                </div>
+
+                                <div class="report-card-body">
+                                    <div class="report-value">
+                                        3,265
+                                        <span class="report-badge report-success">
+                                            +18.40%
+                                        </span>
+                                    </div>
+
+                                    <div class="report-compare">
+                                        vs last month:
+                                        <strong>2,950</strong>
+                                        Items
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="report-card">
+                                <div class="report-card-head">
+                                    <div class="report-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+
+                                    <div class="report-title">
+                                        Low Stock
+                                    </div>
+                                </div>
+
+                                <div class="report-card-body">
+                                    <div class="report-value">
+                                        248
+                                        <span class="report-badge report-danger">
+                                            -8.50%
+                                        </span>
+                                    </div>
+
+                                    <div class="report-compare">
+                                        vs last month:
+                                        <strong>276</strong>
+                                        Items
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+<br><br>
+
+
+
+
+              
+
+
+
+
+                <!-- table here start-->
+                <div class="container-fluid mt-4 px-3">
+                    <div class=" card chart-card">
+                        <!-- Header -->
+                        <div class="card-header">
+
+                            <h4 class="mb-0 chart-title">DataTable with
+                                Buttons</h4>
+
+                        </div>
+
+                        <!-- Table -->
+                        <div class="card-body">
+                            <div class="table-responsive table responsive ">
+                                <table class="table align-middle custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>EMAIL</th>
+                                            <th>DATE</th>
+                                            <th>SALARY</th>
+                                            <th>STATUS</th>
+                                            <th>ACTIONS</th>
+                                            <th>ACTIONS</th>
+                                            <th>Demo</th>
+                                            <th>ACTIONS</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>EMP001</td>
+                                            <td>user1@gmail.com</td>
+                                            <td>04/15/2021</td>
+                                            <td>$24973.48</td>
+                                            <td>erp demo</td>
+                                            <td>$24973.48</td>
+                                            <td>$24973.48</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="fas fa-ellipsis-v action-icon" data-toggle="dropdown"
+                                                        style="cursor:pointer;"></i>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-sync"></i>
+                                                            Update
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+
+                                                        <a class="dropdown-item text-danger" href="#">
+                                                            <i class="fas fa-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>EMP002</td>
+                                            <td>user2@gmail.com</td>
+                                            <td>01/26/2021</td>
+                                            <td>$23704.82</td>
+                                            <td>erp demo</td>
+                                            <td>$23704.82</td>
+                                            <td>$23704.82</td>
+                                            <td><span class="badge badge-warning">Inactive</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="fas fa-ellipsis-v action-icon" data-toggle="dropdown"
+                                                        style="cursor:pointer;"></i>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-sync"></i>
+                                                            Update
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+
+                                                        <a class="dropdown-item text-danger" href="#">
+                                                            <i class="fas fa-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>EMP003</td>
+                                            <td>user3@gmail.com</td>
+                                            <td>04/09/2021</td>
+                                            <td>04/09/2021</td>
+                                            <td>erp demo </td>
+                                            <td>04/09/2021</td>
+                                            <td>$15211.60</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <i class="fas fa-ellipsis-v action-icon" data-toggle="dropdown"
+                                                        style="cursor:pointer;"></i>
+
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="./404.html">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fas fa-sync"></i>
+                                                            Update
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+
+                                                        <a class="dropdown-item text-danger" href="#">
+                                                            <i class="fas fa-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- footer section -->
+                <section>
+                    <div class="container px-3">
+                        <div class="row">
+                            <footer class="footer-area py-2">
+                                <p class="m-0 fw-semibold text-secondary small footer-text">
+                                    Copyright © <span id="year"></span> KLK
+                                    ERP — By
+                                    <span class="text-primary fw-bold">ETS
+                                        NETWORKS.</span>
+                                    All rights reserved.
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- Chart.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.querySelectorAll(".menu-group .menu-item").forEach(menu => {
+            menu.addEventListener("click", function () {
+                let parent = this.parentElement;
+                document.querySelectorAll(".menu-group").forEach(group => {
+                    if (group !== parent) {
+                        group.classList.remove("active");
+                    }
+                });
+                parent.classList.toggle("active");
+            });
+        });
+    </script>
+
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
