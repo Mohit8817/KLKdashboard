@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Purchase Invoice</title>
+<style>
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    body {
+      background: #fff !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .invoice-box {
+      max-width: 100% !important;
+      width: 100% !important;
+      height: 281mm;
+      margin: 0 !important;
+      box-sizing: border-box;
+      font-size: 10px !important;
+      transform-origin: top left;
+    }
+    .invoice-box table {
+      font-size: inherit;
+    }
+  }
+</style>
+</head>
+<body style="margin:0; padding:20px; background:#e9e9e9; font-family: Arial, Helvetica, sans-serif;">
+
+<div class="invoice-box" style="max-width:800px; margin:0 auto; background:#ffffff; border:1px solid #000; padding:15px; font-size:12px; color:#000; box-sizing:border-box;">
+
+  <!-- Title -->
+  <div style="text-align:center; position:relative; margin-bottom:10px;">
+    <span style="font-size:16px;">Tax Invoice</span>
+    <span style="position:absolute; right:0; top:0; font-size:11px;">e-Invoice</span>
+  </div>
+
+  <!-- IRN + QR -->
+  <table style="width:100%; border-collapse:collapse; margin-bottom:8px;">
+    <tr>
+      <td style="width:75%; vertical-align:top; font-size:11px; border:1px solid #000; padding:5px;">
+        <b>IRN</b> &nbsp;: 42a7509ed2a5616b27f4f067b1801d3442ab6458cc1f6834f6af517a7819<br>
+        <b>Ack No.</b> : 132627954214796<br>
+        <b>Ack Date</b> : 16-Jul-26
+      </td>
+      <td style="width:25%; text-align:center; border:1px solid #000; padding:5px;">
+        <!-- QR code left blank as requested -->
+        <div style="width:90px; height:90px; margin:0 auto; border:1px solid #000;"></div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Seller / Invoice details -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; margin-bottom:0;">
+    <tr>
+      <td style="width:50%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>RUDRAX POLYMERS PRIVATE LIMITED</b><br>
+        CHANG TO KHARAK ROAD, NEAR DHANI<br>
+        GADH BOSTING STATION, Bhiwani,<br>
+        Haryana, 127027<br>
+        UDYAM : UDYAM-HR-02-0001485 (Small)<br>
+        GSTIN/UIN: 06AAKCR3323A1ZV<br>
+        State Name : Haryana, Code : 06<br>
+        E-Mail : rudraxpolymers@gmail.com
+      </td>
+      <td style="width:25%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Invoice No.</b><br>
+        RPPL/26-27/1084<br><br>
+        <b>Delivery Note</b><br><br><br>
+        <b>Reference No. &amp; Date.</b><br><br><br>
+        <b>Buyer's Order No.</b><br><br><br>
+        <b>Dispatch Doc No.</b><br><br><br>
+        <b>Dispatched through</b><br>
+        UNREGISTERED<br><br>
+        <b>Bill of Lading/LR-RR No.</b><br>
+        dt. 16-Jul-26
+      </td>
+      <td style="width:25%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>e-Way Bill No.</b><br>
+        302292906139<br><br>
+        <b>Dated</b><br>
+        16-Jul-26<br><br>
+        <b>Mode/Terms of Payment</b><br><br><br>
+        <b>Other References</b><br><br><br>
+        <b>Dated</b><br><br><br>
+        <b>Delivery Note Date</b><br><br><br>
+        <b>Destination</b><br>
+        NOIDA<br>
+        <b>Motor Vehicle No.</b><br>
+        HR61D8975
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Consignee (Ship to)</b><br>
+        <b>KLK VENTURES PRIVATE LIMITED</b><br>
+        A 52, SECTOR 58, NOIDA, Gautambuddha<br>
+        Nagar, Uttar Pradesh, 201301<br>
+        GSTIN/UIN &nbsp;&nbsp;: 09AAACK5830H1ZK<br>
+        State Name&nbsp;&nbsp;: Uttar Pradesh, Code : 09
+      </td>
+      <td colspan="2" style="vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Terms of Delivery</b><br>
+        FOR
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Buyer (Bill to)</b><br>
+        <b>KLK VENTURES PRIVATE LIMITED</b><br>
+        A 52, SECTOR 58, NOIDA, Gautambuddha<br>
+        Nagar, Uttar Pradesh, 201301<br>
+        GSTIN/UIN &nbsp;&nbsp;: 09AAACK5830H1ZK<br>
+        State Name&nbsp;&nbsp;: Uttar Pradesh, Code : 09
+      </td>
+      <td colspan="2" style="vertical-align:top; border:1px solid #000; padding:5px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <!-- Goods table -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr style="text-align:center; font-weight:bold;">
+      <td style="border:1px solid #000; padding:4px; width:5%;">Sl<br>No.</td>
+      <td style="border:1px solid #000; padding:4px; width:35%;">Description of Goods</td>
+      <td style="border:1px solid #000; padding:4px; width:13%;">HSN/SAC</td>
+      <td style="border:1px solid #000; padding:4px; width:12%;">Quantity</td>
+      <td style="border:1px solid #000; padding:4px; width:10%;">Rate</td>
+      <td style="border:1px solid #000; padding:4px; width:8%;">per</td>
+      <td style="border:1px solid #000; padding:4px; width:17%;">Amount</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:4px; text-align:center; vertical-align:top;">1</td>
+      <td style="border:1px solid #000; padding:4px; vertical-align:top;">
+        <b>HDPE PIPE DN 40MM PE80 PN6</b><br>
+        <span style="font-size:10px;">3400 PIPE X 3 MTR</span>
+      </td>
+      <td style="border:1px solid #000; padding:4px; text-align:center; vertical-align:top;">39172110</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center; vertical-align:top;">10,200 MTR</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right; vertical-align:top;">39.00</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center; vertical-align:top;">MTR</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right; vertical-align:top;">3,97,800.00</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:4px; height:150px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:left;"><i>OUTPUT IGST 18%</i></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:right; vertical-align:top;">18</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center; vertical-align:top;">%</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right; vertical-align:top;">71,604.00</td>
+    </tr>
+    <tr style="font-weight:bold;">
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">Total</td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">10,200 MTR</td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">₹ 4,69,404.00</td>
+    </tr>
+  </table>
+  <div style="text-align:right; font-size:10px;">E. &amp; O.E</div>
+
+  <!-- Amount in words -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="border:1px solid #000; padding:5px;">
+        Amount Chargeable (in words)<br>
+        <b>INR Four Lakh Sixty Nine Thousand Four Hundred Four Only</b>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Tax summary table -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr style="font-weight:bold; text-align:center;">
+      <td style="border:1px solid #000; padding:4px; width:30%;">HSN/SAC</td>
+      <td style="border:1px solid #000; padding:4px; width:20%;">Taxable<br>Value</td>
+      <td style="border:1px solid #000; padding:4px; width:15%;">IGST<br>Rate</td>
+      <td style="border:1px solid #000; padding:4px; width:15%;">Amount</td>
+      <td style="border:1px solid #000; padding:4px; width:20%;">Total<br>Tax Amount</td>
+    </tr>
+    <tr style="text-align:center;">
+      <td style="border:1px solid #000; padding:4px;">39172110</td>
+      <td style="border:1px solid #000; padding:4px;">3,97,800.00</td>
+      <td style="border:1px solid #000; padding:4px;">18%</td>
+      <td style="border:1px solid #000; padding:4px;">71,604.00</td>
+      <td style="border:1px solid #000; padding:4px;">71,604.00</td>
+    </tr>
+    <tr style="font-weight:bold; text-align:center;">
+      <td style="border:1px solid #000; padding:4px; text-align:right;">Total</td>
+      <td style="border:1px solid #000; padding:4px;">3,97,800.00</td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;">71,604.00</td>
+      <td style="border:1px solid #000; padding:4px;">71,604.00</td>
+    </tr>
+  </table>
+
+  <!-- Tax amount in words -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="padding:5px;">
+        Tax Amount (in words) : <b>INR Seventy One Thousand Six Hundred Four Only</b>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Declaration + Bank Details + Signatory -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="width:55%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Declaration</b><br>
+        We declare that this invoice shows the actual price of the goods described and that all particulars are true and correct.<br>
+        <b>Terms &amp; Conditions</b><br>
+        E. &amp; O.E.<br>
+        1. Goods once sold will not be taken back.<br>
+        2. Interest @ 18% p.a. will be charged if the payment is not made within the stipulated time.<br>
+        3. Subject to 'Bhiwani' Jurisdiction only.
+      </td>
+      <td style="width:45%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Company's Bank Details</b><br>
+        Bank Name &nbsp;&nbsp;: HDFC C/A - 44021<br>
+        A/c No. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 50200049544021<br>
+        Branch &amp; IFS Code : BHIWANI &amp; HDFC0000479<br><br>
+        <div style="border-top:1px solid #000; padding-top:5px; text-align:center;">
+          <b>for RUDRAX POLYMERS PRIVATE LIMITED</b><br><br><br>
+          Authorised Signatory
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div style="text-align:center; font-size:11px; margin-top:5px;">This is a Computer Generated Invoice</div>
+
+</div>
+
+</body>
+</html>

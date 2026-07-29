@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Delivery Challan</title>
+<style>
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    body {
+      background: #fff !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .invoice-box {
+      max-width: 100% !important;
+      width: 100% !important;
+      height: 281mm;
+      margin: 0 !important;
+      box-sizing: border-box;
+      font-size: 10px !important;
+      transform-origin: top left;
+    }
+    .invoice-box table {
+      font-size: inherit;
+    }
+  }
+</style>
+</head>
+<body style="margin:0; padding:20px; background:#e9e9e9; font-family: Arial, Helvetica, sans-serif;">
+
+<div class="invoice-box" style="max-width:800px; margin:0 auto; background:#ffffff; border:1px solid #000; padding:15px; font-size:11px; color:#000; box-sizing:border-box;">
+
+  <!-- Title -->
+  <div style="text-align:center; margin-bottom:12px;">
+    <span style="font-size:20px; font-weight:bold; letter-spacing:2px;">DELIVERY CHALLAN</span>
+  </div>
+
+  <!-- Seller / Challan details -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; margin-bottom:0;">
+    <tr>
+      <td style="width:50%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>KLK Ventures Pvt. Ltd.</b><br>
+        A-52, Sector-58<br>
+        Noida, Uttar Pradesh - 201301<br>
+        GSTIN/UIN: 09AAACK5830H1ZK<br>
+        State Name : Uttar Pradesh, Code : 09<br>
+        CIN: U74110DL1995PTC069526<br>
+        E-Mail : director.klk@gmail.com
+      </td>
+      <td style="width:25%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Delivery Challan No.</b><br>
+        48926-27<br><br>
+        <b>References</b><br><br><br>
+        <b>Invoice No.</b><br><br><br>
+        <b>Buyer's Order No.</b><br><br><br>
+        <b>Dispatch Doc No.</b>
+      </td>
+      <td style="width:25%; vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Dated</b><br>
+        16.07.2021<br><br>
+        <b>Destination</b><br>
+        PANDUAL, MADHUBANI<br><br>
+        <b>Dispatched through</b><br>
+        GIR MOVERS PVT LTD<br><br>
+        <b>Motor Vehicle No.</b><br>
+        NCD1N5419
+      </td>
+    </tr>                
+    <tr>
+      <td style="vertical-align:top; border:1px solid #000; padding:5px;">
+        <b>Terms of Delivery</b><br>
+        Policy No. 22P25492<br>
+        Being repaired material shifting to Bihar Branch, Not for Sale.
+      </td>
+      <td colspan="2" style="vertical-align:top; border:1px solid #000; padding:5px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <!-- Place of Supply -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="border:1px solid #000; padding:5px;">
+        <b>Place of Supply</b> : Bihar
+      </td>
+    </tr>
+  </table>
+
+  <!-- Goods table -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr style="text-align:center; font-weight:bold;">
+      <td style="border:1px solid #000; padding:4px; width:5%;">Sl<br>No.</td>
+      <td style="border:1px solid #000; padding:4px; width:38%;">Description of Goods</td>
+      <td style="border:1px solid #000; padding:4px; width:13%;">HSN/SAC</td>
+      <td style="border:1px solid #000; padding:4px; width:12%;">Quantity</td>
+      <td style="border:1px solid #000; padding:4px; width:10%;">Rate</td>
+      <td style="border:1px solid #000; padding:4px; width:7%;">per</td>
+      <td style="border:1px solid #000; padding:4px; width:15%;">Amount</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">1</td>
+      <td style="border:1px solid #000; padding:4px;">Solar Power Battery Pack 36 Cell 6AH(New)</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">85076000</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">352.00</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">4200.00</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">Nos</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">14,78,400.00</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">2</td>
+      <td style="border:1px solid #000; padding:4px;">Solar Power Battery Pack 36 Cell 6AH(Repair)</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">85076000</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">28.00</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">2100.00</td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">Nos</td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">58,800.00</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:4px; height:180px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+    </tr>
+    <tr style="font-weight:bold;">
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">Total</td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:center;">380.00</td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px;"></td>
+      <td style="border:1px solid #000; padding:4px; text-align:right;">₹ 15,37,200.00</td>
+    </tr>
+  </table>
+
+  <!-- Amount in words -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="border:1px solid #000; padding:5px;">
+        Amount (in words)<br>
+        <b>INDIAN RUPEES: Fifteen Lakh Thirty Seven Thousand Two Hundred Rupees Only.</b>
+      </td>
+    </tr>
+  </table>
+
+  <!-- PAN + Signatory -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000; border-top:none;">
+    <tr>
+      <td style="width:50%; vertical-align:top; border:1px solid #000; padding:5px;">
+        Company's PAN &nbsp;&nbsp;: AAACK5830H
+      </td>
+      <td style="width:50%; vertical-align:top; border:1px solid #000; padding:5px; text-align:right;">
+        for KLK Ventures Pvt. Ltd.<br><br><br>
+        Authorised Signatory
+      </td>
+    </tr>
+  </table>
+
+  <div style="text-align:center; font-size:11px; margin-top:5px;">This is a Computer Generated Document</div>
+
+</div>
+
+</body>
+</html>

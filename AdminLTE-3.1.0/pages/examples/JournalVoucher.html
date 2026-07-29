@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Journal Voucher</title>
+<style>
+  @page {
+    size: A4;
+    margin: 8mm;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    body {
+      background: #fff !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .invoice-box {
+      max-width: 100% !important;
+      width: 100% !important;
+      height: 281mm;
+      margin: 0 !important;
+      box-sizing: border-box;
+      font-size: 10px !important;
+      transform-origin: top left;
+    }
+    .invoice-box table {
+      font-size: inherit;
+    }
+  }
+</style>
+</head>
+<body style="margin:0; padding:20px; background:#e9e9e9; font-family: Arial, Helvetica, sans-serif;">
+
+<div class="invoice-box" style="max-width:800px; margin:0 auto; background:#ffffff; border:1px solid #000; padding:20px; font-size:13px; color:#000; box-sizing:border-box;">
+
+  <!-- Company Header -->
+  <div style="text-align:center; margin-bottom:15px;">
+    <div style="font-size:18px; font-weight:bold;">ETS Networks Pvt. Ltd.</div>
+    <div>217/89, Hemkunt Chamber</div>
+    <div>Nehru Place</div>
+    <div>New Delhi - 110019</div>
+    <div>State Name : Delhi, Code : 07</div>
+    <div>CIN: U72900DL2022PTC393731</div>
+    <div>E-Mail : info.etsnetworks@gmail.com</div>
+  </div>
+
+  <!-- Title -->
+  <div style="text-align:center; font-size:16px; font-weight:bold; margin-bottom:15px;">
+    Journal Voucher
+  </div>
+
+  <!-- Dated -->
+  <div style="text-align:right; margin-bottom:5px;">
+    <b>Dated</b> &nbsp;: 23-Jun-26
+  </div>
+
+  <!-- Ref -->
+  <div style="margin-bottom:10px;">
+    <b>Ref.</b> &nbsp;: 03 dt. 23-Jun-26
+  </div>
+
+  <!-- Particulars / Debit / Credit table -->
+  <table style="width:100%; border-collapse:collapse; border:1px solid #000;">
+    <tr style="font-weight:bold; text-align:center;">
+      <td style="border:1px solid #000; padding:6px; width:50%; text-align:left;">Particulars</td>
+      <td style="border:1px solid #000; padding:6px; width:25%;">Debit</td>
+      <td style="border:1px solid #000; padding:6px; width:25%;">Credit</td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:6px; vertical-align:top; height:220px;">
+        &nbsp;&nbsp;&nbsp;Annual Maintenance <span style="float:right; margin-right:60px;">Dr</span><br>
+        &nbsp;&nbsp;&nbsp;Charges UP<br>
+        &nbsp;&nbsp;&nbsp;Input IGST <span style="float:right; margin-right:60px;">Dr</span><br><br>
+        &nbsp;&nbsp;To&nbsp;Nirmla Enterprises<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Ref 03 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5,85,000.00 Cr<br>
+        &nbsp;&nbsp;To&nbsp;TDS Contractor
+      </td>
+      <td style="border:1px solid #000; padding:6px; vertical-align:top; text-align:right;">
+        5,00,000.00<br><br>
+        90,000.00
+      </td>
+      <td style="border:1px solid #000; padding:6px; vertical-align:top; text-align:right;">
+        <br><br><br>
+        5,85,000.00<br><br>
+        5,000.00
+      </td>
+    </tr>
+    <tr>
+      <td style="border:1px solid #000; padding:6px; vertical-align:bottom;">
+        <b>On Account of :</b><br>
+        &nbsp;&nbsp;&nbsp;AMC Work Of Solar Street<br>
+        &nbsp;&nbsp;&nbsp;Light In Agra District Qty. -<br>
+        &nbsp;&nbsp;&nbsp;1000 Nos @ Rs. 500 Per<br>
+        &nbsp;&nbsp;&nbsp;Nos .
+      </td>
+      <td style="border:1px solid #000; padding:6px; vertical-align:bottom; text-align:right; font-weight:bold;">
+        ₹ 5,90,000.00
+      </td>
+      <td style="border:1px solid #000; padding:6px; vertical-align:bottom; text-align:right; font-weight:bold;">
+        ₹ 5,90,000.00
+      </td>
+    </tr>
+  </table>
+
+  <!-- Signatory -->
+  <div style="text-align:right; margin-top:60px; font-weight:bold;">
+    Authorised Signatory
+  </div>
+
+</div>
+
+</body>
+</html>
