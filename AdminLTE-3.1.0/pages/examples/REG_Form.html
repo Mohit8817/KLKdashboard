@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form / पंजीकरण फॉर्म</title>
+<link rel="stylesheet" href="REG_Form_Css.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="form-head">
+    <h1>New Employee Registration<span class="hi">/ नया कर्मचारी पंजीकरण</span></h1>
+    <p>Please fill all required details and upload the requested documents<span class="hi">कृपया सभी आवश्यक विवरण भरें और मांगे गए दस्तावेज़ अपलोड करें</span></p>
+  </div>
+
+  <!-- Contact Details -->
+  <div class="section">
+    <div class="section-head">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <p class="section-title">Contact Details<span class="hi">संपर्क विवरण</span></p>
+        <p class="section-desc">Provide your email and contact numbers<span class="hi">अपना ईमेल और संपर्क नंबर दर्ज करें</span></p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field">
+        <label>
+          <span class="label-main">Email ID<span class="req">*</span></span>
+          <span class="hi">ईमेल आईडी</span>
+        </label>
+        <input type="email" placeholder="name@example.com">
+      </div>
+      <div class="field">
+        <label>
+          <span class="label-main">Contact No.<span class="req">*</span></span>
+          <span class="hi">संपर्क नंबर</span>
+        </label>
+        <input type="tel" placeholder="+91 XXXXXXXXXX">
+      </div>
+      <div class="field">
+        <label>
+          <span class="label-main">Emergency Contact No.<span class="req">*</span></span>
+          <span class="hi">आपातकालीन संपर्क नंबर</span>
+        </label>
+        <input type="tel" placeholder="+91 XXXXXXXXXX">
+      </div>
+    </div>
+  </div>
+
+  <!-- Residential Reference -->
+  <div class="section">
+    <div class="section-head">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-9-9.3C1 8 2.8 3 8 3c2 0 3.4 1.1 4 2 0.6-.9 2-2 4-2 5.2 0 7 5 5 8.7-2.5 3.7-9 9.3-9 9.3z"/></svg>
+      </div>
+      <div>
+        <p class="section-title">Residential Reference<span class="hi">आवासीय संदर्भ</span></p>
+        <p class="section-desc">Reference document for your current shop / residence address<span class="hi">वर्तमान दुकान/निवास पते के लिए संदर्भ दस्तावेज़</span></p>
+      </div>
+    </div>
+
+    <div class="grid cols-2">
+      <div class="field">
+        <label>
+          <span class="label-main">Police Verification Validity<span class="req">*</span></span>
+          <span class="hi">पुलिस सत्यापन वैधता</span>
+        </label>
+        <input type="text" placeholder="Minimum 1 year / कम से कम 1 वर्ष">
+      </div>
+      <div class="field">
+        <label>
+          <span class="label-main">Address as per Document<span class="req">*</span></span>
+          <span class="hi">दस्तावेज़ अनुसार पता</span>
+        </label>
+        <input type="text" placeholder="Complete address / पूरा पता">
+      </div>
+    </div>
+  </div>
+
+  <!-- Upload Documents -->
+  <div class="section">
+    <div class="section-head">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      </div>
+      <div>
+        <p class="section-title">Upload Documents<span class="hi">दस्तावेज़ अपलोड करें</span></p>
+        <p class="section-desc">Documents marked required must be uploaded, others are optional<span class="hi">आवश्यक चिह्नित दस्तावेज़ अपलोड करना अनिवार्य है, शेष वैकल्पिक हैं</span></p>
+      </div>
+    </div>
+
+    <div class="upload-grid">
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Educational Document<span class="req">*</span></span>
+          <span class="hi">शैक्षणिक दस्तावेज़</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Aadhaar / Voter ID<span class="req">*</span></span>
+          <span class="hi">आधार / वोटर आईडी (पते सहित)</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">PAN Card<span class="req">*</span></span>
+          <span class="hi">पैन कार्ड</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Driving License<span class="opt">(Optional)</span></span>
+          <span class="hi">ड्राइविंग लाइसेंस (वैकल्पिक)</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Police Verification<span class="req">*</span></span>
+          <span class="hi">पुलिस सत्यापन प्रमाणपत्र</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">Valid for minimum 1 year</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Cancelled Cheque<span class="req">*</span></span>
+          <span class="hi">कैंसल चेक / बैंक पासबुक</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <label>
+          <span class="label-main">Rent Agreement / Electricity Bill<span class="req">*</span></span>
+          <span class="hi">किराया अनुबंध (दुकान) / बिजली बिल</span>
+        </label>
+        <div class="dropzone" onclick="this.querySelector('input').click()">
+          <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="showName(this)">
+          <div class="up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <div class="main">Click to upload or drag & drop<span class="hi">अपलोड करने के लिए क्लिक करें या खींचें</span></div>
+          <div class="sub">PDF, JPG or PNG</div>
+          <div class="filename"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <button type="button" class="btn btn-ghost">Cancel / रद्द करें</button>
+    <button type="button" class="btn btn-primary">Submit / जमा करें</button>
+  </div>
+
+</div>
+
+<script>
+function showName(input){
+  const box = input.closest('.dropzone');
+  const nameEl = box.querySelector('.filename');
+  if(input.files && input.files.length){
+    const names = Array.from(input.files).map(f=>f.name).join(', ');
+    nameEl.textContent = '✓ ' + names;
+    nameEl.style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
