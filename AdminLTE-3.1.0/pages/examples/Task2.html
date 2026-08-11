@@ -1,0 +1,3539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KLK Ventures</title>
+    <!-- Google Font: Source Sans Pro -->
+    <meta name="csrf-token" content="JyucRdEZsE7FVjgjQWYzvcDjkHpEGdzVErifPOMI">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/fontawesome-free/css/all.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet"
+        href="https://klkerp.com/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="https://klkerp.com/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="https://klkerp.com/plugins/dropzone/min/dropzone.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://klkerp.com/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://klkerp.com/dist/css/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+
+    <style>
+        .sidebar-dark-secondary .nav-sidebar>.nav-item>.nav-link.active,
+        .sidebar-light-secondary .nav-sidebar>.nav-item>.nav-link.active {
+            background-color: #0582ff !important;
+        }
+
+        .card-header {
+            background: #f7f7f7 !important;
+        }
+
+        .card-title {
+            color: #000000 !important;
+        }
+
+        thead {
+            text-wrap: nowrap !important;
+        }
+
+        table {
+            overflow-x: scroll !important;
+
+        }
+
+        .activeSide {
+            background-color: #0582ff !important;
+        }
+
+        .info-box .info-box-text {
+            color: #605ca8 !important;
+        }
+
+        .info-box .info-box-icon {
+            color: white !important;
+        }
+    </style>
+
+
+    <style>
+        .card-header {
+            background: #329ff3 !important;
+            padding: 10px 15px;
+        }
+
+        .card-footer {
+            background: #329ff3 !important;
+            padding: 10px 15px;
+        }
+
+        /* Table Styling */
+        .modern-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 14px;
+            border: 2px solid #e4e4e4;
+        }
+
+        .modern-table thead th {
+            font-weight: 600;
+            letter-spacing: .5px;
+            padding: 14px;
+            border: none;
+            color: white;
+            background: #3facff !important;
+        }
+
+        .modern-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        /* Left Title */
+        .table-title-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Icon Circle */
+        .table-title-left i {
+            width: 30px;
+            height: 30px;
+            background: #eef6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 15px;
+            color: #329ff3;
+        }
+
+        /* Export Button */
+        .export-btn {
+            background: #ffffff;
+            color: #329ff3;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .actn-button {
+            background: #3facff !important;
+            color: white !important;
+        }
+    </style>
+
+
+
+
+
+
+    <script>
+        const video = document.getElementById("video");
+
+        document.getElementById('faceModal').addEventListener('shown.bs.modal', startCamera);
+
+        function startCamera() {
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                });
+
+        }
+
+        async function captureFace() {
+
+            await Promise.all([
+                faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+                faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+                faceapi.nets.faceRecognitionNet.loadFromUri('/models')
+            ]);
+
+            const detection = await faceapi
+                .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
+                .withFaceLandmarks()
+                .withFaceDescriptor();
+
+            if (!detection) {
+                alert("Face not detected");
+                return;
+            }
+
+            let descriptor = Array.from(detection.descriptor);
+
+            fetch('/save-face', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "JyucRdEZsE7FVjgjQWYzvcDjkHpEGdzVErifPOMI"
+                },
+                body: JSON.stringify({
+                    descriptor: descriptor
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    alert("Face Saved Successfully");
+                    location.reload();
+                });
+
+        }
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <!-- ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.querySelector(".sidebar");
+            if (!sidebar) return;
+            document.querySelectorAll(".nav-item.menu-open").forEach(item => {
+                item.classList.add("menu-open");
+            });
+            setTimeout(() => {
+                const activeItem = sidebar.querySelector(".nav-link.active");
+                if (activeItem) {
+                    activeItem.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+            }, 100);
+        });
+    </script>
+
+    <style>
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+
+
+
+        .content-wrapper {
+            margin-top: 50px !important;
+        }
+
+        .dot {
+            display: block;
+            position: absolute;
+            height: 10px !important;
+            width: 10px !important;
+            background-color: #6de708;
+            border-radius: 50%;
+            top: 25px;
+            left: 35px;
+        }
+
+        .activePage {
+            background-color: #785822;
+            font-weight: 800;
+        }
+
+        .sidesEle {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    </style>
+
+    <style>
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            /* adjust value as needed  */
+        }
+
+        .header-actions .dropdown,
+        .header-actions li {
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* Notification Bell Button */
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 20px;
+            color: #222;
+
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 11px;
+            color: white;
+        }
+
+        /* Dropdown main box */
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 10px !important;
+            border: none !important;
+            padding: 0 !important;
+            overflow: hidden;
+            box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.18) !important;
+        }
+
+        .notify-header {
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 19px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .notify-item {
+            display: flex;
+            gap: 10px;
+            padding: 5px 12px;
+            align-items: center;
+            text-decoration: none !important;
+        }
+
+        .notify-item:hover {
+            background: #f6f9ff;
+        }
+
+        .icon-ring {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1.2px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .icon-ring.info {
+            border-color: #1a73e8;
+            color: #1a73e8;
+        }
+
+        .icon-ring.warning {
+            border-color: #ff9800;
+            color: #ff9800;
+        }
+
+        .icon-ring.success {
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .notif-title {
+            font-size: 13px;
+            font-weight: 600 !important;
+            color: #000;
+        }
+
+        .view-all {
+            text-align: center !important;
+            padding: 13px 10px;
+            border-top: 1px solid #e5e5e5;
+            font-weight: 500;
+            text-align: center;
+            /* Center View All text */
+            justify-content: center;
+            /* Ensure text stays centered in flex */
+        }
+
+
+
+        .view-all a {
+            font-size: 15px;
+            text-decoration: none;
+            color: #000;
+        }
+
+
+
+
+        /* profile css  */
+
+        .profile-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 15px 20px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+            font-weight: 600;
+        }
+
+        /* icons */
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+
+
+        /* PROFILE RIGHT SIDE MODAL */
+        .right-modal .modal-dialog {
+            position: fixed;
+            right: 0;
+            top: 0;
+            margin: 0;
+            height: 100%;
+            max-width: 340px;
+            width: 100%;
+            transform: translateX(100%);
+            transition: transform .35s ease-out;
+        }
+
+        .right-modal.show .modal-dialog {
+            transform: translateX(0);
+        }
+
+        .modal-backdrop.show {
+            opacity: .1 !important;
+        }
+
+        .profile-modal {
+            height: 100vh;
+            border-radius: 0;
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .modal-content {
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            background: #f2f2f2;
+            border-radius: 50%;
+            width: 33px;
+            height: 33px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999 !important;
+        }
+
+        .profile-photo {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            border: 3px solid #eee;
+            object-fit: cover;
+        }
+
+        .user-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .user-email {
+            font-size: 13px;
+            color: gray;
+        }
+
+        .profile-info p {
+            background: #f8f8f8;
+            padding: 8px 10px;
+            font-size: 14px;
+            border-radius: 8px;
+            margin-bottom: 7px;
+            text-align: left;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+
+    <!-- NEW Sidebar css here  -->
+    <style>
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        /* AdminLTE Sidebar Scrollbar Fix */
+        .main-sidebar .os-content {
+            scrollbar-width: thin;
+            /* Firefox */
+            scrollbar-color: #2563eb #e5e7eb;
+        }
+
+        /* Chrome / Edge / Safari */
+        .main-sidebar .os-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .main-sidebar .os-content::-webkit-scrollbar-track {
+            background: #e5e7eb;
+        }
+
+        .main-sidebar .os-content::-webkit-scrollbar-thumb {
+            background-color: #2563eb;
+            border-radius: 10px;
+        }
+
+        .main-sidebar .os-content::-webkit-scrollbar-thumb:hover {
+            background-color: #1e40af;
+        }
+
+
+
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #4c576c !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #677892;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #edf5fc;
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #e7f2ff !important;
+            color: #2e83ff !important;
+            font-weight: 600;
+            border-left: 4px solid #2e83ff;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #2e83ff !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #7b8aa1;
+        }
+
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #6b7280 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f3f6fb;
+            color: #2e83ff !important;
+        }
+    </style>
+
+    <style>
+        body,
+        .sidebar-mini {
+            background-color: #f1f4fd !important;
+        }
+
+        /* PROFILE IMAGE */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        /* NOTIFICATION ICON */
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        /* TITLE */
+        .notif-title {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* HOVER EFFECT */
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        /* DOCUMENT BUTTON — LIGHT COLOR */
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* DROPDOWN MENU */
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-green,
+        .icon-orange {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+
+
+        /* Welcome Section ---------------------------------------*/
+
+        /* Left side text styling */
+        .welcome-sub {
+            font-size: 17px;
+            color: #6c757d;
+        }
+
+        .welcome-title {
+            font-size: 22px !important;
+            color: #333;
+            font-weight: 600 !important;
+        }
+
+        /* Custom Select Wrapper */
+        .select-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 0 0 20px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            width: fit-content;
+        }
+
+        .select-wrapper:hover {
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-select {
+            border: none !important;
+            background: none !important;
+            font-size: 14px;
+            color: #495467;
+            font-weight: 500;
+            outline: none !important;
+            cursor: pointer;
+            box-shadow: none !important;
+            padding-right: 13px;
+            appearance: none;
+        }
+
+        /* Responsive font and icon resizing */
+        @media (max-width: 767px) {
+            .welcome-title {
+                font-size: 18px;
+            }
+
+            .welcome-sub {
+                font-size: 13px;
+            }
+
+            .welcome-icon {
+                width: 35px !important;
+            }
+
+            .select-wrapper {
+                padding: 0 0 0 15px;
+                font-size: 12px;
+            }
+        }
+
+
+        /* Main Card Box -------------------------------*/
+        .dashboard-box {
+            background: #fff;
+            border: 1.2px solid;
+            border-radius: 10px;
+            padding: 10px 15px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none !important;
+        }
+
+        .dashboard-box:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+
+        a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+
+        .title {
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            margin: 0;
+            color: #484848 !important;
+        }
+
+        .value {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            margin: 0;
+            text-decoration: none !important;
+        }
+
+        .value a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        .value a:hover {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            color: #7a7a7a;
+            margin: 0;
+        }
+
+        /* Circle Icon */
+        .circle-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .circle-icon img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        /* Color Themes */
+        .blue {
+            border-color: #007bff;
+        }
+
+        .blue .value {
+            color: #007bff;
+        }
+
+        .blue-border {
+            border: 2px solid #007bff;
+        }
+
+        .green {
+            border-color: #28a745;
+        }
+
+        .green .value {
+            color: #28a745;
+        }
+
+        .green-border {
+            border: 2px solid #28a745;
+        }
+
+        .orange {
+            border-color: #ff8c00;
+        }
+
+        .orange .value {
+            color: #ff8c00;
+        }
+
+        .orange-border {
+            border: 2px solid #ff8c00;
+        }
+
+        .red {
+            border-color: #e74c3c;
+        }
+
+        .red .value {
+            color: #e74c3c;
+        }
+
+        .red-border {
+            border: 2px solid #e74c3c;
+        }
+
+        .purple {
+            border-color: #8a56f6;
+        }
+
+        .purple .value {
+            color: #8a56f6;
+        }
+
+        .purple-border {
+            border: 2px solid #8a56f6;
+        }
+
+        .teal {
+            border-color: #17a2b8;
+        }
+
+        .teal .value {
+            color: #17a2b8;
+        }
+
+        .teal-border {
+            border: 2px solid #17a2b8;
+        }
+
+
+        /* Pink */
+        .pink {
+            border-color: #ff4fa7;
+        }
+
+        .pink .value {
+            color: #ff4fa7;
+        }
+
+        .pink-border {
+            border: 2px solid #ff4fa7;
+        }
+
+        /* Yellow */
+        .yellow {
+            border-color: #f7c600;
+        }
+
+        .yellow .value {
+            color: #f7c600;
+        }
+
+        .yellow-border {
+            border: 2px solid #f7c600;
+        }
+
+        /* Sky Blue */
+        .sky {
+            border-color: #19c2ff;
+        }
+
+        .sky .value {
+            color: #19c2ff;
+        }
+
+        .sky-border {
+            border: 2px solid #19c2ff;
+        }
+
+        /* Dark Blue */
+        .darkblue {
+            border-color: #0251abff;
+        }
+
+        .darkblue .value {
+            color: #0552abff;
+        }
+
+        .darkblue-border {
+            border: 2px solid #014fa8ff;
+        }
+
+        /* Brown */
+        .brown {
+            border-color: #b05b2b;
+        }
+
+        .brown .value {
+            color: #b05b2b;
+        }
+
+        .brown-border {
+            border: 2px solid #b05b2b;
+        }
+
+        .blue-border,
+        .green-border,
+        .orange-border,
+        .red-border,
+        .purple-border,
+        .teal-border,
+        .brown-border,
+        .darkblue-border,
+        .sky-border,
+        .yellow-border,
+        .pink-border {
+            border-width: 1.2px !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .circle-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .circle-icon img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .value {
+                font-size: 18px;
+            }
+        }
+
+
+        /* chart css -------------------------------------------------- */
+
+        /* Chart Wrapper */
+        .chart-card {
+            overflow: hidden;
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1.2px solid #3facff !important;
+            background: #fff;
+        }
+
+
+        /* Chart Header */
+        .chart-header {
+            background: #3facff;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-size: 16px !important;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Icon Circle like card */
+        .chart-header i {
+            width: 30px;
+            height: 30px;
+            background: #eef6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 15px;
+            color: #3facff;
+        }
+
+        /* Card Inner */
+        .chart-container {
+            position: relative;
+            height: 350px;
+            padding: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+
+            .chart-header {
+                font-size: 15px !important;
+                padding: 10px 16px;
+            }
+
+            .chart-header i {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .nav-tabs .nav-link {
+                font-size: 12px !important;
+                padding: 10px 12px !important;
+            }
+        }
+
+
+
+        /*  Table css --------------------------------------------- */
+        .modern-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 14px;
+            border: none;
+            border: 2px solid #e4e4e4;
+
+        }
+
+
+        .modern-table thead th {
+            font-weight: 600;
+            letter-spacing: .5px;
+            padding: 14px;
+            border: none;
+        }
+
+        .modern-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .modern-table td a {
+            text-decoration: none !important;
+            color: inherit;
+
+        }
+
+        /* Total Row */
+
+
+        /* Tab Custom Style */
+        .nav-tabs .nav-link {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            transition: 0.3s;
+            background: #f3e9e9 !important;
+            margin-right: 4px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: #3facff !important;
+            color: #fff !important;
+            border-color: transparent !important;
+        }
+
+        .tab-content {
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Status Icons */
+        .status-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .status-active {
+            background: #28a745;
+        }
+
+        .status-pending {
+            background: #ffc107;
+        }
+    </style>
+
+
+
+
+<!-- task css  -->
+
+
+
+  <style>
+        /* ===== Sectioned form styling — matches reference layout ===== */
+        :root {
+            --klk-accent: #6C63FF;
+            --klk-accent-soft: #EDEBFF;
+            --klk-title: #1E2233;
+            --klk-subtext: #8A8FA3;
+            --klk-border: #E4E6EF;
+            --klk-required: #F4623A;
+        }
+
+
+
+        .page-wrap {
+            /* max-width: 900px; */
+            margin: 20px auto;
+        }
+
+        /* ---------- Meeting details card ---------- */
+        .meeting-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 14px rgba(30, 34, 51, 0.06);
+            border: 1px solid var(--klk-border);
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .meeting-card .card-top {
+            padding: 16px 22px 12px 22px;
+            border-bottom: 1px dashed var(--klk-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .meeting-card .card-top .section-icon {
+            margin-top: 2px;
+        }
+
+        .meeting-card .card-top h4 {
+            font-weight: 700;
+            color: var(--klk-title);
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .meeting-card .card-top p {
+            color: var(--klk-subtext);
+            font-size: 13px;
+            margin: 2px 0 0 0;
+        }
+
+        .meeting-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px 18px;
+            padding: 16px 22px;
+        }
+
+        .meeting-item .meeting-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 4px;
+        }
+
+        .meeting-item .meeting-value {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--klk-title);
+        }
+
+        .meeting-notes {
+            padding: 0 22px 18px 22px;
+        }
+
+        .meeting-notes .meeting-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 6px;
+        }
+
+        .meeting-notes .meeting-notes-box {
+            background: #F8F8FC;
+            border: 1px solid var(--klk-border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 13.5px;
+            color: var(--klk-title);
+            line-height: 1.5;
+        }
+
+        .meeting-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--klk-accent-soft);
+            color: var(--klk-accent);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        /* ---------- Task form card ---------- */
+        .task-form-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 14px rgba(30, 34, 51, 0.06);
+            border: 1px solid var(--klk-border);
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .task-form-card .card-top {
+            padding: 16px 22px 4px 22px;
+        }
+
+        .task-form-card .card-top h4 {
+            font-weight: 700;
+            color: var(--klk-title);
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .task-form-card .card-top p {
+            color: var(--klk-subtext);
+            font-size: 13px;
+            margin: 3px 0 0 0;
+        }
+
+        .form-section {
+            padding: 14px 22px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--klk-accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--klk-accent);
+            font-size: 14px;
+        }
+
+        .section-heading h5 {
+            font-weight: 700;
+            color: var(--klk-title);
+            margin: 0 0 1px 0;
+            font-size: 15px;
+        }
+
+        .section-heading .section-sub {
+            color: var(--klk-subtext);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .form-section .row {
+            margin-left: -8px;
+            margin-right: -8px;
+        }
+
+        .form-section .row > [class*="col-"] {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .form-section .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-section label {
+            font-weight: 600;
+            color: var(--klk-title);
+            font-size: 13.5px;
+            margin-bottom: 4px;
+        }
+
+        .form-section label .req {
+            color: var(--klk-required);
+        }
+
+        .form-section .form-control,
+        .form-section select.form-control {
+            border: 1px solid var(--klk-border);
+            border-radius: 8px;
+            min-height: 40px;
+            font-size: 13.5px;
+            box-shadow: none;
+        }
+
+        .form-section .form-control:focus {
+            border-color: var(--klk-accent);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+        }
+
+        .form-section textarea.form-control {
+            min-height: 76px;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px dashed var(--klk-border);
+            margin: 0;
+        }
+
+        /* ---------- Task repeater (full block: assignee + schedule + task) ---------- */
+        .task-block {
+            border: 1px solid var(--klk-border);
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 16px;
+            position: relative;
+            background: #FCFCFE;
+            overflow: hidden;
+        }
+
+        .task-block-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background: var(--klk-accent-soft);
+        }
+
+        .task-block-head .task-block-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--klk-accent);
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+
+        .task-block-head-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-remove-task {
+            border: none;
+            background: transparent;
+            color: #8A80FF;
+            font-size: 14px;
+            line-height: 1;
+            padding: 2px 4px;
+        }
+
+        .btn-remove-task:hover { color: var(--klk-required); }
+
+        .btn-edit-task {
+            border: 1px solid var(--klk-accent);
+            background: #fff;
+            color: var(--klk-accent);
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .btn-edit-task:hover { background: var(--klk-accent-soft); }
+
+        /* ---------- Collapsed task summary (shown after "Add More Task") ---------- */
+        .task-block-summary {
+            padding: 14px 16px;
+        }
+
+        .task-block-summary .sc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 16px;
+            margin-bottom: 10px;
+        }
+
+        .task-block-summary .sc-field .sc-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 2px;
+        }
+
+        .task-block-summary .sc-field .sc-value {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--klk-title);
+            word-break: break-word;
+        }
+
+        .task-block-summary .sc-text-block {
+            background: #fff;
+            border: 1px solid var(--klk-border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 13px;
+            color: var(--klk-title);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .task-block-summary .sc-text-block:last-child { margin-bottom: 0; }
+
+        .task-block-summary .sc-text-block .sc-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 3px;
+        }
+
+        .task-block.is-collapsed .task-block-body { display: none; }
+        .task-block.is-collapsed .task-block-summary { display: block !important; }
+
+        .task-block .form-section {
+            padding: 14px 16px;
+        }
+
+        .task-block .form-section + .section-divider {
+            margin: 0 16px;
+            width: calc(100% - 32px);
+        }
+
+        .btn-add-more {
+            border: 1px dashed var(--klk-accent);
+            background: var(--klk-accent-soft);
+            color: var(--klk-accent);
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 8px 16px;
+            width: 100%;
+        }
+
+        .btn-add-more:hover {
+            background: #E2DFFF;
+            color: var(--klk-accent);
+        }
+
+        .record-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-record {
+            border-radius: 8px;
+            font-size: 13.5px;
+            padding: 8px 16px;
+            font-weight: 600;
+        }
+
+        .btn-record-start {
+            background: var(--klk-accent);
+            border: none;
+            color: #fff;
+        }
+
+        .btn-record-start:hover { background: #5a52e0; color: #fff; }
+
+        .btn-record-stop {
+            background: #fff;
+            border: 1px solid var(--klk-border);
+            color: var(--klk-title);
+        }
+
+        .recording-indicator {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            color: var(--klk-required);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .recording-indicator .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--klk-required);
+            animation: klk-pulse 1s infinite;
+        }
+
+        @keyframes klk-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        .card-footer-actions {
+            padding: 14px 22px;
+            border-top: 1px solid var(--klk-border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            background: #FAFAFC;
+        }
+
+        .btn-submit-task {
+            background: var(--klk-accent);
+            border: none;
+            border-radius: 8px;
+            padding: 9px 24px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn-submit-task:hover { background: #5a52e0; color: #fff; }
+
+        .btn-cancel-task {
+            background: #fff;
+            border: 1px solid var(--klk-border);
+            border-radius: 8px;
+            padding: 9px 20px;
+            font-weight: 600;
+            color: var(--klk-title);
+        }
+
+        .btn-cancel-task:hover { background: #F4F5F9; }
+
+        /* ---------- Submitted tasks strip ---------- */
+        .submitted-section {
+            display: none;
+        }
+
+        .submitted-section.show {
+            display: block;
+        }
+
+        .submitted-section .card-top h4 {
+            font-weight: 700;
+            color: var(--klk-title);
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .submitted-section .card-top p {
+            color: var(--klk-subtext);
+            font-size: 13px;
+            margin: 3px 0 0 0;
+        }
+
+        .submitted-strip {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 4px 22px 22px 22px;
+        }
+
+        .submitted-card {
+            background: #FCFCFE;
+            border: 1px solid var(--klk-border);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .submitted-card .sc-title {
+            font-weight: 700;
+            color: var(--klk-accent);
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            margin-bottom: 10px;
+        }
+
+        .submitted-card .sc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 16px;
+            margin-bottom: 10px;
+        }
+
+        .submitted-card .sc-field .sc-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 2px;
+        }
+
+        .submitted-card .sc-field .sc-value {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--klk-title);
+            word-break: break-word;
+        }
+
+        .submitted-card .sc-text-block {
+            background: #fff;
+            border: 1px solid var(--klk-border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 13px;
+            color: var(--klk-title);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .submitted-card .sc-text-block:last-child { margin-bottom: 0; }
+
+        .submitted-card .sc-text-block .sc-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            color: var(--klk-subtext);
+            margin-bottom: 3px;
+        }
+
+        .submit-status {
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .submit-status.ok {
+            background: var(--klk-accent-soft);
+            color: var(--klk-accent);
+        }
+
+        @media (max-width: 576px) {
+            .page-wrap { margin: 12px 12px; }
+            .form-section { padding: 12px 16px; }
+            .meeting-grid { grid-template-columns: repeat(2, 1fr); padding: 14px 16px; }
+            .meeting-card .card-top { padding: 14px 16px 10px 16px; }
+            .submitted-card .sc-grid { grid-template-columns: repeat(1, 1fr); }
+        }
+    </style>
+
+</head>
+
+
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <!--<li class="nav-item d-none d-sm-inline-block">-->
+                <!--        <a class="nav-link" data-widget="fullscreen" href="#" role="button">-->
+                <!--      <i class="fas fa-expand-arrows-alt"></i>-->
+                <!--    </a>-->
+                <!--  </li>  -->
+                <!-- 
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li> -->
+            </ul>
+
+
+
+
+            <!-- Right navbar links -->
+            <div class="navbar-nav ml-auto header-actions align-items-center">
+
+                <!-- Notification code -->
+                <div class="dropdown">
+                    <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell"></i>
+                        <span class="notif-badge">7</span>
+                    </div>
+
+                    <ul class="dropdown-menu dropdown-menu-right notif-dropdown shadow">
+                        <li class="notify-header">Notifications</li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring info"><i class="fas fa-info-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">New policy update</div>
+                                    <small class="text-muted">5 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring warning"><i class="fas fa-exclamation-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">Server downtime alert</div>
+                                    <small class="text-muted">10 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="notify-item">
+                                <span class="icon-ring success"><i class="fas fa-check-circle"></i></span>
+                                <div>
+                                    <div class="notif-title">Payment completed</div>
+                                    <small class="text-muted">20 min ago</small>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+
+                        <li class="view-all"><a href="#">View All</a></li>
+                    </ul>
+                </div>
+
+                <!-- End notificat  ion code  -->
+                <!-- PROFILE DROPDOWN CODE -->
+                <div class="dropdown ">
+                    <img src="https://klkerp.com/uploads/employee/user1764842913.jpg" class="profile-img"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                    <ul class="dropdown-menu dropdown-menu-right shadow">
+                        <li class="user-box">
+                            <h6>Login New User</h6>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                data-target="#profileModal">
+                                <span class="icon-blue mr-2">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                Profile
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center"
+                                href="https://klkerp.com/setting/view-employee">
+                                <span class="icon-pink mr-2">
+                                    <i class="fas fa-cog"></i>
+                                </span>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center mb-2" href="https://klkerp.com/logout">
+                                <span class="icon-gray mr-2">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </span>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Profile code End  -->
+            </div>
+
+        </nav>
+        <!-- /.navbar -->
+        <!-- profile side bar code  -->
+
+
+        <div class="modal fade" id="faceModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Register Your Face</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body text-center">
+
+                        <video id="video" width="450" height="350" autoplay muted></video>
+                        <br><br>
+
+                        <button class="btn btn-success" onclick="captureFace()">
+                            Capture Face
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content profile-modal p-3">
+
+                    <!-- Close Button -->
+                    <div class="close-btn" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+
+
+                    <!-- Modal Body Content -->
+                    <div class="text-center mt-3">
+                        <!-- Profile Image -->
+                        <img src="https://klkerp.com/uploads/employee/user1764842913.jpg" class="profile-photo mb-2"
+                            alt="User Photo">
+                        <h5 class="user-name">Super Admin</h5>
+                        <hr>
+
+                        <!-- Profile Info -->
+                        <div class="profile-info mt-3 px-2">
+                            <p><strong>Full Name:</strong> Super Admin</p>
+                            <p><strong>Email:</strong> Superadmin@klkerp.com</p>
+                            <p><strong>Gender:</strong> NA</p>
+                            <p><strong>DOJ:</strong> NA</p>
+                            <p><strong>Phone:</strong> 9560652530</p>
+                            <p><strong>State Access:</strong> All
+                            </p>
+                        </div>
+
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#faceModal">
+                            Add Your Face
+                        </button>
+
+                        <!-- Change Password Button -->
+                        <button class="btn btn-block mt-3 text-white" style="background-color:#38487c"
+                            id="changePassBtn">Change Password</button>
+
+                        <!-- Hidden Change Password Fields -->
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+
+                            <div class="text-left mb-2">
+                                <label>Current Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-left mb-2">
+                                <label>New Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-left mb-2">
+                                <label>Confirm Password</label>
+                                <div class="password-wrapper position-relative">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="fas fa-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-3">
+                                <button class="btn w-50 mr-2 text-white" style="background-color:#38487c"
+                                    id="savePassBtn">Save</button>
+                                <button class="btn btn-danger w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar  elevation-4">
+            <!-- Brand Logo -->
+            <a href="https://klkerp.com/state" class="brand-link" style="background-color: #ffffff;">
+                <img src="https://klkerp.com/dist/img/klk.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle p-1 elevation-3" style="opacity: 0.8">
+                <span class="brand-text text-dark">KLK Ventures</span>
+
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Dashboards</li>
+                        <li class="nav-item">
+                            <a href="https://klkerp.com/dashboard" class="nav-link ">
+                                <i class="bi bi-diagram-3 nav-icon"></i>
+
+                                <p>SRT Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://klkerp.com/bssl-dashboard" class="nav-link ">
+                                <i class="bi bi-grid nav-icon"></i>
+                                <p>SSL Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://klkerp.com/bihar/ula/dashboard" class="nav-link ">
+                                <i class="bi bi-diagram-3 nav-icon"></i>
+                                <p>ULA Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">SRT</li>
+                        <li class="nav-item  ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-building nav-icon"></i>
+                                <p>
+                                    SRT Detail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-bihar-srt" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-srtdata" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar-srt-upload-import" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Upload Data</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-check nav-icon"></i>
+                                <p>
+                                    Task Assign
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar/srt-add-task-assign" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add SRT Task</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar/srt-view-created-task-assign" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Created Task</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar/srt-view-task-assign" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Assign Task</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-file-earmark-bar-graph nav-icon"></i>
+                                <p>
+                                    Reports
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/phasewise-report" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Phase Wise</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/districtwise-report" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>District Wise</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/vendorwise-report" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Vendor Wise</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-header">SSL</li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-lightning-charge nav-icon"></i>
+                                <p>
+                                    SSL Detail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-bssl" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-bssl" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-bihar-filter" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Filter Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/upload-biharssl-data" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Upload Data</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-file-earmark-text nav-icon"></i>
+                                <p>
+                                    SSL AMC
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-amcssl" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add AMC Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-amcssl" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View AMC Data</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-header">ULA</li>
+                        <li class="nav-item  ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-building nav-icon"></i>
+                                <p>
+                                    ULA Detail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar/ula/add-data" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Data</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/bihar/ula/view-data" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Data</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-header">Complaint Detail</li>
+                        <li class="nav-item  ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-exclamation-triangle nav-icon"></i>
+                                <p>
+                                    Complaints
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Complaint</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Complaint</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item  ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-bug nav-icon"></i>
+                                <p>
+                                    SSL Complaints
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-ssl-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add SSL Complaint</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-ssl-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View SSL Complaint</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item   ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-exclamation-octagon nav-icon"></i>
+                                <p>
+                                    SRT Complaints
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-srt-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add SRT Complaint</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-srt-complaint" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View SRT Complaint</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-header">Materials Detail</li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-seam nav-icon"></i>
+                                <p>
+                                    HO Dispatch
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/ho-dispatch-sim" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dispatch Sim No</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/ho-dispatch-panel" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dispatch Panel No</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/ho-dispatch-battery" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dispatch Battery No</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/ho-dispatch-imei" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dispatch IMEI No</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-bag nav-icon"></i>
+                                <p>
+                                    Products Detail
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-product" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Product</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-product" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Product</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-badge nav-icon"></i>
+                                <p>
+                                    Request Details
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-request" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-request" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Request</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-truck nav-icon"></i>
+                                <p>
+                                    Dispatch Details
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/dispatch/inhouse-dispatch-products" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inhouse Dispatch</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/dispatch/view-inhouse-dispatch" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Inhouse</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/dispatch/add-dispatch-products" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Product Dispatch</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/dispatch/view-dispatch-product" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Outer</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-header">Other</li>
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-clipboard-check nav-icon"></i>
+                                <p>
+                                    Task Assign
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/add-notification" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Task Assign</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-notification" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Task Assign</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="https://klkerp.com/view-approve-notification" class="nav-link ">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Task Assign By Me</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="https://klkerp.com/logout" class="nav-link">
+                                <i class="bi bi-box-arrow-right nav-icon"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+      <div class="row mb-2">
+                <div class="col-sm-6 d-flex align-items-center">
+                    <img src="https://klkerp.com/icons/icon (55).png" class="welcome-icon mx-2" style="width: 30px" />
+                    <div>
+                        <div class="welcome-sub">Welcome to,</div>
+                        <h2 class="welcome-title m-0 fw-bold">
+                            Add Task Data
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Add Task Data</li>
+                    </ol>
+                </div>
+            </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <!-- SELECT2 EXAMPLE -->
+                    <div class="">
+                        <!-- <div class="card-header table-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="table-title-left">
+                                <i class="fa-solid fa-pen-to-square me-1"></i>
+                                Add Task Data
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+                             <div class="page-wrap">
+
+            <!-- ===== MEETING DETAILS CARD ===== -->
+            <div class="meeting-card">
+                <div class="card-top">
+                    <div class="section-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <div style="flex:1; display:flex; align-items:flex-start;">
+                        <div>
+                            <h4>Meeting Details</h4>
+                            <p>Select the meeting this task is being created from</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meeting-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                        <label for="meetingSelect">Meeting<span class="req">*</span></label>
+                        <select name="meeting_id" id="meetingSelect" class="form-control" required>
+                            <option value="">Select meeting...</option>
+                            <option value="101">Q3 Strategy Review</option>
+                            <option value="102">Client Onboarding - Sharma Traders</option>
+                            <option value="103">AMC Renewal Discussion</option>
+                            <option value="104">Weekly Team Sync</option>
+                        </select>
+                    </div>
+                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                        <label for="meetingDate">Meeting Date<span class="req">*</span></label>
+                        <input type="date" class="form-control" id="meetingDate" name="meeting_date" required>
+                    </div>
+                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                        <label for="organizerSelect">Organizer<span class="req">*</span></label>
+                        <select name="organizer_id" id="organizerSelect" class="form-control" required>
+                            <option value="">Select organizer...</option>
+                            <option value="3">Udit</option>
+                            <option value="5">bhupender</option>
+                            <option value="6">nikhil</option>
+                            <option value="8">ajeet</option>
+                            <option value="9">vipin</option>
+                            <option value="10">pintu</option>
+                            <option value="11">ravi</option>
+                            <option value="15">Kaushal</option>
+                            <option value="41">Tulsi</option>
+                            <option value="42">Mridu Baranwal</option>
+                            <option value="43">Shweta Yadav</option>
+                            <option value="44">Rahul</option>
+                            <option value="46">Anuj Kumar</option>
+                            <option value="47">Ritik singh negi</option>
+                            <option value="51">Sanjay Kumar</option>
+                            <option value="60">Himanshu Singh</option>
+                            <option value="64">Sunil</option>
+                            <option value="65">Manu</option>
+                            <option value="70">Shubham</option>
+                            <option value="120">Md Hussain</option>
+                            <option value="199">Prabhat Kumar(Sushant)</option>
+                            <option value="200">Kaushal Kishore</option>
+                            <option value="201">Raj Kumar</option>
+                            <option value="202">Praveen Kumar</option>
+                            <option value="203">Manual</option>
+                            <option value="204">Neeraj Roy</option>
+                            <option value="205">Sudhir Kumar</option>
+                            <option value="206">Ajit Kumar Singh</option>
+                            <option value="207">Anjani Kumar</option>
+                            <option value="208">Pramod Kumar</option>
+                            <option value="209">Lawkush</option>
+                            <option value="210">Vipin Kumar Yadav</option>
+                            <option value="252">Rajesh Kumar Chauhan</option>
+                            <option value="260">Vinay Kumar Singh</option>
+                            <option value="323">Kirti Bisht</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="meeting-notes">
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label for="meetingNotes">Agenda / Notes</label>
+                        <input type="text" class="form-control" id="meetingNotes" name="agenda_notes" placeholder="Enter agenda or notes for this meeting">
+                    </div>
+                </div>
+            </div>
+            <!-- /.meeting-card -->
+
+            <!-- ===== TASK FORM CARD ===== -->
+            <div class="task-form-card">
+
+                <div class="card-top">
+                    <h4>Add Task Data</h4>
+                    <p>Assign one or more tasks to a team member and set the deadline</p>
+                </div>
+
+                <form method="post" action="https://klkerp.com/save-notification" enctype="multipart/form-data" id="addTaskForm">
+                    <input type="hidden" name="_token" value="JyucRdEZsE7FVjgjQWYzvcDjkHpEGdzVErifPOMI" autocomplete="off">
+                    <input type="hidden" name="meeting_id" value="">
+
+                    <div class="form-section" style="padding-bottom:0;">
+                        <div id="taskBlocksWrap">
+                            <!-- Task block template (repeatable — assignee + schedule + task details together) -->
+                            <div class="task-block" data-task-block>
+                                <div class="task-block-head">
+                                    <span class="task-block-title">Task 1</span>
+                                    <div class="task-block-head-actions">
+                                        <button type="button" class="btn-edit-task" style="display:none;" title="Edit this task">
+                                            <i class="fa-solid fa-pen"></i> Edit
+                                        </button>
+                                        <button type="button" class="btn-remove-task" style="visibility:hidden;" title="Remove this task">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="task-block-summary" style="display:none;"></div>
+
+                                <div class="task-block-body">
+                                <!-- Assignee Details + Schedule, side by side -->
+                                <div class="form-section">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="section-heading">
+                                                <div class="section-icon"><i class="fa-solid fa-user"></i></div>
+                                                <div>
+                                                    <h5>Assignee Details</h5>
+                                                    <p class="section-sub">Choose who this task is for</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom:0;">
+                                                <label>Name<span class="req">*</span></label>
+                                                <select name="userId[]" class="form-control name-select" required>
+                                                    <option value="">Select...</option>
+                                                    <option value="3">Udit</option>
+                                                    <option value="5">bhupender</option>
+                                                    <option value="6">nikhil</option>
+                                                    <option value="8">ajeet</option>
+                                                    <option value="9">vipin</option>
+                                                    <option value="10">pintu</option>
+                                                    <option value="11">ravi</option>
+                                                    <option value="15">Kaushal</option>
+                                                    <option value="41">Tulsi</option>
+                                                    <option value="42">Mridu Baranwal</option>
+                                                    <option value="43">Shweta Yadav</option>
+                                                    <option value="44">Rahul</option>
+                                                    <option value="46">Anuj Kumar</option>
+                                                    <option value="47">Ritik singh negi</option>
+                                                    <option value="51">Sanjay Kumar</option>
+                                                    <option value="60">Himanshu Singh</option>
+                                                    <option value="64">Sunil</option>
+                                                    <option value="65">Manu</option>
+                                                    <option value="70">Shubham</option>
+                                                    <option value="120">Md Hussain</option>
+                                                    <option value="199">Prabhat Kumar(Sushant)</option>
+                                                    <option value="200">Kaushal Kishore</option>
+                                                    <option value="201">Raj Kumar</option>
+                                                    <option value="202">Praveen Kumar</option>
+                                                    <option value="203">Manual</option>
+                                                    <option value="204">Neeraj Roy</option>
+                                                    <option value="205">Sudhir Kumar</option>
+                                                    <option value="206">Ajit Kumar Singh</option>
+                                                    <option value="207">Anjani Kumar</option>
+                                                    <option value="208">Pramod Kumar</option>
+                                                    <option value="209">Lawkush</option>
+                                                    <option value="210">Vipin Kumar Yadav</option>
+                                                    <option value="252">Rajesh Kumar Chauhan</option>
+                                                    <option value="260">Vinay Kumar Singh</option>
+                                                    <option value="323">Kirti Bisht</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="section-heading">
+                                                <div class="section-icon"><i class="fa-regular fa-calendar"></i></div>
+                                                <div>
+                                                    <h5>Schedule</h5>
+                                                    <p class="section-sub">Set the task type and deadline</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-sm-6" style="margin-bottom:0;">
+                                                    <label>Task Type</label>
+                                                    <select name="task_type[]" class="form-control task-type-select" required>
+                                                        <option value="1">One Time</option>
+                                                        <option value="2">Recurring</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-sm-6" style="margin-bottom:0;">
+                                                    <label>Deadline Date</label>
+                                                    <input type="date" class="form-control deadline-input" name="date[]" min="2026-08-10" required>
+                                                </div>
+                                                <div class="form-group col-md-12 frequency-wrap" style="display:none; margin-top:12px; margin-bottom:0;">
+                                                    <label>Frequency</label>
+                                                    <select name="frequency[]" class="form-control frequency-select">
+                                                        <option value="1">Daily</option>
+                                                        <option value="2">Weekly</option>
+                                                        <option value="3">Monthly</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="section-divider">
+
+                                <!-- Task Details: Task + Instruction side by side -->
+                                <div class="form-section" style="padding-bottom:16px;">
+                                    <div class="section-heading">
+                                        <div class="section-icon"><i class="fa-solid fa-list-check"></i></div>
+                                        <div>
+                                            <h5>Task Details</h5>
+                                            <p class="section-sub">What needs to be done</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-sm-12" style="margin-bottom:0;">
+                                            <label>Task<span class="req">*</span></label>
+                                            <textarea class="form-control task-input" name="task[]" rows="4" required></textarea>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-12" style="margin-bottom:0;">
+                                            <label>Instruction<span class="req">*</span></label>
+                                            <textarea class="form-control instruction-input" name="instruction[]" rows="4" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <!-- /.task-block-body -->
+                            </div>
+                        </div>
+
+                        <button type="button" id="addMoreTaskBtn" class="btn btn-add-more" style="margin-bottom:14px;">
+                            <i class="fa-solid fa-plus me-1"></i> Add More Task
+                        </button>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <!-- Voice note (shared for the whole submission) -->
+                    <div class="form-section">
+                        <div class="section-heading">
+                            <div class="section-icon"><i class="fa-solid fa-microphone"></i></div>
+                            <div>
+                                <h5>Voice Note</h5>
+                                <p class="section-sub">Optionally record a spoken version of the instructions</p>
+                            </div>
+                        </div>
+                        <div class="record-row">
+                            <button type="button" id="recordButton" class="btn btn-record btn-record-start">
+                                <i class="fa-solid fa-circle me-1"></i>Start Recording
+                            </button>
+                            <button type="button" id="stopButton" class="btn btn-record btn-record-stop" disabled>
+                                <i class="fa-solid fa-stop me-1"></i>Stop Recording
+                            </button>
+                            <span class="recording-indicator" id="recordingIndicator">
+                                <span class="dot"></span> Recording…
+                            </span>
+                            <input type="file" id="audioFile" name="audioFile" accept="audio/*" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="card-footer-actions">
+                        <button type="reset" class="btn btn-cancel-task" id="cancelBtn">
+                            <i class="fa-solid fa-circle-xmark me-1"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-submit-task">
+                            <i class="fa-solid fa-paper-plane me-1"></i> Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- /.task-form-card -->
+
+            <!-- ===== SUBMITTED TASKS STRIP ===== -->
+            <div class="task-form-card submitted-section" id="submittedSection">
+                <div class="card-top" style="display:flex; align-items:center; justify-content:space-between; padding-bottom:12px;">
+                    <div>
+                        <h4>Submitted Tasks</h4>
+                        <p>Details that were just submitted</p>
+                    </div>
+                    <span class="submit-status ok"><i class="fa-solid fa-circle-check me-1"></i>Submitted</span>
+                </div>
+                <div class="submitted-strip" id="submittedStrip"></div>
+            </div>
+            <!-- /.submitted-section -->
+
+        </div>
+        <!-- /.page-wrap -->
+
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.min.js"></script>
+        <script>
+            let recorder;
+            let audioBlob;
+            document.getElementById('recordButton').addEventListener('click', function () {
+                navigator.mediaDevices.getUserMedia({
+                    audio: true
+                }).then(stream => {
+                    recorder = new RecordRTC(stream, {
+                        type: 'audio',
+                    });
+                    recorder.startRecording();
+                    document.getElementById('recordButton').disabled = true;
+                    document.getElementById('stopButton').disabled = false;
+                }).catch(console.error);
+            });
+            document.getElementById('stopButton').addEventListener('click', function () {
+                recorder.stopRecording(() => {
+                    audioBlob = recorder.getBlob();
+                    const audioFile = new File([audioBlob], 'audio.webm', {
+                        type: 'audio/webm'
+                    });
+                    const audioInput = document.getElementById('audioFile');
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(audioFile);
+                    audioInput.files = dataTransfer.files;
+                    document.getElementById('recordButton').disabled = false;
+                    document.getElementById('stopButton').disabled = true;
+                });
+            });
+            document.getElementById('task').addEventListener('change', function () {
+                const taskVal = document.getElementById('task').value;
+                if (taskVal === '2') {
+                    document.getElementById('frequency').style.display = 'block';
+                } else {
+                    document.getElementById('frequency').style.display = 'none';
+                }
+            });
+        </script>
+        <footer class="main-footer">
+            <!-- <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0
+    </div> -->
+            <strong>Copyright &copy; <a href="#">ETS NETWORKS</a>.</strong> All rights reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://klkerp.com/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://klkerp.com/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://klkerp.com/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="https://klkerp.com/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <!-- InputMask -->
+    <script src="https://klkerp.com/plugins/moment/moment.min.js"></script>
+    <script src="https://klkerp.com/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="https://klkerp.com/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap color picker -->
+    <script src="https://klkerp.com/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="https://klkerp.com/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Bootstrap Switch -->
+    <script src="https://klkerp.com/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="https://klkerp.com/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+    <!-- dropzonejs -->
+    <script src="https://klkerp.com/plugins/dropzone/min/dropzone.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="https://klkerp.com/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="https://klkerp.com/dist/js/demo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Page specific script -->
+
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+
+            //Date and time picker
+            $('#reservationdatetime').datetimepicker({
+                icons: {
+                    time: 'far fa-clock'
+                }
+            });
+
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                        'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+                function (start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                        'MMMM D, YYYY'))
+                }
+            )
+
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            })
+
+            $('.duallistbox').bootstrapDualListbox()
+
+            $('.my-colorpicker1').colorpicker()
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker()
+
+            $('.my-colorpicker2').on('colorpickerChange', function (event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            })
+
+            $("input[data-bootstrap-switch]").each(function () {
+                $(this).bootstrapSwitch('state', $(this).prop('checked'));
+            })
+
+        })
+        // BS-Stepper Init
+        document.addEventListener('DOMContentLoaded', function () {
+            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        })
+
+        // DropzoneJS Demo Code Start
+        Dropzone.autoDiscover = false
+
+        // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+        var previewNode = document.querySelector("#template")
+        previewNode.id = ""
+        var previewTemplate = previewNode.parentNode.innerHTML
+        previewNode.parentNode.removeChild(previewNode)
+
+        var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+            url: "/target-url", // Set the url
+            thumbnailWidth: 80,
+            thumbnailHeight: 80,
+            parallelUploads: 20,
+            previewTemplate: previewTemplate,
+            autoQueue: false, // Make sure the files aren't queued until manually added
+            previewsContainer: "#previews", // Define the container to display the previews
+            clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+        })
+
+        myDropzone.on("addedfile", function (file) {
+            // Hookup the start button
+            file.previewElement.querySelector(".start").onclick = function () {
+                myDropzone.enqueueFile(file)
+            }
+        })
+
+        // Update the total progress bar
+        myDropzone.on("totaluploadprogress", function (progress) {
+            document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+        })
+
+        myDropzone.on("sending", function (file) {
+            // Show the total progress bar when upload starts
+            document.querySelector("#total-progress").style.opacity = "1"
+            // And disable the start button
+            file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+        })
+
+        // Hide the total progress bar when nothing's uploading anymore
+        myDropzone.on("queuecomplete", function (progress) {
+            document.querySelector("#total-progress").style.opacity = "0"
+        })
+
+        // Setup the buttons for all transfers
+        // The "add files" button doesn't need to be setup because the config
+        // `clickable` has already been specified.
+        document.querySelector("#actions .start").onclick = function () {
+            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+        }
+        document.querySelector("#actions .cancel").onclick = function () {
+            myDropzone.removeAllFiles(true)
+        }
+        // DropzoneJS Demo Code End
+    </script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#warehouseSelect').change(function () {
+                var warehouseId = $(this).val();
+
+                // Make AJAX request
+                $.ajax({
+                    url: '/get-products/' + warehouseId,
+                    type: 'GET',
+                    success: function (data) {
+                        // Clear and populate product dropdown
+                        $('.productSelect').empty();
+                        $.each(data, function (key, value) {
+                            $('.productSelect').append('<option value="' + value.id +
+                                '">' + value.name + ' - ' + value.capacity +
+                                ' | Qty: ' + value.quantity + '</option>');
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#emailSelect').change(function () {
+                var userId = $(this).val();
+                console.log("Selected user ID: " + userId);
+
+                $.ajax({
+                    url: '/get-notiusers/' + userId,
+                    type: 'GET',
+                    success: function (response) {
+                        $("#userEmail").val(response.email);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error:", status, error);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#volumeFilterId').on('change', function () {
+                $('#volumeFilterFormId').submit();
+                $('.loader').show();
+                setTimeout(function () {
+                    $('.loader').hide();
+                }, 4000);
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Elements
+            const changeBtn = document.getElementById("changePassBtn");
+            const passFields = document.getElementById("passwordFields");
+            const profileInfo = document.querySelector(".profile-info");
+            const cancelBtn = document.getElementById("cancelPassBtn");
+            const profileModal = $('#profileModal');
+
+
+            // Reset function (global in this scope)
+            function resetProfileModal() {
+                passFields.style.display = "none";
+                profileInfo.style.display = "block";
+                changeBtn.style.display = "block";
+
+                const np = document.getElementById("newPass");
+                const cp = document.getElementById("confirmPass");
+                if (np) np.value = "";
+                if (cp) cp.value = "";
+            }
+
+            // Initial reset (in case modal exists on page load)
+            resetProfileModal();
+
+            // Open "Change Password" inside modal
+            changeBtn.addEventListener("click", function () {
+                passFields.style.display = "block";
+                profileInfo.style.display = "none";
+                changeBtn.style.display = "none";
+            });
+
+            // Cancel inside modal -> reset to initial state
+            cancelBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                resetProfileModal();
+
+            });
+
+            // Password show/hide toggles
+            document.querySelectorAll(".password-toggle").forEach(icon => {
+                icon.addEventListener("click", () => {
+                    const targetId = icon.getAttribute("data-target");
+                    const input = document.getElementById(targetId);
+                    if (!input) return;
+                    if (input.type === "password") {
+                        input.type = "text";
+                        icon.classList.remove("fa-eye-slash");
+                        icon.classList.add("fa-eye");
+                    } else {
+                        input.type = "password";
+                        icon.classList.remove("fa-eye");
+                        icon.classList.add("fa-eye-slash");
+                    }
+                });
+            });
+
+            profileModal.on('shown.bs.modal', function () {
+                resetProfileModal();
+            });
+
+            profileModal.on('hidden.bs.modal', function () {
+                resetProfileModal();
+            });
+
+
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof OverlayScrollbars !== 'undefined') {
+                OverlayScrollbars(document.querySelector('.sidebar')).destroy();
+            }
+        });
+    </script>
+
+
+  <script>
+        const taskBlocksWrap = document.getElementById('taskBlocksWrap');
+        const addMoreTaskBtn = document.getElementById('addMoreTaskBtn');
+        const form = document.getElementById('addTaskForm');
+        const meetingSelect = document.getElementById('meetingSelect');
+        const hiddenMeetingId = document.querySelector('input[name="meeting_id"][type="hidden"]');
+        const submittedSection = document.getElementById('submittedSection');
+        const submittedStrip = document.getElementById('submittedStrip');
+
+        // Map of user id -> name, used to show a readable name in the submitted cards
+        const nameSelectOptions = taskBlocksWrap.querySelector('.name-select').cloneNode(true);
+        function nameFromId(id) {
+            const opt = nameSelectOptions.querySelector('option[value="' + CSS.escape(id) + '"]');
+            return opt ? opt.textContent : id;
+        }
+        function taskTypeLabel(v) {
+            return v === '2' ? 'Recurring' : 'One Time';
+        }
+        function frequencyLabel(v) {
+            return { '1': 'Daily', '2': 'Weekly', '3': 'Monthly' }[v] || '';
+        }
+
+        function renumberTaskBlocks() {
+            const blocks = taskBlocksWrap.querySelectorAll('[data-task-block]');
+            blocks.forEach((block, idx) => {
+                block.querySelector('.task-block-title').textContent = 'Task ' + (idx + 1);
+                const removeBtn = block.querySelector('.btn-remove-task');
+                removeBtn.style.visibility = blocks.length > 1 ? 'visible' : 'hidden';
+            });
+        }
+
+        function blockData(block) {
+            const userId = block.querySelector('.name-select').value;
+            return {
+                name: userId ? nameFromId(userId) : '—',
+                taskType: taskTypeLabel(block.querySelector('.task-type-select').value),
+                frequency: block.querySelector('.task-type-select').value === '2'
+                    ? frequencyLabel(block.querySelector('.frequency-select').value)
+                    : '',
+                date: block.querySelector('.deadline-input').value || '—',
+                task: block.querySelector('.task-input').value,
+                instruction: block.querySelector('.instruction-input').value
+            };
+        }
+
+        function collapseBlock(block) {
+            const d = blockData(block);
+            block.querySelector('.task-block-summary').innerHTML = `
+                <div class="sc-grid">
+                    <div class="sc-field">
+                        <span class="sc-label">Assignee</span>
+                        <span class="sc-value">${d.name}</span>
+                    </div>
+                    <div class="sc-field">
+                        <span class="sc-label">Task Type</span>
+                        <span class="sc-value">${d.taskType}${d.frequency ? ' · ' + d.frequency : ''}</span>
+                    </div>
+                    <div class="sc-field">
+                        <span class="sc-label">Deadline</span>
+                        <span class="sc-value">${d.date}</span>
+                    </div>
+                </div>
+                <div class="sc-text-block"><span class="sc-label">Task</span>${d.task || '—'}</div>
+                <div class="sc-text-block"><span class="sc-label">Instruction</span>${d.instruction || '—'}</div>
+            `;
+            block.classList.add('is-collapsed');
+            block.querySelector('.btn-edit-task').style.display = 'inline-flex';
+        }
+
+        function expandBlock(block) {
+            block.classList.remove('is-collapsed');
+            block.querySelector('.btn-edit-task').style.display = 'none';
+        }
+
+        function wireBlock(block) {
+            // Task type -> frequency toggle, scoped to this block only
+            const taskTypeSelect = block.querySelector('.task-type-select');
+            const frequencyWrap = block.querySelector('.frequency-wrap');
+            taskTypeSelect.addEventListener('change', function () {
+                frequencyWrap.style.display = this.value === '2' ? 'block' : 'none';
+            });
+
+            // Remove this whole task (assignee + schedule + task details together)
+            block.querySelector('.btn-remove-task').addEventListener('click', function () {
+                block.remove();
+                renumberTaskBlocks();
+            });
+
+            // Reopen a collapsed task for editing
+            block.querySelector('.btn-edit-task').addEventListener('click', function () {
+                expandBlock(block);
+                block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Wire the first, already-in-DOM block
+        wireBlock(taskBlocksWrap.querySelector('[data-task-block]'));
+
+        addMoreTaskBtn.addEventListener('click', function () {
+            const blocks = taskBlocksWrap.querySelectorAll('[data-task-block]');
+            const currentBlock = blocks[blocks.length - 1];
+
+            // Validate the currently open task before collapsing it into a summary card
+            const fieldsToCheck = currentBlock.querySelectorAll('.task-block-body input, .task-block-body select, .task-block-body textarea');
+            let allValid = true;
+            fieldsToCheck.forEach(el => {
+                if (!el.checkValidity()) {
+                    allValid = false;
+                }
+            });
+            if (!allValid) {
+                // Let the browser show its native validation message on the offending field
+                for (const el of fieldsToCheck) {
+                    if (!el.checkValidity()) {
+                        el.reportValidity();
+                        break;
+                    }
+                }
+                return;
+            }
+
+            // Collapse the task that was just filled in into a compact summary card
+            collapseBlock(currentBlock);
+
+            // Build a fresh, empty task block for the next task
+            const template = blocks[0];
+            const newBlock = template.cloneNode(true);
+            newBlock.classList.remove('is-collapsed');
+            newBlock.querySelector('.task-block-summary').innerHTML = '';
+            newBlock.querySelector('.task-block-summary').style.display = 'none';
+            newBlock.querySelector('.btn-edit-task').style.display = 'none';
+
+            newBlock.querySelectorAll('textarea').forEach(t => t.value = '');
+            newBlock.querySelectorAll('input[type="text"], input[type="date"]').forEach(i => i.value = '');
+            newBlock.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+            newBlock.querySelector('.frequency-wrap').style.display = 'none';
+
+            taskBlocksWrap.appendChild(newBlock);
+            wireBlock(newBlock);
+            renumberTaskBlocks();
+            newBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const firstField = newBlock.querySelector('.name-select');
+            if (firstField) firstField.focus();
+        });
+
+        // Sync the hidden meeting_id with the selected meeting
+        meetingSelect.addEventListener('change', function () {
+            hiddenMeetingId.value = this.value;
+        });
+
+        // ---- Basic record/stop toggle UI ----
+        const recordButton = document.getElementById('recordButton');
+        const stopButton = document.getElementById('stopButton');
+        const recordingIndicator = document.getElementById('recordingIndicator');
+
+        recordButton.addEventListener('click', function () {
+            recordButton.disabled = true;
+            stopButton.disabled = false;
+            recordingIndicator.style.display = 'inline-flex';
+        });
+
+        stopButton.addEventListener('click', function () {
+            recordButton.disabled = false;
+            stopButton.disabled = true;
+            recordingIndicator.style.display = 'none';
+        });
+
+        // ---- Build & show the "Submitted Tasks" strip, then send the form ----
+        function collectTasksData() {
+            const blocks = taskBlocksWrap.querySelectorAll('[data-task-block]');
+            return Array.from(blocks).map((block, idx) => {
+                const userId = block.querySelector('.name-select').value;
+                return {
+                    label: 'Task ' + (idx + 1),
+                    name: userId ? nameFromId(userId) : '—',
+                    taskType: taskTypeLabel(block.querySelector('.task-type-select').value),
+                    frequency: block.querySelector('.task-type-select').value === '2'
+                        ? frequencyLabel(block.querySelector('.frequency-select').value)
+                        : '',
+                    date: block.querySelector('.deadline-input').value || '—',
+                    task: block.querySelector('.task-input').value,
+                    instruction: block.querySelector('.instruction-input').value
+                };
+            });
+        }
+
+        function renderSubmittedStrip(entries) {
+            submittedStrip.innerHTML = '';
+            entries.forEach(entry => {
+                const card = document.createElement('div');
+                card.className = 'submitted-card';
+                card.innerHTML = `
+                    <div class="sc-title">${entry.label}</div>
+                    <div class="sc-grid">
+                        <div class="sc-field">
+                            <span class="sc-label">Assignee</span>
+                            <span class="sc-value">${entry.name}</span>
+                        </div>
+                        <div class="sc-field">
+                            <span class="sc-label">Task Type</span>
+                            <span class="sc-value">${entry.taskType}${entry.frequency ? ' · ' + entry.frequency : ''}</span>
+                        </div>
+                        <div class="sc-field">
+                            <span class="sc-label">Deadline</span>
+                            <span class="sc-value">${entry.date}</span>
+                        </div>
+                    </div>
+                    <div class="sc-text-block">
+                        <span class="sc-label">Task</span>${entry.task || '—'}
+                    </div>
+                    <div class="sc-text-block">
+                        <span class="sc-label">Instruction</span>${entry.instruction || '—'}
+                    </div>
+                `;
+                submittedStrip.appendChild(card);
+            });
+            submittedSection.classList.add('show');
+            submittedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const entries = collectTasksData();
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            }).catch(function (err) {
+                console.error('Submit request failed:', err);
+            }).finally(function () {
+                renderSubmittedStrip(entries);
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
