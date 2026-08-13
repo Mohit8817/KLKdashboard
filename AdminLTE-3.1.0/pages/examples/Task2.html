@@ -1325,11 +1325,11 @@
 
 
 
-<!-- task css  -->
+    <!-- task css  -->
 
 
 
-  <style>
+    <style>
         /* ===== Sectioned form styling — matches reference layout ===== */
         :root {
             --klk-accent: #6C63FF;
@@ -1512,7 +1512,7 @@
             margin-right: -8px;
         }
 
-        .form-section .row > [class*="col-"] {
+        .form-section .row>[class*="col-"] {
             padding-left: 8px;
             padding-right: 8px;
         }
@@ -1598,7 +1598,9 @@
             padding: 2px 4px;
         }
 
-        .btn-remove-task:hover { color: var(--klk-required); }
+        .btn-remove-task:hover {
+            color: var(--klk-required);
+        }
 
         .btn-edit-task {
             border: 1px solid var(--klk-accent);
@@ -1611,7 +1613,9 @@
             border-radius: 6px;
         }
 
-        .btn-edit-task:hover { background: var(--klk-accent-soft); }
+        .btn-edit-task:hover {
+            background: var(--klk-accent-soft);
+        }
 
         /* ---------- Collapsed task summary (shown after "Add More Task") ---------- */
         .task-block-summary {
@@ -1654,7 +1658,9 @@
             margin-bottom: 8px;
         }
 
-        .task-block-summary .sc-text-block:last-child { margin-bottom: 0; }
+        .task-block-summary .sc-text-block:last-child {
+            margin-bottom: 0;
+        }
 
         .task-block-summary .sc-text-block .sc-label {
             display: block;
@@ -1666,14 +1672,19 @@
             margin-bottom: 3px;
         }
 
-        .task-block.is-collapsed .task-block-body { display: none; }
-        .task-block.is-collapsed .task-block-summary { display: block !important; }
+        .task-block.is-collapsed .task-block-body {
+            display: none;
+        }
+
+        .task-block.is-collapsed .task-block-summary {
+            display: block !important;
+        }
 
         .task-block .form-section {
             padding: 14px 16px;
         }
 
-        .task-block .form-section + .section-divider {
+        .task-block .form-section+.section-divider {
             margin: 0 16px;
             width: calc(100% - 32px);
         }
@@ -1714,7 +1725,10 @@
             color: #fff;
         }
 
-        .btn-record-start:hover { background: #5a52e0; color: #fff; }
+        .btn-record-start:hover {
+            background: #5a52e0;
+            color: #fff;
+        }
 
         .btn-record-stop {
             background: #fff;
@@ -1740,8 +1754,15 @@
         }
 
         @keyframes klk-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.25; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.25;
+            }
         }
 
         .card-footer-actions {
@@ -1762,7 +1783,10 @@
             color: #fff;
         }
 
-        .btn-submit-task:hover { background: #5a52e0; color: #fff; }
+        .btn-submit-task:hover {
+            background: #5a52e0;
+            color: #fff;
+        }
 
         .btn-cancel-task {
             background: #fff;
@@ -1773,7 +1797,9 @@
             color: var(--klk-title);
         }
 
-        .btn-cancel-task:hover { background: #F4F5F9; }
+        .btn-cancel-task:hover {
+            background: #F4F5F9;
+        }
 
         /* ---------- Submitted tasks strip ---------- */
         .submitted-section {
@@ -1856,7 +1882,9 @@
             margin-bottom: 8px;
         }
 
-        .submitted-card .sc-text-block:last-child { margin-bottom: 0; }
+        .submitted-card .sc-text-block:last-child {
+            margin-bottom: 0;
+        }
 
         .submitted-card .sc-text-block .sc-label {
             display: block;
@@ -1881,11 +1909,26 @@
         }
 
         @media (max-width: 576px) {
-            .page-wrap { margin: 12px 12px; }
-            .form-section { padding: 12px 16px; }
-            .meeting-grid { grid-template-columns: repeat(2, 1fr); padding: 14px 16px; }
-            .meeting-card .card-top { padding: 14px 16px 10px 16px; }
-            .submitted-card .sc-grid { grid-template-columns: repeat(1, 1fr); }
+            .page-wrap {
+                margin: 12px 12px;
+            }
+
+            .form-section {
+                padding: 12px 16px;
+            }
+
+            .meeting-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 14px 16px;
+            }
+
+            .meeting-card .card-top {
+                padding: 14px 16px 10px 16px;
+            }
+
+            .submitted-card .sc-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     </style>
 
@@ -2578,23 +2621,24 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">
-      <div class="row mb-2">
-                <div class="col-sm-6 d-flex align-items-center">
-                    <img src="https://klkerp.com/icons/icon (55).png" class="welcome-icon mx-2" style="width: 30px" />
-                    <div>
-                        <div class="welcome-sub">Welcome to,</div>
-                        <h2 class="welcome-title m-0 fw-bold">
-                            Add Task Data
-                        </h2>
+                    <div class="row mb-2">
+                        <div class="col-sm-6 d-flex align-items-center">
+                            <img src="https://klkerp.com/icons/icon (55).png" class="welcome-icon mx-2"
+                                style="width: 30px" />
+                            <div>
+                                <div class="welcome-sub">Welcome to,</div>
+                                <h2 class="welcome-title m-0 fw-bold">
+                                    Add Task Data
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Add Task Data</li>
+                            </ol>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add Task Data</li>
-                    </ol>
-                </div>
-            </div>
                 </div>
                 <!-- /.container-fluid -->
             </section>
@@ -2614,289 +2658,322 @@
                         </div>
                     </div>
                 </div> -->
-                             <div class="page-wrap">
+                        <div class="page-wrap">
 
-            <!-- ===== MEETING DETAILS CARD ===== -->
-            <div class="meeting-card">
-                <div class="card-top">
-                    <div class="section-icon"><i class="fa-solid fa-people-group"></i></div>
-                    <div style="flex:1; display:flex; align-items:flex-start;">
-                        <div>
-                            <h4>Meeting Details</h4>
-                            <p>Select the meeting this task is being created from</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="meeting-grid" style="grid-template-columns: repeat(3, 1fr);">
-                    <div class="form-group meeting-item" style="margin-bottom:0;">
-                        <label for="meetingSelect">Meeting<span class="req">*</span></label>
-                        <select name="meeting_id" id="meetingSelect" class="form-control" required>
-                            <option value="">Select meeting...</option>
-                            <option value="101">Q3 Strategy Review</option>
-                            <option value="102">Client Onboarding - Sharma Traders</option>
-                            <option value="103">AMC Renewal Discussion</option>
-                            <option value="104">Weekly Team Sync</option>
-                        </select>
-                    </div>
-                    <div class="form-group meeting-item" style="margin-bottom:0;">
-                        <label for="meetingDate">Meeting Date<span class="req">*</span></label>
-                        <input type="date" class="form-control" id="meetingDate" name="meeting_date" required>
-                    </div>
-                    <div class="form-group meeting-item" style="margin-bottom:0;">
-                        <label for="organizerSelect">Organizer<span class="req">*</span></label>
-                        <select name="organizer_id" id="organizerSelect" class="form-control" required>
-                            <option value="">Select organizer...</option>
-                            <option value="3">Udit</option>
-                            <option value="5">bhupender</option>
-                            <option value="6">nikhil</option>
-                            <option value="8">ajeet</option>
-                            <option value="9">vipin</option>
-                            <option value="10">pintu</option>
-                            <option value="11">ravi</option>
-                            <option value="15">Kaushal</option>
-                            <option value="41">Tulsi</option>
-                            <option value="42">Mridu Baranwal</option>
-                            <option value="43">Shweta Yadav</option>
-                            <option value="44">Rahul</option>
-                            <option value="46">Anuj Kumar</option>
-                            <option value="47">Ritik singh negi</option>
-                            <option value="51">Sanjay Kumar</option>
-                            <option value="60">Himanshu Singh</option>
-                            <option value="64">Sunil</option>
-                            <option value="65">Manu</option>
-                            <option value="70">Shubham</option>
-                            <option value="120">Md Hussain</option>
-                            <option value="199">Prabhat Kumar(Sushant)</option>
-                            <option value="200">Kaushal Kishore</option>
-                            <option value="201">Raj Kumar</option>
-                            <option value="202">Praveen Kumar</option>
-                            <option value="203">Manual</option>
-                            <option value="204">Neeraj Roy</option>
-                            <option value="205">Sudhir Kumar</option>
-                            <option value="206">Ajit Kumar Singh</option>
-                            <option value="207">Anjani Kumar</option>
-                            <option value="208">Pramod Kumar</option>
-                            <option value="209">Lawkush</option>
-                            <option value="210">Vipin Kumar Yadav</option>
-                            <option value="252">Rajesh Kumar Chauhan</option>
-                            <option value="260">Vinay Kumar Singh</option>
-                            <option value="323">Kirti Bisht</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="meeting-notes">
-                    <div class="form-group" style="margin-bottom:0;">
-                        <label for="meetingNotes">Agenda / Notes</label>
-                        <input type="text" class="form-control" id="meetingNotes" name="agenda_notes" placeholder="Enter agenda or notes for this meeting">
-                    </div>
-                </div>
-            </div>
-            <!-- /.meeting-card -->
-
-            <!-- ===== TASK FORM CARD ===== -->
-            <div class="task-form-card">
-
-                <div class="card-top">
-                    <h4>Add Task Data</h4>
-                    <p>Assign one or more tasks to a team member and set the deadline</p>
-                </div>
-
-                <form method="post" action="https://klkerp.com/save-notification" enctype="multipart/form-data" id="addTaskForm">
-                    <input type="hidden" name="_token" value="JyucRdEZsE7FVjgjQWYzvcDjkHpEGdzVErifPOMI" autocomplete="off">
-                    <input type="hidden" name="meeting_id" value="">
-
-                    <div class="form-section" style="padding-bottom:0;">
-                        <div id="taskBlocksWrap">
-                            <!-- Task block template (repeatable — assignee + schedule + task details together) -->
-                            <div class="task-block" data-task-block>
-                                <div class="task-block-head">
-                                    <span class="task-block-title">Task 1</span>
-                                    <div class="task-block-head-actions">
-                                        <button type="button" class="btn-edit-task" style="display:none;" title="Edit this task">
-                                            <i class="fa-solid fa-pen"></i> Edit
-                                        </button>
-                                        <button type="button" class="btn-remove-task" style="visibility:hidden;" title="Remove this task">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="task-block-summary" style="display:none;"></div>
-
-                                <div class="task-block-body">
-                                <!-- Assignee Details + Schedule, side by side -->
-                                <div class="form-section">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="section-heading">
-                                                <div class="section-icon"><i class="fa-solid fa-user"></i></div>
-                                                <div>
-                                                    <h5>Assignee Details</h5>
-                                                    <p class="section-sub">Choose who this task is for</p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group" style="margin-bottom:0;">
-                                                <label>Name<span class="req">*</span></label>
-                                                <select name="userId[]" class="form-control name-select" required>
-                                                    <option value="">Select...</option>
-                                                    <option value="3">Udit</option>
-                                                    <option value="5">bhupender</option>
-                                                    <option value="6">nikhil</option>
-                                                    <option value="8">ajeet</option>
-                                                    <option value="9">vipin</option>
-                                                    <option value="10">pintu</option>
-                                                    <option value="11">ravi</option>
-                                                    <option value="15">Kaushal</option>
-                                                    <option value="41">Tulsi</option>
-                                                    <option value="42">Mridu Baranwal</option>
-                                                    <option value="43">Shweta Yadav</option>
-                                                    <option value="44">Rahul</option>
-                                                    <option value="46">Anuj Kumar</option>
-                                                    <option value="47">Ritik singh negi</option>
-                                                    <option value="51">Sanjay Kumar</option>
-                                                    <option value="60">Himanshu Singh</option>
-                                                    <option value="64">Sunil</option>
-                                                    <option value="65">Manu</option>
-                                                    <option value="70">Shubham</option>
-                                                    <option value="120">Md Hussain</option>
-                                                    <option value="199">Prabhat Kumar(Sushant)</option>
-                                                    <option value="200">Kaushal Kishore</option>
-                                                    <option value="201">Raj Kumar</option>
-                                                    <option value="202">Praveen Kumar</option>
-                                                    <option value="203">Manual</option>
-                                                    <option value="204">Neeraj Roy</option>
-                                                    <option value="205">Sudhir Kumar</option>
-                                                    <option value="206">Ajit Kumar Singh</option>
-                                                    <option value="207">Anjani Kumar</option>
-                                                    <option value="208">Pramod Kumar</option>
-                                                    <option value="209">Lawkush</option>
-                                                    <option value="210">Vipin Kumar Yadav</option>
-                                                    <option value="252">Rajesh Kumar Chauhan</option>
-                                                    <option value="260">Vinay Kumar Singh</option>
-                                                    <option value="323">Kirti Bisht</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="section-heading">
-                                                <div class="section-icon"><i class="fa-regular fa-calendar"></i></div>
-                                                <div>
-                                                    <h5>Schedule</h5>
-                                                    <p class="section-sub">Set the task type and deadline</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-md-6 col-sm-6" style="margin-bottom:0;">
-                                                    <label>Task Type</label>
-                                                    <select name="task_type[]" class="form-control task-type-select" required>
-                                                        <option value="1">One Time</option>
-                                                        <option value="2">Recurring</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-md-6 col-sm-6" style="margin-bottom:0;">
-                                                    <label>Deadline Date</label>
-                                                    <input type="date" class="form-control deadline-input" name="date[]" min="2026-08-10" required>
-                                                </div>
-                                                <div class="form-group col-md-12 frequency-wrap" style="display:none; margin-top:12px; margin-bottom:0;">
-                                                    <label>Frequency</label>
-                                                    <select name="frequency[]" class="form-control frequency-select">
-                                                        <option value="1">Daily</option>
-                                                        <option value="2">Weekly</option>
-                                                        <option value="3">Monthly</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <hr class="section-divider">
-
-                                <!-- Task Details: Task + Instruction side by side -->
-                                <div class="form-section" style="padding-bottom:16px;">
-                                    <div class="section-heading">
-                                        <div class="section-icon"><i class="fa-solid fa-list-check"></i></div>
+                            <!-- ===== MEETING DETAILS CARD ===== -->
+                            <div class="meeting-card">
+                                <div class="card-top">
+                                    <div class="section-icon"><i class="fa-solid fa-people-group"></i></div>
+                                    <div style="flex:1; display:flex; align-items:flex-start;">
                                         <div>
-                                            <h5>Task Details</h5>
-                                            <p class="section-sub">What needs to be done</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6 col-sm-12" style="margin-bottom:0;">
-                                            <label>Task<span class="req">*</span></label>
-                                            <textarea class="form-control task-input" name="task[]" rows="4" required></textarea>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-12" style="margin-bottom:0;">
-                                            <label>Instruction<span class="req">*</span></label>
-                                            <textarea class="form-control instruction-input" name="instruction[]" rows="4" required></textarea>
+                                            <h4>Meeting Details</h4>
+                                            <p>Select the meeting this task is being created from</p>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="meeting-grid" style="grid-template-columns: repeat(3, 1fr);">
+                                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                                        <label for="meetingSelect">Meeting<span class="req">*</span></label>
+                                        <select name="meeting_id" id="meetingSelect" class="form-control" required>
+                                            <option value="">Select meeting...</option>
+                                            <option value="101">Q3 Strategy Review</option>
+                                            <option value="102">Client Onboarding - Sharma Traders</option>
+                                            <option value="103">AMC Renewal Discussion</option>
+                                            <option value="104">Weekly Team Sync</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                                        <label for="meetingDate">Meeting Date<span class="req">*</span></label>
+                                        <input type="date" class="form-control" id="meetingDate" name="meeting_date"
+                                            required>
+                                    </div>
+                                    <div class="form-group meeting-item" style="margin-bottom:0;">
+                                        <label for="organizerSelect">Organizer<span class="req">*</span></label>
+                                        <select name="organizer_id" id="organizerSelect" class="form-control" required>
+                                            <option value="">Select organizer...</option>
+                                            <option value="3">Udit</option>
+                                            <option value="5">bhupender</option>
+                                            <option value="6">nikhil</option>
+                                            <option value="8">ajeet</option>
+                                            <option value="9">vipin</option>
+                                            <option value="10">pintu</option>
+                                            <option value="11">ravi</option>
+                                            <option value="15">Kaushal</option>
+                                            <option value="41">Tulsi</option>
+                                            <option value="42">Mridu Baranwal</option>
+                                            <option value="43">Shweta Yadav</option>
+                                            <option value="44">Rahul</option>
+                                            <option value="46">Anuj Kumar</option>
+                                            <option value="47">Ritik singh negi</option>
+                                            <option value="51">Sanjay Kumar</option>
+                                            <option value="60">Himanshu Singh</option>
+                                            <option value="64">Sunil</option>
+                                            <option value="65">Manu</option>
+                                            <option value="70">Shubham</option>
+                                            <option value="120">Md Hussain</option>
+                                            <option value="199">Prabhat Kumar(Sushant)</option>
+                                            <option value="200">Kaushal Kishore</option>
+                                            <option value="201">Raj Kumar</option>
+                                            <option value="202">Praveen Kumar</option>
+                                            <option value="203">Manual</option>
+                                            <option value="204">Neeraj Roy</option>
+                                            <option value="205">Sudhir Kumar</option>
+                                            <option value="206">Ajit Kumar Singh</option>
+                                            <option value="207">Anjani Kumar</option>
+                                            <option value="208">Pramod Kumar</option>
+                                            <option value="209">Lawkush</option>
+                                            <option value="210">Vipin Kumar Yadav</option>
+                                            <option value="252">Rajesh Kumar Chauhan</option>
+                                            <option value="260">Vinay Kumar Singh</option>
+                                            <option value="323">Kirti Bisht</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <!-- /.task-block-body -->
+
+                                <div class="meeting-notes">
+                                    <div class="form-group" style="margin-bottom:0;">
+                                        <label for="meetingNotes">Agenda / Notes</label>
+                                        <input type="text" class="form-control" id="meetingNotes" name="agenda_notes"
+                                            placeholder="Enter agenda or notes for this meeting">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <!-- /.meeting-card -->
 
-                        <button type="button" id="addMoreTaskBtn" class="btn btn-add-more" style="margin-bottom:14px;">
-                            <i class="fa-solid fa-plus me-1"></i> Add More Task
-                        </button>
-                    </div>
+                            <!-- ===== TASK FORM CARD ===== -->
+                            <div class="task-form-card">
 
-                    <hr class="section-divider">
+                                <div class="card-top">
+                                    <h4>Add Task Data</h4>
+                                    <p>Assign one or more tasks to a team member and set the deadline</p>
+                                </div>
 
-                    <!-- Voice note (shared for the whole submission) -->
-                    <div class="form-section">
-                        <div class="section-heading">
-                            <div class="section-icon"><i class="fa-solid fa-microphone"></i></div>
-                            <div>
-                                <h5>Voice Note</h5>
-                                <p class="section-sub">Optionally record a spoken version of the instructions</p>
+                                <form method="post" action="https://klkerp.com/save-notification"
+                                    enctype="multipart/form-data" id="addTaskForm">
+                                    <input type="hidden" name="_token" value="JyucRdEZsE7FVjgjQWYzvcDjkHpEGdzVErifPOMI"
+                                        autocomplete="off">
+                                    <input type="hidden" name="meeting_id" value="">
+
+                                    <div class="form-section" style="padding-bottom:0;">
+                                        <div id="taskBlocksWrap">
+                                            <!-- Task block template (repeatable — assignee + schedule + task details together) -->
+                                            <div class="task-block" data-task-block>
+                                                <div class="task-block-head">
+                                                    <span class="task-block-title">Task 1</span>
+                                                    <div class="task-block-head-actions">
+                                                        <button type="button" class="btn-edit-task"
+                                                            style="display:none;" title="Edit this task">
+                                                            <i class="fa-solid fa-pen"></i> Edit
+                                                        </button>
+                                                        <button type="button" class="btn-remove-task"
+                                                            style="visibility:hidden;" title="Remove this task">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="task-block-summary" style="display:none;"></div>
+
+                                                <div class="task-block-body">
+                                                    <!-- Assignee Details + Schedule, side by side -->
+                                                    <div class="form-section">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="section-heading">
+                                                                    <div class="section-icon"><i
+                                                                            class="fa-solid fa-user"></i></div>
+                                                                    <div>
+                                                                        <h5>Assignee Details</h5>
+                                                                        <p class="section-sub">Choose who this task is
+                                                                            for</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group" style="margin-bottom:0;">
+                                                                    <label>Name<span class="req">*</span></label>
+                                                                    <select name="userId[]"
+                                                                        class="form-control name-select" required>
+                                                                        <option value="">Select...</option>
+                                                                        <option value="3">Udit</option>
+                                                                        <option value="5">bhupender</option>
+                                                                        <option value="6">nikhil</option>
+                                                                        <option value="8">ajeet</option>
+                                                                        <option value="9">vipin</option>
+                                                                        <option value="10">pintu</option>
+                                                                        <option value="11">ravi</option>
+                                                                        <option value="15">Kaushal</option>
+                                                                        <option value="41">Tulsi</option>
+                                                                        <option value="42">Mridu Baranwal</option>
+                                                                        <option value="43">Shweta Yadav</option>
+                                                                        <option value="44">Rahul</option>
+                                                                        <option value="46">Anuj Kumar</option>
+                                                                        <option value="47">Ritik singh negi</option>
+                                                                        <option value="51">Sanjay Kumar</option>
+                                                                        <option value="60">Himanshu Singh</option>
+                                                                        <option value="64">Sunil</option>
+                                                                        <option value="65">Manu</option>
+                                                                        <option value="70">Shubham</option>
+                                                                        <option value="120">Md Hussain</option>
+                                                                        <option value="199">Prabhat Kumar(Sushant)
+                                                                        </option>
+                                                                        <option value="200">Kaushal Kishore</option>
+                                                                        <option value="201">Raj Kumar</option>
+                                                                        <option value="202">Praveen Kumar</option>
+                                                                        <option value="203">Manual</option>
+                                                                        <option value="204">Neeraj Roy</option>
+                                                                        <option value="205">Sudhir Kumar</option>
+                                                                        <option value="206">Ajit Kumar Singh</option>
+                                                                        <option value="207">Anjani Kumar</option>
+                                                                        <option value="208">Pramod Kumar</option>
+                                                                        <option value="209">Lawkush</option>
+                                                                        <option value="210">Vipin Kumar Yadav</option>
+                                                                        <option value="252">Rajesh Kumar Chauhan
+                                                                        </option>
+                                                                        <option value="260">Vinay Kumar Singh</option>
+                                                                        <option value="323">Kirti Bisht</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="section-heading">
+                                                                    <div class="section-icon"><i
+                                                                            class="fa-regular fa-calendar"></i></div>
+                                                                    <div>
+                                                                        <h5>Schedule</h5>
+                                                                        <p class="section-sub">Set the task type and
+                                                                            deadline</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-6 col-sm-6"
+                                                                        style="margin-bottom:0;">
+                                                                        <label>Task Type</label>
+                                                                        <select name="task_type[]"
+                                                                            class="form-control task-type-select"
+                                                                            required>
+                                                                            <option value="1">One Time</option>
+                                                                            <option value="2">Recurring</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group col-md-6 col-sm-6"
+                                                                        style="margin-bottom:0;">
+                                                                        <label>Deadline Date</label>
+                                                                        <input type="date"
+                                                                            class="form-control deadline-input"
+                                                                            name="date[]" min="2026-08-10" required>
+                                                                    </div>
+                                                                    <div class="form-group col-md-12 frequency-wrap"
+                                                                        style="display:none; margin-top:12px; margin-bottom:0;">
+                                                                        <label>Frequency</label>
+                                                                        <select name="frequency[]"
+                                                                            class="form-control frequency-select">
+                                                                            <option value="1">Daily</option>
+                                                                            <option value="2">Weekly</option>
+                                                                            <option value="3">Monthly</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="section-divider">
+
+                                                    <!-- Task Details: Task + Instruction side by side -->
+                                                    <div class="form-section" style="padding-bottom:16px;">
+                                                        <div class="section-heading">
+                                                            <div class="section-icon"><i
+                                                                    class="fa-solid fa-list-check"></i></div>
+                                                            <div>
+                                                                <h5>Task Details</h5>
+                                                                <p class="section-sub">What needs to be done</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6 col-sm-12"
+                                                                style="margin-bottom:0;">
+                                                                <label>Task<span class="req">*</span></label>
+                                                                <textarea class="form-control task-input" name="task[]"
+                                                                    rows="4" required></textarea>
+                                                            </div>
+                                                            <div class="form-group col-md-6 col-sm-12"
+                                                                style="margin-bottom:0;">
+                                                                <label>Instruction<span class="req">*</span></label>
+                                                                <textarea class="form-control instruction-input"
+                                                                    name="instruction[]" rows="4" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.task-block-body -->
+                                            </div>
+                                        </div>
+
+                                        <button type="button" id="addMoreTaskBtn" class="btn btn-add-more"
+                                            style="margin-bottom:14px;">
+                                            <i class="fa-solid fa-plus me-1"></i> Add More Task
+                                        </button>
+                                    </div>
+
+                                    <hr class="section-divider">
+
+                                    <!-- Voice note (shared for the whole submission) -->
+                                    <div class="form-section">
+                                        <div class="section-heading">
+                                            <div class="section-icon"><i class="fa-solid fa-microphone"></i></div>
+                                            <div>
+                                                <h5>Voice Note</h5>
+                                                <p class="section-sub">Optionally record a spoken version of the
+                                                    instructions</p>
+                                            </div>
+                                        </div>
+                                        <div class="record-row">
+                                            <button type="button" id="recordButton"
+                                                class="btn btn-record btn-record-start">
+                                                <i class="fa-solid fa-circle me-1"></i>Start Recording
+                                            </button>
+                                            <button type="button" id="stopButton" class="btn btn-record btn-record-stop"
+                                                disabled>
+                                                <i class="fa-solid fa-stop me-1"></i>Stop Recording
+                                            </button>
+                                            <span class="recording-indicator" id="recordingIndicator">
+                                                <span class="dot"></span> Recording…
+                                            </span>
+                                            <input type="file" id="audioFile" name="audioFile" accept="audio/*"
+                                                style="display:none;">
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-actions">
+                                        <button type="reset" class="btn btn-cancel-task" id="cancelBtn">
+                                            <i class="fa-solid fa-circle-xmark me-1"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-submit-task">
+                                            <i class="fa-solid fa-paper-plane me-1"></i> Submit
+                                        </button>
+                                    </div>
+
+                                </form>
                             </div>
+                            <!-- /.task-form-card -->
+
+                            <!-- ===== SUBMITTED TASKS STRIP ===== -->
+                            <div class="task-form-card submitted-section" id="submittedSection">
+                                <div class="card-top"
+                                    style="display:flex; align-items:center; justify-content:space-between; padding-bottom:12px;">
+                                    <div>
+                                        <h4>Submitted Tasks</h4>
+                                        <p>Details that were just submitted</p>
+                                    </div>
+                                    <span class="submit-status ok"><i
+                                            class="fa-solid fa-circle-check me-1"></i>Submitted</span>
+                                </div>
+                                <div class="submitted-strip" id="submittedStrip"></div>
+                            </div>
+                            <!-- /.submitted-section -->
+
                         </div>
-                        <div class="record-row">
-                            <button type="button" id="recordButton" class="btn btn-record btn-record-start">
-                                <i class="fa-solid fa-circle me-1"></i>Start Recording
-                            </button>
-                            <button type="button" id="stopButton" class="btn btn-record btn-record-stop" disabled>
-                                <i class="fa-solid fa-stop me-1"></i>Stop Recording
-                            </button>
-                            <span class="recording-indicator" id="recordingIndicator">
-                                <span class="dot"></span> Recording…
-                            </span>
-                            <input type="file" id="audioFile" name="audioFile" accept="audio/*" style="display:none;">
-                        </div>
-                    </div>
-
-                    <div class="card-footer-actions">
-                        <button type="reset" class="btn btn-cancel-task" id="cancelBtn">
-                            <i class="fa-solid fa-circle-xmark me-1"></i> Cancel
-                        </button>
-                        <button type="submit" class="btn btn-submit-task">
-                            <i class="fa-solid fa-paper-plane me-1"></i> Submit
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-            <!-- /.task-form-card -->
-
-            <!-- ===== SUBMITTED TASKS STRIP ===== -->
-            <div class="task-form-card submitted-section" id="submittedSection">
-                <div class="card-top" style="display:flex; align-items:center; justify-content:space-between; padding-bottom:12px;">
-                    <div>
-                        <h4>Submitted Tasks</h4>
-                        <p>Details that were just submitted</p>
-                    </div>
-                    <span class="submit-status ok"><i class="fa-solid fa-circle-check me-1"></i>Submitted</span>
-                </div>
-                <div class="submitted-strip" id="submittedStrip"></div>
-            </div>
-            <!-- /.submitted-section -->
-
-        </div>
-        <!-- /.page-wrap -->
+                        <!-- /.page-wrap -->
 
                     </div>
                     <!-- /.card -->
@@ -3296,7 +3373,7 @@
     </script>
 
 
-  <script>
+    <script>
         const taskBlocksWrap = document.getElementById('taskBlocksWrap');
         const addMoreTaskBtn = document.getElementById('addMoreTaskBtn');
         const form = document.getElementById('addTaskForm');

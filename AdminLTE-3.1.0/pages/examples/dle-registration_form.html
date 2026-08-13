@@ -848,6 +848,42 @@
                                     </div>
 
                                     <div class="field">
+                                        <label><span
+                                                class="label-main">District<span
+                                                    class="req">*</span></span></label>
+                                        <input type="text" name="district"
+                                            value="{{ old('district') }}"
+                                            placeholder="District" required>
+                                        @error('district') <small
+                                            class="text-danger">{{ $message
+                                            }}</small> @enderror
+                                    </div>
+
+                                    <div class="field">
+                                        <label><span
+                                                class="label-main">Block<span
+                                                    class="req">*</span></span></label>
+                                        <input type="text" name="block"
+                                            value="{{ old('block') }}"
+                                            placeholder="Block" required>
+                                        @error('block') <small
+                                            class="text-danger">{{ $message
+                                            }}</small> @enderror
+                                    </div>
+
+                                    <div class="field">
+                                        <label><span
+                                                class="label-main">Panchayat<span
+                                                    class="req">*</span></span></label>
+                                        <input type="text" name="panchayat"
+                                            value="{{ old('panchayat') }}"
+                                            placeholder="Panchayat" required>
+                                        @error('panchayat') <small
+                                            class="text-danger">{{ $message
+                                            }}</small> @enderror
+                                    </div>
+
+                                    <div class="field">
                                         <label><span class="label-main">Police
                                                 Verif. Validity<span
                                                     class="req">*</span></span></label>
@@ -859,6 +895,19 @@
                                         <small class="text-danger">{{ $message
                                             }}</small> @enderror
                                     </div>
+
+                                    <!-- <div class="field">
+                                        <label><span class="label-main">Address
+                                                as per Doc.<span
+                                                    class="req">*</span></span></label>
+                                        <input type="text" name="address"
+                                            value="{{ old('address') }}"
+                                            placeholder="Complete address"
+                                            required>
+                                        @error('address') <small
+                                            class="text-danger">{{ $message
+                                            }}</small> @enderror
+                                    </div> -->
 
                                     <div class="field">
                                         <label><span class="label-main">Address
