@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KLK Vendor | DLE Dashboard</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans / Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <style>
+        :root {
+            --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family-base) !important;
+            background-color: #f4f7fc !important;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #d7e9ff;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px dotted #c5c5c5;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4b4b;
+            padding: 1px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            color: white;
+        }
+
+        .notif-dropdown {
+            width: 250px !important;
+            border-radius: 12px;
+        }
+
+        .notif-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .notif-dropdown .dropdown-item:hover {
+            background: #f5f7ff;
+            border-radius: 8px;
+        }
+
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: #e4edfd;
+            color: #495467;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e2e6ee;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .doc-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dropdown-menu {
+            width: 210px;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .user-box {
+            padding: 8px 15px !important;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-box h6 {
+            font-size: 15px;
+            margin-bottom: 0;
+            color: black;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray,
+        .icon-orange,
+        .icon-green {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 50%;
+        }
+
+        .icon-blue {
+            background: #e8f3ff;
+            color: #4a8cff;
+        }
+
+        .icon-pink {
+            background: #ffe8ef;
+            color: #ff7aa2;
+        }
+
+        .icon-gray {
+            background: #f1f1f1;
+            color: #444444;
+        }
+
+        .icon-orange {
+            background: #fef5e5;
+            color: #ec9829;
+        }
+
+        .icon-green {
+            background: #e8ffe8;
+            color: #33a933;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f4f7ff;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+
+        /* Sidebar Styling */
+        .main-sidebar {
+            height: 100vh !important;
+            background: linear-gradient(180deg, #f9fafc 0%, #f1f3f7 100%) !important;
+            box-shadow: 0px 4px 16px rgba(139, 146, 159, 0.7) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 60px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: #636363 !important;
+            font-weight: 500;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 17px;
+            color: #636363;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-sidebar .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+
+        .nav-sidebar .nav-link.active {
+            background: #fbeae6 !important;
+            color: #fd663c !important;
+            font-weight: 600;
+            border-left: 4px solid #fd663c;
+            padding-left: 15px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: #ff8528 !important;
+        }
+
+        .nav-sidebar .right {
+            margin-left: auto;
+            font-size: 14px;
+            color: #FEB47B;
+        }
+
+        .nav-treeview {
+            padding-left: 25px;
+            margin: 0 !important;
+        }
+
+        .nav-treeview .nav-link {
+            margin: 4px 12px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #636363 !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #f8e7e3;
+            color: #ff3300 !important;
+        }
+
+        /* ===================================================
+   DLE DASHBOARD CUSTOM STYLES (EXACT IMAGE MATCH)
+   =================================================== */
+        .dashboard-container {
+            padding: 10px 16px 24px 16px;
+        }
+
+      /* 1. TOP WELCOME HERO BANNER */
+.dle-banner {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 0;
+    color: #111111;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: stretch;
+    min-height: 135px;
+}
+
+/* LEFT CONTENT */
+.banner-left-wrap {
+    flex: 1;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 5;
+
+    /* White background with very light fade */
+    background: linear-gradient(
+        90deg,
+        #f5f8fd 0%,
+        #f5f8fd 55%,
+        rgba(255, 255, 255, 0.95) 72%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* WELCOME TEXT */
+.banner-welcome-sub {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 2px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+/* MAIN TITLE */
+.banner-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+    color: #111111;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+/* DESCRIPTION */
+.banner-desc {
+    font-size: 12px;
+    color: #555555;
+    margin: 4px 0 0 0;
+    font-weight: 400;
+}
+
+
+/* RIGHT IMAGE */
+.banner-right-wrap {
+    width: 44%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.banner-solar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    /* Soft fade so image blends with white background */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 8%,
+        rgba(0, 0, 0, 0.65) 20%,
+        black 35%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.25) 8%,
+        rgba(0, 0, 0, 0.65) 20%,
+        black 35%
+    );
+}
+
+        .banner-slogan-wrap {
+            position: relative;
+            z-index: 4;
+            padding-right: 28px;
+            text-align: right;
+        }
+
+        .banner-slogan {
+            font-size: 13.5px;
+            line-height: 1.35;
+            font-weight: 600;
+            color: #000000;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.3px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+        }
+
+        .banner-slogan .slogan-accent {
+            color: #a7f3d0;
+            font-style: normal;
+        }
+
+        /* 2. SIX KPI STAT CARDS ROW */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        @media (max-width: 1400px) {
+            .kpi-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kpi-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .banner-right-wrap {
+                display: none;
+            }
+
+            .banner-left-wrap {
+                background: #081735;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .kpi-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .kpi-card {
+            border-radius: 16px;
+            padding: 14px 16px 6px 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.025);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .kpi-icon-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .kpi-icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #ffffff;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .kpi-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .kpi-more {
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 15px;
+            padding: 2px 4px;
+            line-height: 1;
+        }
+
+        .kpi-more:hover {
+            color: #475569;
+        }
+
+        .kpi-body {
+            position: relative;
+            z-index: 3;
+        }
+
+        .kpi-value {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .kpi-trend {
+            font-size: 11px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .kpi-trend-sub {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .kpi-watermark-svg {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.22;
+        }
+
+        .kpi-wave-svg {
+            width: calc(100% + 32px);
+            margin-left: -16px;
+            margin-right: -16px;
+            margin-bottom: -6px;
+            margin-top: 8px;
+            display: block;
+            height: 36px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Exact Pastel Card Themes */
+        .kpi-states {
+            background: #f4fbf8;
+            border: 1px solid #d5efe5;
+        }
+
+        .kpi-states .kpi-icon-circle {
+            background: #00b894;
+        }
+
+        .kpi-states .kpi-trend {
+            color: #00b894;
+        }
+
+        .kpi-states .kpi-watermark-svg {
+            color: #00b894;
+        }
+
+        .kpi-total-dle {
+            background: #f5f9fe;
+            border: 1px solid #ddecfa;
+        }
+
+        .kpi-total-dle .kpi-icon-circle {
+            background: #2f80ed;
+        }
+
+        .kpi-total-dle .kpi-trend {
+            color: #16a34a;
+        }
+
+        .kpi-total-dle .kpi-watermark-svg {
+            color: #2f80ed;
+        }
+
+        .kpi-active-dle {
+            background: #fffaf3;
+            border: 1px solid #fae6d2;
+        }
+
+        .kpi-active-dle .kpi-icon-circle {
+            background: #f59e0b;
+        }
+
+        .kpi-active-dle .kpi-trend {
+            color: #f59e0b;
+        }
+
+        .kpi-active-dle .kpi-watermark-svg {
+            color: #f59e0b;
+        }
+
+        .kpi-pending-dle {
+            background: #faf6fe;
+            border: 1px solid #eee2fc;
+        }
+
+        .kpi-pending-dle .kpi-icon-circle {
+            background: #8b5cf6;
+        }
+
+        .kpi-pending-dle .kpi-trend {
+            color: #e11d48;
+        }
+
+        .kpi-pending-dle .kpi-watermark-svg {
+            color: #8b5cf6;
+        }
+
+        .kpi-approved-dle {
+            background: #f4fbf6;
+            border: 1px solid #d9f2e3;
+        }
+
+        .kpi-approved-dle .kpi-icon-circle {
+            background: #10b981;
+        }
+
+        .kpi-approved-dle .kpi-trend {
+            color: #10b981;
+        }
+
+        .kpi-approved-dle .kpi-watermark-svg {
+            color: #10b981;
+        }
+
+        .kpi-rejected-dle {
+            background: #fff5f5;
+            border: 1px solid #fbdada;
+        }
+
+        .kpi-rejected-dle .kpi-icon-circle {
+            background: #ef4444;
+        }
+
+        .kpi-rejected-dle .kpi-trend {
+            color: #94a3b8;
+        }
+
+        .kpi-rejected-dle .kpi-watermark-svg {
+            color: #ef4444;
+        }
+
+
+
+
+        /* Chart Cards Styling */
+        .card-dle {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 24px;
+            border: 1px solid rgba(230, 235, 245, 0.85);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+            margin-bottom: 22px;
+            height: 100%;
+        }
+
+        .card-dle-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .header-title-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .badge-icon-blue {
+            background: #edf2fe;
+            color: #3b82f6;
+        }
+
+        .badge-icon-purple {
+            background: #f4efff;
+            color: #7c3aed;
+        }
+
+        .card-dle-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .card-dle-subtitle {
+            font-size: 12px;
+            color: #64748b;
+            margin: 2px 0 0 0;
+            font-weight: 500;
+        }
+
+        .pill-select {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 5px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #334155;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: 0.15s ease;
+        }
+
+        .pill-select:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .chart-filter-group {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: #f1f5f9;
+            padding: 3px;
+            border-radius: 50px;
+        }
+
+        .chart-filter-btn {
+            border: none;
+            background: transparent;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: 0.15s ease;
+        }
+
+        .chart-filter-btn.active {
+            background: #2563eb;
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Donut Legend */
+        .donut-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+        }
+
+        .donut-center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .donut-center-val {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1;
+        }
+
+        .donut-center-lbl {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .legend-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .legend-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-counts {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-num {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .legend-pct {
+            color: #94a3b8;
+            font-size: 11px;
+        }
+
+        /* Table Section */
+        .table-view-all-btn {
+            background: #edf4ff;
+            color: #2563eb;
+            border-radius: 50px;
+            padding: 5px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: 0.15s ease;
+        }
+
+        .table-view-all-btn:hover {
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 6px;
+        }
+
+        .custom-table th {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            padding: 10px 14px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .custom-table td {
+            font-size: 13px;
+            padding: 13px 14px;
+            border-bottom: 1px solid #f8fafc;
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        .custom-table tbody tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        .badge-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-approved {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .badge-pending {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .badge-active {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+
+        .badge-rejected {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .btn-action-view {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+        }
+
+        .btn-action-view:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* Quick Information Card */
+        .quick-info-card {
+            background: linear-gradient(135deg, #0b1f48 0%, #153372 100%);
+            border-radius: 20px;
+            padding: 22px 20px;
+            color: #ffffff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(11, 31, 72, 0.15);
+        }
+
+        .quick-info-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-info-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .quick-item:last-child {
+            border-bottom: none;
+            padding-bottom: 2px;
+        }
+
+        .quick-item-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-icon-wrap {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .qi-blue {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .qi-purple {
+            background: #f5f3ff;
+            color: #7c3aed;
+        }
+
+        .qi-green {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+
+        .qi-yellow {
+            background: #fefce8;
+            color: #ca8a04;
+        }
+
+        .quick-name {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .quick-count {
+            font-size: 15px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .btn-generate-report {
+            background: linear-gradient(95deg, #4f46e5 0%, #2563eb 50%, #06b6d4 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: opacity 0.2s, transform 0.15s;
+            text-decoration: none;
+        }
+
+        .btn-generate-report:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .spline-container {
+            position: relative;
+            height: 220px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center">
+                    <!-- <img src="./images/KLK SVG Logo.svg" class="me-2 rounded" width="80" /> -->
+                </a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+                    <!-- DOCUMENT BUTTON -->
+                    <div class="doc-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </div>
+
+                    <!-- NOTIFICATION -->
+                    <div class="dropdown">
+                        <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-badge">7</span>
+                        </div>
+
+                        <!-- DROPDOWN BOX -->
+                        <ul class="dropdown-menu dropdown-menu-end notif-dropdown shadow">
+                            <li class="dropdown-header fw-bold px-3 text-dark">
+                                Notifications
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-info-circle text-primary me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">New policy update</div>
+                                        <small class="text-muted">5 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-exclamation-circle text-warning me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Server downtime alert</div>
+                                        <small class="text-muted">10 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-check-circle text-success me-3 fs-5"></i>
+                                    <div>
+                                        <div class="notif-title">Payment completed</div>
+                                        <small class="text-muted">20 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item text-center" href="#">View All</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="dropdown">
+                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" />
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li class="user-box">
+                                <h6>Mohit Verma</h6>
+                                <small class="text-muted">Administrator</small>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                    data-bs-target="#profileModal">
+                                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                        class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center mb-2" href="#"><i
+                                        class="bi bi-box-arrow-right icon-gray me-3"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Profile popup modal -->
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-right">
+                <div class="modal-content profile-modal">
+
+                    <span class="close-btn" data-bs-dismiss="modal">
+                        <i class="bi bi-x-lg"></i>
+                    </span>
+
+                    <div class="modal-body text-center p-4">
+                        <img src="../images/userimg.jpg" class="profile-photo mb-3">
+                        <h5 class="user-name">Pravesh Ahamad</h5>
+                        <p class="user-email">@parvesahamad</p>
+
+                        <hr>
+
+                        <div class="profile-info">
+                            <p><strong>Full Name:</strong> Parves Ahamad</p>
+                            <p><strong>Email:</strong> parves@gmail.com</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>DOB:</strong> 05-01-2001</p>
+                            <p><strong>Phone:</strong> +91 9876543210</p>
+                            <p><strong>State:</strong> Kashmir</p>
+                        </div>
+
+                        <button class="btn btn-dark w-100" id="changePassBtn">Change Password</button>
+
+                        <!-- Hidden Password Fields -->
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+                            <div class="mb-2 text-start">
+                                <label class="form-label">New Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-start">
+                                <label class="form-label">Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-dark w-50" id="savePassBtn">Save</button>
+                                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar elevation-4 shadow">
+            <!-- Brand Logo (User's logo preserved) -->
+            <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+                <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+                    class="brand-image bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+                <span class="brand-text text-dark">KLK Vendor</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-header">Dashboard</li>
+                        <li class="nav-item">
+                            <a href="./vendordashboard2.html" class="nav-link active">
+                                <i class="bi bi-speedometer2 nav-icon"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Vendor Management</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-people nav-icon"></i>
+                                <p>
+                                    Vendor
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Vendor</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./klkhome.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>View Vendor</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-journal-text nav-icon"></i>
+                                <p>Work Order</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-check nav-icon"></i>
+                                <p>Work Order Assign</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-tools nav-icon"></i>
+                                <p>Return & Maintanence</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-credit-card-2-front nav-icon"></i>
+                                <p>Payment</p>
+                            </a>
+                        </li>
+
+                        <!-- Bihar Management -->
+                        <li class="nav-header">Bihar</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-geo-alt nav-icon"></i>
+                                <p>
+                                    SSL
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Assign Light</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Verify Light</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- SRT SUBMENU -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-geo-alt nav-icon"></i>
+                                <p>
+                                    SRT
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./vendorbiharsrt.html" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-assign-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Assign Light</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="./bihar-srt-verify-light.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Verify Light</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>UP</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>Karnataka</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-map nav-icon"></i>
+                                <p>Assam</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-chat-dots nav-icon"></i>
+                                <p>Vendor Complaint</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-graph-up-arrow nav-icon"></i>
+                                <p>Vendor Report</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                <p class="text-danger">Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper mt-5 pt-4">
+
+            <!-- MAIN DASHBOARD CONTENT (EXACT MATCH WITH IMAGE) -->
+            <div class="dashboard-container">
+
+                <!-- 1. TOP WELCOME HERO BANNER (EXACT MATCH WITH REFERENCE) -->
+                <div class="dle-banner">
+                    <!-- Left side content -->
+                    <div class="banner-left-wrap">
+
+                        <div>
+                            <div class="banner-welcome-sub">Welcome to,</div>
+                            <h2 class="banner-title">DLE Dashboard</h2>
+                            <p class="banner-desc">Track, Manage &amp; Monitor DLE Activities Efficiently</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Right side: Solar Panel Image with Gradient Mask & Slogan -->
+                    <div class="banner-right-wrap">
+                        <!-- Aap yahan apna image path laga sakte hain: e.g. ../images/solar-panel.jpg -->
+                        <img src="../images/panleimg.jpg" alt="Solar Energy" class="banner-solar-img"
+                            onerror="this.src='../images/solar-panel.jpg'" />
+                        <div class="banner-slogan-wrap">
+                            <div class="banner-slogan">
+                                Sustainable<br>
+                                Energy<br>
+                                for a Better<br>
+                                Tomorrow <span class="slogan-accent">🌿</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. SIX KPI STAT CARDS ROW (EXACT PASTEL THEMES, WATERMARKS & WAVE GRADIENTS) -->
+                <div class="kpi-row">
+
+                    <!-- 1. Total States -->
+                    <div class="kpi-card kpi-states">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-file-earmark-text-fill"></i>
+                                </div>
+                                <span class="kpi-title">Total States</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">6</div>
+                            <div class="kpi-trend">
+                                <span>↑ 12%</span>
+                                <span class="kpi-trend-sub">States Covered</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: India Map Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
+                            <circle cx="12" cy="9" r="2.5"></circle>
+                        </svg>
+                        <!-- Smooth Teal Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradTeal" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#00b894" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#00b894" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,18 C18,10 32,24 50,15 C68,6 82,18 100,12 L100,28 L0,28 Z"
+                                fill="url(#waveGradTeal)" />
+                            <path d="M0,18 C18,10 32,24 50,15 C68,6 82,18 100,12" fill="none" stroke="#00b894"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- 2. Total DLE -->
+                    <div class="kpi-card kpi-total-dle">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <span class="kpi-title">Total DLE</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">94</div>
+                            <div class="kpi-trend">
+                                <span>↑ 8%</span>
+                                <span class="kpi-trend-sub">Registered DLEs</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: Document Richtext Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <!-- Smooth Blue Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradBlue" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#2f80ed" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#2f80ed" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,19 C20,24 35,12 55,16 C72,20 85,7 100,10 L100,28 L0,28 Z"
+                                fill="url(#waveGradBlue)" />
+                            <path d="M0,19 C20,24 35,12 55,16 C72,20 85,7 100,10" fill="none" stroke="#2f80ed"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- 3. Active DLE -->
+                    <div class="kpi-card kpi-active-dle">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span class="kpi-title">Active DLE</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">9</div>
+                            <div class="kpi-trend">
+                                <span>↑ 50%</span>
+                                <span class="kpi-trend-sub">Currently Active</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: User Check Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                        <!-- Smooth Orange Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradOrange" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,18 C22,12 36,22 55,15 C74,8 86,16 100,11 L100,28 L0,28 Z"
+                                fill="url(#waveGradOrange)" />
+                            <path d="M0,18 C22,12 36,22 55,15 C74,8 86,16 100,11" fill="none" stroke="#f59e0b"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- 4. Pending DLE -->
+                    <div class="kpi-card kpi-pending-dle">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+                                <span class="kpi-title">Pending DLE</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">85</div>
+                            <div class="kpi-trend">
+                                <span>↑ 5%</span>
+                                <span class="kpi-trend-sub">Awaiting Approval</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: Clock Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <!-- Smooth Purple Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradPurple" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,20 C18,24 34,14 54,18 C72,22 84,9 100,11 L100,28 L0,28 Z"
+                                fill="url(#waveGradPurple)" />
+                            <path d="M0,20 C18,24 34,14 54,18 C72,22 84,9 100,11" fill="none" stroke="#8b5cf6"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- 5. Approved DLE -->
+                    <div class="kpi-card kpi-approved-dle">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <span class="kpi-title">Approved DLE</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">9</div>
+                            <div class="kpi-trend">
+                                <span>↑ 50%</span>
+                                <span class="kpi-trend-sub">Approved</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: Shield Check Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <polyline points="9 12 11 14 15 10"></polyline>
+                        </svg>
+                        <!-- Smooth Green Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradGreen" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#10b981" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,19 C20,11 34,22 52,14 C70,6 84,17 100,11 L100,28 L0,28 Z"
+                                fill="url(#waveGradGreen)" />
+                            <path d="M0,19 C20,11 34,22 52,14 C70,6 84,17 100,11" fill="none" stroke="#10b981"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <!-- 6. Rejected DLE -->
+                    <div class="kpi-card kpi-rejected-dle">
+                        <div class="kpi-header">
+                            <div class="kpi-icon-wrap">
+                                <div class="kpi-icon-circle">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                </div>
+                                <span class="kpi-title">Rejected DLE</span>
+                            </div>
+
+                        </div>
+                        <div class="kpi-body">
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-trend">
+                                <span>0%</span>
+                                <span class="kpi-trend-sub">Rejected</span>
+                            </div>
+                        </div>
+                        <!-- Watermark: X Circle Outline -->
+                        <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                        <!-- Smooth Red Sparkline Wave with Gradient Fill -->
+                        <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="waveGradRed" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.28" />
+                                    <stop offset="100%" stop-color="#ef4444" stop-opacity="0.01" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,18 C22,14 36,23 56,16 C76,9 86,18 100,13 L100,28 L0,28 Z"
+                                fill="url(#waveGradRed)" />
+                            <path d="M0,18 C22,14 36,23 56,16 C76,9 86,18 100,13" fill="none" stroke="#ef4444"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                </div>
+
+
+                <!-- 3. MIDDLE CHARTS ROW -->
+                <div class="row">
+
+                    <!-- Left Chart: DLE State Wise (Donut) -->
+                    <div class="col-xl-6 col-lg-12 mb-4">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-blue">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">DLE State Wise</h5>
+                                        <p class="card-dle-subtitle">Distribution of DLE across States</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown">
+                                        <button class="pill-select dropdown-toggle" type="button"
+                                            data-toggle="dropdown">
+                                            All States
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">All States</a>
+                                            <a class="dropdown-item" href="#">Bihar</a>
+                                            <a class="dropdown-item" href="#">Chhattisgarh</a>
+                                            <a class="dropdown-item" href="#">Jharkhand</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Donut Chart & Legend -->
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <div class="donut-container">
+                                        <canvas id="stateDonutChart"></canvas>
+                                        <div class="donut-center-text">
+                                            <div class="donut-center-val">94</div>
+                                            <div class="donut-center-lbl">DLE</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mt-3 mt-sm-0">
+                                    <ul class="legend-list">
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #ff8a00;"></span>
+                                                <span>Bihar</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">28</span>
+                                                <span class="legend-pct">(29.8%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #ffb703;"></span>
+                                                <span>Chhattisgarh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">16</span>
+                                                <span class="legend-pct">(17.0%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #e63946;"></span>
+                                                <span>Jharkhand</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">12</span>
+                                                <span class="legend-pct">(12.8%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #8338ec;"></span>
+                                                <span>Madhya Pradesh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">11</span>
+                                                <span class="legend-pct">(11.7%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #3a86ff;"></span>
+                                                <span>Rajasthan</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">10</span>
+                                                <span class="legend-pct">(10.6%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #06d6a0;"></span>
+                                                <span>Uttarakhand</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">9</span>
+                                                <span class="legend-pct">(9.6%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #00b4d8;"></span>
+                                                <span>Uttar Pradesh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">8</span>
+                                                <span class="legend-pct">(8.5%)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Chart: District Wise Active DLE (Spline Area) -->
+                    <div class="col-xl-6 col-lg-12 mb-4">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-purple">
+                                        <i class="bi bi-graph-up-arrow"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">District Wise Active DLE</h5>
+                                        <p class="card-dle-subtitle">Performance Overview</p>
+                                    </div>
+                                </div>
+                                <div class="chart-filter-group">
+                                    <button class="chart-filter-btn active">7D</button>
+                                    <button class="chart-filter-btn">1M</button>
+                                    <button class="chart-filter-btn">3M</button>
+                                    <button class="chart-filter-btn">6M</button>
+                                    <button class="chart-filter-btn">1Y</button>
+                                </div>
+                            </div>
+
+                            <!-- Area Spline Chart -->
+                            <div class="spline-container">
+                                <canvas id="districtSplineChart"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 4. BOTTOM ROW: RECENT ACTIVITY TABLE & QUICK INFO -->
+                <div class="row">
+
+                    <!-- Left Table Card: Recent DLE Activity -->
+                    <div class="col-xl-8 col-lg-12 mb-4">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-blue">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">Recent DLE Activity</h5>
+                                        <p class="card-dle-subtitle">Latest registered and updated DLEs</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="table-view-all-btn">
+                                    View All <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>DLE ID</th>
+                                            <th>District</th>
+                                            <th>State</th>
+                                            <th>Status</th>
+                                            <th>Registered On</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-muted fw-bold">1</td>
+                                            <td class="fw-semibold">DLE00124</td>
+                                            <td>Patna</td>
+                                            <td>Bihar</td>
+                                            <td><span class="badge-status badge-approved"><i
+                                                        class="bi bi-check-circle-fill"></i> Approved</span></td>
+                                            <td class="text-muted">07 Sep 2026</td>
+                                            <td><a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">2</td>
+                                            <td class="fw-semibold">DLE00123</td>
+                                            <td>Deoria</td>
+                                            <td>Uttar Pradesh</td>
+                                            <td><span class="badge-status badge-pending"><i
+                                                        class="bi bi-clock-fill"></i> Pending</span></td>
+                                            <td class="text-muted">06 Sep 2026</td>
+                                            <td><a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">3</td>
+                                            <td class="fw-semibold">DLE00122</td>
+                                            <td>Raipur</td>
+                                            <td>Chhattisgarh</td>
+                                            <td><span class="badge-status badge-active"><i
+                                                        class="bi bi-lightning-charge-fill"></i> Active</span></td>
+                                            <td class="text-muted">05 Sep 2026</td>
+                                            <td><a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">4</td>
+                                            <td class="fw-semibold">DLE00121</td>
+                                            <td>Ranchi</td>
+                                            <td>Jharkhand</td>
+                                            <td><span class="badge-status badge-rejected"><i
+                                                        class="bi bi-x-circle-fill"></i> Rejected</span></td>
+                                            <td class="text-muted">04 Sep 2026</td>
+                                            <td><a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Quick Information -->
+                    <div class="col-xl-4 col-lg-12 mb-4">
+                        <div class="quick-info-card">
+                            <div>
+                                <h5 class="quick-info-title">
+                                    <i class="bi bi-info-circle"></i> Quick Information
+                                </h5>
+
+                                <div class="quick-info-box">
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-blue">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                            <span class="quick-name">Total States</span>
+                                        </div>
+                                        <span class="quick-count">6</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-purple">
+                                                <i class="bi bi-people-fill"></i>
+                                            </div>
+                                            <span class="quick-name">Total DLE</span>
+                                        </div>
+                                        <span class="quick-count">94</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-green">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                            </div>
+                                            <span class="quick-name">Active DLE</span>
+                                        </div>
+                                        <span class="quick-count">9</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-yellow">
+                                                <i class="bi bi-hourglass-split"></i>
+                                            </div>
+                                            <span class="quick-name">Pending DLE</span>
+                                        </div>
+                                        <span class="quick-count">85</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn-generate-report">
+                                <span><i class="bi bi-cloud-arrow-down-fill me-2"></i> Generate Report</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- /.dashboard-container -->
+
+            <!-- Footer section -->
+            <section class="mt-4">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <footer class="footer-area py-2 w-100 border-top">
+                            <p class="m-0 fw-semibold text-secondary small footer-text">
+                                Copyright © <span id="year">2026</span> KLK ERP — By
+                                <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                                All rights reserved.
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- /.content-wrapper -->
+
+        <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- Scripts -->
+    <script>
+        // Profile Modal Password toggle
+        const changeBtn = document.getElementById("changePassBtn");
+        const passFields = document.getElementById("passwordFields");
+        const profileInfo = document.querySelector(".profile-info");
+        const cancelBtn = document.getElementById("cancelPassBtn");
+
+        if (changeBtn) {
+            changeBtn.addEventListener("click", function () {
+                passFields.style.display = "block";
+                profileInfo.style.display = "none";
+                changeBtn.style.display = "none";
+            });
+        }
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener("click", function () {
+                resetProfileModal();
+            });
+        }
+
+        document.querySelectorAll(".password-toggle").forEach(icon => {
+            icon.addEventListener("click", () => {
+                const input = document.getElementById(icon.getAttribute("data-target"));
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("bi-eye-slash");
+                    icon.classList.add("bi-eye");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("bi-eye");
+                    icon.classList.add("bi-eye-slash");
+                }
+            });
+        });
+
+        function resetProfileModal() {
+            if (passFields) passFields.style.display = "none";
+            if (profileInfo) profileInfo.style.display = "block";
+            if (changeBtn) changeBtn.style.display = "block";
+            const np = document.getElementById("newPass");
+            const cp = document.getElementById("confirmPass");
+            if (np) np.value = "";
+            if (cp) cp.value = "";
+        }
+
+        const yearElem = document.getElementById("year");
+        if (yearElem) {
+            yearElem.textContent = new Date().getFullYear();
+        }
+
+        // Filter Buttons
+        document.querySelectorAll('.chart-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.chart-filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Chart.js Setup
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // 1. Donut Chart (DLE State Wise)
+            const donutCtx = document.getElementById('stateDonutChart');
+            if (donutCtx) {
+                new Chart(donutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Bihar', 'Chhattisgarh', 'Jharkhand', 'Madhya Pradesh', 'Rajasthan', 'Uttarakhand', 'Uttar Pradesh'],
+                        datasets: [{
+                            data: [28, 16, 12, 11, 10, 9, 8],
+                            backgroundColor: [
+                                '#ff8a00',
+                                '#ffb703',
+                                '#e63946',
+                                '#8338ec',
+                                '#3a86ff',
+                                '#06d6a0',
+                                '#00b4d8'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff',
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '72%',
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1e293b',
+                                titleFont: { size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
+                                bodyFont: { size: 12, family: 'Plus Jakarta Sans' },
+                                padding: 10,
+                                cornerRadius: 8,
+                                callbacks: {
+                                    label: function (context) {
+                                        const label = context.label || '';
+                                        const value = context.parsed || 0;
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const pct = ((value / total) * 100).toFixed(1);
+                                        return ` ${label}: ${value} (${pct}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Spline Area Chart (District Wise Active DLE)
+            const splineCtx = document.getElementById('districtSplineChart');
+            if (splineCtx) {
+                const ctx = splineCtx.getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+                gradient.addColorStop(0, 'rgba(124, 58, 237, 0.28)');
+                gradient.addColorStop(1, 'rgba(124, 58, 237, 0.01)');
+
+                new Chart(splineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Belagavi', 'Deoria', 'Patna', 'PATNA', 'Pilibhit', 'Vaishali', 'VAISHALI'],
+                        datasets: [{
+                            label: 'Active DLE',
+                            data: [1, 0.96, 0.98, 2, 1, 1.45, 1],
+                            borderColor: '#7c3aed',
+                            backgroundColor: gradient,
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.42,
+                            pointBackgroundColor: '#7c3aed',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: [3.5, 3.5, 3.5, 5, 3.5, 3.5, 3.5],
+                            pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                min: 0,
+                                max: 2,
+                                ticks: {
+                                    stepSize: 1,
+                                    font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' },
+                                    color: '#94a3b8'
+                                },
+                                grid: {
+                                    color: '#f1f5f9',
+                                    drawBorder: false
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: { size: 11, family: 'Plus Jakarta Sans', weight: '500' },
+                                    color: '#64748b'
+                                },
+                                grid: {
+                                    display: false,
+                                    drawBorder: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#7c3aed',
+                                titleColor: '#ffffff',
+                                bodyColor: '#ffffff',
+                                titleFont: { size: 11, family: 'Plus Jakarta Sans' },
+                                bodyFont: { size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
+                                padding: 9,
+                                cornerRadius: 8,
+                                displayColors: false,
+                                callbacks: {
+                                    title: () => '',
+                                    label: function (context) {
+                                        return `Active DLE : ${context.parsed.y}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+        });
+    </script>
+
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+
+</html>
