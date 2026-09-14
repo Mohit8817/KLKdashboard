@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KLK Vendor | Create New DLE Record</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans / Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <!-- Theme style (AdminLTE) -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <style>
+        :root {
+            --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --primary-blue: #2563eb;
+            --primary-dark-blue: #0b1f48;
+            --primary-light-blue: #eff6ff;
+            --primary-border-blue: #dbeafe;
+            --sidebar-hover-blue: #eff6ff;
+            --sidebar-active-blue: #e0edff;
+            --sidebar-text-blue: #1e3a8a;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: var(--font-family-base) !important;
+            background-color: #f4f7fc !important;
+            color: var(--text-dark);
+        }
+
+        /* Navbar Styling */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            background: #ffffff !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+            box-shadow: 0 2px 10px rgba(11, 31, 72, 0.04) !important;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            color: #475569 !important;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: var(--primary-blue) !important;
+            background: #eff6ff;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #bfdbfe;
+            padding: 2px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .profile-img:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .notif-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .notif-btn:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .notif-btn i {
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .notif-btn:hover i {
+            color: var(--primary-blue);
+        }
+
+        .notif-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background: #ef4444;
+            padding: 2px 6px;
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: 700;
+            color: white;
+            border: 2px solid #ffffff;
+        }
+
+        .notif-dropdown {
+            width: 280px !important;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .notif-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .notif-dropdown .dropdown-item {
+            padding: 10px 14px;
+            transition: 0.15s;
+        }
+
+        .notif-dropdown .dropdown-item:hover {
+            background: #eff6ff;
+            border-radius: 8px;
+        }
+
+        .doc-btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 16px;
+            border-radius: 50px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-weight: 600;
+            font-size: 13.5px;
+            border: 1px solid #dbeafe;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            text-decoration: none !important;
+        }
+
+        .doc-btn:hover {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .dropdown-menu {
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 0;
+            box-shadow: 0 10px 25px rgba(11, 31, 72, 0.08);
+        }
+
+        .user-box {
+            padding: 12px 18px !important;
+            border-bottom: 1px solid #f1f5f9;
+            background: #f8fafc;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .user-box h6 {
+            font-size: 14px;
+            margin-bottom: 2px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .icon-blue,
+        .icon-pink,
+        .icon-gray {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        .icon-blue {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .icon-pink {
+            background: #fdf2f8;
+            color: #db2777;
+        }
+
+        .icon-gray {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .dropdown-item {
+            font-size: 13.5px;
+            padding: 9px 18px;
+            color: #334155;
+            transition: all 0.15s;
+        }
+
+        .dropdown-item:hover {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 10px;
+            }
+
+            .doc-btn span {
+                display: none;
+            }
+        }
+
+        /* ===================================================
+           PROFESSIONAL SIDEBAR - COMPACT FONT & BUTTER-SMOOTH DROPDOWNS
+           =================================================== */
+        .main-sidebar {
+            height: 100vh !important;
+            background: #ffffff !important;
+            border-right: 1px solid #e2e8f0 !important;
+            box-shadow: 2px 0 16px rgba(15, 23, 42, 0.035) !important;
+            position: fixed !important;
+            overflow: hidden !important;
+        }
+
+        .main-sidebar .brand-link {
+            background: #ffffff !important;
+            border-bottom: 1px solid #eef2f6 !important;
+            padding: 13px 18px !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none !important;
+        }
+
+        .brand-logo-wrap {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            padding: 2px;
+        }
+
+        .brand-title-box {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .brand-link .brand-text {
+            font-size: 14.5px !important;
+            font-weight: 800 !important;
+            color: #0b1f48 !important;
+            letter-spacing: -0.2px;
+        }
+
+        .main-sidebar .sidebar {
+            height: calc(100vh - 65px);
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            padding: 8px 6px 20px 6px;
+        }
+
+        /* Custom Scrollbar */
+        .main-sidebar .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .main-sidebar .sidebar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        /* Nav Headers - Compact & Clean */
+        .nav-sidebar .nav-header {
+            font-size: 10.5px !important;
+            font-weight: 700 !important;
+            color: #94a3b8 !important;
+            letter-spacing: 0.7px !important;
+            padding: 14px 12px 5px 12px !important;
+            text-transform: uppercase !important;
+        }
+
+        /* Main Nav Links (Compact 12.8px Font) */
+        .nav-sidebar .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8.5px 12px;
+            margin: 2px 2px;
+            border-radius: 8px;
+            font-size: 12.8px;
+            color: #334155 !important;
+            font-weight: 500;
+            transition: all 0.18s ease-in-out;
+            cursor: pointer;
+            text-decoration: none !important;
+            user-select: none;
+        }
+
+        .nav-sidebar .nav-link .nav-icon {
+            width: 20px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 15.5px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.18s ease;
+        }
+
+        .nav-sidebar .nav-link p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        /* Hover State */
+        .nav-sidebar .nav-link:hover {
+            background: var(--sidebar-hover-blue) !important;
+            color: var(--primary-blue) !important;
+        }
+
+        .nav-sidebar .nav-link:hover .nav-icon {
+            color: var(--primary-blue) !important;
+        }
+
+        /* Active Nav Link (Top Level) */
+        .nav-sidebar .nav-link.active {
+            background: var(--sidebar-active-blue) !important;
+            color: #1d4ed8 !important;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+            border-left: 3.5px solid var(--primary-blue);
+            padding-left: 9px;
+        }
+
+        .nav-sidebar .nav-link.active .nav-icon {
+            color: var(--primary-blue) !important;
+        }
+
+        /* Chevron Right Arrow for Dropdowns */
+        .nav-sidebar .nav-link .right-arrow {
+            margin-left: auto;
+            font-size: 11.5px;
+            color: #94a3b8;
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+            display: inline-block;
+            transform: rotate(0deg);
+        }
+
+        .nav-sidebar .nav-link:hover .right-arrow {
+            color: var(--primary-blue);
+        }
+
+        /* Dropdown Opened State */
+        .nav-item.has-treeview.menu-open > .nav-link {
+            background: #f8fafc !important;
+            color: #1e3a8a !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-item.has-treeview.menu-open > .nav-link.active {
+            background: var(--sidebar-active-blue) !important;
+            color: #1d4ed8 !important;
+        }
+
+        .nav-item.has-treeview.menu-open > .nav-link .nav-icon {
+            color: var(--primary-blue) !important;
+        }
+
+        /* Chevron 90deg rotation when open */
+        .nav-item.has-treeview.menu-open > .nav-link .right-arrow,
+        .nav-item.menu-open > .nav-link .right-arrow {
+            transform: rotate(90deg) !important;
+            color: var(--primary-blue) !important;
+        }
+
+        /* Submenu Container (Treeview) */
+        .main-sidebar .nav-sidebar .nav-treeview,
+        .sidebar .nav-sidebar .nav-treeview,
+        .nav-sidebar .nav-treeview,
+        .nav-treeview {
+            display: block !important;
+            list-style: none !important;
+            padding: 0 0 0 14px !important;
+            margin: 0 0 0 18px !important;
+            border-left: 1.5px solid #e2e8f0 !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.25s ease, 
+                        visibility 0.32s ease,
+                        padding 0.32s ease, 
+                        margin 0.32s ease !important;
+        }
+
+        /* When menu-open: smooth slide down */
+        .main-sidebar .nav-sidebar .has-treeview.menu-open > .nav-treeview,
+        .sidebar .nav-sidebar .has-treeview.menu-open > .nav-treeview,
+        .nav-sidebar .has-treeview.menu-open > .nav-treeview,
+        .main-sidebar .nav-sidebar .nav-item.menu-open > .nav-treeview,
+        .sidebar .nav-sidebar .nav-item.menu-open > .nav-treeview,
+        .nav-sidebar .menu-open > .nav-treeview,
+        .nav-item.has-treeview.menu-open > .nav-treeview {
+            display: block !important;
+            max-height: 420px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            padding: 4px 0 4px 14px !important;
+            margin: 2px 0 4px 18px !important;
+        }
+
+        /* Submenu Links */
+        .nav-treeview .nav-link {
+            padding: 6.5px 10px !important;
+            font-size: 12px !important;
+            color: #64748b !important;
+            font-weight: 500;
+            margin: 1.5px 0 !important;
+            border-radius: 6px;
+            gap: 8px;
+            border-left: none !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #eff6ff !important;
+            color: var(--primary-blue) !important;
+            padding-left: 13px !important;
+        }
+
+        .nav-treeview .nav-link.active {
+            background: #e0edff !important;
+            color: #1d4ed8 !important;
+            font-weight: 700;
+            box-shadow: none;
+            border-left: none !important;
+            padding-left: 10px;
+        }
+
+        /* Bullet Indicator inside Submenu */
+        .nav-treeview .sub-bullet {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            display: inline-block;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .nav-treeview .nav-link:hover .sub-bullet,
+        .nav-treeview .nav-link.active .sub-bullet {
+            background-color: var(--primary-blue);
+            transform: scale(1.3);
+        }
+
+        /* Logout Menu Item */
+        .logout-link {
+            margin-top: 20px !important;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 10px !important;
+            color: #64748b !important;
+        }
+
+        .logout-link:hover {
+            background: #fef2f2 !important;
+            color: #dc2626 !important;
+        }
+
+        .logout-link:hover .nav-icon {
+            color: #dc2626 !important;
+        }
+
+        /* ===================================================
+           LIVE ANNOUNCEMENT & STATUS STRIP (ABOVE WELCOME BANNER)
+           =================================================== */
+        .announcement-strip {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 14px;
+            padding: 8px 15px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: 0 2px 10px rgba(11, 31, 72, 0.03);
+        }
+
+        .strip-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .live-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ecfdf5;
+            color: #059669;
+            border: 1px solid #a7f3d0;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 9px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .strip-divider {
+            width: 1px;
+            height: 18px;
+            background: #e2e8f0;
+        }
+
+        .strip-message {
+            font-size: 12.5px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .strip-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .strip-timestamp {
+            font-size: 12px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+        }
+
+        .strip-timestamp strong {
+            color: #0f172a;
+            margin-left: 3px;
+        }
+
+        .strip-quick-btn {
+            background: #eff6ff;
+            color: var(--primary-blue);
+            border: 1px solid #dbeafe;
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .strip-quick-btn:hover {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .strip-divider {
+                display: none;
+            }
+            .strip-right {
+                width: 100%;
+                justify-content: space-between;
+                border-top: 1px solid #f1f5f9;
+                padding-top: 6px;
+            }
+        }
+
+        /* ===================================================
+           DLE HERO BANNER
+           =================================================== */
+        .dashboard-container {
+            padding: 1px 20px 24px 20px;
+        }
+
+        .hero-welcome-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(11, 31, 72, 0.035);
+            padding: 26px 30px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 155px;
+        }
+
+        .hero-left {
+            flex: 1;
+            max-width: 520px;
+            z-index: 5;
+        }
+
+        .hero-accent-bar-top {
+            width: 36px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .hero-title {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+            color: #0b1f48;
+        }
+
+        .hero-title .brand-accent {
+            color: var(--primary-blue);
+        }
+
+        .hero-subtitle {
+            font-size: 13.5px;
+            color: #64748b;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero-accent-bar-bottom {
+            width: 44px;
+            height: 3px;
+            background: #93c5fd;
+            border-radius: 4px;
+        }
+
+        .hero-right-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 55%;
+            overflow: hidden;
+            border-radius: 0 20px 20px 0;
+            z-index: 2;
+        }
+
+        .hero-solar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center right;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 18%, black 50%);
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 18%, black 50%);
+        }
+
+        @media (max-width: 768px) {
+            .hero-welcome-card {
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .hero-right-image {
+                opacity: 0.15;
+                width: 100%;
+            }
+        }
+
+        /* ===================================================
+           FORM SECTION STYLES (MATCHING SCREENSHOT DESIGN)
+           =================================================== */
+        .dle-form-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(11, 31, 72, 0.03);
+            padding: 26px 28px;
+            margin-bottom: 24px;
+        }
+
+        .form-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            padding-bottom: 4px;
+        }
+
+        .form-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .form-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .form-header-title {
+            font-size: 17.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 2px 0;
+            letter-spacing: -0.2px;
+        }
+
+        .form-header-subtitle {
+            font-size: 12.5px;
+            color: #64748b;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .status-pill-new {
+            background: #ecfdf5;
+            color: #059669;
+            border: 1px solid #a7f3d0;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-pill-new .pulse-dot-green {
+            width: 6px;
+            height: 6px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* 3 Steps Container Cards */
+        .form-step-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 20px 22px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-step-card:focus-within {
+            border-color: #cbd5e1;
+        }
+
+        .step-heading-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .step-number-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+        }
+
+        .step-info-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-title-line {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .step-title-line .step-icon {
+            color: var(--primary-blue);
+            font-size: 15px;
+        }
+
+        .step-title-line h6 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+            letter-spacing: -0.1px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: #64748b;
+            margin: 2px 0 0 0;
+        }
+
+        /* Custom Form Inputs */
+        .form-group-custom {
+            margin-bottom: 14px;
+        }
+
+        .form-label-custom {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .form-label-custom .required-star {
+            color: #ef4444;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .input-group-custom {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 0 12px;
+            height: 42px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .input-group-custom:hover {
+            border-color: #cbd5e1;
+        }
+
+        .input-group-custom:focus-within {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .input-icon-left {
+            color: #64748b;
+            font-size: 14.5px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-group-custom:focus-within .input-icon-left {
+            color: var(--primary-blue);
+        }
+
+        .input-control-custom {
+            border: none !important;
+            outline: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            font-size: 13px !important;
+            font-weight: 500;
+            color: #0f172a !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .input-control-custom::placeholder {
+            color: #94a3b8;
+            font-size: 12.8px;
+            font-weight: 400;
+        }
+
+        select.input-control-custom {
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 22px !important;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 12px;
+            pointer-events: none;
+            color: #64748b;
+            font-size: 11.5px;
+        }
+
+        .calendar-icon-right {
+            position: absolute;
+            right: 12px;
+            color: #94a3b8;
+            font-size: 13.5px;
+            pointer-events: none;
+        }
+
+        /* Document Upload Dropzones */
+        .upload-card-wrapper {
+            margin-bottom: 6px;
+        }
+
+        .upload-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .upload-label i {
+            color: var(--primary-blue);
+            font-size: 14px;
+        }
+
+        .upload-dropzone {
+            border: 1.5px dashed #bfdbfe;
+            border-radius: 12px;
+            background: #f8fafc;
+            padding: 24px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .upload-dropzone:hover,
+        .upload-dropzone.dragover {
+            border-color: var(--primary-blue);
+            background: #eff6ff;
+            transform: translateY(-1px);
+        }
+
+        .upload-icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 20px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+        }
+
+        .upload-dropzone:hover .upload-icon-circle {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+
+        .upload-text {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            margin: 0 0 3px 0;
+        }
+
+        .upload-text .highlight-text {
+            color: var(--primary-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .upload-subtext {
+            font-size: 11px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .file-selected-badge {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+            background: #e0edff;
+            color: #1d4ed8;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        /* Status & Image Options */
+        .status-select-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .custom-file-trigger {
+            display: flex;
+            align-items: center;
+            background: #eff6ff;
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 10px;
+            user-select: none;
+        }
+
+        .custom-file-trigger:hover {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+        }
+
+        .file-chosen-text {
+            font-size: 12px;
+            color: #64748b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Action Buttons */
+        .form-actions-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 8px;
+        }
+
+        .btn-reset-form {
+            background: #ffffff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 9px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-reset-form:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #0f172a;
+        }
+
+        .btn-submit-form {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 28px;
+            font-size: 13.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-submit-form:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Right Column Cards */
+        .right-panel-card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(11, 31, 72, 0.03);
+            padding: 20px 22px;
+            margin-bottom: 20px;
+        }
+
+        /* Card 1: Form Summary */
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+        }
+
+        .summary-header-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 15px;
+        }
+
+        .summary-header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-bottom: 1px solid #f8fafc;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            padding-bottom: 4px;
+        }
+
+        .summary-left-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summary-icon-pill {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13.5px;
+            flex-shrink: 0;
+        }
+
+        .summary-label-text {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .summary-value-text {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+            text-align: right;
+            max-width: 140px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .summary-status-badge {
+            background: #ecfdf5;
+            color: #059669;
+            border: 1px solid #a7f3d0;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .summary-status-badge::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #10b981;
+            display: inline-block;
+        }
+
+        /* Card 2: Need Help? */
+        .help-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .help-header-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 16px;
+        }
+
+        .help-header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        .help-description {
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+        }
+
+        .btn-contact-support {
+            background: #eff6ff;
+            color: var(--primary-blue);
+            border: 1px solid #bfdbfe;
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 12.5px;
+            font-weight: 700;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+
+        .btn-contact-support:hover {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Card 3: Keep Your Data Safe */
+        .security-graphic-wrap {
+            padding: 10px 0 14px 0;
+            text-align: center;
+        }
+
+        .security-footer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 10px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .security-shield-icon {
+            font-size: 24px;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .security-title {
+            font-size: 12.8px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 2px 0;
+        }
+
+        .security-text {
+            font-size: 11px;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .footer-area {
+            background: transparent;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-text {
+            color: #64748b !important;
+            font-size: 12.5px;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <!-- Navbar (SAME NAVBAR) -->
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center"></a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+                    <!-- DOCUMENT BUTTON -->
+                    <div class="doc-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </div>
+
+                    <!-- NOTIFICATION -->
+                    <div class="dropdown">
+                        <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-badge">7</span>
+                        </div>
+
+                        <ul class="dropdown-menu dropdown-menu-right notif-dropdown shadow">
+                            <li class="dropdown-header fw-bold px-3 py-2 text-dark border-bottom">
+                                Notifications
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-info-circle text-primary me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">New policy update</div>
+                                        <small class="text-muted">5 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-exclamation-circle text-warning me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">Server downtime alert</div>
+                                        <small class="text-muted">10 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-check-circle text-success me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">Payment completed</div>
+                                        <small class="text-muted">20 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider my-1" /></li>
+                            <li>
+                                <a class="dropdown-item text-center fw-bold text-primary py-2" href="#">View All Notifications</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="dropdown">
+                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" alt="User Profile" 
+                           />
+                        <ul class="dropdown-menu dropdown-menu-right shadow">
+                            <li class="user-box">
+                                <h6>Mohit Verma</h6>
+                                <small class="text-muted">Administrator</small>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                    data-bs-target="#profileModal">
+                                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                        class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                            </li>
+                            <li><hr class="dropdown-divider my-1" /></li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center text-danger" href="#"><i
+                                        class="bi bi-box-arrow-right icon-gray me-3 text-danger"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Profile popup modal (SAME PROFILE MODAL) -->
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-right">
+                <div class="modal-content profile-modal">
+                    <span class="close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></span>
+                    <div class="modal-body text-center p-4">
+                        <img src="../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80" height="80"
+                            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80';">
+                        <h5 class="user-name fw-bold">Pravesh Ahamad</h5>
+                        <p class="user-email text-muted">@parvesahamad</p>
+                        <hr>
+                        <div class="profile-info text-start">
+                            <p><strong>Full Name:</strong> Parves Ahamad</p>
+                            <p><strong>Email:</strong> parves@gmail.com</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>DOB:</strong> 05-01-2001</p>
+                            <p><strong>Phone:</strong> +91 9876543210</p>
+                            <p><strong>State:</strong> Kashmir</p>
+                        </div>
+                        <button class="btn btn-primary w-100" id="changePassBtn">Change Password</button>
+
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+                            <div class="mb-2 text-start">
+                                <label class="form-label">New Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="newPass" class="form-control" placeholder="Enter New Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+                            <div class="mb-2 text-start">
+                                <label class="form-label">Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPass" class="form-control" placeholder="Confirm Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-primary w-50" id="savePassBtn">Save</button>
+                                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================
+             SAME PROFESSIONAL SIDEBAR CONTAINER
+             =================================================== -->
+      <aside class="main-sidebar elevation-4 shadow">
+            <!-- SUBSECTION 5.1: BRAND LOGO START -->
+         <!-- Brand Logo -->
+            <a href="./klkhome.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="../images/logo-s.png" alt="KLK Logo"
+                        class="img-fluid" style="max-height: 24px; width: auto;"
+                        onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3067/3067256.png';" />
+                </div>
+                <div class="brand-title-box">
+                    <span class="brand-text">KLK VENTURES</span>
+                </div>
+            </a>
+            <!-- SUBSECTION 5.1: BRAND LOGO END -->
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Scrollable Navigation Menu Wrap -->
+                <div class="sidebar-menu-wrapper">
+                    <!-- SUBSECTION 5.2: NAVIGATION MENU START -->
+                    <nav class="mt-1">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+
+                            <!-- 1. Dashboard (Active royal blue pill button) -->
+                            <li class="nav-item">
+                                <a href="./vendordashboard2.html" class="nav-link active">
+                                    <i class="bi bi-house-door-fill nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <!-- 2. DLE Management (Dropdown) -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-file-earmark-text nav-icon"></i>
+                                    <p>
+                                        DLE Management
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./Mohit.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add DLE / Vendor</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./klkhome.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>View DLE / Vendor</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Assign Light</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Verify Light</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- 3. District -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-geo-alt nav-icon"></i>
+                                    <p>
+                                        District
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Bihar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>UP</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Karnataka</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Assam</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- 4. Reports -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-bar-chart-line nav-icon"></i>
+                                    <p>Reports</p>
+                                </a>
+                            </li>
+
+                            <!-- 5. Settings -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-gear nav-icon"></i>
+                                    <p>Settings</p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">
+                                    <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                    <p class="text-danger">Logout</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!-- SUBSECTION 5.2: NAVIGATION MENU END -->
+                </div>
+
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper mt-5 pt-4">
+
+            <div class="dashboard-container">
+
+                <!-- 0. SAME ANNOUNCEMENT & STATUS STRIP -->
+                <div class="announcement-strip">
+                    <div class="strip-left">
+                        <span class="live-pill">
+                            <span class="pulse-dot"></span> LIVE PORTAL
+                        </span>
+                        <div class="strip-divider"></div>
+                        <div class="strip-message">
+                            <i class="bi bi-broadcast text-primary"></i>
+                            <span class="fw-bold text-dark">Notice:</span>
+                            <span class="text-muted">Q3 DLE Verification &amp; Bihar AMC cycle in progress. <strong>85 DLE applications</strong> awaiting approval.</span>
+                        </div>
+                    </div>
+                    <div class="strip-right">
+                        <div class="strip-timestamp">
+                            <i class="bi bi-clock-history me-1 text-primary"></i>
+                            <span>Updated: <strong>Today, 12 Sep 2026</strong></span>
+                        </div>
+                        <a href="javascript:void(0);" onclick="window.location.reload();" class="strip-quick-btn" title="Refresh Live Stats">
+                            <i class="bi bi-arrow-clockwise"></i> Sync Data
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 1. TOP WELCOME HERO BANNER (MATCHING IMAGE DESIGN) -->
+             
+
+
+                        <section class="hero-welcome-card">
+                    <div class="hero-left">
+                        <div class="hero-accent-bar-top"></div>
+                        <div class="hero-greeting">Welcome to,</div>
+                        <h1 class="hero-title">
+                            <span class="brand-accent">DLE</span> <span class="brand-dark">Creation</span>
+                        </h1>
+                        <p class="hero-subtitle">Fill in the details below to register a new DLE activity</p>
+                        <div class="hero-accent-bar-bottom"></div>
+                    </div>
+
+                    <div class="hero-right-image">
+                        <img src="../images/bg3.avif" alt="Sustainable Solar Energy Hillside"
+                            class="hero-solar-img" />
+                    </div>
+                </section>
+
+                <!-- ===================================================
+                     2. NEW FORM SECTION (SAME DESIGN AS IN YOUR IMAGE)
+                     =================================================== -->
+                <div class="row">
+
+                    <!-- LEFT COLUMN: DLE REGISTRATION FORM -->
+                    <div class="col-xl-8 col-lg-8 col-md-12">
+                        <div class="dle-form-card">
+
+                            <!-- Form Header -->
+                            <div class="form-card-header">
+                                <div class="form-header-left">
+                                    <div class="form-icon-box">
+                                        <i class="bi bi-card-checklist"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="form-header-title">DLE Registration Form</h2>
+                                        <p class="form-header-subtitle">Solar Project / AMC / Installation Details</p>
+                                    </div>
+                                </div>
+                                <div class="form-header-right">
+                                    <span class="status-pill-new">
+                                        <span class="pulse-dot-green"></span> New Record
+                                    </span>
+                                </div>
+                            </div>
+
+                            <form id="dleRegistrationForm" autocomplete="off">
+
+                                <!-- STEP 1: BASIC INFORMATION -->
+                                <div class="form-step-card">
+                                    <div class="step-heading-row">
+                                        <div class="step-number-badge">1</div>
+                                        <div class="step-info-box">
+                                            <div class="step-title-line">
+                                                <i class="bi bi-file-earmark-text step-icon"></i>
+                                                <h6>Basic Information</h6>
+                                            </div>
+                                            <p class="step-desc">Enter the primary details of the DLE record</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- District -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Select District <span class="required-star">*</span></label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-geo-alt input-icon-left"></i>
+                                                <select id="districtSelect" class="input-control-custom" required>
+                                                    <option value="" disabled selected>Choose District</option>
+                                                    <option value="Patna">Patna</option>
+                                                    <option value="Gaya">Gaya</option>
+                                                    <option value="Muzaffarpur">Muzaffarpur</option>
+                                                    <option value="Bhagalpur">Bhagalpur</option>
+                                                    <option value="Darbhanga">Darbhanga</option>
+                                                    <option value="Purnia">Purnia</option>
+                                                    <option value="Nalanda">Nalanda</option>
+                                                    <option value="Rohtas">Rohtas</option>
+                                                </select>
+                                                <i class="bi bi-chevron-down select-arrow"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- Block -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Select Block <span class="required-star">*</span></label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-building input-icon-left"></i>
+                                                <select id="blockSelect" class="input-control-custom" required>
+                                                    <option value="" disabled selected>Choose Block</option>
+                                                    <option value="Patna Sadar">Patna Sadar</option>
+                                                    <option value="Danapur">Danapur</option>
+                                                    <option value="Phulwari Sharif">Phulwari Sharif</option>
+                                                    <option value="Barh">Barh</option>
+                                                    <option value="Bodh Gaya">Bodh Gaya</option>
+                                                    <option value="Sherghati">Sherghati</option>
+                                                </select>
+                                                <i class="bi bi-chevron-down select-arrow"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panchayat -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Select Panchayat <span class="required-star">*</span></label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-people input-icon-left"></i>
+                                                <select id="panchayatSelect" class="input-control-custom" required>
+                                                    <option value="" disabled selected>Choose Panchayat</option>
+                                                    <option value="Rampur">Rampur</option>
+                                                    <option value="Jamunapur">Jamunapur</option>
+                                                    <option value="Chandpur">Chandpur</option>
+                                                    <option value="Belaganj">Belaganj</option>
+                                                    <option value="Fatehpur">Fatehpur</option>
+                                                </select>
+                                                <i class="bi bi-chevron-down select-arrow"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- Month & Year -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Select Month &amp; Year <span class="required-star">*</span></label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-calendar4-week input-icon-left"></i>
+                                                <input type="text" id="monthYearInput" class="input-control-custom" placeholder="MM/YYYY" maxlength="7" required />
+                                                <i class="bi bi-calendar-event calendar-icon-right"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- UID / Reference No -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">UID / Reference No. <span class="required-star">*</span></label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-tag input-icon-left"></i>
+                                                <input type="text" id="uidInput" class="input-control-custom" placeholder="Enter UID / Reference No." required />
+                                            </div>
+                                        </div>
+
+                                        <!-- Remarks -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Remarks</label>
+                                            <div class="input-group-custom">
+                                                <i class="bi bi-file-earmark-text input-icon-left"></i>
+                                                <input type="text" id="remarksInput" class="input-control-custom" placeholder="Enter remarks (optional)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- STEP 2: DOCUMENT UPLOAD -->
+                                <div class="form-step-card">
+                                    <div class="step-heading-row">
+                                        <div class="step-number-badge">2</div>
+                                        <div class="step-info-box">
+                                            <div class="step-title-line">
+                                                <i class="bi bi-cloud-arrow-up step-icon"></i>
+                                                <h6>Document Upload</h6>
+                                            </div>
+                                            <p class="step-desc">Upload required documents for verification</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- AMC Document -->
+                                        <div class="col-md-6 upload-card-wrapper">
+                                            <label class="upload-label">
+                                                <i class="bi bi-file-earmark-pdf"></i>
+                                                AMC Document <span class="required-star">*</span>
+                                            </label>
+                                            <div class="upload-dropzone" id="amcDropzone" onclick="document.getElementById('amcFileInput').click()">
+                                                <input type="file" id="amcFileInput" class="d-none" accept=".pdf,.jpg,.jpeg,.png" />
+                                                <div class="upload-icon-circle">
+                                                    <i class="bi bi-cloud-arrow-up"></i>
+                                                </div>
+                                                <p class="upload-text">Drag &amp; drop file here or <span class="highlight-text">click to upload</span></p>
+                                                <p class="upload-subtext">PDF, JPG, PNG (Max 5MB)</p>
+                                                <div class="file-selected-badge" id="amcFileBadge">
+                                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                                    <span id="amcFileName">file.pdf</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Invoice Document -->
+                                        <div class="col-md-6 upload-card-wrapper">
+                                            <label class="upload-label">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                                Invoice Document <span class="required-star">*</span>
+                                            </label>
+                                            <div class="upload-dropzone" id="invoiceDropzone" onclick="document.getElementById('invoiceFileInput').click()">
+                                                <input type="file" id="invoiceFileInput" class="d-none" accept=".pdf,.jpg,.jpeg,.png" />
+                                                <div class="upload-icon-circle">
+                                                    <i class="bi bi-cloud-arrow-up"></i>
+                                                </div>
+                                                <p class="upload-text">Drag &amp; drop file here or <span class="highlight-text">click to upload</span></p>
+                                                <p class="upload-subtext">PDF, JPG, PNG (Max 5MB)</p>
+                                                <div class="file-selected-badge" id="invoiceFileBadge">
+                                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                                    <span id="invoiceFileName">invoice.pdf</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- STEP 3: ADDITIONAL DETAILS -->
+                                <div class="form-step-card">
+                                    <div class="step-heading-row">
+                                        <div class="step-number-badge">3</div>
+                                        <div class="step-info-box">
+                                            <div class="step-title-line">
+                                                <i class="bi bi-sliders step-icon"></i>
+                                                <h6>Additional Details</h6>
+                                            </div>
+                                            <p class="step-desc">Provide extra information (optional)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <!-- Select Status -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Select Status <span class="required-star">*</span></label>
+                                            <div class="input-group-custom status-select-wrapper">
+                                                <span class="status-indicator-dot" id="statusDotIndicator"></span>
+                                                <select id="statusSelect" class="input-control-custom" required>
+                                                    <option value="Active" selected>Active</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Inactive">Inactive</option>
+                                                </select>
+                                                <i class="bi bi-chevron-down select-arrow"></i>
+                                            </div>
+                                        </div>
+
+                                        <!-- Upload Image (Optional) -->
+                                        <div class="col-md-6 form-group-custom">
+                                            <label class="form-label-custom">Upload Image <span class="text-muted fw-normal">(Optional)</span></label>
+                                            <div class="input-group-custom" onclick="document.getElementById('imageUploadInput').click()" style="cursor: pointer;">
+                                                <input type="file" id="imageUploadInput" class="d-none" accept="image/*" />
+                                                <i class="bi bi-image input-icon-left"></i>
+                                                <span class="custom-file-trigger">Choose File</span>
+                                                <span class="file-chosen-text" id="imageChosenText">No file chosen</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FORM ACTIONS (RESET & SUBMIT BUTTONS) -->
+                                <div class="form-actions-row">
+                                    <button type="button" class="btn-reset-form" id="resetFormBtn">
+                                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                    </button>
+                                    <button type="submit" class="btn-submit-form" id="submitFormBtn">
+                                        <i class="bi bi-send-fill"></i> Submit Record
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: SUMMARY, HELP & SECURITY CARDS -->
+                    <div class="col-xl-4 col-lg-4 col-md-12">
+
+                        <!-- CARD 1: FORM SUMMARY -->
+                        <div class="right-panel-card">
+                            <div class="summary-header">
+                                <div class="summary-header-icon">
+                                    <i class="bi bi-card-checklist"></i>
+                                </div>
+                                <h3 class="summary-header-title">Form Summary</h3>
+                            </div>
+
+                            <div class="summary-list">
+                                <!-- District -->
+                                <div class="summary-item">
+                                    <div class="summary-left-group">
+                                        <div class="summary-icon-pill">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </div>
+                                        <span class="summary-label-text">District</span>
+                                    </div>
+                                    <span class="summary-value-text" id="sumDistrict">Select District</span>
+                                </div>
+
+                                <!-- Block -->
+                                <div class="summary-item">
+                                    <div class="summary-left-group">
+                                        <div class="summary-icon-pill">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+                                        <span class="summary-label-text">Block</span>
+                                    </div>
+                                    <span class="summary-value-text" id="sumBlock">Select Block</span>
+                                </div>
+
+                                <!-- Panchayat -->
+                                <div class="summary-item">
+                                    <div class="summary-left-group">
+                                        <div class="summary-icon-pill">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                        <span class="summary-label-text">Panchayat</span>
+                                    </div>
+                                    <span class="summary-value-text" id="sumPanchayat">Select Panchayat</span>
+                                </div>
+
+                                <!-- Month & Year -->
+                                <div class="summary-item">
+                                    <div class="summary-left-group">
+                                        <div class="summary-icon-pill">
+                                            <i class="bi bi-calendar4-week"></i>
+                                        </div>
+                                        <span class="summary-label-text">Month &amp; Year</span>
+                                    </div>
+                                    <span class="summary-value-text" id="sumMonthYear">MM/YYYY</span>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="summary-item">
+                                    <div class="summary-left-group">
+                                        <div class="summary-icon-pill" style="background: #ecfdf5; color: #10b981;">
+                                            <i class="bi bi-check-circle-fill"></i>
+                                        </div>
+                                        <span class="summary-label-text">Status</span>
+                                    </div>
+                                    <span class="summary-status-badge" id="sumStatus">Active</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD 2: NEED HELP? -->
+                        <div class="right-panel-card">
+                            <div class="help-header">
+                                <div class="help-header-icon">
+                                    <i class="bi bi-question-circle"></i>
+                                </div>
+                                <h3 class="help-header-title">Need Help?</h3>
+                            </div>
+                            <p class="help-description">
+                                If you face any issue while filling the form, please contact the admin.
+                            </p>
+                            <button type="button" class="btn-contact-support" onclick="alert('Support helpline: +91 1800-202-6000\nEmail: support@klkventures.com')">
+                                <i class="bi bi-headset"></i> Contact Support
+                            </button>
+                        </div>
+
+                        <!-- CARD 3: KEEP YOUR DATA SAFE -->
+                        <div class="right-panel-card">
+                            <div class="security-graphic-wrap">
+                                <!-- Clean Custom Vector SVG matching design -->
+                                <svg width="130" height="95" viewBox="0 0 130 95" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto d-block">
+                                    <!-- Soft Blue Aura -->
+                                    <ellipse cx="65" cy="50" rx="45" ry="38" fill="#eff6ff" />
+                                    <!-- Back Folder Layer -->
+                                    <rect x="36" y="24" width="50" height="58" rx="8" fill="#dbeafe" />
+                                    <!-- Main Document Sheet -->
+                                    <rect x="42" y="18" width="52" height="60" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" />
+                                    <!-- Document Data Lines -->
+                                    <rect x="50" y="28" width="24" height="3" rx="1.5" fill="#3b82f6" />
+                                    <rect x="50" y="36" width="36" height="2.5" rx="1.25" fill="#cbd5e1" />
+                                    <rect x="50" y="43" width="30" height="2.5" rx="1.25" fill="#cbd5e1" />
+                                    <rect x="50" y="50" width="34" height="2.5" rx="1.25" fill="#cbd5e1" />
+                                    <rect x="50" y="57" width="20" height="2.5" rx="1.25" fill="#cbd5e1" />
+                                    <!-- Verified Green Badge -->
+                                    <circle cx="88" cy="62" r="13" fill="#10b981" />
+                                    <path d="M84 62L87 65L93 58" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <!-- Subtle Sparkles -->
+                                    <circle cx="28" cy="38" r="2" fill="#93c5fd" />
+                                    <circle cx="106" cy="32" r="2.5" fill="#60a5fa" />
+                                    <circle cx="104" cy="74" r="1.5" fill="#93c5fd" />
+                                </svg>
+                            </div>
+                            <div class="security-footer-info">
+                                <i class="bi bi-shield-check security-shield-icon"></i>
+                                <div>
+                                    <h4 class="security-title">Keep Your Data Safe</h4>
+                                    <p class="security-text">All information is encrypted and securely stored.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer section (SAME FOOTER) -->
+            <section class="mt-4">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <footer class="footer-area py-3 w-100">
+                            <p class="m-0 fw-semibold text-secondary small footer-text text-center text-md-start">
+                                Copyright © <span id="year">2026</span> KLK ERP — By
+                                <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                                All rights reserved.
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        if (typeof jQuery === 'undefined') {
+            document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>');
+        }
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- Interactive Live Synchronization & Form Scripts -->
+    <script>
+        $(document).ready(function () {
+            // Live Synchronization from Form to Summary Card
+            $('#districtSelect').on('change', function () {
+                const val = $(this).val();
+                $('#sumDistrict').text(val ? val : 'Select District').css('color', val ? '#0f172a' : '#64748b');
+            });
+
+            $('#blockSelect').on('change', function () {
+                const val = $(this).val();
+                $('#sumBlock').text(val ? val : 'Select Block').css('color', val ? '#0f172a' : '#64748b');
+            });
+
+            $('#panchayatSelect').on('change', function () {
+                const val = $(this).val();
+                $('#sumPanchayat').text(val ? val : 'Select Panchayat').css('color', val ? '#0f172a' : '#64748b');
+            });
+
+            // Auto-format MM/YYYY
+            $('#monthYearInput').on('input', function () {
+                let val = $(this).val().replace(/[^\d]/g, '');
+                if (val.length >= 2) {
+                    val = val.substring(0, 2) + '/' + val.substring(2, 6);
+                }
+                $(this).val(val);
+                $('#sumMonthYear').text(val ? val : 'MM/YYYY').css('color', val ? '#0f172a' : '#64748b');
+            });
+
+            // Status dropdown change
+            $('#statusSelect').on('change', function () {
+                const val = $(this).val();
+                $('#sumStatus').text(val);
+                
+                if (val === 'Active') {
+                    $('#statusDotIndicator').css('background', '#10b981');
+                    $('#sumStatus').css({ 'background': '#ecfdf5', 'color': '#059669', 'border-color': '#a7f3d0' });
+                } else if (val === 'Pending') {
+                    $('#statusDotIndicator').css('background', '#f59e0b');
+                    $('#sumStatus').css({ 'background': '#fffbeb', 'color': '#d97706', 'border-color': '#fde68a' });
+                } else {
+                    $('#statusDotIndicator').css('background', '#94a3b8');
+                    $('#sumStatus').css({ 'background': '#f1f5f9', 'color': '#475569', 'border-color': '#cbd5e1' });
+                }
+            });
+
+            // AMC File Upload Handling
+            $('#amcFileInput').on('change', function () {
+                if (this.files && this.files[0]) {
+                    const fileName = this.files[0].name;
+                    $('#amcFileName').text(fileName);
+                    $('#amcFileBadge').css('display', 'inline-flex');
+                }
+            });
+
+            // Invoice File Upload Handling
+            $('#invoiceFileInput').on('change', function () {
+                if (this.files && this.files[0]) {
+                    const fileName = this.files[0].name;
+                    $('#invoiceFileName').text(fileName);
+                    $('#invoiceFileBadge').css('display', 'inline-flex');
+                }
+            });
+
+            // Optional Image Upload Handling
+            $('#imageUploadInput').on('change', function () {
+                if (this.files && this.files[0]) {
+                    $('#imageChosenText').text(this.files[0].name).css('color', '#2563eb');
+                } else {
+                    $('#imageChosenText').text('No file chosen').css('color', '#64748b');
+                }
+            });
+
+            // Drag and drop support
+            ['amcDropzone', 'invoiceDropzone'].forEach(function (zoneId) {
+                const zone = document.getElementById(zoneId);
+                const inputId = zoneId === 'amcDropzone' ? 'amcFileInput' : 'invoiceFileInput';
+
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    zone.addEventListener(eventName, function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        zone.classList.add('dragover');
+                    }, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                    zone.addEventListener(eventName, function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        zone.classList.remove('dragover');
+                    }, false);
+                });
+
+                zone.addEventListener('drop', function (e) {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    if (files.length > 0) {
+                        const fileInput = document.getElementById(inputId);
+                        fileInput.files = files;
+                        $(fileInput).trigger('change');
+                    }
+                }, false);
+            });
+
+            // Reset Button
+            $('#resetFormBtn').on('click', function () {
+                if (confirm('Are you sure you want to reset the form?')) {
+                    $('#dleRegistrationForm')[0].reset();
+                    $('#amcFileBadge').hide();
+                    $('#invoiceFileBadge').hide();
+                    $('#imageChosenText').text('No file chosen').css('color', '#64748b');
+                    $('#sumDistrict').text('Select District').css('color', '#64748b');
+                    $('#sumBlock').text('Select Block').css('color', '#64748b');
+                    $('#sumPanchayat').text('Select Panchayat').css('color', '#64748b');
+                    $('#sumMonthYear').text('MM/YYYY').css('color', '#64748b');
+                    $('#statusSelect').val('Active').trigger('change');
+                }
+            });
+
+            // Submit Form
+            $('#dleRegistrationForm').on('submit', function (e) {
+                e.preventDefault();
+                const district = $('#districtSelect').val();
+                const block = $('#blockSelect').val();
+                const panchayat = $('#panchayatSelect').val();
+                const monthYear = $('#monthYearInput').val();
+                const uid = $('#uidInput').val();
+
+                if (!district || !block || !panchayat || !monthYear || !uid) {
+                    alert('Please fill in all mandatory fields marked with *');
+                    return;
+                }
+
+                alert('✓ DLE Record successfully created!\n\nDistrict: ' + district + '\nBlock: ' + block + '\nPanchayat: ' + panchayat + '\nUID: ' + uid);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
