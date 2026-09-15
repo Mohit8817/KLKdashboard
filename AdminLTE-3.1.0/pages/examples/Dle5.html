@@ -22,1908 +22,12 @@
 
     <!-- Theme style (AdminLTE) -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="./Dle5.css" />
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
-    <style>
-        :root {
-            --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --primary-blue: #2563eb;
-            --primary-dark-blue: #0b1f48;
-            --primary-light-blue: #eff6ff;
-            --primary-border-blue: #dbeafe;
-            --sidebar-hover-blue: #eff6ff;
-            --sidebar-active-blue: #e0edff;
-            --sidebar-text-blue: #1e3a8a;
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-        }
 
-        body {
-            font-family: var(--font-family-base) !important;
-            background-color: #f4f7fc !important;
-            color: var(--text-dark);
-        }
-
-        /* Navbar Styling */
-        .main-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-            background: #ffffff !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-            box-shadow: 0 2px 10px rgba(11, 31, 72, 0.04) !important;
-        }
-
-        .navbar-light .navbar-nav .nav-link {
-            color: #475569 !important;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-
-        .navbar-light .navbar-nav .nav-link:hover {
-            color: var(--primary-blue) !important;
-            background: #eff6ff;
-        }
-
-        .profile-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #bfdbfe;
-            padding: 2px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .profile-img:hover {
-            border-color: var(--primary-blue);
-        }
-
-        .notif-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid #e2e8f0;
-            background: #f8fafc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .notif-btn:hover {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-        }
-
-        .notif-btn i {
-            font-size: 16px;
-            color: #334155;
-        }
-
-        .notif-btn:hover i {
-            color: var(--primary-blue);
-        }
-
-        .notif-badge {
-            position: absolute;
-            top: -3px;
-            right: -3px;
-            background: #ef4444;
-            padding: 2px 6px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 700;
-            color: white;
-            border: 2px solid #ffffff;
-        }
-
-        .notif-dropdown {
-            width: 280px !important;
-            border-radius: 14px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .notif-title {
-            font-size: 13.5px;
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .notif-dropdown .dropdown-item {
-            padding: 10px 14px;
-            transition: 0.15s;
-        }
-
-        .notif-dropdown .dropdown-item:hover {
-            background: #eff6ff;
-            border-radius: 8px;
-        }
-
-        .doc-btn {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            padding: 7px 16px;
-            border-radius: 50px;
-            background: #eff6ff;
-            color: #1d4ed8;
-            font-weight: 600;
-            font-size: 13.5px;
-            border: 1px solid #dbeafe;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-        }
-
-        .doc-btn:hover {
-            background: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .dropdown-menu {
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            padding: 0;
-            box-shadow: 0 10px 25px rgba(11, 31, 72, 0.08);
-        }
-
-        .user-box {
-            padding: 12px 18px !important;
-            border-bottom: 1px solid #f1f5f9;
-            background: #f8fafc;
-            border-radius: 12px 12px 0 0;
-        }
-
-        .user-box h6 {
-            font-size: 14px;
-            margin-bottom: 2px;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .icon-blue,
-        .icon-pink,
-        .icon-gray {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            border-radius: 8px;
-        }
-
-        .icon-blue {
-            background: #eff6ff;
-            color: #2563eb;
-        }
-
-        .icon-pink {
-            background: #fdf2f8;
-            color: #db2777;
-        }
-
-        .icon-gray {
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        .dropdown-item {
-            font-size: 13.5px;
-            padding: 9px 18px;
-            color: #334155;
-            transition: all 0.15s;
-        }
-
-        .dropdown-item:hover {
-            background: #eff6ff;
-            color: #1d4ed8;
-        }
-
-        @media (max-width: 576px) {
-            .header-actions {
-                gap: 10px;
-            }
-
-            .doc-btn span {
-                display: none;
-            }
-        }
-
-        /* ===================================================
-           PROFESSIONAL SIDEBAR - COMPACT FONT & BUTTER-SMOOTH DROPDOWNS
-           =================================================== */
-        .main-sidebar {
-            height: 100vh !important;
-            background: #ffffff !important;
-            border-right: 1px solid #e2e8f0 !important;
-            box-shadow: 2px 0 16px rgba(15, 23, 42, 0.035) !important;
-            position: fixed !important;
-            overflow: hidden !important;
-        }
-
-        .main-sidebar .brand-link {
-            background: #ffffff !important;
-            border-bottom: 1px solid #eef2f6 !important;
-            padding: 13px 18px !important;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none !important;
-        }
-
-        .brand-logo-wrap {
-            width: 34px;
-            height: 34px;
-            border-radius: 9px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
-            padding: 2px;
-        }
-
-        .brand-title-box {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.15;
-        }
-
-        .brand-link .brand-text {
-            font-size: 18.5px !important;
-            font-weight: 800 !important;
-            color: #0b1f48 !important;
-            letter-spacing: -0.2px;
-        }
-
-
-        .main-sidebar .sidebar {
-            height: calc(100vh - 65px);
-            overflow-y: auto !important;
-            overflow-x: hidden !important;
-            padding: 8px 6px 20px 6px;
-        }
-
-        /* Custom Scrollbar */
-        .main-sidebar .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .main-sidebar .sidebar::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-
-        /* Nav Headers - Compact & Clean */
-        .nav-sidebar .nav-header {
-            font-size: 10.5px !important;
-            font-weight: 700 !important;
-            color: #94a3b8 !important;
-            letter-spacing: 0.7px !important;
-            padding: 14px 12px 5px 12px !important;
-            text-transform: uppercase !important;
-        }
-
-        /* Main Nav Links (Compact 12.8px Font) */
-        .nav-sidebar .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8.5px 12px;
-            margin: 2px 2px;
-            border-radius: 8px;
-            font-size: 12.8px;
-            color: #334155 !important;
-            font-weight: 500;
-            transition: all 0.18s ease-in-out;
-            cursor: pointer;
-            text-decoration: none !important;
-            user-select: none;
-        }
-
-        .nav-sidebar .nav-link .nav-icon {
-            width: 20px;
-            min-width: 20px;
-            height: 20px;
-            font-size: 15.5px;
-            color: #64748b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.18s ease;
-        }
-
-        .nav-sidebar .nav-link p {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            white-space: nowrap;
-        }
-
-        /* Hover State */
-        .nav-sidebar .nav-link:hover {
-            background: var(--sidebar-hover-blue) !important;
-            color: var(--primary-blue) !important;
-        }
-
-        .nav-sidebar .nav-link:hover .nav-icon {
-            color: var(--primary-blue) !important;
-        }
-
-        /* Active Nav Link (Top Level) */
-        .nav-sidebar .nav-link.active {
-            background: var(--sidebar-active-blue) !important;
-            color: #1d4ed8 !important;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-            border-left: 3.5px solid var(--primary-blue);
-            padding-left: 9px;
-        }
-
-        .nav-sidebar .nav-link.active .nav-icon {
-            color: var(--primary-blue) !important;
-        }
-
-        /* Chevron Right Arrow for Dropdowns */
-        .nav-sidebar .nav-link .right-arrow {
-            margin-left: auto;
-            font-size: 11.5px;
-            color: #94a3b8;
-            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
-            display: inline-block;
-            transform: rotate(0deg);
-        }
-
-        .nav-sidebar .nav-link:hover .right-arrow {
-            color: var(--primary-blue);
-        }
-
-        /* Dropdown Opened State */
-        .nav-item.has-treeview.menu-open>.nav-link {
-            background: #f8fafc !important;
-            color: #1e3a8a !important;
-            font-weight: 600 !important;
-        }
-
-        .nav-item.has-treeview.menu-open>.nav-link.active {
-            background: var(--sidebar-active-blue) !important;
-            color: #1d4ed8 !important;
-        }
-
-        .nav-item.has-treeview.menu-open>.nav-link .nav-icon {
-            color: var(--primary-blue) !important;
-        }
-
-        /* Chevron 90deg rotation when open */
-        .nav-item.has-treeview.menu-open>.nav-link .right-arrow,
-        .nav-item.menu-open>.nav-link .right-arrow {
-            transform: rotate(90deg) !important;
-            color: var(--primary-blue) !important;
-        }
-
-        /* Submenu Container (Treeview) - Pure CSS Smooth Max-Height Animation */
-        /* display: block !important overcomes AdminLTE's display:none/block conflicts & jQuery inline styles */
-        .main-sidebar .nav-sidebar .nav-treeview,
-        .sidebar .nav-sidebar .nav-treeview,
-        .nav-sidebar .nav-treeview,
-        .nav-treeview {
-            display: block !important;
-            list-style: none !important;
-            padding: 0 0 0 14px !important;
-            margin: 0 0 0 18px !important;
-            border-left: 1.5px solid #e2e8f0 !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.25s ease,
-                visibility 0.32s ease,
-                padding 0.32s ease,
-                margin 0.32s ease !important;
-        }
-
-        /* When menu-open: smooth slide down */
-        .main-sidebar .nav-sidebar .has-treeview.menu-open>.nav-treeview,
-        .sidebar .nav-sidebar .has-treeview.menu-open>.nav-treeview,
-        .nav-sidebar .has-treeview.menu-open>.nav-treeview,
-        .main-sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
-        .sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
-        .nav-sidebar .menu-open>.nav-treeview,
-        .nav-item.has-treeview.menu-open>.nav-treeview {
-            display: block !important;
-            max-height: 420px !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: auto !important;
-            padding: 4px 0 4px 14px !important;
-            margin: 2px 0 4px 18px !important;
-        }
-
-        /* Submenu Links - Compact 12px Font */
-        .nav-treeview .nav-link {
-            padding: 6.5px 10px !important;
-            font-size: 12px !important;
-            color: #64748b !important;
-            font-weight: 500;
-            margin: 1.5px 0 !important;
-            border-radius: 6px;
-            gap: 8px;
-            border-left: none !important;
-        }
-
-        .nav-treeview .nav-link:hover {
-            background: #eff6ff !important;
-            color: var(--primary-blue) !important;
-            padding-left: 13px !important;
-        }
-
-        .nav-treeview .nav-link.active {
-            background: #e0edff !important;
-            color: #1d4ed8 !important;
-            font-weight: 700;
-            box-shadow: none;
-            border-left: none !important;
-            padding-left: 10px;
-        }
-
-        /* Bullet Indicator inside Submenu */
-        .nav-treeview .sub-bullet {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            display: inline-block;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-        }
-
-        .nav-treeview .nav-link:hover .sub-bullet,
-        .nav-treeview .nav-link.active .sub-bullet {
-            background-color: var(--primary-blue);
-            transform: scale(1.3);
-        }
-
-
-        .badge-subtle-blue {
-            background: #eff6ff;
-            color: #2563eb;
-            border: 1px solid #dbeafe;
-        }
-
-        .badge-subtle-amber {
-            background: #fffbeb;
-            color: #d97706;
-            border: 1px solid #fde68a;
-        }
-
-        .badge-subtle-green {
-            background: #f0fdf4;
-            color: #16a34a;
-            border: 1px solid #bbf7d0;
-        }
-
-        /* Logout Menu Item */
-        .logout-link {
-            margin-top: 20px !important;
-            border-top: 1px dashed #e2e8f0;
-            padding-top: 10px !important;
-            color: #64748b !important;
-        }
-
-        .logout-link:hover {
-            background: #fef2f2 !important;
-            color: #dc2626 !important;
-        }
-
-        .logout-link:hover .nav-icon {
-            color: #dc2626 !important;
-        }
-
-        /* ===================================================
-           LIVE ANNOUNCEMENT & STATUS STRIP (ABOVE WELCOME BANNER)
-           =================================================== */
-        .announcement-strip {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-left: 4px solid var(--primary-blue);
-            border-radius: 14px;
-            padding: 8px 15px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            box-shadow: 0 2px 10px rgba(11, 31, 72, 0.03);
-        }
-
-        .strip-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .live-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #ecfdf5;
-            color: #059669;
-            border: 1px solid #a7f3d0;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 3px 9px;
-            border-radius: 50px;
-            letter-spacing: 0.5px;
-        }
-
-        .pulse-dot {
-            width: 7px;
-            height: 7px;
-            background-color: #10b981;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse-green 2s infinite;
-        }
-
-        @keyframes pulse-green {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-            }
-
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-        .strip-divider {
-            width: 1px;
-            height: 18px;
-            background: #e2e8f0;
-        }
-
-        .strip-message {
-            font-size: 12.5px;
-            color: #334155;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .strip-right {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .strip-timestamp {
-            font-size: 12px;
-            color: #64748b;
-            display: flex;
-            align-items: center;
-        }
-
-        .strip-timestamp strong {
-            color: #0f172a;
-            margin-left: 3px;
-        }
-
-        .strip-quick-btn {
-            background: #eff6ff;
-            color: var(--primary-blue);
-            border: 1px solid #dbeafe;
-            border-radius: 50px;
-            padding: 4px 12px;
-            font-size: 11.5px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .strip-quick-btn:hover {
-            background: var(--primary-blue);
-            color: #ffffff;
-            border-color: var(--primary-blue);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .strip-divider {
-                display: none;
-            }
-
-            .strip-right {
-                width: 100%;
-                justify-content: space-between;
-                border-top: 1px solid #f1f5f9;
-                padding-top: 6px;
-            }
-        }
-
-        /* ===================================================
-           DLE DASHBOARD MAIN CONTENT
-           =================================================== */
-        .dashboard-container {
-            padding: 1px 20px 3px 20px;
-        }
-
-        /* Hero Welcome Banner */
-        .hero-welcome-card {
-            background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(11, 31, 72, 0.035);
-            padding: 26px 30px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 170px;
-        }
-
-        .hero-left {
-            flex: 1;
-            max-width: 520px;
-            z-index: 5;
-        }
-
-        .hero-accent-bar-top {
-            width: 36px;
-            height: 4px;
-            background: var(--primary-blue);
-            border-radius: 4px;
-            margin-bottom: 12px;
-        }
-
-        .hero-greeting {
-            font-size: 13.5px;
-            font-weight: 600;
-            color: #64748b;
-            margin-bottom: 2px;
-        }
-
-        .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-title .brand-accent {
-            color: var(--primary-blue);
-        }
-
-        .hero-title .brand-dark {
-            color: #0b1f48;
-        }
-
-        .hero-subtitle {
-            font-size: 13.5px;
-            color: #64748b;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .hero-accent-bar-bottom {
-            width: 44px;
-            height: 3px;
-            background: #93c5fd;
-            border-radius: 4px;
-        }
-
-        .hero-right-image {
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 52%;
-            overflow: hidden;
-            border-radius: 0 20px 20px 0;
-            z-index: 2;
-        }
-
-        .hero-solar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center right;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 18%, black 50%);
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.4) 18%, black 50%);
-        }
-
-        @media (max-width: 768px) {
-            .hero-welcome-card {
-                padding: 20px;
-                min-height: auto;
-            }
-
-            .hero-title {
-                font-size: 24px;
-            }
-
-            .hero-right-image {
-                opacity: 0.15;
-                width: 100%;
-            }
-        }
-
-        /* 2. SIX KPI STAT CARDS ROW */
-        .kpi-row {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 14px;
-            margin-bottom: 22px;
-        }
-
-        @media (max-width: 1400px) {
-            .kpi-row {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .kpi-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .banner-right-wrap {
-                display: none;
-            }
-
-            .banner-left-wrap {
-                background: #081735;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .kpi-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .kpi-card {
-            border-radius: 16px;
-            padding: 14px 16px 6px 16px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.025);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        }
-
-        .kpi-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .kpi-icon-wrap {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .kpi-icon-circle {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #ffffff;
-            flex-shrink: 0;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .kpi-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #334155;
-            white-space: nowrap;
-        }
-
-        .kpi-more {
-            color: #94a3b8;
-            cursor: pointer;
-            font-size: 15px;
-            padding: 2px 4px;
-            line-height: 1;
-        }
-
-        .kpi-more:hover {
-            color: #475569;
-        }
-
-        .kpi-body {
-            position: relative;
-            z-index: 3;
-        }
-
-        .kpi-value {
-            font-size: 26px;
-            font-weight: 800;
-            color: #0f172a;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .kpi-trend {
-            font-size: 11px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-
-        .kpi-trend-sub {
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .kpi-watermark-svg {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.22;
-        }
-
-        .kpi-wave-svg {
-            width: calc(100% + 32px);
-            margin-left: -16px;
-            margin-right: -16px;
-            margin-bottom: -6px;
-            margin-top: 8px;
-            display: block;
-            height: 36px;
-            z-index: 2;
-            position: relative;
-        }
-
-        /* Exact Pastel Card Themes */
-        .kpi-states {
-            background: #f4fbf8;
-            border: 1px solid #d5efe5;
-        }
-
-        .kpi-states .kpi-icon-circle {
-            background: #00b894;
-        }
-
-        .kpi-states .kpi-trend {
-            color: #00b894;
-        }
-
-        .kpi-states .kpi-watermark-svg {
-            color: #00b894;
-        }
-
-        .kpi-total-dle {
-            background: #f5f9fe;
-            border: 1px solid #ddecfa;
-        }
-
-        .kpi-total-dle .kpi-icon-circle {
-            background: #2f80ed;
-        }
-
-        .kpi-total-dle .kpi-trend {
-            color: #16a34a;
-        }
-
-        .kpi-total-dle .kpi-watermark-svg {
-            color: #2f80ed;
-        }
-
-        .kpi-active-dle {
-            background: #fffaf3;
-            border: 1px solid #fae6d2;
-        }
-
-        .kpi-active-dle .kpi-icon-circle {
-            background: #f59e0b;
-        }
-
-        .kpi-active-dle .kpi-trend {
-            color: #f59e0b;
-        }
-
-        .kpi-active-dle .kpi-watermark-svg {
-            color: #f59e0b;
-        }
-
-        .kpi-pending-dle {
-            background: #faf6fe;
-            border: 1px solid #eee2fc;
-        }
-
-        .kpi-pending-dle .kpi-icon-circle {
-            background: #8b5cf6;
-        }
-
-        .kpi-pending-dle .kpi-trend {
-            color: #e11d48;
-        }
-
-        .kpi-pending-dle .kpi-watermark-svg {
-            color: #8b5cf6;
-        }
-
-        .kpi-approved-dle {
-            background: #f4fbf6;
-            border: 1px solid #d9f2e3;
-        }
-
-        .kpi-approved-dle .kpi-icon-circle {
-            background: #10b981;
-        }
-
-        .kpi-approved-dle .kpi-trend {
-            color: #10b981;
-        }
-
-        .kpi-approved-dle .kpi-watermark-svg {
-            color: #10b981;
-        }
-
-        .kpi-rejected-dle {
-            background: #fff5f5;
-            border: 1px solid #fbdada;
-        }
-
-        .kpi-rejected-dle .kpi-icon-circle {
-            background: #ef4444;
-        }
-
-        .kpi-rejected-dle .kpi-trend {
-            color: #94a3b8;
-        }
-
-        .kpi-rejected-dle .kpi-watermark-svg {
-            color: #ef4444;
-        }
-
-        /* ===================================================
-   SECOND CARD SECTION: STATUS & PROGRESS CARDS (IMAGE MATCH)
-   =================================================== */
-        /* ===================================================
-  2.1 COMPACT STATUS & PROGRESS CARDS (SLIM & CLEAN)
-   =================================================== */
-        .status-kpi-card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 12px 15px 10px 15px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(11, 31, 72, 0.03);
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .status-kpi-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(11, 31, 72, 0.07);
-        }
-
-        /* Subtle Ambient Themes */
-        .card-not-started {
-            background: radial-gradient(circle at 90% 10%, rgba(219, 234, 254, 0.45) 0%, #ffffff 70%);
-            border: 1px solid #dbeafe;
-        }
-
-        .card-in-progress {
-            background: radial-gradient(circle at 90% 10%, rgba(209, 250, 229, 0.5) 0%, #ffffff 70%);
-            border: 1px solid #d1fae5;
-        }
-
-        .card-cancelled {
-            background: radial-gradient(circle at 90% 10%, rgba(254, 243, 199, 0.55) 0%, #ffffff 70%);
-            border: 1px solid #fef3c7;
-        }
-
-        .card-finished {
-            background: radial-gradient(circle at 90% 10%, rgba(254, 226, 226, 0.55) 0%, #ffffff 70%);
-            border: 1px solid #fee2e2;
-        }
-
-        /* Top Row: Mini Icon & Watermark */
-        .status-card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 6px;
-        }
-
-        .status-icon-circle {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #ffffff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-        }
-
-        .icon-circle-blue {
-            background: #2563eb;
-        }
-
-        .icon-circle-green {
-            background: #10b981;
-        }
-
-        .icon-circle-orange {
-            background: #f59e0b;
-        }
-
-        .icon-circle-red {
-            background: #ef4444;
-        }
-
-        .status-watermark {
-            width: 38px;
-            height: 38px;
-            opacity: 0.75;
-            pointer-events: none;
-        }
-
-        /* Middle Row: Title & Compact Numbers */
-        .status-card-mid {
-            margin-bottom: 8px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .status-card-label {
-            font-size: 12px;
-            font-weight: 700;
-            color: #334155;
-            margin-bottom: 3px;
-            line-height: 1.2;
-        }
-
-        .card-title-link {
-            color: #1e293b;
-            text-decoration: none !important;
-            transition: color 0.15s;
-        }
-
-        .card-title-link:hover {
-            color: var(--primary-blue);
-        }
-
-        .status-card-number {
-            font-size: 21px;
-            font-weight: 800;
-            color: #0f172a;
-            line-height: 1.1;
-            margin-bottom: 5px;
-            letter-spacing: -0.3px;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 3px;
-        }
-
-        .stat-num-link {
-            text-decoration: none !important;
-            transition: opacity 0.15s ease;
-        }
-
-        .stat-num-link:hover {
-            opacity: 0.8;
-            text-decoration: underline !important;
-        }
-
-        .stat-sep {
-            font-size: 15px;
-            font-weight: 600;
-            color: #94a3b8;
-            margin: 0 2px;
-        }
-
-        .stat-num-secondary {
-            font-size: 17px;
-            font-weight: 700;
-            color: #ef4444;
-        }
-
-        /* Compact Pill Badge */
-        .status-pill-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 2px 7px;
-            border-radius: 50px;
-            font-size: 10px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .pill-not-started {
-            background: #eff6ff;
-            color: #2563eb;
-            border: 1px solid #bfdbfe;
-        }
-
-        .pill-in-progress {
-            background: #ecfdf5;
-            color: #059669;
-            border: 1px solid #a7f3d0;
-        }
-
-        .pill-cancelled {
-            background: #fffbeb;
-            color: #d97706;
-            border: 1px solid #fde68a;
-        }
-
-        .pill-finished {
-            background: #fff1f2;
-            color: #e11d48;
-            border: 1px solid #fecdd3;
-        }
-
-        .status-mini-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .dot-green {
-            background-color: #10b981;
-        }
-
-        .dot-orange {
-            background-color: #f59e0b;
-        }
-
-        .dot-red {
-            background-color: #ef4444;
-        }
-
-        /* Bottom Row: Slim Progress & Action Arrow */
-        .status-card-bottom {
-            border-top: 1px solid rgba(226, 232, 240, 0.65);
-            padding-top: 7px;
-            margin-top: auto;
-        }
-
-        .status-metric-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 10.5px;
-            margin-bottom: 5px;
-        }
-
-        .status-metric-title {
-            color: #64748b;
-            font-weight: 600;
-        }
-
-        .status-metric-value {
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .metric-pct-blue {
-            color: #2563eb;
-        }
-
-        .metric-pct-green {
-            color: #10b981;
-        }
-
-        .metric-pct-orange {
-            color: #f59e0b;
-        }
-
-        .metric-pct-red {
-            color: #ef4444;
-        }
-
-        .status-progress-wrap {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .status-progress-track {
-            flex: 1;
-            height: 4.5px;
-            background: #f1f5f9;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .status-progress-fill {
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.4s ease;
-        }
-
-        .fill-blue {
-            background: #2563eb;
-        }
-
-        .fill-green {
-            background: #10b981;
-        }
-
-        .fill-orange {
-            background: #f59e0b;
-        }
-
-        .fill-red {
-            background: #ef4444;
-        }
-
-        .status-arrow-btn {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            transition: all 0.2s ease;
-            text-decoration: none !important;
-            flex-shrink: 0;
-        }
-
-        .arrow-blue {
-            background: #eff6ff;
-            color: #2563eb;
-        }
-
-        .arrow-blue:hover {
-            background: #2563eb;
-            color: #ffffff;
-        }
-
-        .arrow-green {
-            background: #ecfdf5;
-            color: #059669;
-        }
-
-        .arrow-green:hover {
-            background: #10b981;
-            color: #ffffff;
-        }
-
-        .arrow-orange {
-            background: #fffbeb;
-            color: #d97706;
-        }
-
-        .arrow-orange:hover {
-            background: #f59e0b;
-            color: #ffffff;
-        }
-
-        .arrow-red {
-            background: #fff1f2;
-            color: #e11d48;
-        }
-
-        .arrow-red:hover {
-            background: #ef4444;
-            color: #ffffff;
-        }
-
-
-
-        /* ===================================================
-   2.2 GRADIENT SPARKLINE BANNER CARDS (NEW SECTION)
-   =================================================== */
-        .gradient-stat-card {
-            border-radius: 16px;
-            padding: 13px 16px 11px 16px;
-            position: relative;
-            overflow: hidden;
-            color: #ffffff;
-            box-shadow: 0 4px 18px rgba(11, 31, 72, 0.08);
-            transition: all 0.22s ease-in-out;
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            min-height: 88px;
-        }
-
-        .gradient-stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
-        }
-
-        /* Gradients Matching Image */
-        .grad-blue {
-            background: linear-gradient(125deg, #1d4ed8 0%, #2563eb 45%, #60a5fa 100%);
-        }
-
-        .grad-green {
-            background: linear-gradient(125deg, #059669 0%, #10b981 45%, #34d399 100%);
-        }
-
-        .grad-orange {
-            background: linear-gradient(125deg, #ea580c 0%, #f59e0b 45%, #fbbf24 100%);
-        }
-
-        .grad-red {
-            background: linear-gradient(125deg, #e11d48 0%, #f43f5e 45%, #fb7185 100%);
-        }
-
-        /* Floating White Icon Disc */
-        .stat-icon-disc {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            border-radius: 50%;
-            background: #ffffff;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            flex-shrink: 0;
-            z-index: 3;
-        }
-
-        .disc-blue {
-            color: #2563eb;
-        }
-
-        .disc-green {
-            color: #10b981;
-        }
-
-        .disc-orange {
-            color: #f59e0b;
-        }
-
-        .disc-red {
-            color: #f43f5e;
-        }
-
-        /* Text Content Area */
-        .stat-banner-content {
-            flex: 1;
-            z-index: 3;
-            min-width: 0;
-        }
-
-        .stat-banner-title {
-            font-size: 12px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2px;
-            line-height: 1.2;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .stat-banner-value {
-            font-size: 20px;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.15;
-            margin-bottom: 2px;
-            letter-spacing: -0.3px;
-            white-space: nowrap;
-        }
-
-        .stat-banner-sub {
-            font-size: 10.5px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.82);
-            line-height: 1.1;
-            white-space: nowrap;
-        }
-
-        /* Right Actions & Trend Badge */
-        .stat-banner-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 100%;
-            z-index: 3;
-        }
-
-        .trend-glass-pill {
-            background: rgba(255, 255, 255, 0.28);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.38);
-            color: #ffffff;
-            font-size: 10.5px;
-            font-weight: 800;
-            padding: 2px 7px;
-            border-radius: 50px;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            line-height: 1.2;
-        }
-
-        /* Sparkline Wave at Bottom-Right */
-        .stat-sparkline-svg {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 125px;
-            height: 48px;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-
-        /* ===================================================
-           CHART CARDS STYLING
-           =================================================== */
-        .card-dle {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 24px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(11, 31, 72, 0.035);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-dle-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .header-title-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .header-badge-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .badge-icon-blue {
-            background: #eff6ff;
-            color: var(--primary-blue);
-        }
-
-        .badge-icon-indigo {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-
-        .card-dle-title {
-            font-size: 15.5px;
-            font-weight: 700;
-            color: #0b1f48;
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        .card-dle-subtitle {
-            font-size: 12px;
-            color: #64748b;
-            margin: 2px 0 0 0;
-            font-weight: 500;
-        }
-
-        .pill-select {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 50px;
-            padding: 5px 14px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #334155;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            transition: 0.15s ease;
-        }
-
-        .pill-select:hover {
-            background: #eff6ff;
-            border-color: #bfdbfe;
-            color: var(--primary-blue);
-        }
-
-        /* Donut Chart */
-        .donut-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 220px;
-        }
-
-        .donut-center-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
-        }
-
-        .donut-center-val {
-            font-size: 28px;
-            font-weight: 800;
-            color: #0b1f48;
-            line-height: 1;
-        }
-
-        .donut-center-lbl {
-            font-size: 12px;
-            font-weight: 700;
-            color: #64748b;
-            margin-top: 2px;
-        }
-
-        .legend-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 12.5px;
-            font-weight: 500;
-            color: #334155;
-        }
-
-        .legend-left {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .legend-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .legend-counts {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .legend-num {
-            font-weight: 700;
-            color: #0b1f48;
-        }
-
-        .legend-pct {
-            color: #94a3b8;
-            font-size: 11px;
-        }
-
-        .spline-container {
-            position: relative;
-            height: 230px;
-            width: 100%;
-        }
-
-        /* ===================================================
-           TABLE & QUICK INFO SECTION (BOOTSTRAP RESPONSIVE)
-           =================================================== */
-        .table-view-all-btn {
-            background: #eff6ff;
-            color: #1d4ed8;
-            border-radius: 50px;
-            padding: 6px 15px;
-            font-size: 12px;
-            font-weight: 700;
-            border: 1px solid #dbeafe;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            transition: 0.15s ease;
-        }
-
-        .table-view-all-btn:hover {
-            background: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 4px;
-        }
-
-        .custom-table th {
-            font-size: 12px;
-            font-weight: 700;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            padding: 12px 14px;
-            border-bottom: 1px solid #e2e8f0;
-            background-color: #f8fafc;
-        }
-
-        .custom-table td {
-            font-size: 13px;
-            padding: 14px;
-            border-bottom: 1px solid #f1f5f9;
-            color: #334155;
-            vertical-align: middle;
-        }
-
-        .custom-table tbody tr:hover td {
-            background-color: #f8faff;
-        }
-
-        .badge-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .badge-approved {
-            background: #dcfce7;
-            color: #15803d;
-            border: 1px solid #bbf7d0;
-        }
-
-        .badge-pending {
-            background: #fef3c7;
-            color: #b45309;
-            border: 1px solid #fde68a;
-        }
-
-        .badge-active {
-            background: #eff6ff;
-            color: #1d4ed8;
-            border: 1px solid #bfdbfe;
-        }
-
-        .badge-rejected {
-            background: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-        }
-
-        .btn-action-view {
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 12.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            text-decoration: none;
-            padding: 4px 10px;
-            border-radius: 6px;
-            transition: all 0.15s;
-        }
-
-        .btn-action-view:hover {
-            background: #eff6ff;
-            color: #1d4ed8;
-            text-decoration: none;
-        }
-
-        /* Quick Information Card */
-        .quick-info-card {
-            background: linear-gradient(145deg, #0b1f48 0%, #163673 100%);
-            border-radius: 20px;
-            padding: 24px;
-            color: #ffffff;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 26px rgba(11, 31, 72, 0.16);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .quick-info-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 18px;
-            display: flex;
-            align-items: center;
-            gap: 9px;
-        }
-
-        .quick-info-box {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-        }
-
-        .quick-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .quick-item:last-child {
-            border-bottom: none;
-            padding-bottom: 2px;
-        }
-
-        .quick-item-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .quick-icon-wrap {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .qi-blue {
-            background: #eff6ff;
-            color: #1d4ed8;
-        }
-
-        .qi-indigo {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-
-        .qi-cyan {
-            background: #ecfeff;
-            color: #0891b2;
-        }
-
-        .qi-yellow {
-            background: #fefce8;
-            color: #ca8a04;
-        }
-
-        .quick-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: #475569;
-        }
-
-        .quick-count {
-            font-size: 16px;
-            font-weight: 800;
-            color: #0b1f48;
-        }
-
-        .btn-generate-report {
-            background: linear-gradient(95deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
-            color: #ffffff;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 22px;
-            font-size: 13.5px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .btn-generate-report:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-            color: #ffffff;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-        }
-
-        .footer-area {
-            background: transparent;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer-text {
-            color: #64748b !important;
-            font-size: 12.5px;
-        }
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -2749,6 +853,187 @@
 
 
 
+
+
+
+                <!-- ===================================================
+     2.3 FIVE METRIC ACCENT CARDS (UPDATED WITH YOUR CONTENT)
+     =================================================== -->
+                <div class="metric-cards-5-grid">
+
+                    <!-- 1. MNRE Share Status (Blue Theme) -->
+                    <div class="five-stat-card five-card-blue">
+                        <div class="five-ambient-blob blob-blue"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="MNRE Share Status">MNRE Share Status</span>
+                            <div class="five-icon-badge badge-blue">
+                                <i class="bi bi-sun-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">518</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1391</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 27.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Blue Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradBlue" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,23 Q18,25 32,19 T52,15 T75,5 L75,28 L0,28 Z" fill="url(#fGradBlue)" />
+                                <path d="M0,23 Q18,25 32,19 T52,15 T75,5" fill="none" stroke="#2563eb" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 2. UT Share Status (Green Theme) -->
+                    <div class="five-stat-card five-card-green">
+                        <div class="five-ambient-blob blob-green"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="UT Share Status">UT Share Status</span>
+                            <div class="five-icon-badge badge-green">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">518</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1391</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 27.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Green Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradGreen" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,21 Q18,23 32,18 T52,14 T75,6 L75,28 L0,28 Z" fill="url(#fGradGreen)" />
+                                <path d="M0,21 Q18,23 32,18 T52,14 T75,6" fill="none" stroke="#10b981" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 3. Data Upload On Scada (Cyan Theme) -->
+                    <div class="five-stat-card five-card-cyan">
+                        <div class="five-ambient-blob blob-cyan"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Data Upload On Scada">Data Upload On Scada</span>
+                            <div class="five-icon-badge badge-cyan">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">378</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1410</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 21.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Cyan Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradCyan" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,24 Q18,26 32,20 T52,16 T75,7 L75,28 L0,28 Z" fill="url(#fGradCyan)" />
+                                <path d="M0,24 Q18,26 32,20 T52,16 T75,7" fill="none" stroke="#06b6d4" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 4. Payment 90% Status (Amber Theme) -->
+                    <div class="five-stat-card five-card-amber">
+                        <div class="five-ambient-blob blob-amber"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Payment 90% Status">Payment 90% Status</span>
+                            <div class="five-icon-badge badge-amber">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">800</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">988</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 44.7%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Amber Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradAmber" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,24 Q20,25 35,19 T55,15 T75,6 L75,28 L0,28 Z" fill="url(#fGradAmber)" />
+                                <path d="M0,24 Q20,25 35,19 T55,15 T75,6" fill="none" stroke="#f59e0b" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 5. Payment 10% Status (Purple Theme) -->
+                    <div class="five-stat-card five-card-purple">
+                        <div class="five-ambient-blob blob-purple"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Payment 10% Status">Payment 10% Status</span>
+                            <div class="five-icon-badge badge-purple">
+                                <i class="bi bi-coin"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">651</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1137</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 36.4%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Purple Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradPurple" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,22 Q18,24 34,18 T54,14 T75,6 L75,28 L0,28 Z" fill="url(#fGradPurple)" />
+                                <path d="M0,22 Q18,24 34,18 T54,14 T75,6" fill="none" stroke="#8b5cf6" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <!-- ===================================================
      2.2 GRADIENT SPARKLINE STAT CARDS (IMAGE MATCH SECTION)
      =================================================== -->
@@ -2907,6 +1192,9 @@
                     </div>
 
                 </div>
+
+
+
                 <!-- 3. MIDDLE CHARTS ROW (BOOTSTRAP RESPONSIVE) -->
                 <div class="row mb-4">
 
@@ -3052,6 +1340,124 @@
                     </div>
 
                 </div>
+
+
+
+
+                <!-- ===================================================
+     3.1 SECOND CHART SECTION: PIPELINE OVERVIEW & ENGAGEMENT
+     =================================================== -->
+<div class="row mb-4">
+
+    <!-- Left Chart: Sales Pipeline Overview (Grouped Bar Chart) -->
+    <div class="col-xl-8 col-lg-12 mb-4 mb-xl-0">
+        <div class="chart-pipeline-card">
+            <!-- Header -->
+            <div class="pipeline-header">
+                <h5 class="pipeline-title">Sales Pipeline Overview</h5>
+                <div class="dropdown">
+                    <button class="pill-select-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                        2026
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                        <a class="dropdown-item" href="#">2026</a>
+                        <a class="dropdown-item" href="#">2025</a>
+                        <a class="dropdown-item" href="#">2024</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Highlight Row -->
+            <div class="pipeline-stats-row">
+                <div class="pipeline-stat-item">
+                    <span class="pipeline-stat-label">Total Leads</span>
+                    <span class="pipeline-stat-val stat-val-dark">6,393</span>
+                </div>
+                <div class="pipeline-stat-item">
+                    <span class="pipeline-stat-label">Qualified Leads</span>
+                    <span class="pipeline-stat-val stat-val-blue">4,863</span>
+                </div>
+                <div class="pipeline-stat-item">
+                    <span class="pipeline-stat-label">Active Deals</span>
+                    <span class="pipeline-stat-val stat-val-orange">2,848</span>
+                </div>
+            </div>
+
+            <!-- Grouped Bar Canvas -->
+            <div class="pipeline-chart-container">
+                <canvas id="salesPipelineBarChart"></canvas>
+            </div>
+
+            <!-- Custom Bottom Legend -->
+            <div class="pipeline-custom-legend">
+                <div class="pipeline-legend-item">
+                    <span class="legend-square sq-ongoing"></span>
+                    <span>Ongoing Deals</span>
+                </div>
+                <div class="pipeline-legend-item">
+                    <span class="legend-square sq-lost"></span>
+                    <span>Lost</span>
+                </div>
+                <div class="pipeline-legend-item">
+                    <span class="legend-square sq-won"></span>
+                    <span>Won</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Chart: Lead Engagement Progress (Segmented Donut) -->
+    <div class="col-xl-4 col-lg-12">
+        <div class="chart-pipeline-card">
+            <!-- Header -->
+            <div class="pipeline-header">
+                <h5 class="pipeline-title">Lead Engagement Progress</h5>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="pill-select-sm" type="button">Majority <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i></button>
+                    <button class="pill-select-sm" type="button">2026 <i class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i></button>
+                </div>
+            </div>
+
+            <!-- Donut Container with Center Text & Corner Badges -->
+            <div class="engagement-donut-wrapper">
+                <!-- 1. Top Right: Hot Leads -->
+                <div class="lead-badge-tag tag-hot">
+                    <span class="badge-tag-label"><i class="bi bi-fire"></i> Hot Leads</span>
+                    <span class="badge-tag-count">699</span>
+                </div>
+
+                <!-- 2. Top Left: Warm Leads -->
+                <div class="lead-badge-tag tag-warm">
+                    <span class="badge-tag-label"><i class="bi bi-thermometer-half"></i> Warm Leads</span>
+                    <span class="badge-tag-count">500</span>
+                </div>
+
+                <!-- 3. Bottom Left: Cold Leads -->
+                <div class="lead-badge-tag tag-cold">
+                    <span class="badge-tag-label"><i class="bi bi-snow"></i> Cold Leads</span>
+                    <span class="badge-tag-count">350</span>
+                </div>
+
+                <!-- 4. Bottom Right: Dead Leads -->
+                <div class="lead-badge-tag tag-dead">
+                    <span class="badge-tag-label"><i class="bi bi-x-circle-fill"></i> Dead Leads</span>
+                    <span class="badge-tag-count">200</span>
+                </div>
+
+                <!-- Donut Canvas -->
+                <canvas id="leadEngagementDonutChart"></canvas>
+
+                <!-- Center Text -->
+                <div class="donut-lead-center">
+                    <div class="donut-lead-title">Total Leads</div>
+                    <div class="donut-lead-total">1,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
                 <!-- 4. BOTTOM ROW: RECENT ACTIVITY TABLE & QUICK INFO (BOOTSTRAP RESPONSIVE) -->
                 <div class="row">
@@ -3431,6 +1837,139 @@
             }
 
         });
+
+
+        // ===================================================
+// INITIALIZE PIPELINE BAR CHART & ENGAGEMENT DONUT
+// ===================================================
+
+// 1. Sales Pipeline Overview (Grouped Bar Chart)
+const pipelineCtx = document.getElementById('salesPipelineBarChart');
+if (pipelineCtx) {
+    new Chart(pipelineCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [
+                {
+                    label: 'Ongoing Deals',
+                    data: [350, 110, 160, 220, 290, 480, 290, 290, 130, 210, 90, 180],
+                    backgroundColor: '#dbeafe',
+                    borderRadius: 4,
+                    borderSkipped: false
+                },
+                {
+                    label: 'Lost',
+                    data: [220, 260, 280, 310, 220, 160, 210, 210, 90, 210, 80, 480],
+                    backgroundColor: '#93c5fd',
+                    borderRadius: 4,
+                    borderSkipped: false
+                },
+                {
+                    label: 'Won',
+                    data: [410, 320, 455, 170, 160, 220, 520, 160, 280, 390, 390, 160],
+                    backgroundColor: '#0284c7',
+                    borderRadius: 4,
+                    borderSkipped: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            categoryPercentage: 0.72,
+            barPercentage: 0.85,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 600,
+                    ticks: {
+                        stepSize: 100,
+                        font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' },
+                        color: '#94a3b8'
+                    },
+                    grid: {
+                        color: '#f1f5f9',
+                        drawBorder: false
+                    }
+                },
+                x: {
+                    ticks: {
+                        font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' },
+                        color: '#64748b'
+                    },
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#0284c7',
+                    titleFont: { size: 11, family: 'Plus Jakarta Sans', weight: 'bold' },
+                    bodyFont: { size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
+                    padding: 9,
+                    cornerRadius: 8,
+                    displayColors: false,
+                    callbacks: {
+                        title: () => '',
+                        label: function (context) {
+                            return `${context.dataset.label}: ${context.parsed.y}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+
+// second chart section script 
+// 2. Lead Engagement Progress (Segmented Donut with Spacing)
+const engagementCtx = document.getElementById('leadEngagementDonutChart');
+if (engagementCtx) {
+    new Chart(engagementCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Hot Leads', 'Warm Leads', 'Cold Leads', 'Dead Leads'],
+            datasets: [{
+                data: [699, 500, 350, 200],
+                backgroundColor: [
+                    '#fca5a5', // Soft Coral/Pink for Hots
+                    '#fde68a', // Soft Amber for Warm Leads
+                    '#93c5fd', 
+                    '#cbd5e1'  // Slate Gray for Dead Leads
+                ],
+                borderWidth: 0,
+                hoverOffset: 6,
+                spacing: 8,       // Creates the modern segmented arc gaps
+                borderRadius: 8   // Rounded ends of each arc
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '74%',
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#0b1f48',
+                    padding: 10,
+                    cornerRadius: 8,
+                    bodyFont: { size: 12, family: 'Plus Jakarta Sans', weight: 'bold' },
+                    callbacks: {
+                        label: function (context) {
+                            return ` ${context.label}: ${context.parsed}`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
     </script>
 </body>
 
