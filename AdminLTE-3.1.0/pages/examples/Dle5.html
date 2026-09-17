@@ -231,6 +231,12 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
+                                        <a href="./dleuser.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-primary"></i>
+                                            <p class="fw-bold text-primary">DLE Users Directory</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="./Mohit.html" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Add DLE / Vendor</p>
@@ -1191,6 +1197,95 @@
 
 
 
+                <!-- ===================================================
+     2.4 EXECUTIVE PERFORMANCE & MONITORING CARDS (ENTERPRISE PROFESSIONAL DESIGN)
+     =================================================== -->
+                <div class="row g-3 mb-4">
+
+                    <!-- 1. Total Power Output Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-blue">
+                            <div class="pro-card-ambient ambient-blue"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-blue">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Total Power Output</div>
+                                <div class="pro-metric-value">184.6 MWh</div>
+                                <div class="pro-metric-sub">Daily Avg: <strong>6.2 MWh</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. RMS Online Telemetry Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-emerald">
+                            <div class="pro-card-ambient ambient-emerald"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-emerald">
+                                <i class="bi bi-broadcast-pin"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">RMS Telemetry Online</div>
+                                <div class="pro-metric-value">2,714 <small style="font-size: 13px; font-weight: 600; color: #94a3b8;">/ 2,864</small></div>
+                                <div class="pro-metric-sub">Offline: <strong class="text-danger">150 Units</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Quality & Inspection Compliance Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-indigo">
+                            <div class="pro-card-ambient ambient-indigo"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-indigo">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Inspection Pass Rate</div>
+                                <div class="pro-metric-value">98.7%</div>
+                                <div class="pro-metric-sub">Passed: <strong>1,780 / 1,804</strong></div>
+                            </div>
+
+                        
+                        </div>
+                    </div>
+
+                    <!-- 4. Subsidy & Claims Realization Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div class="pro-stat-card pro-card-amber">
+                            <div class="pro-card-ambient ambient-amber"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-amber">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Claims Disbursed</div>
+                                <div class="pro-metric-value">₹ 8.42 Cr</div>
+                                <div class="pro-metric-sub">Pending: <strong class="text-warning">₹ 68.5 L</strong></div>
+                            </div>
+
+                          
+                        </div>
+                    </div>
+
+                </div>
+
+
+
                 <!-- 3. MIDDLE CHARTS ROW (BOOTSTRAP RESPONSIVE) -->
                 <div class="row mb-4">
 
@@ -1654,7 +1749,7 @@
                                             placeholder="Search phase or site...">
                                     </div>
                                     <span class="badge bg-primary text-white rounded-pill px-3 py-2 fw-semibold">
-                                        <i class="bi bi-layers-fill me-1"></i> 3 Phases
+                                        <i class="bi bi-layers-fill me-1"></i> 8 Phases
                                     </span>
                                     <button class="btn-table-action"
                                         onclick="exportTableToCSV('table-supply-execution', 'Phase_Supply_Installation_Report.csv')"
@@ -1678,8 +1773,8 @@
                                             <th colspan="2" class="group-hdr group-rms">RMS Status</th>
                                             <th colspan="2" class="group-hdr group-insurance">Insurance Status</th>
                                             <th colspan="2" class="group-hdr group-billing">Bill Status</th>
-                                            <th rowspan="2" class="group-hdr text-center align-middle"
-                                                style="min-width: 140px;">Completion</th>
+                                            <th rowspan="2" class="group-hdr group-completion text-center align-middle"
+                                                style="min-width: 130px;">Completion</th>
                                         </tr>
                                         <!-- Tier 2: Sub Headers -->
                                         <tr class="thead-sub-row">
@@ -1702,15 +1797,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- Row 1 -->
+                                        <!-- Phase 1 -->
                                         <tr>
                                             <td class="sticky-col col-sr fw-bold text-muted">1</td>
                                             <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-initial">Phase 1</span>
+                                                <span class="phase-pill">Phase 1</span>
                                             </td>
                                             <td class="sticky-col col-sites fw-bold text-dark">2</td>
-                                            <td class="fw-bold text-primary">40 <small class="text-muted">Kw</small>
-                                            </td>
+                                            <td class="fw-bold text-primary">40 <small class="text-muted">Kw</small></td>
                                             <!-- Material -->
                                             <td><span class="cell-pill pill-done">40</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
@@ -1733,24 +1827,140 @@
                                             <td>
                                                 <div class="d-flex align-items-center gap-2">
                                                     <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-warning" role="progressbar"
+                                                        <div class="progress-bar bg-primary" role="progressbar"
                                                             style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                    <span class="small fw-bold text-warning">25%</span>
+                                                    <span class="small fw-bold text-dark">25%</span>
                                                 </div>
                                             </td>
                                         </tr>
 
-                                        <!-- Row 2 -->
+                                        <!-- Phase 2 -->
                                         <tr>
                                             <td class="sticky-col col-sr fw-bold text-muted">2</td>
                                             <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
+                                                <span class="phase-pill">Phase 2</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">8</td>
+                                            <td class="fw-bold text-primary">64 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">64</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">48</span></td>
+                                            <td><span class="cell-pill pill-warn">16</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">6</span></td>
+                                            <td><span class="cell-pill pill-warn">2</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">4</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">60%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 3 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">3</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 3</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">14</td>
+                                            <td class="fw-bold text-primary">112 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">112</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
+                                            <td><span class="cell-pill pill-warn">16</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">10</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">8</span></td>
+                                            <td><span class="cell-pill pill-warn">6</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 72%;" aria-valuenow="72" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">72%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 4 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">4</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 4</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">18</td>
+                                            <td class="fw-bold text-primary">144 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">144</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">130</span></td>
+                                            <td><span class="cell-pill pill-warn">14</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">14</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
+                                            <td><span class="cell-pill pill-warn">6</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">80%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 5 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">5</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 5</span>
                                             </td>
                                             <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
+                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small></td>
                                             <!-- Material -->
                                             <td><span class="cell-pill pill-done">162</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
@@ -1773,24 +1983,23 @@
                                             <td>
                                                 <div class="d-flex align-items-center gap-2">
                                                     <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                        <div class="progress-bar bg-primary" role="progressbar"
                                                             style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                    <span class="small fw-bold text-success">85%</span>
+                                                    <span class="small fw-bold text-dark">85%</span>
                                                 </div>
                                             </td>
                                         </tr>
 
-                                        <!-- Row 3 -->
+                                        <!-- Phase 6 -->
                                         <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">3</td>
+                                            <td class="sticky-col col-sr fw-bold text-muted">6</td>
                                             <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-6">Phase 6</span>
+                                                <span class="phase-pill">Phase 6</span>
                                             </td>
                                             <td class="sticky-col col-sites fw-bold text-dark">31</td>
-                                            <td class="fw-bold text-primary">212 <small class="text-muted">Kw</small>
-                                            </td>
+                                            <td class="fw-bold text-primary">212 <small class="text-muted">Kw</small></td>
                                             <!-- Material -->
                                             <td><span class="cell-pill pill-done">212</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
@@ -1817,31 +2026,70 @@
                                                             style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                    <span class="small fw-bold text-primary">90%</span>
+                                                    <span class="small fw-bold text-dark">90%</span>
                                                 </div>
                                             </td>
                                         </tr>
 
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
+                                        <!-- Phase 7 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">7</td>
                                             <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
+                                                <span class="phase-pill">Phase 7</span>
                                             </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">24</td>
+                                            <td class="fw-bold text-primary">192 <small class="text-muted">Kw</small></td>
                                             <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
+                                            <td><span class="cell-pill pill-done">192</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
                                             <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
+                                            <td><span class="cell-pill pill-done">180</span></td>
+                                            <td><span class="cell-pill pill-warn">12</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">20</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">16</span></td>
+                                            <td><span class="cell-pill pill-warn">8</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 92%;" aria-valuenow="92" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">92%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 8 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">8</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 8</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">12</td>
+                                            <td class="fw-bold text-primary">96 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
                                             <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
                                             <!-- Insurance -->
                                             <td><span class="cell-pill pill-zero">0</span></td>
                                             <td><span class="cell-pill pill-zero">0</span></td>
@@ -1853,497 +2101,10 @@
                                                 <div class="d-flex align-items-center gap-2">
                                                     <div class="progress flex-grow-1" style="height: 6px;">
                                                         <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+                                                            style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-
-                                             <tr>
-                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
-                                            <td class="sticky-col col-phase">
-                                                <span class="phase-pill pill-phase-5">Phase 5</span>
-                                            </td>
-                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
-                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small>
-                                            </td>
-                                            <!-- Material -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Install -->
-                                            <td><span class="cell-pill pill-done">162</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Meter -->
-                                            <td><span class="cell-pill pill-done">11</span></td>
-                                            <td><span class="cell-pill pill-warn">9</span></td>
-                                            <!-- RMS -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-warn">20</span></td>
-                                            <!-- Insurance -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Bill -->
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <td><span class="cell-pill pill-zero">0</span></td>
-                                            <!-- Progress -->
-                                            <td>
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <div class="progress flex-grow-1" style="height: 6px;">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                    <span class="small fw-bold text-success">85%</span>
+                                                    <span class="small fw-bold text-success">100%</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -2351,23 +2112,22 @@
                                     <!-- Table 1 Footer Totals -->
                                     <tfoot class="phase-table-footer">
                                         <tr>
-                                            <th colspan="2" class="sticky-col col-sr text-center fw-bold">TOTAL SUMMARY
-                                            </th>
-                                            <th class="sticky-col col-sites text-dark">53</th>
-                                            <th class="text-primary">414 Kw</th>
-                                            <th class="text-success">414 Kw</th>
+                                            <th colspan="2" class="sticky-col col-sr text-center fw-bold">TOTAL SUMMARY</th>
+                                            <th class="sticky-col col-sites text-dark">129</th>
+                                            <th class="text-primary fw-bold">1,022 Kw</th>
+                                            <th>1,022 Kw</th>
                                             <th class="text-muted">0 Kw</th>
-                                            <th class="text-success">364 Kw</th>
-                                            <th class="text-danger">50 Kw</th>
-                                            <th class="text-success">34</th>
-                                            <th class="text-danger">19</th>
-                                            <th class="text-success">0</th>
-                                            <th class="text-danger">53</th>
+                                            <th>924 Kw</th>
+                                            <th>98 Kw</th>
+                                            <th>96</th>
+                                            <th>33</th>
+                                            <th>52</th>
+                                            <th>77</th>
                                             <th class="text-muted">0</th>
                                             <th class="text-muted">0</th>
                                             <th class="text-muted">0</th>
                                             <th class="text-muted">0</th>
-                                            <th class="text-center text-success fw-bold">87.9% Avg</th>
+                                            <th class="text-center text-primary fw-bold">75.5% Avg</th>
                                         </tr>
                                     </tfoot>
                                 </table>

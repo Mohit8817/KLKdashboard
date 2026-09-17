@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KLK Vendor | DLE Dashboard</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <!-- Theme style (AdminLTE) -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="./Dle6.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="navbar bg-white shadow-sm px-lg-3 main-header navbar navbar-expand navbar-white navbar-light">
+            <div class="container-fluid">
+
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                class="fas fa-bars"></i></a>
+                    </li>
+                </ul>
+
+                <!-- BRAND -->
+                <a class="navbar-brand d-flex align-items-center"></a>
+
+                <!-- RIGHT SIDE ICONS -->
+                <div class="header-actions">
+                    <!-- DOCUMENT BUTTON -->
+                    <div class="doc-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Document</span>
+                    </div>
+
+                    <!-- NOTIFICATION -->
+                    <div class="dropdown">
+                        <div class="notif-btn" data-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="notif-badge">7</span>
+                        </div>
+
+                        <ul class="dropdown-menu dropdown-menu-right notif-dropdown shadow">
+                            <li class="dropdown-header fw-bold px-3 py-2 text-dark border-bottom">
+                                Notifications
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-info-circle text-primary me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">New policy update</div>
+                                        <small class="text-muted">5 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-exclamation-circle text-warning me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">Server downtime alert</div>
+                                        <small class="text-muted">10 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item d-flex align-items-start">
+                                    <i class="bi bi-check-circle text-success me-3 fs-5 mt-1"></i>
+                                    <div>
+                                        <div class="notif-title">Payment completed</div>
+                                        <small class="text-muted">20 min ago</small>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider my-1" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-center fw-bold text-primary py-2" href="#">View All
+                                    Notifications</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- PROFILE DROPDOWN -->
+                    <div class="dropdown">
+                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown"
+                            alt="User Profile" />
+                        <ul class="dropdown-menu dropdown-menu-right shadow">
+                            <li class="user-box">
+                                <h6>Mohit Verma</h6>
+                                <small class="text-muted">Administrator</small>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-toggle="modal"
+                                    data-bs-target="#profileModal">
+                                    <i class="bi bi-person icon-blue me-3"></i>Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#"><i
+                                        class="bi bi-gear icon-pink me-3"></i>Settings</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider my-1" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center text-danger" href="#"><i
+                                        class="bi bi-box-arrow-right icon-gray me-3 text-danger"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Profile popup modal -->
+        <div class="modal fade right-modal" id="profileModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-right">
+                <div class="modal-content profile-modal">
+                    <span class="close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></span>
+                    <div class="modal-body text-center p-4">
+                        <img src="../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80"
+                            height="80">
+                        <h5 class="user-name fw-bold">Pravesh Ahamad</h5>
+                        <p class="user-email text-muted">@parvesahamad</p>
+                        <hr>
+                        <div class="profile-info text-start">
+                            <p><strong>Full Name:</strong> Parves Ahamad</p>
+                            <p><strong>Email:</strong> parves@gmail.com</p>
+                            <p><strong>Gender:</strong> Male</p>
+                            <p><strong>DOB:</strong> 05-01-2001</p>
+                            <p><strong>Phone:</strong> +91 9876543210</p>
+                            <p><strong>State:</strong> Kashmir</p>
+                        </div>
+                        <button class="btn btn-primary w-100" id="changePassBtn">Change Password</button>
+
+                        <div id="passwordFields" style="display:none; padding: 15px;">
+                            <div class="mb-2 text-start">
+                                <label class="form-label">New Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="newPass" class="form-control"
+                                        placeholder="Enter New Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="newPass"></i>
+                                </div>
+                            </div>
+                            <div class="mb-2 text-start">
+                                <label class="form-label">Confirm Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="confirmPass" class="form-control"
+                                        placeholder="Confirm Password">
+                                    <i class="bi bi-eye-slash password-toggle" data-target="confirmPass"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-primary w-50" id="savePassBtn">Save</button>
+                                <button class="btn btn-secondary w-50" id="cancelPassBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================
+             PROFESSIONAL SIDEBAR CONTAINER (WHITE BG + BLUE THEME + DROPDOWNS)
+             =================================================== -->
+        <aside class="main-sidebar elevation-4 shadow">
+            <!-- SUBSECTION 5.1: BRAND LOGO START -->
+            <!-- Brand Logo -->
+            <a href="./klkhome.html" class="brand-link">
+                <div class="brand-logo-wrap">
+                    <img src="../images/logo-s.png" alt="KLK Logo" class="img-fluid"
+                        style="max-height: 24px; width: auto;" />
+                </div>
+                <div class="brand-title-box">
+                    <span class="brand-text">KLK VENTURES</span>
+                </div>
+            </a>
+            <!-- SUBSECTION 5.1: BRAND LOGO END -->
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Scrollable Navigation Menu Wrap -->
+                <div class="sidebar-menu-wrapper">
+                    <!-- SUBSECTION 5.2: NAVIGATION MENU START -->
+                    <nav class="mt-1">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                            data-accordion="false">
+
+                            <!-- 1. Dashboard (Active royal blue pill button) -->
+                            <li class="nav-item">
+                                <a href="./vendordashboard2.html" class="nav-link active">
+                                    <i class="bi bi-house-door-fill nav-icon"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+
+                            <!-- 2. DLE Management (Dropdown) -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-file-earmark-text nav-icon"></i>
+                                    <p>
+                                        DLE Management
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./dleuser.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon text-primary"></i>
+                                            <p class="fw-bold text-primary">DLE Users Directory</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./Mohit.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Add DLE / Vendor</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./klkhome.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>View DLE / Vendor</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Assign Light</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Verify Light</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- 3. District -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-geo-alt nav-icon"></i>
+                                    <p>
+                                        District
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Bihar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>UP</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Karnataka</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Assam</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- 4. Reports -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-bar-chart-line nav-icon"></i>
+                                    <p>Reports</p>
+                                </a>
+                            </li>
+
+                            <!-- 5. Settings -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-gear nav-icon"></i>
+                                    <p>Settings</p>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">
+                                    <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                    <p class="text-danger">Logout</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <!-- SUBSECTION 5.2: NAVIGATION MENU END -->
+                </div>
+
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper mt-5 pt-4">
+
+            <div class="dashboard-container">
+
+                <!-- 0. TOP ANNOUNCEMENT & STATUS STRIP (ADDED ABOVE WELCOME BANNER) -->
+                <div class="announcement-strip">
+                    <div class="strip-left">
+                        <span class="live-pill">
+                            <span class="pulse-dot"></span> LIVE PORTAL
+                        </span>
+                        <div class="strip-divider"></div>
+                        <div class="strip-message">
+                            <i class="bi bi-broadcast text-primary"></i>
+                            <span class="fw-bold text-dark">Notice:</span>
+                            <span class="text-muted">Q3 DLE Verification &amp; Bihar AMC cycle in progress. <strong>85
+                                    DLE applications</strong> awaiting approval.</span>
+                        </div>
+                    </div>
+                    <div class="strip-right">
+                        <div class="strip-timestamp">
+                            <i class="bi bi-clock-history me-1 text-primary"></i>
+                            <span>Updated: <strong>Today, 12 Sep 2026</strong></span>
+                        </div>
+                        <a href="javascript:void(0);" onclick="window.location.reload();" class="strip-quick-btn"
+                            title="Refresh Live Stats">
+                            <i class="bi bi-arrow-clockwise"></i> Sync Data
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 1. TOP WELCOME HERO BANNER -->
+                <section class="hero-welcome-card">
+                    <div class="hero-left">
+                        <div class="hero-accent-bar-top"></div>
+                        <div class="hero-greeting">Welcome to,</div>
+                        <h1 class="hero-title">
+                            <span class="brand-accent">DLE</span> <span class="brand-dark">Dashboard</span>
+                        </h1>
+                        <p class="hero-subtitle">Track, Manage &amp; Monitor DLE Activities Efficiently</p>
+                        <div class="hero-accent-bar-bottom"></div>
+                    </div>
+
+                    <div class="hero-right-image">
+                        <img src="../images/bg3.avif" alt="Sustainable Solar Energy Hillside" class="hero-solar-img" />
+                    </div>
+                </section>
+
+                <!-- 2. SIX KPI STAT CARDS ROW (BOOTSTRAP RESPONSIVE GRID) -->
+                <div class="row g-3 mb-4">
+
+                    <!-- 1. Total States -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-states">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-file-earmark-text-fill"></i>
+                                    </div>
+                                    <span class="kpi-title">Total States</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">6</div>
+                                <div class="kpi-trend">
+                                    <span>↑ 12%</span>
+                                    <span class="kpi-trend-sub">States Covered</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z">
+                                </path>
+                                <circle cx="12" cy="9" r="2.5"></circle>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradRoyal" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,18 C18,10 32,24 50,15 C68,6 82,18 100,12 L100,28 L0,28 Z"
+                                    fill="url(#waveGradRoyal)" />
+                                <path d="M0,18 C18,10 32,24 50,15 C68,6 82,18 100,12" fill="none" stroke="#2563eb"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 2. Total DLE -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-total-dle">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+                                    <span class="kpi-title">Total DLE</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">94</div>
+                                <div class="kpi-trend">
+                                    <span>↑ 8%</span>
+                                    <span class="kpi-trend-sub">Registered</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradCobalt" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#0284c7" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#0284c7" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,19 C20,24 35,12 55,16 C72,20 85,7 100,10 L100,28 L0,28 Z"
+                                    fill="url(#waveGradCobalt)" />
+                                <path d="M0,19 C20,24 35,12 55,16 C72,20 85,7 100,10 L100,28 L0,28 Z"
+                                    fill="url(#waveGradCobalt)" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 3. Active DLE -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-active-dle">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <span class="kpi-title">Active DLE</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">9</div>
+                                <div class="kpi-trend">
+                                    <span>↑ 50%</span>
+                                    <span class="kpi-trend-sub">Active Now</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <polyline points="17 11 19 13 23 9"></polyline>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradCyan" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25" />
+                                        <stop offset="100%" stop-color="#0284c7" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,18 C22,12 36,22 55,15 C74,8 86,16 100,11 L100,28 L0,28 Z"
+                                    fill="url(#waveGradCyan)" />
+                                <path d="M0,18 C22,12 36,22 55,15 C74,8 86,16 100,11" fill="none" stroke="#0284c7"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 4. Pending DLE -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-pending-dle">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-hourglass-split"></i>
+                                    </div>
+                                    <span class="kpi-title">Pending DLE</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">85</div>
+                                <div class="kpi-trend">
+                                    <span>↑ 5%</span>
+                                    <span class="kpi-trend-sub">Awaiting</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradAmber" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+                                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,20 C18,24 34,14 54,18 C72,22 84,9 100,11 L100,28 L0,28 Z"
+                                    fill="url(#waveGradAmber)" />
+                                <path d="M0,20 C18,24 34,14 54,18 C72,22 84,9 100,11" fill="none" stroke="#f59e0b"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 5. Approved DLE -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-approved-dle">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </div>
+                                    <span class="kpi-title">Approved DLE</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">9</div>
+                                <div class="kpi-trend">
+                                    <span>↑ 50%</span>
+                                    <span class="kpi-trend-sub">Approved</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradGreen" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,19 C20,11 34,22 52,14 C70,6 84,17 100,11 L100,28 L0,28 Z"
+                                    fill="url(#waveGradGreen)" />
+                                <path d="M0,19 C20,11 34,22 52,14 C70,6 84,17 100,11" fill="none" stroke="#10b981"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 6. Rejected DLE -->
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-12 mb-3 mb-xl-0">
+                        <div class="kpi-card kpi-rejected-dle">
+                            <div class="kpi-header">
+                                <div class="kpi-icon-wrap">
+                                    <div class="kpi-icon-circle">
+                                        <i class="bi bi-x-circle-fill"></i>
+                                    </div>
+                                    <span class="kpi-title">Rejected DLE</span>
+                                </div>
+                            </div>
+                            <div class="kpi-body">
+                                <div class="kpi-value">0</div>
+                                <div class="kpi-trend">
+                                    <span>0%</span>
+                                    <span class="kpi-trend-sub">Rejected</span>
+                                </div>
+                            </div>
+                            <!-- Watermark SVG -->
+                            <svg class="kpi-watermark-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="15" y1="9" x2="9" y2="15"></line>
+                                <line x1="9" y1="9" x2="15" y2="15"></line>
+                            </svg>
+                            <!-- Wave SVG -->
+                            <svg class="kpi-wave-svg" viewBox="0 0 100 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="waveGradRed" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#ef4444" stop-opacity="0.25" />
+                                        <stop offset="100%" stop-color="#ef4444" stop-opacity="0.01" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,18 C22,14 36,23 56,16 C76,9 86,18 100,13 L100,28 L0,28 Z"
+                                    fill="url(#waveGradRed)" />
+                                <path d="M0,18 C22,14 36,23 56,16 C76,9 86,18 100,13" fill="none" stroke="#ef4444"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================================
+     2.1 COMPACT SECOND CARD SECTION (SLIM HEIGHT + EXACT LINKS)
+     =================================================== -->
+                <div class="row g-3 mb-4">
+
+                    <!-- 1. Total Allocation Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="status-kpi-card card-not-started">
+                            <div class="status-card-top">
+                                <div class="status-icon-circle icon-circle-blue">
+                                    <i class="bi bi-box-seam-fill"></i>
+                                </div>
+                                <!-- Watermark SVG -->
+                                <svg class="status-watermark" viewBox="0 0 64 64" fill="none">
+                                    <rect x="15" y="12" width="34" height="42" rx="6" stroke="#93c5fd" stroke-width="3"
+                                        fill="none" />
+                                    <path d="M25 12V9C25 7.9 25.9 7 27 7H37C38.1 7 39 7.9 39 9V12" stroke="#93c5fd"
+                                        stroke-width="3" stroke-linecap="round" />
+                                    <path d="M22 25L25 28L31 22" stroke="#93c5fd" stroke-width="2.6"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <line x1="35" y1="25" x2="42" y2="25" stroke="#bfdbfe" stroke-width="2.6"
+                                        stroke-linecap="round" />
+                                    <path d="M22 36L25 39L31 33" stroke="#93c5fd" stroke-width="2.6"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <line x1="35" y1="36" x2="42" y2="36" stroke="#bfdbfe" stroke-width="2.6"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+
+                            <div class="status-card-mid">
+                                <div class="status-card-label">
+                                    <a href="https://klkerp.com/swp-dashboard#" class="card-title-link">Total
+                                        Allocation</a>
+                                </div>
+                                <div class="status-card-number">
+                                    <a href="https://klkerp.com/swp-dashboard#"
+                                        class="stat-num-link text-dark">1,909</a>
+                                </div>
+                                <span class="status-pill-badge pill-not-started">
+                                    <i class="bi bi-check2-all"></i> Total Allocation
+                                </span>
+                            </div>
+
+                            <div class="status-card-bottom">
+                                <div class="status-metric-row">
+                                    <span class="status-metric-title">Allocation Count</span>
+                                    <span class="status-metric-value">1,909 <span
+                                            class="metric-pct-blue">(100%)</span></span>
+                                </div>
+                                <div class="status-progress-wrap">
+                                    <div class="status-progress-track">
+                                        <div class="status-progress-fill fill-blue" style="width: 100%;"></div>
+                                    </div>
+                                    <a href="https://klkerp.com/swp-dashboard#" class="status-arrow-btn arrow-blue"
+                                        title="View Allocation">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Material Status Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="status-kpi-card card-in-progress">
+                            <div class="status-card-top">
+                                <div class="status-icon-circle icon-circle-green">
+                                    <i class="bi bi-truck"></i>
+                                </div>
+                                <!-- Watermark SVG -->
+                                <svg class="status-watermark" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="9" stroke="#86efac" stroke-width="3" fill="none" />
+                                    <path
+                                        d="M32 10V14M32 50V54M10 32H14M50 32H54M16.4 16.4L19.2 19.2M44.8 44.8L47.6 47.6M16.4 47.6L19.2 44.8M44.8 19.2L47.6 16.4"
+                                        stroke="#86efac" stroke-width="3" stroke-linecap="round" />
+                                    <circle cx="32" cy="32" r="16" stroke="#a7f3d0" stroke-width="2"
+                                        stroke-dasharray="4 3" fill="none" />
+                                </svg>
+                            </div>
+
+                            <div class="status-card-mid">
+                                <div class="status-card-label">
+                                    <a href="https://klkerp.com/swp-dashboard#" class="card-title-link">Material
+                                        Status</a>
+                                </div>
+                                <div class="status-card-number">
+                                    <a href="https://klkerp.com/view-jk-registration/material-supplied"
+                                        class="stat-num-link text-success" title="Material Supplied">1,894</a>
+                                    <span class="stat-sep">/</span>
+                                    <a href="https://klkerp.com/view-jk-registration/material-not-supplied"
+                                        class="stat-num-link stat-num-secondary" title="Material Pending">15</a>
+                                </div>
+                                <span class="status-pill-badge pill-in-progress">
+                                    <span class="status-mini-dot dot-green"></span> Supplied / Pending
+                                </span>
+                            </div>
+
+                            <div class="status-card-bottom">
+                                <div class="status-metric-row">
+                                    <span class="status-metric-title">Supplied Ratio</span>
+                                    <span class="status-metric-value">1,894 <span
+                                            class="metric-pct-green">(99.2%)</span></span>
+                                </div>
+                                <div class="status-progress-wrap">
+                                    <div class="status-progress-track">
+                                        <div class="status-progress-fill fill-green" style="width: 99.2%;"></div>
+                                    </div>
+                                    <a href="https://klkerp.com/view-jk-registration/material-supplied"
+                                        class="status-arrow-btn arrow-green" title="View Material Details">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Total Installation Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="status-kpi-card card-cancelled">
+                            <div class="status-card-top">
+                                <div class="status-icon-circle icon-circle-orange">
+                                    <i class="bi bi-tools"></i>
+                                </div>
+                                <!-- Watermark SVG -->
+                                <svg class="status-watermark" viewBox="0 0 64 64" fill="none">
+                                    <circle cx="32" cy="32" r="18" stroke="#fed7aa" stroke-width="3" fill="none" />
+                                    <line x1="19" y1="45" x2="45" y2="19" stroke="#fed7aa" stroke-width="3"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+
+                            <div class="status-card-mid">
+                                <div class="status-card-label">
+                                    <a href="https://klkerp.com/swp-dashboard#" class="card-title-link">Total
+                                        Installation</a>
+                                </div>
+                                <div class="status-card-number">
+                                    <a href="https://klkerp.com/view-jk-registration/install"
+                                        class="stat-num-link text-primary" title="Installed">1,804</a>
+                                    <span class="stat-sep">/</span>
+                                    <a href="https://klkerp.com/view-jk-registration/not-install"
+                                        class="stat-num-link stat-num-secondary" title="Not Installed">105</a>
+                                </div>
+                                <span class="status-pill-badge pill-cancelled">
+                                    <span class="status-mini-dot dot-orange"></span> Installed / Pending
+                                </span>
+                            </div>
+
+                            <div class="status-card-bottom">
+                                <div class="status-metric-row">
+                                    <span class="status-metric-title">Installation Ratio</span>
+                                    <span class="status-metric-value">1,804 <span
+                                            class="metric-pct-orange">(94.5%)</span></span>
+                                </div>
+                                <div class="status-progress-wrap">
+                                    <div class="status-progress-track">
+                                        <div class="status-progress-fill fill-orange" style="width: 94.5%;"></div>
+                                    </div>
+                                    <a href="https://klkerp.com/view-jk-registration/install"
+                                        class="status-arrow-btn arrow-orange" title="View Installation Details">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Inspection Status Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div class="status-kpi-card card-finished">
+                            <div class="status-card-top">
+                                <div class="status-icon-circle icon-circle-red">
+                                    <i class="bi bi-clipboard-check-fill"></i>
+                                </div>
+                                <!-- Watermark SVG -->
+                                <svg class="status-watermark" viewBox="0 0 64 64" fill="none">
+                                    <line x1="16" y1="48" x2="27" y2="18" stroke="#fecdd3" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                    <line x1="48" y1="48" x2="37" y2="18" stroke="#fecdd3" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                    <path d="M27 18C30 17 33 20 36 18L35 28C32 30 29 27 26 28L27 18Z" fill="#ffe4e6"
+                                        stroke="#fda4af" stroke-width="1.8" />
+                                    <path d="M36 18C39 17 42 20 45 18L44 28C41 30 38 27 35 28L36 18Z" fill="#ffe4e6"
+                                        stroke="#fda4af" stroke-width="1.8" />
+                                </svg>
+                            </div>
+
+                            <div class="status-card-mid">
+                                <div class="status-card-label">
+                                    <a href="https://klkerp.com/swp-dashboard#" class="card-title-link">Inspection
+                                        Status</a>
+                                </div>
+                                <div class="status-card-number">
+                                    <a href="https://klkerp.com/view-jk-registration/inspection-done"
+                                        class="stat-num-link text-success" title="Inspection Done">1,804</a>
+                                    <span class="stat-sep">/</span>
+                                    <a href="https://klkerp.com/view-jk-registration/inspection-pending"
+                                        class="stat-num-link stat-num-secondary" title="Inspection Pending">105</a>
+                                </div>
+                                <span class="status-pill-badge pill-finished">
+                                    <span class="status-mini-dot dot-red"></span> Done / Pending
+                                </span>
+                            </div>
+
+                            <div class="status-card-bottom">
+                                <div class="status-metric-row">
+                                    <span class="status-metric-title">Inspection Ratio</span>
+                                    <span class="status-metric-value">1,804 <span
+                                            class="metric-pct-red">(94.5%)</span></span>
+                                </div>
+                                <div class="status-progress-wrap">
+                                    <div class="status-progress-track">
+                                        <div class="status-progress-fill fill-red" style="width: 94.5%;"></div>
+                                    </div>
+                                    <a href="https://klkerp.com/view-jk-registration/inspection-done"
+                                        class="status-arrow-btn arrow-red" title="View Inspection Details">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================================
+     2.3 FIVE METRIC ACCENT CARDS (UPDATED WITH YOUR CONTENT)
+     =================================================== -->
+                <div class="metric-cards-5-grid">
+
+                    <!-- 1. MNRE Share Status (Blue Theme) -->
+                    <div class="five-stat-card five-card-blue">
+                        <div class="five-ambient-blob blob-blue"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="MNRE Share Status">MNRE Share Status</span>
+                            <div class="five-icon-badge badge-blue">
+                                <i class="bi bi-sun-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">518</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1391</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 27.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Blue Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradBlue" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#2563eb" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,23 Q18,25 32,19 T52,15 T75,5 L75,28 L0,28 Z" fill="url(#fGradBlue)" />
+                                <path d="M0,23 Q18,25 32,19 T52,15 T75,5" fill="none" stroke="#2563eb" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 2. UT Share Status (Green Theme) -->
+                    <div class="five-stat-card five-card-green">
+                        <div class="five-ambient-blob blob-green"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="UT Share Status">UT Share Status</span>
+                            <div class="five-icon-badge badge-green">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">518</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1391</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 27.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Green Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradGreen" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,21 Q18,23 32,18 T52,14 T75,6 L75,28 L0,28 Z" fill="url(#fGradGreen)" />
+                                <path d="M0,21 Q18,23 32,18 T52,14 T75,6" fill="none" stroke="#10b981" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 3. Data Upload On Scada (Cyan Theme) -->
+                    <div class="five-stat-card five-card-cyan">
+                        <div class="five-ambient-blob blob-cyan"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Data Upload On Scada">Data Upload On Scada</span>
+                            <div class="five-icon-badge badge-cyan">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">378</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1410</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 21.1%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Cyan Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradCyan" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,24 Q18,26 32,20 T52,16 T75,7 L75,28 L0,28 Z" fill="url(#fGradCyan)" />
+                                <path d="M0,24 Q18,26 32,20 T52,16 T75,7" fill="none" stroke="#06b6d4" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 4. Payment 90% Status (Amber Theme) -->
+                    <div class="five-stat-card five-card-amber">
+                        <div class="five-ambient-blob blob-amber"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Payment 90% Status">Payment 90% Status</span>
+                            <div class="five-icon-badge badge-amber">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">800</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">988</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 44.7%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Amber Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradAmber" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,24 Q20,25 35,19 T55,15 T75,6 L75,28 L0,28 Z" fill="url(#fGradAmber)" />
+                                <path d="M0,24 Q20,25 35,19 T55,15 T75,6" fill="none" stroke="#f59e0b" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 5. Payment 10% Status (Purple Theme) -->
+                    <div class="five-stat-card five-card-purple">
+                        <div class="five-ambient-blob blob-purple"></div>
+                        <div class="five-card-header">
+                            <span class="five-card-title" title="Payment 10% Status">Payment 10% Status</span>
+                            <div class="five-icon-badge badge-purple">
+                                <i class="bi bi-coin"></i>
+                            </div>
+                        </div>
+                        <div class="five-card-val-dual">
+                            <span class="val-done" title="Done">651</span>
+                            <span class="val-sep">/</span>
+                            <span class="val-pending" title="Pending">1137</span>
+                        </div>
+                        <div class="five-card-bottom">
+                            <div class="five-trend-wrap">
+                                <span class="five-trend-pill">↗ 36.4%</span>
+                                <span class="five-subtext">Done / Pending</span>
+                            </div>
+                            <!-- Purple Sparkline SVG -->
+                            <svg class="five-sparkline-svg" viewBox="0 0 75 28" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="fGradPurple" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.28" />
+                                        <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,22 Q18,24 34,18 T54,14 T75,6 L75,28 L0,28 Z" fill="url(#fGradPurple)" />
+                                <path d="M0,22 Q18,24 34,18 T54,14 T75,6" fill="none" stroke="#8b5cf6" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================================
+     2.2 GRADIENT SPARKLINE STAT CARDS (IMAGE MATCH SECTION)
+     =================================================== -->
+                <div class="row g-3 mb-4">
+
+                    <!-- 1. Total Sites Card (Blue Gradient) -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="gradient-stat-card grad-blue">
+                            <!-- White Floating Disc -->
+                            <div class="stat-icon-disc disc-blue">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+
+                            <!-- Content Info -->
+                            <div class="stat-banner-content">
+                                <div class="stat-banner-title">Total Sites</div>
+                                <div class="stat-banner-value">2864</div>
+                                <div class="stat-banner-sub">Total Sites Registered</div>
+                            </div>
+
+                            <!-- Trend Pill -->
+                            <div class="stat-banner-right">
+                                <span class="trend-glass-pill">↑ 12%</span>
+                            </div>
+
+                            <!-- Sparkline Wave SVG -->
+                            <svg class="stat-sparkline-svg" viewBox="0 0 120 44" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="sparkGradBlue" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+                                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,38 Q18,36 30,30 T60,26 T88,14 T110,6 L120,4 L120,44 L0,44 Z"
+                                    fill="url(#sparkGradBlue)" />
+                                <path d="M0,38 Q18,36 30,30 T60,26 T88,14 T110,6 L120,4" fill="none" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <circle cx="2" cy="38" r="2.5" fill="#ffffff" />
+                                <circle cx="118" cy="4" r="2.5" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 2. Survey Status Card (Green Gradient) -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="gradient-stat-card grad-green">
+                            <!-- White Floating Disc -->
+                            <div class="stat-icon-disc disc-green">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                            </div>
+
+                            <!-- Content Info -->
+                            <div class="stat-banner-content">
+                                <div class="stat-banner-title">Survey Status</div>
+                                <div class="stat-banner-value">2864 / 0</div>
+                                <div class="stat-banner-sub">Done / Pending</div>
+                            </div>
+
+                            <!-- Trend Pill -->
+                            <div class="stat-banner-right">
+                                <span class="trend-glass-pill">↑ 8%</span>
+                            </div>
+
+                            <!-- Sparkline Wave SVG -->
+                            <svg class="stat-sparkline-svg" viewBox="0 0 120 44" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="sparkGradGreen" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+                                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,38 Q20,38 32,32 T62,28 T90,14 T112,6 L120,4 L120,44 L0,44 Z"
+                                    fill="url(#sparkGradGreen)" />
+                                <path d="M0,38 Q20,38 32,32 T62,28 T90,14 T112,6 L120,4" fill="none" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <circle cx="2" cy="38" r="2.5" fill="#ffffff" />
+                                <circle cx="118" cy="4" r="2.5" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 3. Total Capacity Card (Orange Gradient) -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="gradient-stat-card grad-orange">
+                            <!-- White Floating Disc -->
+                            <div class="stat-icon-disc disc-orange">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+
+                            <!-- Content Info -->
+                            <div class="stat-banner-content">
+                                <div class="stat-banner-title">Total Capacity</div>
+                                <div class="stat-banner-value">27130 KW</div>
+                                <div class="stat-banner-sub">Total Capacity</div>
+                            </div>
+
+                            <!-- Trend Pill -->
+                            <div class="stat-banner-right">
+                                <span class="trend-glass-pill">↑ 15%</span>
+                            </div>
+
+                            <!-- Sparkline Wave SVG -->
+                            <svg class="stat-sparkline-svg" viewBox="0 0 120 44" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="sparkGradOrange" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+                                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,38 Q18,36 30,30 T60,26 T88,14 T110,6 L120,4 L120,44 L0,44 Z"
+                                    fill="url(#sparkGradOrange)" />
+                                <path d="M0,38 Q18,36 30,30 T60,26 T88,14 T110,6 L120,4" fill="none" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <circle cx="2" cy="38" r="2.5" fill="#ffffff" />
+                                <circle cx="118" cy="4" r="2.5" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 4. Cancel Sites Card (Red Gradient) -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div class="gradient-stat-card grad-red">
+                            <!-- White Floating Disc -->
+                            <div class="stat-icon-disc disc-red">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </div>
+
+                            <!-- Content Info -->
+                            <div class="stat-banner-content">
+                                <div class="stat-banner-title">Cancel Sites</div>
+                                <div class="stat-banner-value">642 Nos.</div>
+                                <div class="stat-banner-sub">Cancel Sites</div>
+                            </div>
+
+                            <!-- Trend Pill -->
+                            <div class="stat-banner-right">
+                                <span class="trend-glass-pill">↓ 3%</span>
+                            </div>
+
+                            <!-- Sparkline Wave SVG -->
+                            <svg class="stat-sparkline-svg" viewBox="0 0 120 44" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="sparkGradRed" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+                                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M0,38 Q22,38 34,30 T64,24 T90,14 T112,6 L120,4 L120,44 L0,44 Z"
+                                    fill="url(#sparkGradRed)" />
+                                <path d="M0,38 Q22,38 34,30 T64,24 T90,14 T112,6 L120,4" fill="none" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <circle cx="2" cy="38" r="2.5" fill="#ffffff" />
+                                <circle cx="118" cy="4" r="2.5" fill="#ffffff" />
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!-- ===================================================
+     2.4 EXECUTIVE PERFORMANCE & MONITORING CARDS (ENTERPRISE PROFESSIONAL DESIGN)
+     =================================================== -->
+                <div class="row g-3 mb-4">
+
+                    <!-- 1. Total Power Output Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-blue">
+                            <div class="pro-card-ambient ambient-blue"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-blue">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Total Power Output</div>
+                                <div class="pro-metric-value">184.6 MWh</div>
+                                <div class="pro-metric-sub">Daily Avg: <strong>6.2 MWh</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. RMS Online Telemetry Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-emerald">
+                            <div class="pro-card-ambient ambient-emerald"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-emerald">
+                                <i class="bi bi-broadcast-pin"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">RMS Telemetry Online</div>
+                                <div class="pro-metric-value">2,714 <small style="font-size: 13px; font-weight: 600; color: #94a3b8;">/ 2,864</small></div>
+                                <div class="pro-metric-sub">Offline: <strong class="text-danger">150 Units</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Quality & Inspection Compliance Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-3 mb-xl-0">
+                        <div class="pro-stat-card pro-card-indigo">
+                            <div class="pro-card-ambient ambient-indigo"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-indigo">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Inspection Pass Rate</div>
+                                <div class="pro-metric-value">98.7%</div>
+                                <div class="pro-metric-sub">Passed: <strong>1,780 / 1,804</strong></div>
+                            </div>
+
+                        
+                        </div>
+                    </div>
+
+                    <!-- 4. Subsidy & Claims Realization Card -->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                        <div class="pro-stat-card pro-card-amber">
+                            <div class="pro-card-ambient ambient-amber"></div>
+
+                            <!-- Left Icon -->
+                            <div class="pro-icon-wrap pro-icon-amber">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+
+                            <!-- Center Info -->
+                            <div class="pro-card-content">
+                                <div class="pro-metric-title">Claims Disbursed</div>
+                                <div class="pro-metric-value">₹ 8.42 Cr</div>
+                                <div class="pro-metric-sub">Pending: <strong class="text-warning">₹ 68.5 L</strong></div>
+                            </div>
+
+                          
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!-- 3. MIDDLE CHARTS ROW (BOOTSTRAP RESPONSIVE) -->
+                <div class="row mb-4">
+
+                    <!-- Left Chart: DLE State Wise (Donut) -->
+                    <div class="col-xl-6 col-lg-12 mb-4 mb-xl-0">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-blue">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">DLE State Wise</h5>
+                                        <p class="card-dle-subtitle">Distribution of DLE across States</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown">
+                                        <button class="pill-select dropdown-toggle" type="button"
+                                            data-toggle="dropdown">
+                                            All States
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                                            <a class="dropdown-item" href="#">All States</a>
+                                            <a class="dropdown-item" href="#">Bihar</a>
+                                            <a class="dropdown-item" href="#">Chhattisgarh</a>
+                                            <a class="dropdown-item" href="#">Jharkhand</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Donut Chart & Legend -->
+                            <div class="row align-items-center flex-grow-1">
+                                <div class="col-sm-6 text-center">
+                                    <div class="donut-container">
+                                        <canvas id="stateDonutChart"></canvas>
+                                        <div class="donut-center-text">
+                                            <div class="donut-center-val">94</div>
+                                            <div class="donut-center-lbl">DLE</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mt-3 mt-sm-0">
+                                    <ul class="legend-list">
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #2563eb;"></span>
+                                                <span>Bihar</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">28</span>
+                                                <span class="legend-pct">(29.8%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #0284c7;"></span>
+                                                <span>Chhattisgarh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">16</span>
+                                                <span class="legend-pct">(17.0%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #06b6d4;"></span>
+                                                <span>Jharkhand</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">12</span>
+                                                <span class="legend-pct">(12.8%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #4f46e5;"></span>
+                                                <span>Madhya Pradesh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">11</span>
+                                                <span class="legend-pct">(11.7%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #f59e0b;"></span>
+                                                <span>Rajasthan</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">10</span>
+                                                <span class="legend-pct">(10.6%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #10b981;"></span>
+                                                <span>Uttarakhand</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">9</span>
+                                                <span class="legend-pct">(9.6%)</span>
+                                            </div>
+                                        </li>
+                                        <li class="legend-item">
+                                            <div class="legend-left">
+                                                <span class="legend-dot" style="background-color: #8b5cf6;"></span>
+                                                <span>Uttar Pradesh</span>
+                                            </div>
+                                            <div class="legend-counts">
+                                                <span class="legend-num">8</span>
+                                                <span class="legend-pct">(8.5%)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Chart: District Wise Active DLE (Professional Blue Spline Area) -->
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-indigo">
+                                        <i class="bi bi-graph-up-arrow"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">District Wise Active DLE</h5>
+                                        <p class="card-dle-subtitle">Real-time Performance Overview</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="spline-container">
+                                <canvas id="districtSplineChart"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- ===================================================
+     3.1 SECOND CHART SECTION: PIPELINE OVERVIEW & ENGAGEMENT
+     =================================================== -->
+                <div class="row mb-4">
+
+                    <!-- Left Chart: Sales Pipeline Overview (Grouped Bar Chart) -->
+                    <div class="col-xl-8 col-lg-12 mb-4 mb-xl-0">
+                        <div class="chart-pipeline-card">
+                            <!-- Header -->
+                            <div class="pipeline-header">
+                                <h5 class="pipeline-title">Sales Pipeline Overview</h5>
+                                <div class="dropdown">
+                                    <button class="pill-select-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                        2026
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right shadow-sm">
+                                        <a class="dropdown-item" href="#">2026</a>
+                                        <a class="dropdown-item" href="#">2025</a>
+                                        <a class="dropdown-item" href="#">2024</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stats Highlight Row -->
+                            <div class="pipeline-stats-row">
+                                <div class="pipeline-stat-item">
+                                    <span class="pipeline-stat-label">Total Leads</span>
+                                    <span class="pipeline-stat-val stat-val-dark">6,393</span>
+                                </div>
+                                <div class="pipeline-stat-item">
+                                    <span class="pipeline-stat-label">Qualified Leads</span>
+                                    <span class="pipeline-stat-val stat-val-blue">4,863</span>
+                                </div>
+                                <div class="pipeline-stat-item">
+                                    <span class="pipeline-stat-label">Active Deals</span>
+                                    <span class="pipeline-stat-val stat-val-orange">2,848</span>
+                                </div>
+                            </div>
+
+                            <!-- Grouped Bar Canvas -->
+                            <div class="pipeline-chart-container">
+                                <canvas id="salesPipelineBarChart"></canvas>
+                            </div>
+
+                            <!-- Custom Bottom Legend -->
+                            <div class="pipeline-custom-legend">
+                                <div class="pipeline-legend-item">
+                                    <span class="legend-square sq-ongoing"></span>
+                                    <span>Ongoing Deals</span>
+                                </div>
+                                <div class="pipeline-legend-item">
+                                    <span class="legend-square sq-lost"></span>
+                                    <span>Lost</span>
+                                </div>
+                                <div class="pipeline-legend-item">
+                                    <span class="legend-square sq-won"></span>
+                                    <span>Won</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Chart: Lead Engagement Progress (Segmented Donut) -->
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="chart-pipeline-card">
+                            <!-- Header -->
+                            <div class="pipeline-header">
+                                <h5 class="pipeline-title">Lead Engagement Progress</h5>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button class="pill-select-sm" type="button">Majority <i
+                                            class="bi bi-chevron-down ms-1" style="font-size: 10px;"></i></button>
+                                    <button class="pill-select-sm" type="button">2026 <i class="bi bi-chevron-down ms-1"
+                                            style="font-size: 10px;"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Donut Container with Center Text & Corner Badges -->
+                            <div class="engagement-donut-wrapper">
+                                <!-- 1. Top Right: Hot Leads -->
+                                <div class="lead-badge-tag tag-hot">
+                                    <span class="badge-tag-label"><i class="bi bi-fire"></i> Hot Leads</span>
+                                    <span class="badge-tag-count">699</span>
+                                </div>
+
+                                <!-- 2. Top Left: Warm Leads -->
+                                <div class="lead-badge-tag tag-warm">
+                                    <span class="badge-tag-label"><i class="bi bi-thermometer-half"></i> Warm
+                                        Leads</span>
+                                    <span class="badge-tag-count">500</span>
+                                </div>
+
+                                <!-- 3. Bottom Left: Cold Leads -->
+                                <div class="lead-badge-tag tag-cold">
+                                    <span class="badge-tag-label"><i class="bi bi-snow"></i> Cold Leads</span>
+                                    <span class="badge-tag-count">350</span>
+                                </div>
+
+                                <!-- 4. Bottom Right: Dead Leads -->
+                                <div class="lead-badge-tag tag-dead">
+                                    <span class="badge-tag-label"><i class="bi bi-x-circle-fill"></i> Dead Leads</span>
+                                    <span class="badge-tag-count">200</span>
+                                </div>
+
+                                <!-- Donut Canvas -->
+                                <canvas id="leadEngagementDonutChart"></canvas>
+
+                                <!-- Center Text -->
+                                <div class="donut-lead-center">
+                                    <div class="donut-lead-title">Total Leads</div>
+                                    <div class="donut-lead-total">1,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- 4. BOTTOM ROW: RECENT ACTIVITY TABLE & QUICK INFO (BOOTSTRAP RESPONSIVE) -->
+                <div class="row">
+
+                    <!-- Left Table Card: Recent DLE Activity -->
+                    <div class="col-xl-8 col-lg-12 mb-4 mb-xl-0">
+                        <div class="card-dle">
+                            <div class="card-dle-header">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-blue">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">Recent DLE Activity</h5>
+                                        <p class="card-dle-subtitle">Latest registered and updated DLE records</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="table-view-all-btn">
+                                    View All <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+
+                            <!-- Bootstrap Responsive Table Container -->
+                            <div class="table-responsive">
+                                <table class="table custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>DLE ID</th>
+                                            <th>District</th>
+                                            <th>State</th>
+                                            <th>Status</th>
+                                            <th>Registered On</th>
+                                            <th class="text-end">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-muted fw-bold">1</td>
+                                            <td class="fw-bold text-dark">DLE00124</td>
+                                            <td>Patna</td>
+                                            <td>Bihar</td>
+                                            <td>
+                                                <span class="badge-status badge-approved">
+                                                    <i class="bi bi-check-circle-fill"></i> Approved
+                                                </span>
+                                            </td>
+                                            <td class="text-muted">07 Sep 2026</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">2</td>
+                                            <td class="fw-bold text-dark">DLE00123</td>
+                                            <td>Deoria</td>
+                                            <td>Uttar Pradesh</td>
+                                            <td>
+                                                <span class="badge-status badge-pending">
+                                                    <i class="bi bi-clock-fill"></i> Pending
+                                                </span>
+                                            </td>
+                                            <td class="text-muted">06 Sep 2026</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">3</td>
+                                            <td class="fw-bold text-dark">DLE00122</td>
+                                            <td>Raipur</td>
+                                            <td>Chhattisgarh</td>
+                                            <td>
+                                                <span class="badge-status badge-active">
+                                                    <i class="bi bi-lightning-charge-fill"></i> Active
+                                                </span>
+                                            </td>
+                                            <td class="text-muted">05 Sep 2026</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-muted fw-bold">4</td>
+                                            <td class="fw-bold text-dark">DLE00121</td>
+                                            <td>Ranchi</td>
+                                            <td>Jharkhand</td>
+                                            <td>
+                                                <span class="badge-status badge-rejected">
+                                                    <i class="bi bi-x-circle-fill"></i> Rejected
+                                                </span>
+                                            </td>
+                                            <td class="text-muted">04 Sep 2026</td>
+                                            <td class="text-end">
+                                                <a href="#" class="btn-action-view"><i class="bi bi-eye"></i> View</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Quick Information -->
+                    <div class="col-xl-4 col-lg-12">
+                        <div class="quick-info-card">
+                            <div>
+                                <h5 class="quick-info-title">
+                                    <i class="bi bi-info-circle"></i> Quick Information
+                                </h5>
+
+                                <div class="quick-info-box">
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-blue">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                            <span class="quick-name">Total States</span>
+                                        </div>
+                                        <span class="quick-count">6</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-indigo">
+                                                <i class="bi bi-people-fill"></i>
+                                            </div>
+                                            <span class="quick-name">Total DLE</span>
+                                        </div>
+                                        <span class="quick-count">94</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-cyan">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                            </div>
+                                            <span class="quick-name">Active DLE</span>
+                                        </div>
+                                        <span class="quick-count">9</span>
+                                    </div>
+
+                                    <div class="quick-item">
+                                        <div class="quick-item-left">
+                                            <div class="quick-icon-wrap qi-yellow">
+                                                <i class="bi bi-hourglass-split"></i>
+                                            </div>
+                                            <span class="quick-name">Pending DLE</span>
+                                        </div>
+                                        <span class="quick-count">85</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn-generate-report">
+                                <span><i class="bi bi-cloud-arrow-down-fill me-2"></i> Generate Report</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ===================================================
+     3.2 ADVANCED PHASE STATUS TABLES (COL-12 SECTION - 2 TABLES)
+     =================================================== -->
+                <div class="row mb-4 mt-3">
+                    <div class="col-12">
+
+                        <!-- =============================================
+             TABLE 1: PHASE-WISE SUPPLY & INSTALLATION
+             ============================================= -->
+                        <div class="card-dle mb-4">
+                            <!-- Table 1 Header -->
+                            <div class="card-dle-header flex-wrap gap-3">
+                                <div class="header-title-box">
+                                    <div class="header-badge-icon badge-icon-blue">
+                                        <i class="bi bi-box-seam-fill"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="card-dle-title">Phase-Wise Material Dispatch, Installation &amp;
+                                            Commissioning</h5>
+                                        <p class="card-dle-subtitle">Comprehensive tracking of material supply, solar
+                                            capacity installation, meters &amp; RMS status</p>
+                                    </div>
+                                </div>
+
+                                <!-- Action Controls (Search + Filters + Export) -->
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <div class="table-search-wrap">
+                                        <i class="bi bi-search search-icon"></i>
+                                        <input type="text" id="searchTable1" class="table-search-input"
+                                            placeholder="Search phase or site...">
+                                    </div>
+                                    <span class="badge bg-primary text-white rounded-pill px-3 py-2 fw-semibold">
+                                        <i class="bi bi-layers-fill me-1"></i> 8 Phases
+                                    </span>
+                                    <button class="btn-table-action"
+                                        onclick="exportTableToCSV('table-supply-execution', 'Phase_Supply_Installation_Report.csv')"
+                                        title="Export CSV">
+                                        <i class="bi bi-file-earmark-arrow-down-fill text-success"></i> Export CSV
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Table 1 Responsive Container -->
+                            <div class="table-responsive custom-table-scroll">
+                                <table class="table custom-table table-bordered phase-master-table"
+                                    id="table-supply-execution">
+                                    <thead>
+                                        <!-- Tier 1: Grouped Headers -->
+                                        <tr class="thead-group-row">
+                                            <th colspan="4" class="group-hdr group-general">Project Overview</th>
+                                            <th colspan="2" class="group-hdr group-material">Material Dispatch (Kw)</th>
+                                            <th colspan="2" class="group-hdr group-install">Installation (Kw)</th>
+                                            <th colspan="2" class="group-hdr group-meter">Meter Commissioning</th>
+                                            <th colspan="2" class="group-hdr group-rms">RMS Status</th>
+                                            <th colspan="2" class="group-hdr group-insurance">Insurance Status</th>
+                                            <th colspan="2" class="group-hdr group-billing">Bill Status</th>
+                                            <th rowspan="2" class="group-hdr group-completion text-center align-middle"
+                                                style="min-width: 130px;">Completion</th>
+                                        </tr>
+                                        <!-- Tier 2: Sub Headers -->
+                                        <tr class="thead-sub-row">
+                                            <th class="sticky-col col-sr">Sr. No.</th>
+                                            <th class="sticky-col col-phase">Phase</th>
+                                            <th class="sticky-col col-sites">Sites</th>
+                                            <th>Total Capacity</th>
+                                            <th class="sub-col-done">Done (Kw)</th>
+                                            <th class="sub-col-pending">Pending (Kw)</th>
+                                            <th class="sub-col-done">Done (Kw)</th>
+                                            <th class="sub-col-pending">Pending (Kw)</th>
+                                            <th class="sub-col-done">Installed</th>
+                                            <th class="sub-col-pending">Pending</th>
+                                            <th class="sub-col-done">Installed</th>
+                                            <th class="sub-col-pending">Pending</th>
+                                            <th class="sub-col-done">Complete</th>
+                                            <th class="sub-col-pending">Pending</th>
+                                            <th class="sub-col-done">Submit</th>
+                                            <th class="sub-col-pending">Pending</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Phase 1 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">1</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 1</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">2</td>
+                                            <td class="fw-bold text-primary">40 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">40</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-warn">40</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-warn">2</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-warn">2</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">25%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 2 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">2</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 2</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">8</td>
+                                            <td class="fw-bold text-primary">64 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">64</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">48</span></td>
+                                            <td><span class="cell-pill pill-warn">16</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">6</span></td>
+                                            <td><span class="cell-pill pill-warn">2</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">4</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">60%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 3 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">3</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 3</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">14</td>
+                                            <td class="fw-bold text-primary">112 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">112</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
+                                            <td><span class="cell-pill pill-warn">16</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">10</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">8</span></td>
+                                            <td><span class="cell-pill pill-warn">6</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 72%;" aria-valuenow="72" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">72%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 4 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">4</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 4</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">18</td>
+                                            <td class="fw-bold text-primary">144 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">144</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">130</span></td>
+                                            <td><span class="cell-pill pill-warn">14</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">14</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
+                                            <td><span class="cell-pill pill-warn">6</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">80%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 5 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">5</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 5</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">20</td>
+                                            <td class="fw-bold text-primary">162 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">162</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">162</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">11</span></td>
+                                            <td><span class="cell-pill pill-warn">9</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-warn">20</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">85%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 6 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">6</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 6</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">31</td>
+                                            <td class="fw-bold text-primary">212 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">212</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">202</span></td>
+                                            <td><span class="cell-pill pill-warn">10</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">23</span></td>
+                                            <td><span class="cell-pill pill-warn">8</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-warn">31</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">90%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 7 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">7</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 7</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">24</td>
+                                            <td class="fw-bold text-primary">192 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">192</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">180</span></td>
+                                            <td><span class="cell-pill pill-warn">12</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">20</span></td>
+                                            <td><span class="cell-pill pill-warn">4</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">16</span></td>
+                                            <td><span class="cell-pill pill-warn">8</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: 92%;" aria-valuenow="92" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-dark">92%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Phase 8 -->
+                                        <tr>
+                                            <td class="sticky-col col-sr fw-bold text-muted">8</td>
+                                            <td class="sticky-col col-phase">
+                                                <span class="phase-pill">Phase 8</span>
+                                            </td>
+                                            <td class="sticky-col col-sites fw-bold text-dark">12</td>
+                                            <td class="fw-bold text-primary">96 <small class="text-muted">Kw</small></td>
+                                            <!-- Material -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Install -->
+                                            <td><span class="cell-pill pill-done">96</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Meter -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- RMS -->
+                                            <td><span class="cell-pill pill-done">12</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Insurance -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Bill -->
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <td><span class="cell-pill pill-zero">0</span></td>
+                                            <!-- Progress -->
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height: 6px;">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <span class="small fw-bold text-success">100%</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- Table 1 Footer Totals -->
+                                    <tfoot class="phase-table-footer">
+                                        <tr>
+                                            <th colspan="2" class="sticky-col col-sr text-center fw-bold">TOTAL SUMMARY</th>
+                                            <th class="sticky-col col-sites text-dark">129</th>
+                                            <th class="text-primary fw-bold">1,022 Kw</th>
+                                            <th>1,022 Kw</th>
+                                            <th class="text-muted">0 Kw</th>
+                                            <th>924 Kw</th>
+                                            <th>98 Kw</th>
+                                            <th>96</th>
+                                            <th>33</th>
+                                            <th>52</th>
+                                            <th>77</th>
+                                            <th class="text-muted">0</th>
+                                            <th class="text-muted">0</th>
+                                            <th class="text-muted">0</th>
+                                            <th class="text-muted">0</th>
+                                            <th class="text-center text-primary fw-bold">75.5% Avg</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+
+     
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer section -->
+            <section class="mt-4">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <footer class="footer-area py-3 w-100">
+                            <p class="m-0 fw-semibold text-secondary small footer-text text-center text-md-start">
+                                Copyright © <span id="year">2026</span> KLK ERP — By
+                                <span class="text-primary fw-bold">ETS NETWORKS.</span>
+                                All rights reserved.
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <aside class="control-sidebar control-sidebar-dark"></aside>
+    </div>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+
+    <!-- Page Scripts -->
+    <script>
+        // Profile Modal Password toggle
+        const changeBtn = document.getElementById("changePassBtn");
+        const passFields = document.getElementById("passwordFields");
+        const profileInfo = document.querySelector(".profile-info");
+        const cancelBtn = document.getElementById("cancelPassBtn");
+
+        if (changeBtn) {
+            changeBtn.addEventListener("click", function () {
+                passFields.style.display = "block";
+                profileInfo.style.display = "none";
+                changeBtn.style.display = "none";
+            });
+        }
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener("click", function () {
+                resetProfileModal();
+            });
+        }
+
+        document.querySelectorAll(".password-toggle").forEach(icon => {
+            icon.addEventListener("click", () => {
+                const input = document.getElementById(icon.getAttribute("data-target"));
+                if (input.type === "password") {
+                    input.type = "text";
+                    icon.classList.remove("bi-eye-slash");
+                    icon.classList.add("bi-eye");
+                } else {
+                    input.type = "password";
+                    icon.classList.remove("bi-eye");
+                    icon.classList.add("bi-eye-slash");
+                }
+            });
+        });
+
+        function resetProfileModal() {
+            if (passFields) passFields.style.display = "none";
+            if (profileInfo) profileInfo.style.display = "block";
+            if (changeBtn) changeBtn.style.display = "block";
+            const np = document.getElementById("newPass");
+            const cp = document.getElementById("confirmPass");
+            if (np) np.value = "";
+            if (cp) cp.value = "";
+        }
+
+        const yearElem = document.getElementById("year");
+        if (yearElem) {
+            yearElem.textContent = new Date().getFullYear();
+        }
+
+
+        // Chart.js Setup
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // 1. Donut Chart (DLE State Wise - Harmonized Blue Spectrum)
+            const donutCtx = document.getElementById('stateDonutChart');
+            if (donutCtx) {
+                new Chart(donutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Bihar', 'Chhattisgarh', 'Jharkhand', 'Madhya Pradesh', 'Rajasthan', 'Uttarakhand', 'Uttar Pradesh'],
+                        datasets: [{
+                            data: [28, 16, 12, 11, 10, 9, 8],
+                            backgroundColor: [
+                                '#2563eb',
+                                '#0284c7',
+                                '#06b6d4',
+                                '#4f46e5',
+                                '#f59e0b',
+                                '#10b981',
+                                '#8b5cf6'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff',
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '72%',
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#0b1f48',
+                                titleFont: { size: 10.7, family: 'Poppins', weight: '600' },
+                                bodyFont: { size: 10.7, family: 'Poppins' },
+                                padding: 8,
+                                cornerRadius: 6,
+                                callbacks: {
+                                    label: function (context) {
+                                        const label = context.label || '';
+                                        const value = context.parsed || 0;
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const pct = ((value / total) * 100).toFixed(1);
+                                        return ` ${label}: ${value} (${pct}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Spline Area Chart (District Wise Active DLE - Corporate Blue Gradient)
+            const splineCtx = document.getElementById('districtSplineChart');
+            if (splineCtx) {
+                const ctx = splineCtx.getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 220);
+                gradient.addColorStop(0, 'rgba(37, 99, 235, 0.28)');
+                gradient.addColorStop(1, 'rgba(37, 99, 235, 0.01)');
+
+                new Chart(splineCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Belagavi', 'Deoria', 'Patna', 'PATNA', 'Pilibhit', 'Vaishali', 'VAISHALI'],
+                        datasets: [{
+                            label: 'Active DLE',
+                            data: [1, 0.96, 0.98, 2, 1, 1.45, 1],
+                            borderColor: '#2563eb',
+                            backgroundColor: gradient,
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.42,
+                            pointBackgroundColor: '#2563eb',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: [4, 4, 4, 5.5, 4, 4, 4],
+                            pointHoverRadius: 7
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                min: 0,
+                                max: 2,
+                                ticks: {
+                                    stepSize: 1,
+                                    font: { size: 10, family: 'Poppins', weight: '500' },
+                                    color: '#737B8B'
+                                },
+                                grid: {
+                                    color: '#f1f5f9',
+                                    drawBorder: false
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: { size: 10, family: 'Poppins', weight: '500' },
+                                    color: '#737B8B'
+                                },
+                                grid: {
+                                    display: false,
+                                    drawBorder: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#0b1f48',
+                                titleColor: '#ffffff',
+                                bodyColor: '#ffffff',
+                                titleFont: { size: 10, family: 'Poppins' },
+                                bodyFont: { size: 10.7, family: 'Poppins', weight: '600' },
+                                padding: 8,
+                                cornerRadius: 6,
+                                displayColors: false,
+                                callbacks: {
+                                    title: () => '',
+                                    label: function (context) {
+                                        return `Active DLE : ${context.parsed.y}`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+        });
+
+
+        // ===================================================
+        // INITIALIZE PIPELINE BAR CHART & ENGAGEMENT DONUT
+        // ===================================================
+
+        // 1. Sales Pipeline Overview (Grouped Bar Chart)
+        const pipelineCtx = document.getElementById('salesPipelineBarChart');
+        if (pipelineCtx) {
+            new Chart(pipelineCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [
+                        {
+                            label: 'Ongoing Deals',
+                            data: [350, 110, 160, 220, 290, 480, 290, 290, 130, 210, 90, 180],
+                            backgroundColor: '#dbeafe',
+                            borderRadius: 4,
+                            borderSkipped: false
+                        },
+                        {
+                            label: 'Lost',
+                            data: [220, 260, 280, 310, 220, 160, 210, 210, 90, 210, 80, 480],
+                            backgroundColor: '#93c5fd',
+                            borderRadius: 4,
+                            borderSkipped: false
+                        },
+                        {
+                            label: 'Won',
+                            data: [410, 320, 455, 170, 160, 220, 520, 160, 280, 390, 390, 160],
+                            backgroundColor: '#0284c7',
+                            borderRadius: 4,
+                            borderSkipped: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    categoryPercentage: 0.72,
+                    barPercentage: 0.85,
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 600,
+                            ticks: {
+                                stepSize: 100,
+                                font: { size: 10, family: 'Poppins', weight: '500' },
+                                color: '#737B8B'
+                            },
+                            grid: {
+                                color: '#f1f5f9',
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: { size: 10, family: 'Poppins', weight: '500' },
+                                color: '#737B8B'
+                            },
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0284c7',
+                            titleFont: { size: 10, family: 'Poppins', weight: '600' },
+                            bodyFont: { size: 10.7, family: 'Poppins', weight: '600' },
+                            padding: 8,
+                            cornerRadius: 6,
+                            displayColors: false,
+                            callbacks: {
+                                title: () => '',
+                                label: function (context) {
+                                    return `${context.dataset.label}: ${context.parsed.y}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+
+        // second chart section script 
+        // 2. Lead Engagement Progress (Segmented Donut with Spacing)
+        const engagementCtx = document.getElementById('leadEngagementDonutChart');
+        if (engagementCtx) {
+            new Chart(engagementCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Hot Leads', 'Warm Leads', 'Cold Leads', 'Dead Leads'],
+                    datasets: [{
+                        data: [699, 500, 350, 200],
+                        backgroundColor: [
+                            '#fca5a5', // Soft Coral/Pink for Hots
+                            '#fde68a', // Soft Amber for Warm Leads
+                            '#93c5fd',
+                            '#cbd5e1'  // Slate Gray for Dead Leads
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 6,
+                        spacing: 8,       // Creates the modern segmented arc gaps
+                        borderRadius: 8   // Rounded ends of each arc
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '74%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0b1f48',
+                            padding: 8,
+                            cornerRadius: 6,
+                            bodyFont: { size: 10.7, family: 'Poppins', weight: '600' },
+                            callbacks: {
+                                label: function (context) {
+                                    return ` ${context.label}: ${context.parsed}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+
+        // 1. Live Search for Table 1
+const searchInput1 = document.getElementById('searchTable1');
+if (searchInput1) {
+    searchInput1.addEventListener('keyup', function () {
+        filterTableRows('table-supply-execution', this.value.toLowerCase());
+    });
+}
+
+// 2. Live Search for Table 2
+const searchInput2 = document.getElementById('searchTable2');
+if (searchInput2) {
+    searchInput2.addEventListener('keyup', function () {
+        filterTableRows('table-payment-amc', this.value.toLowerCase());
+    });
+}
+
+function filterTableRows(tableId, query) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    const rows = table.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+    });
+}
+
+// 3. One-Click CSV Export Function
+function exportTableToCSV(tableId, filename) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    let csv = [];
+    const rows = table.querySelectorAll('tr');
+
+    rows.forEach(row => {
+        // Skip display:none rows
+        if (row.style.display === 'none') return;
+        let rowData = [];
+        const cols = row.querySelectorAll('th, td');
+        cols.forEach(col => {
+            // Clean inner text
+            let text = col.innerText.replace(/(\r\n|\n|\r)/gm, ' ').replace(/\s+/g, ' ').trim();
+            rowData.push('"' + text.replace(/"/g, '""') + '"');
+        });
+        if (rowData.length > 0) csv.push(rowData.join(','));
+    });
+
+    const csvContent = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv.join('\n'));
+    const link = document.createElement('a');
+    link.setAttribute('href', csvContent);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+    </script>
+</body>
+
+</html>
