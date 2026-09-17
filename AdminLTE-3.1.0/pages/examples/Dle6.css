@@ -2811,3 +2811,274 @@
             font-size: 10.7188px !important;
             line-height: 16.0781px !important;
         }
+
+/* ===================================================
+   PROFESSIONAL MILESTONE & STATUS KPI CARDS (MATCHING REFERENCE)
+   =================================================== */
+.pro-milestone-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 13px 15px 11px 15px;
+    position: relative;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.pro-milestone-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px -3px rgba(15, 23, 42, 0.08);
+}
+
+/* Header Row */
+.pro-milestone-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.pro-milestone-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Solid Vibrant Squircle Icon */
+.pro-milestone-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pro-milestone-title-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-milestone-title {
+    font-size: 12.2px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.pro-milestone-subtitle {
+    font-size: 9.6px;
+    color: #737B8B;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+/* Completion Pill Badge with Chevron */
+.pro-milestone-pill {
+    padding: 2.5px 8px;
+    border-radius: 50px;
+    font-size: 10.2px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pro-milestone-pill i.pill-arrow {
+    font-size: 8.5px;
+    margin-left: 1px;
+}
+
+/* Dual Metric Split Columns with Light Background & Watermark */
+.pro-milestone-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-col {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.metric-tag {
+    font-size: 8.8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3.5px;
+    margin-bottom: 2px;
+}
+
+.metric-tag i {
+    font-size: 8.8px;
+}
+
+.metric-num {
+    font-size: 13.2px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.15;
+}
+
+.metric-num small {
+    font-size: 9.5px !important;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.metric-sub-sep {
+    color: #64748b;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+
+.metric-sites {
+    font-size: 9.6px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+/* Right Side Outline Illustration inside Inner Box */
+.inner-watermark-icon {
+    font-size: 28px;
+    line-height: 1;
+    z-index: 1;
+    opacity: 0.6;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2px;
+}
+
+/* Bottom Progress Strip */
+.pro-milestone-progress-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+}
+
+.pro-milestone-track {
+    height: 4px;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pro-milestone-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+.pro-milestone-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 9.4px;
+    color: #737B8B;
+    line-height: 1.2;
+}
+
+.pro-milestone-footer strong {
+    color: #1e293b;
+}
+
+/* ===================================================
+   9 THEMES: 4-SIDE BORDER + SOLID ICON + LIGHT INNER BG
+   =================================================== */
+
+/* 1. Cyan (Meter) */
+.theme-cyan { border: 1.5px solid #bae6fd !important; }
+.theme-cyan .pro-milestone-icon { background: #0284c7; }
+.theme-cyan .pro-milestone-pill { background: #f0f9ff; color: #0284c7; border: 1px solid #7dd3fc; }
+.theme-cyan .pro-milestone-body { background: #f0f9ff; border: 1px solid #e0f2fe; }
+.theme-cyan .inner-watermark-icon { color: #0284c7; }
+.theme-cyan .pro-milestone-fill { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+
+/* 2. Indigo / Purple (RMS) */
+.theme-blue { border: 1.5px solid #c7d2fe !important; }
+.theme-blue .pro-milestone-icon { background: #6366f1; }
+.theme-blue .pro-milestone-pill { background: #f5f3ff; color: #4f46e5; border: 1px solid #a5b4fc; }
+.theme-blue .pro-milestone-body { background: #f5f3ff; border: 1px solid #ede9fe; }
+.theme-blue .inner-watermark-icon { color: #6366f1; }
+.theme-blue .pro-milestone-fill { background: linear-gradient(90deg, #4f46e5, #818cf8); }
+
+/* 3. Emerald (Payment 70%) */
+.theme-bronze { border: 1.5px solid #bbf7d0 !important; }
+.theme-bronze .pro-milestone-icon { background: #059669; }
+.theme-bronze .pro-milestone-pill { background: #f0fdf4; color: #16a34a; border: 1px solid #86efac; }
+.theme-bronze .pro-milestone-body { background: #f0fdf4; border: 1px solid #dcfce7; }
+.theme-bronze .inner-watermark-icon { color: #059669; }
+.theme-bronze .pro-milestone-fill { background: linear-gradient(90deg, #059669, #34d399); }
+
+/* 4. Pink / Magenta (Payment 10%) */
+.theme-purple { border: 1.5px solid #fbcfe8 !important; }
+.theme-purple .pro-milestone-icon { background: #ec4899; }
+.theme-purple .pro-milestone-pill { background: #fdf2f8; color: #db2777; border: 1px solid #f472b6; }
+.theme-purple .pro-milestone-body { background: #fdf2f8; border: 1px solid #fce7f3; }
+.theme-purple .inner-watermark-icon { color: #ec4899; }
+.theme-purple .pro-milestone-fill { background: linear-gradient(90deg, #ec4899, #f472b6); }
+
+/* 5. Gold / Yellow (AMC 1st) */
+.theme-gold { border: 1.5px solid #fde68a !important; }
+.theme-gold .pro-milestone-icon { background: #eab308; }
+.theme-gold .pro-milestone-pill { background: #fefce8; color: #ca8a04; border: 1px solid #fde047; }
+.theme-gold .pro-milestone-body { background: #fefce8; border: 1px solid #fef9c3; }
+.theme-gold .inner-watermark-icon { color: #eab308; }
+.theme-gold .pro-milestone-fill { background: linear-gradient(90deg, #eab308, #facc15); }
+
+/* 6. Royal Blue (AMC 2nd) */
+.theme-royal { border: 1.5px solid #bfdbfe !important; }
+.theme-royal .pro-milestone-icon { background: #2563eb; }
+.theme-royal .pro-milestone-pill { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+.theme-royal .pro-milestone-body { background: #eff6ff; border: 1px solid #dbeafe; }
+.theme-royal .inner-watermark-icon { color: #2563eb; }
+.theme-royal .pro-milestone-fill { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+
+/* 7. Emerald Green (AMC 3rd) */
+.theme-green { border: 1.5px solid #bbf7d0 !important; }
+.theme-green .pro-milestone-icon { background: #10b981; }
+.theme-green .pro-milestone-pill { background: #ecfdf5; color: #059669; border: 1px solid #6ee7b7; }
+.theme-green .pro-milestone-body { background: #ecfdf5; border: 1px solid #d1fae5; }
+.theme-green .inner-watermark-icon { color: #10b981; }
+.theme-green .pro-milestone-fill { background: linear-gradient(90deg, #10b981, #34d399); }
+
+/* 8. Coral Red (AMC 4th) */
+.theme-red { border: 1.5px solid #fecaca !important; }
+.theme-red .pro-milestone-icon { background: #ef4444; }
+.theme-red .pro-milestone-pill { background: #fef2f2; color: #dc2626; border: 1px solid #fca5a5; }
+.theme-red .pro-milestone-body { background: #fef2f2; border: 1px solid #fee2e2; }
+.theme-red .inner-watermark-icon { color: #ef4444; }
+.theme-red .pro-milestone-fill { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+/* 9. Violet / Purple (AMC 5th) */
+.theme-amber { border: 1.5px solid #ddd6fe !important; }
+.theme-amber .pro-milestone-icon { background: #7c3aed; }
+.theme-amber .pro-milestone-pill { background: #f5f3ff; color: #6d28d9; border: 1px solid #c4b5fd; }
+.theme-amber .pro-milestone-body { background: #f5f3ff; border: 1px solid #ede9fe; }
+.theme-amber .inner-watermark-icon { color: #7c3aed; }
+.theme-amber .pro-milestone-fill { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+
+
+
