@@ -16,8 +16,27 @@
             --line-height-base: 16.0781px;
         }
 
-        *, *::before, *::after {
+        html, body, input, button, select, textarea {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Protect Font Awesome Icons from universal font overrides */
+        .fa, .fas, .far, .fal, .fad, .fab {
+            font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome !important;
+            font-weight: 900;
+            display: inline-block;
+        }
+        .far {
+            font-weight: 400 !important;
+        }
+        .fa::before, .fas::before, .far::before, .fal::before, .fad::before, .fab::before,
+        [class^="fa-"]::before, [class*=" fa-"]::before {
+            font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome !important;
+        }
+
+        /* Protect Bootstrap Icons */
+        .bi, .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+            font-family: bootstrap-icons !important;
         }
 
         body {
@@ -381,40 +400,82 @@
         }
 
         /* Chevron Right Arrow for Dropdowns */
+        .nav-sidebar .nav-link .right,
+        .nav-sidebar .nav-link > p > .right,
         .nav-sidebar .nav-link .right-arrow {
-            margin-left: auto;
-            font-size: 10px;
+            position: static !important;
+            margin-left: auto !important;
+            font-size: 11px !important;
+            line-height: 1 !important;
             color: #737B8B;
             transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
-            display: inline-block;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             transform: rotate(0deg);
         }
 
+        .nav-sidebar .nav-link:hover .right,
+        .nav-sidebar .nav-link:hover > p > .right,
         .nav-sidebar .nav-link:hover .right-arrow {
             color: var(--primary-blue);
         }
 
         /* Dropdown Opened State */
-        .nav-item.has-treeview.menu-open>.nav-link {
+        .nav-item.has-treeview.menu-open>.nav-link,
+        .nav-item.menu-open>.nav-link {
             background: #f8fafc !important;
             color: #1e3a8a !important;
             font-weight: 600 !important;
         }
 
-        .nav-item.has-treeview.menu-open>.nav-link.active {
+        .nav-item.has-treeview.menu-open>.nav-link.active,
+        .nav-item.menu-open>.nav-link.active {
             background: var(--sidebar-active-blue) !important;
             color: #1d4ed8 !important;
         }
 
-        .nav-item.has-treeview.menu-open>.nav-link .nav-icon {
+        .nav-item.has-treeview.menu-open>.nav-link .nav-icon,
+        .nav-item.menu-open>.nav-link .nav-icon {
             color: var(--primary-blue) !important;
         }
 
-        /* Chevron 90deg rotation when open */
+        /* Chevron 180deg rotation when open */
+        .nav-item.has-treeview.menu-open>.nav-link .right,
+        .nav-item.menu-open>.nav-link .right,
+        .nav-item.has-treeview.menu-open>.nav-link > p > .right,
+        .nav-item.menu-open>.nav-link > p > .right,
         .nav-item.has-treeview.menu-open>.nav-link .right-arrow,
         .nav-item.menu-open>.nav-link .right-arrow {
-            transform: rotate(90deg) !important;
+            transform: rotate(180deg) !important;
             color: var(--primary-blue) !important;
+        }
+
+        /* Pushmenu toggle button and icon styling */
+        .nav-link[data-widget="pushmenu"] {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            padding: 0 !important;
+            border-radius: 8px !important;
+            color: #334155 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .nav-link[data-widget="pushmenu"]:hover {
+            background: #eff6ff !important;
+            color: var(--primary-blue) !important;
+        }
+
+        .nav-link[data-widget="pushmenu"] i,
+        .nav-link[data-widget="pushmenu"] .fas {
+            font-size: 16px !important;
+            line-height: 1 !important;
+            display: inline-block !important;
+            color: inherit !important;
         }
 
         /* Submenu Container (Treeview) - Pure CSS Smooth Max-Height Animation */
