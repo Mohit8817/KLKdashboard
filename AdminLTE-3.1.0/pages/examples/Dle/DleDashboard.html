@@ -14,14 +14,14 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
     <!-- Theme style (AdminLTE) -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css" />
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
@@ -383,17 +383,19 @@
             color: var(--primary-blue) !important;
         }
 
-        /* Chevron Right Arrow for Dropdowns */
-        .nav-sidebar .nav-link .right-arrow {
+        /* Chevron Right/Down Arrow for Dropdowns */
+        .nav-sidebar .nav-link .right-arrow,
+        .nav-sidebar .nav-link .right {
             margin-left: auto;
-            font-size: 11.5px;
+            font-size: 11px;
             color: #94a3b8;
             transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
             display: inline-block;
             transform: rotate(0deg);
         }
 
-        .nav-sidebar .nav-link:hover .right-arrow {
+        .nav-sidebar .nav-link:hover .right-arrow,
+        .nav-sidebar .nav-link:hover .right {
             color: var(--primary-blue);
         }
 
@@ -413,10 +415,12 @@
             color: var(--primary-blue) !important;
         }
 
-        /* Chevron 90deg rotation when open */
+        /* Chevron rotation when open */
         .nav-item.has-treeview.menu-open>.nav-link .right-arrow,
-        .nav-item.menu-open>.nav-link .right-arrow {
-            transform: rotate(90deg) !important;
+        .nav-item.menu-open>.nav-link .right-arrow,
+        .nav-item.has-treeview.menu-open>.nav-link .right,
+        .nav-item.menu-open>.nav-link .right {
+            transform: rotate(180deg) !important;
             color: var(--primary-blue) !important;
         }
 
@@ -1117,6 +1121,41 @@
             color: var(--primary-blue);
         }
 
+        .district-state-dropdown {
+            font-family: var(--font-family-base);
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e3a8a;
+            background-color: #f8fafc;
+            border: 1.5px solid #dbeafe;
+            border-radius: 50px;
+            padding: 5px 32px 5px 14px;
+            height: 34px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+            transition: all 0.2s ease;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 11px center;
+            background-size: 10px 8px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .district-state-dropdown:hover {
+            background-color: #eff6ff;
+            border-color: #93c5fd;
+            color: var(--primary-blue);
+        }
+
+        .district-state-dropdown:focus {
+            outline: none;
+            background-color: #ffffff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
         /* Donut Chart */
         .donut-container {
             position: relative;
@@ -1522,7 +1561,7 @@
 
                     <!-- PROFILE DROPDOWN -->
                     <div class="dropdown">
-                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown"
+                        <img src="../../images/userimg.jpg" class="profile-img" data-toggle="dropdown"
                             alt="User Profile" />
                         <ul class="dropdown-menu dropdown-menu-right shadow">
                             <li class="user-box">
@@ -1558,7 +1597,7 @@
                 <div class="modal-content profile-modal">
                     <span class="close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></span>
                     <div class="modal-body text-center p-4">
-                        <img src="../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80"
+                        <img src="../../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80"
                             height="80">
                         <h5 class="user-name fw-bold">Pravesh Ahamad</h5>
                         <p class="user-email text-muted">@parvesahamad</p>
@@ -1606,9 +1645,9 @@
         <aside class="main-sidebar elevation-4 shadow">
             <!-- SUBSECTION 5.1: BRAND LOGO START -->
          <!-- Brand Logo -->
-            <a href="./klkhome.html" class="brand-link">
+            <a href="./DleDashboard.html" class="brand-link">
                 <div class="brand-logo-wrap">
-                    <img src="../images/logo-s.png" alt="KLK Logo"
+                    <img src="../../images/logo-s.png" alt="KLK Logo"
                         class="img-fluid" style="max-height: 24px; width: auto;"
                         onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3067/3067256.png';" />
                 </div>
@@ -1629,14 +1668,14 @@
 
                             <!-- 1. Dashboard (Active royal blue pill button) -->
                             <li class="nav-item">
-                                <a href="./vendordashboard2.html" class="nav-link active">
+                                <a href="./DleDashboard.html" class="nav-link active">
                                     <i class="bi bi-house-door-fill nav-icon"></i>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
 
                             <!-- 2. DLE Management (Dropdown) -->
-                            <li class="nav-item">
+                            <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-file-earmark-text nav-icon"></i>
                                     <p>
@@ -1646,26 +1685,26 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="./Mohit.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="./Dle_form.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
                                             <p>Add DLE / Vendor</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./klkhome.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>View DLE / Vendor</p>
+                                        <a href="./dleuser.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>View DLE / User Table</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="./bihar-ssl-assign-light.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>Assign Light</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="./bihar-ssl-verify-light.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>Verify Light</p>
                                         </a>
                                     </li>
@@ -1673,7 +1712,7 @@
                             </li>
 
                             <!-- 3. District -->
-                            <li class="nav-item">
+                            <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-geo-alt nav-icon"></i>
                                     <p>
@@ -1684,25 +1723,25 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="./bihar-ssl-dashboard.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>Bihar</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>UP</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>Karnataka</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <span class="sub-bullet"></span>
                                             <p>Assam</p>
                                         </a>
                                     </li>
@@ -1785,7 +1824,7 @@
                     </div>
 
                     <div class="hero-right-image">
-                        <img src="../images/bg3.avif" alt="Sustainable Solar Energy Hillside" class="hero-solar-img" />
+                        <img src="../../images/bg3.avif" alt="Sustainable Solar Energy Hillside" class="hero-solar-img" />
                     </div>
                 </section>
 
@@ -2172,8 +2211,20 @@
                                     </div>
                                     <div>
                                         <h5 class="card-dle-title">District Wise Active DLE</h5>
-                                        <p class="card-dle-subtitle">Real-time Performance Overview</p>
+                                        <p class="card-dle-subtitle" id="districtChartSubtitle">Real-time Performance Overview</p>
                                     </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <select id="districtStateSelect" class="district-state-dropdown" aria-label="Select State">
+                                        <option value="All States">All States (Top Districts)</option>
+                                        <option value="Bihar" selected>Bihar</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -2373,11 +2424,16 @@
 
     <!-- Scripts -->
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
+    <script>
+        if (typeof jQuery === 'undefined') {
+            document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>');
+        }
+    </script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="../../../dist/js/adminlte.min.js"></script>
 
     <!-- Page Scripts -->
     <script>
@@ -2485,7 +2541,7 @@
                 });
             }
 
-            // 2. Spline Area Chart (District Wise Active DLE - Corporate Blue Gradient)
+            // 2. Spline Area Chart (District Wise Active DLE - Dynamic State Filtering)
             const splineCtx = document.getElementById('districtSplineChart');
             if (splineCtx) {
                 const ctx = splineCtx.getContext('2d');
@@ -2493,13 +2549,66 @@
                 gradient.addColorStop(0, 'rgba(37, 99, 235, 0.28)');
                 gradient.addColorStop(1, 'rgba(37, 99, 235, 0.01)');
 
-                new Chart(splineCtx, {
+                // State-wise District Data Dictionary
+                const districtDataByState = {
+                    'All States': {
+                        labels: ['Patna', 'Moradabad', 'Raipur', 'Ranchi', 'Bhopal', 'Jaipur', 'Dehradun'],
+                        data: [10, 8, 7, 6, 5, 5, 4],
+                        subtitle: 'Overview across top state districts'
+                    },
+                    'Bihar': {
+                        labels: ['Patna', 'Gaya', 'Muzaffarpur', 'Vaishali', 'Bhagalpur', 'Nalanda', 'Purnea'],
+                        data: [10, 5, 4, 3, 3, 2, 1],
+                        subtitle: 'Bihar: 28 Active DLEs across 7 districts'
+                    },
+                    'Uttar Pradesh': {
+                        labels: ['Moradabad', 'Lucknow', 'Deoria', 'Pilibhit', 'Bareilly', 'Varanasi', 'Etah'],
+                        data: [2, 2, 1, 1, 1, 1, 0],
+                        subtitle: 'Uttar Pradesh: 8 Active DLEs across 7 districts'
+                    },
+                    'Chhattisgarh': {
+                        labels: ['Raipur', 'Bilaspur', 'Durg', 'Bhilai', 'Korba', 'Rajnandgaon', 'Jagdalpur'],
+                        data: [5, 4, 3, 2, 1, 1, 0],
+                        subtitle: 'Chhattisgarh: 16 Active DLEs across 7 districts'
+                    },
+                    'Jharkhand': {
+                        labels: ['Ranchi', 'Dhanbad', 'Bokaro', 'Jamshedpur', 'Deoghar', 'Hazaribagh', 'Giridih'],
+                        data: [4, 3, 2, 1, 1, 1, 0],
+                        subtitle: 'Jharkhand: 12 Active DLEs across 7 districts'
+                    },
+                    'Madhya Pradesh': {
+                        labels: ['Bhopal', 'Indore', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar', 'Rewa'],
+                        data: [3, 3, 2, 1, 1, 1, 0],
+                        subtitle: 'Madhya Pradesh: 11 Active DLEs across 7 districts'
+                    },
+                    'Rajasthan': {
+                        labels: ['Jaipur', 'Jodhpur', 'Kota', 'Bikaner', 'Ajmer', 'Udaipur', 'Alwar'],
+                        data: [3, 2, 2, 1, 1, 1, 0],
+                        subtitle: 'Rajasthan: 10 Active DLEs across 7 districts'
+                    },
+                    'Uttarakhand': {
+                        labels: ['Dehradun', 'Haridwar', 'Nainital', 'Roorkee', 'Haldwani', 'Almora', 'Rudrapur'],
+                        data: [3, 2, 1, 1, 1, 1, 0],
+                        subtitle: 'Uttarakhand: 9 Active DLEs across 7 districts'
+                    }
+                };
+
+                const stateSelect = document.getElementById('districtStateSelect');
+                const subtitleElem = document.getElementById('districtChartSubtitle');
+                const defaultState = (stateSelect && stateSelect.value) ? stateSelect.value : 'Bihar';
+                const initialInfo = districtDataByState[defaultState] || districtDataByState['Bihar'];
+
+                if (subtitleElem) {
+                    subtitleElem.textContent = initialInfo.subtitle;
+                }
+
+                const districtChart = new Chart(splineCtx, {
                     type: 'line',
                     data: {
-                        labels: ['Belagavi', 'Deoria', 'Patna', 'PATNA', 'Pilibhit', 'Vaishali', 'VAISHALI'],
+                        labels: initialInfo.labels,
                         datasets: [{
                             label: 'Active DLE',
-                            data: [1, 0.96, 0.98, 2, 1, 1.45, 1],
+                            data: initialInfo.data,
                             borderColor: '#2563eb',
                             backgroundColor: gradient,
                             borderWidth: 2.5,
@@ -2508,7 +2617,7 @@
                             pointBackgroundColor: '#2563eb',
                             pointBorderColor: '#ffffff',
                             pointBorderWidth: 2,
-                            pointRadius: [4, 4, 4, 5.5, 4, 4, 4],
+                            pointRadius: 4.5,
                             pointHoverRadius: 7
                         }]
                     },
@@ -2517,10 +2626,10 @@
                         maintainAspectRatio: false,
                         scales: {
                             y: {
-                                min: 0,
-                                max: 2,
+                                beginAtZero: true,
                                 ticks: {
                                     stepSize: 1,
+                                    precision: 0,
                                     font: { size: 11, family: 'Plus Jakarta Sans', weight: '600' },
                                     color: '#94a3b8'
                                 },
@@ -2552,7 +2661,9 @@
                                 cornerRadius: 8,
                                 displayColors: false,
                                 callbacks: {
-                                    title: () => '',
+                                    title: function (items) {
+                                        return items[0]?.label || '';
+                                    },
                                     label: function (context) {
                                         return `Active DLE : ${context.parsed.y}`;
                                     }
@@ -2561,6 +2672,21 @@
                         }
                     }
                 });
+
+                if (stateSelect) {
+                    stateSelect.addEventListener('change', function () {
+                        const selectedState = this.value;
+                        const stateInfo = districtDataByState[selectedState] || districtDataByState['All States'];
+
+                        districtChart.data.labels = stateInfo.labels;
+                        districtChart.data.datasets[0].data = stateInfo.data;
+                        districtChart.update();
+
+                        if (subtitleElem) {
+                            subtitleElem.textContent = stateInfo.subtitle;
+                        }
+                    });
+                }
             }
 
         });

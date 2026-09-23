@@ -14,14 +14,14 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
     <!-- Theme style (AdminLTE) -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="../../../dist/css/adminlte.min.css" />
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
@@ -287,7 +287,7 @@
         }
 
         .brand-link .brand-text {
-            font-size: 14.5px !important;
+            font-size: 18.5px !important;
             font-weight: 800 !important;
             color: #0b1f48 !important;
             letter-spacing: -0.2px;
@@ -375,24 +375,163 @@
             color: var(--primary-blue) !important;
         }
 
-        .nav-sidebar .nav-link .right,
-        .nav-sidebar .nav-link .right-arrow {
+        /* Chevron Right/Down Arrow for Dropdowns */
+        .nav-sidebar .nav-link .right-arrow,
+        .nav-sidebar .nav-link .right {
             margin-left: auto;
             font-size: 11px;
             color: #94a3b8;
             transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
             display: inline-block;
+            transform: rotate(0deg);
         }
 
-        .nav-sidebar .nav-link:hover .right,
-        .nav-sidebar .nav-link:hover .right-arrow {
+        .nav-sidebar .nav-link:hover .right-arrow,
+        .nav-sidebar .nav-link:hover .right {
             color: var(--primary-blue);
         }
 
-        .nav-item.has-treeview.menu-open > .nav-link .right,
-        .nav-item.menu-open > .nav-link .right {
+        /* Dropdown Opened State */
+        .nav-item.has-treeview.menu-open>.nav-link {
+            background: #f8fafc !important;
+            color: #1e3a8a !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-item.has-treeview.menu-open>.nav-link.active {
+            background: var(--sidebar-active-blue) !important;
+            color: #1d4ed8 !important;
+        }
+
+        .nav-item.has-treeview.menu-open>.nav-link .nav-icon {
+            color: var(--primary-blue) !important;
+        }
+
+        /* Chevron rotation when open */
+        .nav-item.has-treeview.menu-open>.nav-link .right-arrow,
+        .nav-item.menu-open>.nav-link .right-arrow,
+        .nav-item.has-treeview.menu-open>.nav-link .right,
+        .nav-item.menu-open>.nav-link .right {
             transform: rotate(180deg) !important;
             color: var(--primary-blue) !important;
+        }
+
+        /* Submenu Container (Treeview) - Pure CSS Smooth Max-Height Animation */
+        .main-sidebar .nav-sidebar .nav-treeview,
+        .sidebar .nav-sidebar .nav-treeview,
+        .nav-sidebar .nav-treeview,
+        .nav-treeview {
+            display: block !important;
+            list-style: none !important;
+            padding: 0 0 0 14px !important;
+            margin: 0 0 0 18px !important;
+            border-left: 1.5px solid #e2e8f0 !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                visibility 0.32s ease,
+                padding 0.32s ease,
+                margin 0.32s ease !important;
+        }
+
+        /* When menu-open: smooth slide down */
+        .main-sidebar .nav-sidebar .has-treeview.menu-open>.nav-treeview,
+        .sidebar .nav-sidebar .has-treeview.menu-open>.nav-treeview,
+        .nav-sidebar .has-treeview.menu-open>.nav-treeview,
+        .main-sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
+        .sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
+        .nav-sidebar .menu-open>.nav-treeview,
+        .nav-item.has-treeview.menu-open>.nav-treeview {
+            display: block !important;
+            max-height: 420px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            padding: 4px 0 4px 14px !important;
+            margin: 2px 0 4px 18px !important;
+        }
+
+        /* Submenu Links - Compact 12px Font */
+        .nav-treeview .nav-link {
+            padding: 6.5px 10px !important;
+            font-size: 12px !important;
+            color: #64748b !important;
+            font-weight: 500;
+            margin: 1.5px 0 !important;
+            border-radius: 6px;
+            gap: 8px;
+            border-left: none !important;
+        }
+
+        .nav-treeview .nav-link:hover {
+            background: #eff6ff !important;
+            color: var(--primary-blue) !important;
+            padding-left: 13px !important;
+        }
+
+        .nav-treeview .nav-link.active {
+            background: #e0edff !important;
+            color: #1d4ed8 !important;
+            font-weight: 700;
+            box-shadow: none;
+            border-left: none !important;
+            padding-left: 10px;
+        }
+
+        /* Bullet Indicator inside Submenu */
+        .nav-treeview .sub-bullet {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            display: inline-block;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .nav-treeview .nav-link:hover .sub-bullet,
+        .nav-treeview .nav-link.active .sub-bullet {
+            background-color: var(--primary-blue);
+            transform: scale(1.3);
+        }
+
+        .badge-subtle-blue {
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #dbeafe;
+        }
+
+        .badge-subtle-amber {
+            background: #fffbeb;
+            color: #d97706;
+            border: 1px solid #fde68a;
+        }
+
+        .badge-subtle-green {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* Logout Menu Item */
+        .logout-link {
+            margin-top: 20px !important;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 10px !important;
+            color: #64748b !important;
+        }
+
+        .logout-link:hover {
+            background: #fef2f2 !important;
+            color: #dc2626 !important;
+        }
+
+        .logout-link:hover .nav-icon {
+            color: #dc2626 !important;
         }
 
         /* Announcement Strip */
@@ -1449,7 +1588,7 @@
 
                     <!-- Profile Dropdown -->
                     <div class="dropdown">
-                        <img src="../images/userimg.jpg" class="profile-img" data-toggle="dropdown" alt="User Profile" 
+                        <img src="../../images/userimg.jpg" class="profile-img" data-toggle="dropdown" alt="User Profile" 
                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80';" />
                         <ul class="dropdown-menu dropdown-menu-right shadow">
                             <li class="user-box">
@@ -1480,7 +1619,7 @@
                 <div class="modal-content profile-modal">
                     <span class="close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></span>
                     <div class="modal-body text-center p-4">
-                        <img src="../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80" height="80"
+                        <img src="../../images/userimg.jpg" class="profile-photo mb-3 rounded-circle" width="80" height="80"
                             onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80';">
                         <h5 class="user-name fw-bold">Pravesh Ahamad</h5>
                         <p class="user-email text-muted">@parvesahamad</p>
@@ -1522,9 +1661,11 @@
 
         <!-- Sidebar -->
         <aside class="main-sidebar elevation-4 shadow">
-            <a href="./klkhome.html" class="brand-link">
+            <!-- Brand Logo -->
+            <a href="./DleDashboard.html" class="brand-link">
                 <div class="brand-logo-wrap">
-                    <img src="../images/logo-s.png" alt="KLK Logo" class="img-fluid" style="max-height: 24px; width: auto;"
+                    <img src="../../images/logo-s.png" alt="KLK Logo"
+                        class="img-fluid" style="max-height: 24px; width: auto;"
                         onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3067/3067256.png';" />
                 </div>
                 <div class="brand-title-box">
@@ -1537,25 +1678,45 @@
                     <nav class="mt-1">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item">
-                                <a href="./vendordashboard2.html" class="nav-link active">
+                                <a href="./DleDashboard.html" class="nav-link">
                                     <i class="bi bi-house-door-fill nav-icon"></i>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
 
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link active">
                                     <i class="bi bi-file-earmark-text nav-icon"></i>
                                     <p>
                                         DLE Management
-                                        <i class="fas fa-chevron-down right"></i>
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item"><a href="./Mohit.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Add DLE / Vendor</p></a></li>
-                                    <li class="nav-item"><a href="./klkhome.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>View DLE / Vendor</p></a></li>
-                                    <li class="nav-item"><a href="./bihar-ssl-assign-light.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Assign Light</p></a></li>
-                                    <li class="nav-item"><a href="./bihar-ssl-verify-light.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Verify Light</p></a></li>
+                                    <li class="nav-item">
+                                        <a href="./Dle_form.html" class="nav-link active">
+                                            <span class="sub-bullet"></span>
+                                            <p>Add DLE / Vendor</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./dleuser.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>View DLE / User Table</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Assign Light</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Verify Light</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -1564,14 +1725,34 @@
                                     <i class="bi bi-geo-alt nav-icon"></i>
                                     <p>
                                         District
-                                        <i class="fas fa-chevron-down right"></i>
+                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item"><a href="./bihar-ssl-dashboard.html" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Bihar</p></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i><p>UP</p></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Karnataka</p></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Assam</p></a></li>
+                                    <li class="nav-item">
+                                        <a href="./bihar-ssl-dashboard.html" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Bihar</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>UP</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Karnataka</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Assam</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -1630,7 +1811,7 @@
                         <div class="hero-accent-bar-bottom"></div>
                     </div>
                     <div class="hero-right-image">
-                        <img src="../images/bg3.avif" alt="Sustainable Solar Energy Hillside"
+                        <img src="../../images/bg3.avif" alt="Sustainable Solar Energy Hillside"
                             class="hero-solar-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391365360-2e959784a276?w=800&auto=format&fit=crop&q=80';" />
                     </div>
                 </section>
@@ -2054,14 +2235,14 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../../plugins/jquery/jquery.min.js"></script>
     <script>
         if (typeof jQuery === 'undefined') {
             document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>');
         }
     </script>
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../dist/js/adminlte.min.js"></script>
 
     <!-- Custom Dropdown Controller & Form Sync Script -->
     <script>
@@ -2279,6 +2460,56 @@
 
                 alert('✓ DLE Record successfully created!\n\nDistrict: ' + district + '\nBlock: ' + block + '\nPanchayat: ' + panchayat + '\nUID: ' + uid);
             });
+
+            // Profile Modal Password toggle
+            const changeBtn = document.getElementById("changePassBtn");
+            const passFields = document.getElementById("passwordFields");
+            const profileInfo = document.querySelector(".profile-info");
+            const cancelBtn = document.getElementById("cancelPassBtn");
+
+            if (changeBtn) {
+                changeBtn.addEventListener("click", function () {
+                    passFields.style.display = "block";
+                    profileInfo.style.display = "none";
+                    changeBtn.style.display = "none";
+                });
+            }
+
+            if (cancelBtn) {
+                cancelBtn.addEventListener("click", function () {
+                    resetProfileModal();
+                });
+            }
+
+            document.querySelectorAll(".password-toggle").forEach(icon => {
+                icon.addEventListener("click", () => {
+                    const input = document.getElementById(icon.getAttribute("data-target"));
+                    if (input.type === "password") {
+                        input.type = "text";
+                        icon.classList.remove("bi-eye-slash");
+                        icon.classList.add("bi-eye");
+                    } else {
+                        input.type = "password";
+                        icon.classList.remove("bi-eye");
+                        icon.classList.add("bi-eye-slash");
+                    }
+                });
+            });
+
+            function resetProfileModal() {
+                if (passFields) passFields.style.display = "none";
+                if (profileInfo) profileInfo.style.display = "block";
+                if (changeBtn) changeBtn.style.display = "block";
+                const np = document.getElementById("newPass");
+                const cp = document.getElementById("confirmPass");
+                if (np) np.value = "";
+                if (cp) cp.value = "";
+            }
+
+            const yearElem = document.getElementById("year");
+            if (yearElem) {
+                yearElem.textContent = new Date().getFullYear();
+            }
         });
     </script>
 
