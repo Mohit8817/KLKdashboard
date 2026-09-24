@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
     <!-- DLE Consolidated External Stylesheet -->
-    <link rel="stylesheet" href="DleCSS.css" />
+    <link rel="stylesheet" href="DleCSS.css?v=2.2" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -190,48 +190,124 @@
                                 </a>
                             </li>
 
+                            <!-- 2. DLE Management (Menu Open) -->
                             <li class="nav-item has-treeview menu-open">
                                 <a href="#" class="nav-link active">
                                     <i class="bi bi-file-earmark-text nav-icon"></i>
                                     <p>
                                         DLE Management
-                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                        <i class="fas fa-chevron-down right"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="./Dle_form.html" class="nav-link active">
+                                    <!-- Submenu 1: Add DLE / Vendor (Dropdown with nested menus inside - Active on this page) -->
+                                    <li class="nav-item has-treeview menu-open">
+                                        <a href="#" class="nav-link active">
                                             <span class="sub-bullet"></span>
-                                            <p>Add DLE / Vendor</p>
+                                            <p>
+                                                Add DLE / Vendor
+                                                <i class="fas fa-chevron-down right"></i>
+                                            </p>
                                         </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="./Dle_form.html" class="nav-link active">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>New DLE Registration</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="./Dle_form.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Vendor Onboarding</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="javascript:void(0);" onclick="alert('Bulk CSV / Excel import feature.');" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Bulk Upload / Import</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="./dleuser.html" class="nav-link">
+
+                                    <!-- Submenu 2: View DLE / User Table (Dropdown with nested menus inside) -->
+                                    <li class="nav-item has-treeview">
+                                        <a href="#" class="nav-link">
                                             <span class="sub-bullet"></span>
-                                            <p>View DLE / User Table</p>
+                                            <p>
+                                                View DLE / User Table
+                                                <i class="fas fa-chevron-down right"></i>
+                                            </p>
                                         </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="./dleuser.html" onclick="if(window.resetDleFilters) resetDleFilters();" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>All DLE Users Master</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="./dleuser.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Active Users Directory</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="./dleuser.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Pending Approvals</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="./dleuser.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Inactive Users</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="./bihar-ssl-assign-light.html" class="nav-link">
+
+                                    <!-- Submenu 3: Light Operations -->
+                                    <li class="nav-item has-treeview">
+                                        <a href="#" class="nav-link">
                                             <span class="sub-bullet"></span>
-                                            <p>Assign Light</p>
+                                            <p>
+                                                Light Operations
+                                                <i class="fas fa-chevron-down right"></i>
+                                            </p>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="./bihar-ssl-verify-light.html" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Verify Light</p>
-                                        </a>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="./bihar-ssl-assign-light.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Assign Light</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="./bihar-ssl-verify-light.html" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Verify Light</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="javascript:void(0);" onclick="alert('Light Installation & Verification History archive.');" class="nav-link">
+                                                    <span class="sub-sub-bullet"></span>
+                                                    <p>Installation History</p>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </li>
 
+                            <!-- 3. District (Dropdown V) -->
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="bi bi-geo-alt nav-icon"></i>
                                     <p>
                                         District
-                                        <i class="fas fa-chevron-down right" style="font-size: 11px;"></i>
+                                        <i class="fas fa-chevron-down right"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
@@ -242,19 +318,19 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Uttar Pradesh');" class="nav-link">
                                             <span class="sub-bullet"></span>
-                                            <p>UP</p>
+                                            <p>Uttar Pradesh</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Karnataka');" class="nav-link">
                                             <span class="sub-bullet"></span>
                                             <p>Karnataka</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Assam');" class="nav-link">
                                             <span class="sub-bullet"></span>
                                             <p>Assam</p>
                                         </a>
@@ -262,14 +338,74 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="#" class="nav-link"><i class="bi bi-bar-chart-line nav-icon"></i><p>Reports</p></a>
+                            <!-- 4. Reports -->
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-bar-chart-line nav-icon"></i>
+                                    <p>
+                                        Reports
+                                        <i class="fas fa-chevron-down right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" onclick="alert('DLE Summary Report');" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>DLE Summary Report</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" onclick="alert('Police Verification & KYC Status Report');" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Verification SLA Report</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" onclick="alert('District Coverage & Performance Analytics');" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>District Coverage Report</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link"><i class="bi bi-gear nav-icon"></i><p>Settings</p></a>
+
+                            <!-- 5. Settings (Dropdown V) -->
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="bi bi-gear nav-icon"></i>
+                                    <p>
+                                        Settings
+                                        <i class="fas fa-chevron-down right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal">
+                                            <span class="sub-bullet"></span>
+                                            <p>Profile Settings</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal" onclick="setTimeout(function(){ $('#changePassBtn').trigger('click'); }, 300);">
+                                            <span class="sub-bullet"></span>
+                                            <p>Change Password</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="javascript:void(0);" onclick="alert('System preferences configuration.');" class="nav-link">
+                                            <span class="sub-bullet"></span>
+                                            <p>Preferences</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
+
+                            <!-- 6. Logout -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-danger"><i class="bi bi-box-arrow-right nav-icon text-danger"></i><p class="text-danger">Logout</p></a>
+                                <a href="#" class="nav-link text-danger">
+                                    <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                                    <p class="text-danger">Logout</p>
+                                </a>
                             </li>
                         </ul>
                     </nav>

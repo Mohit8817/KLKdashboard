@@ -85,6 +85,24 @@ function initDynamicYear() {
     }
 }
 
+/**
+ * 1.4 Sidebar Multi-Level Submenu Toggle Controller
+ * Enables seamless dropdown toggle for nested Level 2 and Level 3 submenus.
+ */
+function initSidebarMultiLevel() {
+    if (typeof $ === 'undefined') return;
+
+    $('.sidebar').off('click.dleNested', '.nav-treeview .has-treeview > .nav-link').on('click.dleNested', '.nav-treeview .has-treeview > .nav-link', function (e) {
+        const nextSub = $(this).next('.nav-treeview');
+        if (nextSub.length) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentItem = $(this).closest('.nav-item');
+            parentItem.toggleClass('menu-open');
+        }
+    });
+}
+
 
 /* ==========================================================================
    2. DLE DASHBOARD SPECIFIC SCRIPTS
@@ -528,10 +546,117 @@ function initDleRegistrationForm() {
    4. DLE USER DIRECTORY TABLE SPECIFIC SCRIPTS
    ========================================================================== */
 
+// 4.0 Register custom DataTables search filter for State, Approval, and Status dropdowns
+if (typeof $ !== 'undefined' && $.fn && $.fn.dataTable && !$.fn.dataTable.ext.search._dleFilterRegistered) {
+    $.fn.dataTable.ext.search.push(function (settings, data, dataIndex, rowData, counter) {
+        if (settings.sTableId !== 'example1') return true;
+
+        const stateFilter = (document.getElementById('filterState')?.value || '').trim();
+        const approvalFilter = (document.getElementById('filterApproval')?.value || '').trim();
+        const statusFilter = (document.getElementById('filterStatus')?.value || '').trim();
+
+        // data[1] = State, data[12] = Approval Status, data[13] = Status
+        const stateText = (data[1] || '').trim();
+        const approvalText = (data[12] || '').trim();
+        const statusText = (data[13] || '').trim();
+
+        if (stateFilter && !stateText.toLowerCase().includes(stateFilter.toLowerCase())) {
+            return false;
+        }
+        if (approvalFilter && !approvalText.toLowerCase().includes(approvalFilter.toLowerCase())) {
+            return false;
+        }
+        if (statusFilter && !statusText.toLowerCase().includes(statusFilter.toLowerCase())) {
+            return false;
+        }
+        return true;
+    });
+    $.fn.dataTable.ext.search._dleFilterRegistered = true;
+}
+
 /**
- * 4.1 Real-Time Filter & Search Function for User Directory Table
+ * 4.1 Initialize AdminLTE Theme DataTables with Export Buttons & Theme Pagination
+ */
+function initDleUserTable() {
+    if (typeof $ === 'undefined' || !$.fn.DataTable) return;
+    const tableEl = $('#example1');
+    if (!tableEl.length) return;
+
+    if (!$.fn.DataTable.isDataTable('#example1')) {
+        const table = tableEl.DataTable({
+            responsive: false,
+            scrollX: true,
+            scrollCollapse: true,
+            lengthChange: false,
+            autoWidth: false,
+            buttons: [
+                {
+                    extend: 'copy',
+                    text: '<i class="fas fa-copy me-1 mr-1 text-secondary"></i> '
+                },
+                {
+                    extend: 'csv',
+                    text: '<i class="fas fa-file-csv me-1 mr-1 text-info"></i> '
+                },
+                {
+                    extend: 'excel',
+                    text: '<i class="fas fa-file-excel me-1 mr-1 text-success"></i> '
+                },
+                {
+                    extend: 'pdf',
+                    text: '<i class="fas fa-file-pdf me-1 mr-1 text-danger"></i> '
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fas fa-print me-1 mr-1 text-primary"></i> '
+                },
+                {
+                    extend: 'colvis',
+                    text: '<i class="fas fa-columns me-1 mr-1 text-muted"></i> Column visibility'
+                }
+            ],
+            columnDefs: [
+                { orderable: false, targets: [11, 15] } // Non-sortable for Documents and Action columns
+            ]
+        });
+
+        // Append theme export buttons container to top row
+        table.buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+        // Synchronize record badge counter on every table draw/filter & adjust column widths
+        table.on('draw', function () {
+            const info = table.page.info();
+            const badge = document.getElementById('visibleCountBadge');
+            if (badge) {
+                badge.innerHTML = `<i class="bi bi-circle-fill text-success" style="font-size: 7px;"></i> ${info.recordsDisplay} Records`;
+            }
+            table.columns.adjust();
+        });
+
+        // Adjust column alignment after initial render and on resize
+        setTimeout(function () {
+            table.columns.adjust();
+        }, 150);
+
+        $(window).on('resize', function () {
+            table.columns.adjust();
+        });
+    }
+}
+
+/**
+ * 4.2 Real-Time Filter & Search Function for User Directory Table
  */
 function filterDleTable() {
+    if (typeof $ !== 'undefined' && $.fn.DataTable && $.fn.DataTable.isDataTable('#example1')) {
+        const table = $('#example1').DataTable();
+        const searchInput = document.getElementById('dleUserSearch');
+        const query = (searchInput?.value || '').trim();
+        table.search(query).draw();
+        return;
+    }
+
+    // Fallback if DataTables is not yet active
     const searchInput = document.getElementById('dleUserSearch');
     const query = (searchInput?.value || '').toLowerCase().trim();
     const stateFilter = document.getElementById('filterState')?.value || '';
@@ -570,7 +695,7 @@ function filterDleTable() {
 }
 
 /**
- * 4.2 Reset All Table Filters and Search
+ * 4.3 Reset All Table Filters and Search
  */
 function resetDleFilters() {
     const search = document.getElementById('dleUserSearch');
@@ -581,22 +706,50 @@ function resetDleFilters() {
     if (state) state.value = '';
     if (app) app.value = '';
     if (st) st.value = '';
-    filterDleTable();
-}
 
-/**
- * 4.3 Quick State Filter from Sidebar or External Link
- */
-function filterByState(stateName) {
-    const state = document.getElementById('filterState');
-    if (state) {
-        state.value = stateName;
+    if (typeof $ !== 'undefined' && $.fn.DataTable && $.fn.DataTable.isDataTable('#example1')) {
+        const table = $('#example1').DataTable();
+        table.search('').columns().search('').draw();
+    } else {
         filterDleTable();
     }
 }
 
 /**
- * 4.4 Open Documents Modal with User Details
+ * 4.4 Quick State Filter from Sidebar or External Link
+ */
+function filterByState(stateName) {
+    const state = document.getElementById('filterState');
+    if (state) {
+        state.value = stateName;
+    }
+    filterDleTable();
+}
+
+/**
+ * 4.4a Quick Status Filter from Sidebar or External Link
+ */
+function filterByStatus(statusVal) {
+    const statusSelect = document.getElementById('filterStatus');
+    if (statusSelect) {
+        statusSelect.value = statusVal;
+    }
+    filterDleTable();
+}
+
+/**
+ * 4.4b Quick Approval Filter from Sidebar or External Link
+ */
+function filterByApproval(approvalVal) {
+    const approvalSelect = document.getElementById('filterApproval');
+    if (approvalSelect) {
+        approvalSelect.value = approvalVal;
+    }
+    filterDleTable();
+}
+
+/**
+ * 4.5 Open Documents Modal with User Details
  */
 function openDocModal(name, district, state) {
     const title = document.getElementById('docModalUserTitle');
@@ -678,6 +831,11 @@ function approveRow(el) {
     const statusCell = tr.children[13];
     if (statusCell) {
         statusCell.innerHTML = `<span class="status-dot-pill status-active"><span class="dot-green"></span> Active</span>`;
+    }
+
+    if (typeof $ !== 'undefined' && $.fn.DataTable && $.fn.DataTable.isDataTable('#example1')) {
+        const table = $('#example1').DataTable();
+        table.rows().invalidate().draw(false);
     }
 
     alert('DLE User approved and marked Active!');
@@ -778,7 +936,13 @@ function submitNewDle() {
         </td>
     `;
 
-    tbody.appendChild(newRow);
+    if (typeof $ !== 'undefined' && $.fn.DataTable && $.fn.DataTable.isDataTable('#example1')) {
+        const table = $('#example1').DataTable();
+        table.row.add($(newRow)).draw(false);
+    } else {
+        tbody.appendChild(newRow);
+    }
+
     if (typeof $ !== 'undefined' && $('#addDleModal').length) {
         $('#addDleModal').modal('hide');
     }
@@ -792,9 +956,18 @@ function submitNewDle() {
 }
 
 /**
- * 4.9 Export HTML Table to CSV File
+ * 4.9 Export HTML Table to CSV File (Triggers DataTables CSV button or falls back to DOM export)
  */
 function exportTableToCSV(tableId, filename) {
+    if (typeof $ !== 'undefined' && $.fn.DataTable && $.fn.DataTable.isDataTable('#' + tableId)) {
+        const table = $('#' + tableId).DataTable();
+        const csvBtn = table.button('.buttons-csv');
+        if (csvBtn && csvBtn.length) {
+            csvBtn.trigger();
+            return;
+        }
+    }
+
     const table = document.getElementById(tableId);
     if (!table) return;
     let csv = [];
@@ -827,9 +1000,13 @@ function exportTableToCSV(tableId, filename) {
    ========================================================================== */
 
 // Attach table action and modal functions to window for inline HTML onclick handlers
+window.initSidebarMultiLevel = initSidebarMultiLevel;
+window.initDleUserTable = initDleUserTable;
 window.filterDleTable = filterDleTable;
 window.resetDleFilters = resetDleFilters;
 window.filterByState = filterByState;
+window.filterByStatus = filterByStatus;
+window.filterByApproval = filterByApproval;
 window.openDocModal = openDocModal;
 window.openProfileModal = openProfileModal;
 window.approveRow = approveRow;
@@ -844,8 +1021,10 @@ window.resetProfileModal = resetProfileModal;
 function initDleMaster() {
     initDynamicYear();
     initProfileModal();
+    initSidebarMultiLevel();
     initDleDashboardCharts();
     initDleRegistrationForm();
+    initDleUserTable();
 }
 
 // Bind initialization to DOM ready events

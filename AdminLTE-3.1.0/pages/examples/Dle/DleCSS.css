@@ -303,39 +303,43 @@ body {
 
 /* Main Nav Links */
 .nav-sidebar .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8.5px 12px;
-    margin: 2px 2px;
-    border-radius: 8px;
-    font-size: 12.8px;
+    display: flex !important;
+    align-items: center !important;
+    position: relative !important;
+    gap: 10px !important;
+    padding: 8.5px 36px 8.5px 12px !important;
+    margin: 2px 2px !important;
+    border-radius: 8px !important;
+    font-size: 12.8px !important;
     color: #334155 !important;
-    font-weight: 500;
-    transition: all 0.18s ease-in-out;
-    cursor: pointer;
+    font-weight: 500 !important;
+    transition: all 0.18s ease-in-out !important;
+    cursor: pointer !important;
     text-decoration: none !important;
-    user-select: none;
+    user-select: none !important;
 }
 
 .nav-sidebar .nav-link .nav-icon {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-    font-size: 15.5px;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.18s ease;
+    width: 20px !important;
+    min-width: 20px !important;
+    height: 20px !important;
+    font-size: 15.5px !important;
+    color: #64748b !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: color 0.18s ease !important;
+    flex-shrink: 0 !important;
 }
 
 .nav-sidebar .nav-link p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    white-space: nowrap;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: auto !important;
+    white-space: nowrap !important;
 }
 
 /* Nav Link Hover State */
@@ -352,54 +356,73 @@ body {
 .nav-sidebar .nav-link.active {
     background: var(--sidebar-active-blue) !important;
     color: #1d4ed8 !important;
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-    border-left: 3.5px solid var(--primary-blue);
-    padding-left: 9px;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08) !important;
+    border-left: 3.5px solid var(--primary-blue) !important;
+    padding-left: 9px !important;
 }
 
 .nav-sidebar .nav-link.active .nav-icon {
     color: var(--primary-blue) !important;
 }
 
-/* Chevron Right/Down Arrow for Dropdowns */
+/* Chevron Right/Down Arrow for Dropdowns (Level 1) */
 .nav-sidebar .nav-link .right-arrow,
-.nav-sidebar .nav-link .right {
-    margin-left: auto;
-    font-size: 11px;
-    color: #94a3b8;
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
-    display: inline-block;
-    transform: rotate(0deg);
+.nav-sidebar .nav-link .right,
+.nav-sidebar .nav-link > p > .right,
+.nav-sidebar .nav-link > .right {
+    position: absolute !important;
+    right: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    font-size: 11px !important;
+    color: #64748b !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 14px !important;
+    height: 14px !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease !important;
 }
 
 .nav-sidebar .nav-link:hover .right-arrow,
-.nav-sidebar .nav-link:hover .right {
-    color: var(--primary-blue);
+.nav-sidebar .nav-link:hover .right,
+.nav-sidebar .nav-link:hover > p > .right {
+    color: var(--primary-blue) !important;
 }
 
 /* Dropdown Opened State */
-.nav-item.has-treeview.menu-open>.nav-link {
+.nav-item.has-treeview.menu-open > .nav-link {
     background: #f8fafc !important;
     color: #1e3a8a !important;
     font-weight: 600 !important;
 }
 
-.nav-item.has-treeview.menu-open>.nav-link.active {
+.nav-item.has-treeview.menu-open > .nav-link.active {
     background: var(--sidebar-active-blue) !important;
     color: #1d4ed8 !important;
 }
 
-.nav-item.has-treeview.menu-open>.nav-link .nav-icon {
+.nav-item.has-treeview.menu-open > .nav-link .nav-icon {
     color: var(--primary-blue) !important;
 }
 
-/* Chevron rotation when open */
-.nav-item.has-treeview.menu-open>.nav-link .right-arrow,
-.nav-item.menu-open>.nav-link .right-arrow,
-.nav-item.has-treeview.menu-open>.nav-link .right,
-.nav-item.menu-open>.nav-link .right {
-    transform: rotate(180deg) !important;
+/* Level 1 Chevron rotation when open */
+.nav-item.has-treeview.menu-open > .nav-link .right-arrow,
+.nav-item.menu-open > .nav-link .right-arrow,
+.nav-item.has-treeview.menu-open > .nav-link .right,
+.nav-item.menu-open > .nav-link .right,
+.nav-item.has-treeview.menu-open > .nav-link > p > .right,
+.nav-item.menu-open > .nav-link > p > .right,
+.nav-item.has-treeview.menu-is-opening > .nav-link .right,
+.nav-item.has-treeview.menu-is-opening > .nav-link > p > .right {
+    transform: translateY(-50%) rotate(180deg) !important;
     color: var(--primary-blue) !important;
 }
 
@@ -432,9 +455,10 @@ body {
 .main-sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
 .sidebar .nav-sidebar .nav-item.menu-open>.nav-treeview,
 .nav-sidebar .menu-open>.nav-treeview,
-.nav-item.has-treeview.menu-open>.nav-treeview {
+.nav-item.has-treeview.menu-open>.nav-treeview,
+.nav-item.menu-is-opening>.nav-treeview {
     display: block !important;
-    max-height: 420px !important;
+    max-height: 2500px !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
@@ -442,16 +466,17 @@ body {
     margin: 2px 0 4px 18px !important;
 }
 
-/* Submenu Links */
+/* Submenu Links (Level 2) */
 .nav-treeview .nav-link {
-    padding: 6.5px 10px !important;
+    padding: 6.5px 32px 6.5px 10px !important;
     font-size: 12px !important;
     color: #64748b !important;
-    font-weight: 500;
+    font-weight: 500 !important;
     margin: 1.5px 0 !important;
-    border-radius: 6px;
-    gap: 8px;
+    border-radius: 6px !important;
+    gap: 8px !important;
     border-left: none !important;
+    position: relative !important;
 }
 
 .nav-treeview .nav-link:hover {
@@ -463,13 +488,107 @@ body {
 .nav-treeview .nav-link.active {
     background: #e0edff !important;
     color: #1d4ed8 !important;
-    font-weight: 700;
-    box-shadow: none;
+    font-weight: 700 !important;
+    box-shadow: none !important;
     border-left: none !important;
-    padding-left: 10px;
+    padding-left: 10px !important;
 }
 
-/* Bullet Indicator inside Submenu */
+/* Level 2 items with nested dropdowns */
+.nav-sidebar .nav-treeview .has-treeview > .nav-link,
+.nav-treeview .has-treeview > .nav-link {
+    padding-right: 36px !important;
+    position: relative !important;
+}
+
+.nav-sidebar .nav-treeview .has-treeview > .nav-link .right,
+.nav-sidebar .nav-treeview .has-treeview > .nav-link > p > .right,
+.nav-treeview .has-treeview > .nav-link .right,
+.nav-treeview .has-treeview > .nav-link > p > .right,
+.sidebar .nav-treeview .has-treeview .right {
+    font-size: 11px !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(0deg) !important;
+    margin: 0 !important;
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease !important;
+    color: #64748b !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 25 !important;
+}
+
+.nav-sidebar .nav-treeview .has-treeview > .nav-link:hover .right,
+.nav-sidebar .nav-treeview .has-treeview > .nav-link:hover > p > .right,
+.nav-treeview .has-treeview > .nav-link:hover .right,
+.nav-treeview .has-treeview > .nav-link:hover > p > .right {
+    color: var(--primary-blue) !important;
+}
+
+.nav-sidebar .nav-treeview .has-treeview.menu-open > .nav-link .right,
+.nav-sidebar .nav-treeview .has-treeview.menu-open > .nav-link > p > .right,
+.nav-sidebar .nav-treeview .has-treeview.menu-is-opening > .nav-link .right,
+.nav-sidebar .nav-treeview .has-treeview.menu-is-opening > .nav-link > p > .right,
+.nav-treeview .has-treeview.menu-open > .nav-link .right,
+.nav-treeview .has-treeview.menu-open > .nav-link > p > .right,
+.nav-treeview .has-treeview.menu-is-opening > .nav-link .right,
+.nav-treeview .has-treeview.menu-is-opening > .nav-link > p > .right {
+    transform: translateY(-50%) rotate(180deg) !important;
+    color: var(--primary-blue) !important;
+}
+
+.nav-sidebar .nav-treeview .has-treeview.menu-open > .nav-link,
+.nav-treeview .has-treeview.menu-open > .nav-link {
+    background: #f1f5f9 !important;
+    color: #1e3a8a !important;
+    font-weight: 600 !important;
+}
+
+/* Level 3 Sub-Submenu Container */
+.nav-treeview .nav-treeview {
+    padding: 0 0 0 10px !important;
+    margin: 0 0 0 12px !important;
+    border-left: 1.5px dashed #cbd5e1 !important;
+}
+
+.nav-treeview .nav-item.menu-open > .nav-treeview,
+.nav-treeview .nav-item.menu-is-opening > .nav-treeview {
+    padding: 3px 0 3px 10px !important;
+    margin: 2px 0 3px 12px !important;
+    border-left: 1.5px dashed #93c5fd !important;
+}
+
+/* Level 3 Links */
+.nav-treeview .nav-treeview .nav-link {
+    padding: 5px 8px 5px 8px !important;
+    font-size: 11.2px !important;
+    color: #64748b !important;
+    margin: 1px 0 !important;
+    border-radius: 5px;
+    gap: 7px;
+}
+
+.nav-treeview .nav-treeview .nav-link:hover {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    padding-left: 11px !important;
+}
+
+.nav-treeview .nav-treeview .nav-link.active {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+    font-weight: 700;
+}
+
+/* Bullet Indicator inside Submenu (Level 2) */
 .nav-treeview .sub-bullet {
     width: 5px;
     height: 5px;
@@ -484,6 +603,23 @@ body {
 .nav-treeview .nav-link.active .sub-bullet {
     background-color: var(--primary-blue);
     transform: scale(1.3);
+}
+
+/* Bullet Indicator inside Sub-Submenu (Level 3) */
+.sub-sub-bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #94a3b8;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.nav-treeview .nav-treeview .nav-link:hover .sub-sub-bullet,
+.nav-treeview .nav-treeview .nav-link.active .sub-sub-bullet {
+    background-color: var(--primary-blue);
+    transform: scale(1.4);
 }
 
 .badge-subtle-blue {
@@ -3067,4 +3203,238 @@ body {
     background: #ffffff;
     border-color: #cbd5e1;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================================================
+   4.10 ADMINLTE THEME DATATABLES, EXPORT BUTTONS & PAGINATION
+   ========================================================================== */
+#example1_wrapper {
+    padding: 16px 20px 20px 20px;
+}
+
+#example1_wrapper .row:first-child {
+    margin-bottom: 14px;
+    align-items: center;
+}
+
+#example1_wrapper .row:last-child {
+    margin-top: 14px;
+    align-items: center;
+}
+
+/* DataTables Sorting Arrow padding fix */
+#example1 thead th.sorting,
+#example1 thead th.sorting_asc,
+#example1 thead th.sorting_desc {
+    padding-right: 28px !important;
+    cursor: pointer;
+}
+
+/* AdminLTE Theme Export Buttons (Copy, CSV, Excel, PDF, Print, Colvis) */
+#example1_wrapper .dt-buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+#example1_wrapper .dt-buttons .btn {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 7px !important;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#example1_wrapper .dt-buttons .btn:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+#example1_wrapper .dt-buttons .btn:active,
+#example1_wrapper .dt-buttons .btn.active {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #1d4ed8;
+}
+
+/* Built-in DataTables Search Box */
+#example1_filter {
+    text-align: right;
+    margin-bottom: 6px;
+}
+
+#example1_filter label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#example1_filter input {
+    height: 33px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 4px 10px;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+#example1_filter input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* DataTables Info Text */
+#example1_info {
+    font-size: 11.8px;
+    font-weight: 500;
+    color: #64748b;
+    padding-top: 6px;
+}
+
+/* DataTables Pagination (AdminLTE Bootstrap 4 Theme) */
+#example1_paginate {
+    text-align: right;
+}
+
+#example1_paginate .pagination {
+    margin-bottom: 0;
+    justify-content: flex-end;
+    gap: 3px;
+}
+
+#example1_paginate .page-item .page-link {
+    font-size: 11.8px;
+    font-weight: 600;
+    color: #475569;
+    border-radius: 7px !important;
+    border: 1px solid #e2e8f0;
+    padding: 5px 11px;
+    background: #ffffff;
+    transition: all 0.18s ease;
+}
+
+#example1_paginate .page-item:not(.active):not(.disabled) .page-link:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+#example1_paginate .page-item.active .page-link {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 7px rgba(37, 99, 235, 0.25);
+}
+
+#example1_paginate .page-item.disabled .page-link {
+    color: #94a3b8;
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    cursor: not-allowed;
+}
+
+/* Colvis Dropdown Menu */
+div.dt-button-collection {
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    padding: 6px;
+    background: #ffffff;
+}
+
+div.dt-button-collection .dt-button {
+    border-radius: 6px !important;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    color: #334155;
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+div.dt-button-collection .dt-button:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+div.dt-button-collection .dt-button.active {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* 4.11 DataTables Horizontal Scroll Container & Custom Scrollbar */
+.dataTables_scroll {
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.dataTables_scrollHead {
+    background-color: #f8fafc;
+    border-bottom: 1.5px solid #cbd5e1 !important;
+}
+
+.dataTables_scrollHead table {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+.dataTables_scrollBody {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    border-top: none !important;
+}
+
+.dataTables_scrollBody table {
+    margin-bottom: 0 !important;
+    border-top: none !important;
+}
+
+/* Custom sleek scrollbar for horizontal scroll table */
+.dataTables_scrollBody::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+#example1_wrapper .dt-buttons .btn i {
+    font-size: 12px;
+    line-height: 1;
 }
