@@ -86,21 +86,18 @@ function initDynamicYear() {
 }
 
 /**
- * 1.4 Sidebar Multi-Level Submenu Toggle Controller
- * Enables seamless dropdown toggle for nested Level 2 and Level 3 submenus.
+ * 1.4 Sidebar Treeview Helper
+ * AdminLTE v3 treeview handles all levels of nested dropdowns and animations natively.
  */
 function initSidebarMultiLevel() {
     if (typeof $ === 'undefined') return;
-
-    $('.sidebar').off('click.dleNested', '.nav-treeview .has-treeview > .nav-link').on('click.dleNested', '.nav-treeview .has-treeview > .nav-link', function (e) {
-        const nextSub = $(this).next('.nav-treeview');
-        if (nextSub.length) {
-            e.preventDefault();
-            e.stopPropagation();
-            const parentItem = $(this).closest('.nav-item');
-            parentItem.toggleClass('menu-open');
-        }
-    });
+    if ($.fn.Treeview) {
+        $('[data-widget="treeview"]').each(function () {
+            if (!$(this).data('lte.treeview')) {
+                $(this).Treeview('init');
+            }
+        });
+    }
 }
 
 

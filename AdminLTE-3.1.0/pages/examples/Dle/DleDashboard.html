@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 
     <!-- DLE Consolidated External Stylesheet -->
-    <link rel="stylesheet" href="DleCSS.css?v=2.2" />
+    <link rel="stylesheet" href="DleCSS.css?v=3.0" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -43,7 +43,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                                class="fas fa-bars"></i></a>
+                                class="bi bi-list fs-5"></i></a>
                     </li>
                 </ul>
 
@@ -187,266 +187,535 @@
         </div>
 
         <!-- ===================================================
-             PROFESSIONAL SIDEBAR CONTAINER (WHITE BG + BLUE THEME + DROPDOWNS)
+             MAIN SIDEBAR CONTAINER (MATCHING Vendorsidebar.html)
              =================================================== -->
-        <aside class="main-sidebar elevation-4 shadow">
-            <!-- SUBSECTION 5.1: BRAND LOGO START -->
-         <!-- Brand Logo -->
-            <a href="./DleDashboard.html" class="brand-link">
-                <div class="brand-logo-wrap">
-                    <img src="../../images/logo-s.png" alt="KLK Logo"
-                        class="img-fluid" style="max-height: 24px; width: auto;"
-                        onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3067/3067256.png';" />
-                </div>
-                <div class="brand-title-box">
-                    <span class="brand-text">KLK VENTURES</span>
-                </div>
-            </a>
-            <!-- SUBSECTION 5.1: BRAND LOGO END -->
+         <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4 shadow">
+      <!-- Brand Logo -->
+      <a href="./klkhome.html" class="brand-link border-bottom shadow-sm border-2">
+        <img src="../images/klkhalflogo.webp" alt="AdminLTE Logo"
+          class="brand-image  bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
+        <span class="brand-text text-light">KLK Vendor Bihar</span>
+      </a>/
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Scrollable Navigation Menu Wrap -->
-                <div class="sidebar-menu-wrapper">
-                    <!-- SUBSECTION 5.2: NAVIGATION MENU START -->
-                    <nav class="mt-1">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
 
-                            <!-- 1. Dashboard (Active royal blue pill button) -->
-                            <li class="nav-item">
-                                <a href="./DleDashboard.html" class="nav-link active">
-                                    <i class="bi bi-house-door-fill nav-icon"></i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-header">Dashboard </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="bi bi-speedometer2 nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-header">Bihar</li>
+            <!-- SWP -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-layers-fill nav-icon"></i>
+                <p>SWP <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
 
-                            <!-- 2. DLE Management (Dropdown) -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-file-earmark-text nav-icon"></i>
-                                    <p>
-                                        DLE Management
-                                        <i class="fas fa-chevron-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <!-- Submenu 1: Add DLE / Vendor (Dropdown with nested menus inside) -->
-                                    <li class="nav-item has-treeview">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                Add DLE / Vendor
-                                                <i class="fas fa-chevron-down right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./Dle_form.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>New DLE Registration</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./Dle_form.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Vendor Onboarding</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="alert('Bulk CSV / Excel import feature.');" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Bulk Upload / Import</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                <!-- SWP Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-                                    <!-- Submenu 2: View DLE / User Table (Dropdown with nested menus inside) -->
-                                    <li class="nav-item has-treeview">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                View DLE / User Table
-                                                <i class="fas fa-chevron-down right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./dleuser.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>All DLE Users Master</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./dleuser.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Active Users Directory</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./dleuser.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Pending Approvals</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./dleuser.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Inactive Users</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                <!-- SWP Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Survey Report</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-                                    <!-- Submenu 3: Light Operations -->
-                                    <li class="nav-item has-treeview">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                Light Operations
-                                                <i class="fas fa-chevron-down right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./bihar-ssl-assign-light.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Assign Light</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./bihar-ssl-verify-light.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Verify Light</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="alert('Light Installation & Verification History archive.');" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Installation History</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                <!-- SWP AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Open AMC Tasks</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Closed AMC Tasks</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-                            <!-- 3. District (Dropdown V) -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-geo-alt nav-icon"></i>
-                                    <p>
-                                        District
-                                        <i class="fas fa-chevron-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="./bihar-ssl-dashboard.html" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Bihar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Uttar Pradesh</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Karnataka</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Assam</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+              </ul>
+            </li>
 
-                            <!-- 4. Reports -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-bar-chart-line nav-icon"></i>
-                                    <p>
-                                        Reports
-                                        <i class="fas fa-chevron-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('DLE Summary Report');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>DLE Summary Report</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('Police Verification & KYC Status Report');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Verification SLA Report</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('District Coverage & Performance Analytics');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>District Coverage Report</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <!-- 5. Settings (Dropdown V) -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-gear nav-icon"></i>
-                                    <p>
-                                        Settings
-                                        <i class="fas fa-chevron-down right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal">
-                                            <span class="sub-bullet"></span>
-                                            <p>Profile Settings</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal" onclick="setTimeout(function(){ $('#changePassBtn').trigger('click'); }, 300);">
-                                            <span class="sub-bullet"></span>
-                                            <p>Change Password</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('System preferences configuration.');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Preferences</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+            <!-- SSL -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-lightning-charge-fill nav-icon"></i>
+                <p>SSL <i class="fas fa-angle-left right"></i></p>
+              </a>
 
-                            <!-- 6. Logout -->
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">
-                                    <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
-                                    <p class="text-danger">Logout</p>
-                                </a>
-                            </li>
+              <ul class="nav nav-treeview">
 
-                        </ul>
-                    </nav>
-                    <!-- SUBSECTION 5.2: NAVIGATION MENU END -->
-                </div>
+                <!-- Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-            </div>
-            <!-- /.sidebar -->
-        </aside>
+                <!-- Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Survey</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Active AMC</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending AMC</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+            <!-- SRT -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-bounding-box-circles nav-icon"></i>
+                <p>SRT <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- SRT Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-installation-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-installation-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- SRT Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-survey-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-survey-report.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Survey Report</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- SRT AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-amc-open.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Open AMC Tasks</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-amc-closed.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Closed AMC Tasks</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+
+
+            <!-- Jammu -->
+            <li class="nav-header">Jammu</li>
+
+            <!-- SWP -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-layers-fill nav-icon"></i>
+                <p>SWP <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- SWP Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-swp-installation-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-swp-installation-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- SWP Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-swp-survey-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-swp-survey-report.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Survey Report</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- SWP AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-swp-amc-open.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Open AMC Tasks</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-swp-amc-closed.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Closed AMC Tasks</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+              </ul>
+            </li>
+
+
+            <!-- SSL -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-lightning-charge-fill nav-icon"></i>
+                <p>SSL <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-installation-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-installation-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-survey-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-survey-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Survey</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-amc-active.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Active AMC</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-ssl-amc-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending AMC</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+
+            <!-- SRT -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-bounding-box-circles nav-icon"></i>
+                <p>SRT <i class="fas fa-angle-left right"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+
+                <!-- Installation -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-hammer nav-icon"></i>
+                    <p>Installation <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-installation-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Installation</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-installation-pending.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pending Installation</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Survey -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-search nav-icon"></i>
+                    <p>Survey <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-survey-new.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>New Survey</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-survey-report.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Survey Report</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- AMC -->
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-tools nav-icon"></i>
+                    <p>AMC <i class="fas fa-angle-left right"></i></p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./jammu-srt-amc-open.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Open AMC Tasks</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="./jammu-srt-amc-closed.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Closed AMC Tasks</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+
+            <li class="nav-header">Other Links</li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-chat-dots nav-icon"></i>
+                <p>Vendor Complaint</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-graph-up-arrow nav-icon"></i>
+                <p>Vendor Report</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
+                <p class="text-danger">Logout</p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+
+    </aside>
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper mt-5 pt-4">
 
