@@ -88,15 +88,20 @@ function initDynamicYear() {
 /**
  * 1.4 Sidebar Treeview Helper
  * AdminLTE v3 treeview handles all levels of nested dropdowns and animations natively.
+ * Safe helper to ensure treeview widget is initialized without throwing errors.
  */
 function initSidebarMultiLevel() {
     if (typeof $ === 'undefined') return;
-    if ($.fn.Treeview) {
-        $('[data-widget="treeview"]').each(function () {
-            if (!$(this).data('lte.treeview')) {
-                $(this).Treeview('init');
-            }
-        });
+    try {
+        if ($.fn && $.fn.Treeview) {
+            $('[data-widget="treeview"]').each(function () {
+                if (!$(this).data('lte.treeview')) {
+                    $(this).Treeview();
+                }
+            });
+        }
+    } catch (e) {
+        console.warn('Treeview initialization notice:', e);
     }
 }
 
@@ -1016,12 +1021,12 @@ window.resetProfileModal = resetProfileModal;
  * Master Initialization: Runs components based on presence in the active DOM
  */
 function initDleMaster() {
-    initDynamicYear();
-    initProfileModal();
-    initSidebarMultiLevel();
-    initDleDashboardCharts();
-    initDleRegistrationForm();
-    initDleUserTable();
+    try { initDynamicYear(); } catch (e) { console.warn('initDynamicYear notice:', e); }
+    try { initProfileModal(); } catch (e) { console.warn('initProfileModal notice:', e); }
+    try { initSidebarMultiLevel(); } catch (e) { console.warn('initSidebarMultiLevel notice:', e); }
+    try { initDleDashboardCharts(); } catch (e) { console.error('Error in initDleDashboardCharts:', e); }
+    try { initDleRegistrationForm(); } catch (e) { console.warn('initDleRegistrationForm notice:', e); }
+    try { initDleUserTable(); } catch (e) { console.warn('initDleUserTable notice:', e); }
 }
 
 // Bind initialization to DOM ready events

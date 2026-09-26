@@ -180,253 +180,150 @@
             </div>
         </div>
 
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar elevation-4 shadow">
-            <!-- Brand Logo -->
-            <a href="./DleDashboard.html" class="brand-link border-bottom shadow-sm border-2">
-                <img src="../../images/klkhalflogo.webp" alt="AdminLTE Logo"
-                    class="brand-image bottom-border img-circle elevation-3 bg-light" style="opacity: 0.8" />
-                <span class="brand-text text-light">KLK Vendor DLE</span>
-            </a>
+    <!-- Main Sidebar Container -->
+<aside class="main-sidebar elevation-4 shadow">
+    <!-- Brand Logo -->
+         <a href="./klkhome.html"
+          class="brand-link border-bottom shadow-sm border-2">
+          <img src="../../images/klkhalflogo.webp" alt="AdminLTE Logo"
+            class="brand-image  bottom-border img-circle elevation-3"
+            style="opacity: 0.8" />
+          <span class="brand-text text-dark">KLK Ventures-up</span>
+        </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="sidebar-menu-wrapper">
-                    <nav class="mt-1">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                
+                <li class="nav-header">Dashboard</li>
+                
+                <!-- LEVEL 1: Dashboard -->
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="bi bi-speedometer2 nav-icon"></i>
+                        <p>
+                            Dashboard
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    
+                    <ul class="nav nav-treeview">
+                        
+                        <!-- LEVEL 2: DLE Dashboard (Expandable) -->
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    DLE Dashboard
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <!-- LEVEL 3: Sub-submenus dle 1 & dle 2 -->
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./DleDashboard.html" class="nav-link active">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>dle 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./DleDashboard.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>dle 2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                            <!-- 1. Dashboard -->
-                            <li class="nav-item">
-                                <a href="./DleDashboard.html" class="nav-link">
-                                    <i class="bi bi-house-door-fill nav-icon"></i>
-                                    <p>Dashboard</p>
-                                </a>
-                            </li>
+                        <!-- LEVEL 2: Dashboard one (Expandable) -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Dashboard one
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <!-- LEVEL 3: Sub-submenus dle 1 & dle 2 -->
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>dle 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="./Mohit.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>dle 2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                            <!-- 2. DLE Management (Menu Open) -->
-                            <li class="nav-item has-treeview menu-open">
-                                <a href="#" class="nav-link active">
-                                    <i class="bi bi-file-earmark-text nav-icon"></i>
-                                    <p>
-                                        DLE Management
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <!-- Submenu 1: Add DLE / Vendor (Dropdown with nested menus inside) -->
-                                    <li class="nav-item has-treeview">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                Add DLE / Vendor
-                                                <i class="fas fa-angle-left right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./Dle_form.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>New DLE Registration</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./Dle_form.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Vendor Onboarding</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="alert('Bulk CSV / Excel import feature.');" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Bulk Upload / Import</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                        <!-- LEVEL 2: Timeline (Expandable) -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Timeline
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <!-- LEVEL 3: Sub-submenus Timeline 1 & 2 -->
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../UI/timeline.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Timeline 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../UI/timeline.html" class="nav-link">
+                                        <i class="far fa-dot-circle nav-icon"></i>
+                                        <p>Timeline 2</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                                    <!-- Submenu 2: View DLE / User Table (Dropdown with nested menus inside) -->
-                                    <li class="nav-item has-treeview menu-open">
-                                        <a href="#" class="nav-link active">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                View DLE / User Table
-                                                <i class="fas fa-angle-left right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./dleuser.html" onclick="if(window.resetDleFilters) resetDleFilters();" class="nav-link active">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>All DLE Users Master</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="if(window.filterByStatus) filterByStatus('Active'); else window.location.href='./dleuser.html';" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Active Users Directory</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="if(window.filterByApproval) filterByApproval('Pending'); else window.location.href='./dleuser.html';" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Pending Approvals</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="if(window.filterByStatus) filterByStatus('Inactive'); else window.location.href='./dleuser.html';" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Inactive Users</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                        <!-- Ribbons Link -->
+                        <li class="nav-item">
+                            <a href="../../UI/ribbons.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ribbons</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                                    <!-- Submenu 3: Light Operations -->
-                                    <li class="nav-item has-treeview">
-                                        <a href="#" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>
-                                                Light Operations
-                                                <i class="fas fa-angle-left right"></i>
-                                            </p>
-                                        </a>
-                                        <ul class="nav nav-treeview">
-                                            <li class="nav-item">
-                                                <a href="./bihar-ssl-assign-light.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Assign Light</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="./bihar-ssl-verify-light.html" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Verify Light</p>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" onclick="alert('Light Installation & Verification History archive.');" class="nav-link">
-                                                    <span class="sub-sub-bullet"></span>
-                                                    <p>Installation History</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                <!-- Top-Level Table Item -->
+                <li class="nav-item">
+                    <a href="./Newtable.html" class="nav-link">
+                        <i class="bi bi-bar-chart-line nav-icon"></i>
+                        <p>Table</p>
+                    </a>
+                </li>
 
-                            <!-- 3. District (Dropdown V) -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-geo-alt nav-icon"></i>
-                                    <p>
-                                        District
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="./bihar-ssl-dashboard.html" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Bihar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Uttar Pradesh');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Uttar Pradesh</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Karnataka');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Karnataka</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="if(window.filterByState) filterByState('Assam');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Assam</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                <li class="nav-header">HRM Dashboards</li>
+                <li class="nav-item">
+                    <a href="./hrmdashboard.html" class="nav-link">
+                        <i class="bi bi-table nav-icon"></i>
+                        <p>
+                            HRM Main Dashboards
+                            <i class="fas fa-angle-right right"></i>
+                        </p>
+                    </a>
+                </li>
+                <!-- Baaki menus same rahenge -->
+            </ul>
+        </nav>
+    </div>
+</aside>
 
-                            <!-- 4. Reports -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-bar-chart-line nav-icon"></i>
-                                    <p>
-                                        Reports
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('DLE Summary Report');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>DLE Summary Report</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('Police Verification & KYC Status Report');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Verification SLA Report</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('District Coverage & Performance Analytics');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>District Coverage Report</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- 5. Settings (Dropdown V) -->
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="bi bi-gear nav-icon"></i>
-                                    <p>
-                                        Settings
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal">
-                                            <span class="sub-bullet"></span>
-                                            <p>Profile Settings</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link" data-toggle="modal" data-bs-target="#profileModal" onclick="setTimeout(function(){ $('#changePassBtn').trigger('click'); }, 300);">
-                                            <span class="sub-bullet"></span>
-                                            <p>Change Password</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="javascript:void(0);" onclick="alert('System preferences configuration.');" class="nav-link">
-                                            <span class="sub-bullet"></span>
-                                            <p>Preferences</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <!-- 6. Logout -->
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">
-                                    <i class="bi bi-box-arrow-right nav-icon text-danger"></i>
-                                    <p class="text-danger">Logout</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <!-- /.sidebar -->
-        </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper mt-5 pt-4">
