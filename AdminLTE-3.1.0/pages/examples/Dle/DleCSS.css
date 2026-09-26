@@ -13,6 +13,9 @@
     --sidebar-hover-blue: #eff6ff;
     --sidebar-active-blue: #e0edff;
     --sidebar-text-blue: #1e3a8a;
+    --sidebar-blue-1: #2166e7;
+    --sidebar-indigo: #5045e9;
+    --sidebar-blue-2: #1d66e9;
     --text-dark: #0f172a;
     --text-muted: #64748b;
 }
@@ -229,96 +232,394 @@ body {
 
 
 
-/* sidebar css  */
+/* ==========================================================================
+   1.3 MODERN SIDEBAR STYLES (#2166e7, #5045e9, #1d66e9)
+   ========================================================================== */
 
+/* Main Sidebar Container with Triple-Tone Gradient & Ambient Depth Lighting */
+.main-sidebar {
+    height: 100vh !important;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 0% 100%, rgba(80, 69, 233, 0.45) 0%, transparent 55%),
+        linear-gradient(168deg, #1d66e9 0%, #2166e7 45%, #5045e9 100%) !important;
+    box-shadow: 4px 0 28px rgba(29, 102, 233, 0.28) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.14) !important;
+    position: fixed !important;
+    overflow: hidden !important;
+    color: #ffffff !important;
+    z-index: 1038 !important;
+}
 
+/* Subtle top ambient glow overlay */
+.main-sidebar::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
 
+/* Brand Link / Header Area */
+.main-sidebar .brand-link {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 10px 18px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s ease;
+    text-decoration: none !important;
+    position: relative;
+    z-index: 1;
+}
 
-  /* <!-- NEW Sidebar css here  --> */
+.main-sidebar .brand-link:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+}
 
-    .main-sidebar {
-      height: 100vh !important;
-      background: linear-gradient(180deg, #001945 0%, #5d0284 100%) !important;
-      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25) !important;
-      position: fixed !important;
-      overflow: hidden !important;
-      color: #ffffff !important;
-    }
+.main-sidebar .brand-image {
+    width: 36px !important;
+    height: 36px !important;
+    max-height: 36px !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    padding: 3px !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    opacity: 1 !important;
+    margin-right: 12px !important;
+    margin-left: 0 !important;
+    float: none !important;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
 
+.main-sidebar .brand-link:hover .brand-image {
+    transform: scale(1.05);
+}
 
-    .main-sidebar .sidebar {
-      height: calc(100vh - 60px);
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-    }
+.main-sidebar .brand-text {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px;
+    color: #ffffff !important;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
 
+/* Sidebar Scrollable Area & Sleek Scrollbar */
+.main-sidebar .sidebar {
+    height: calc(100vh - 60px);
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 12px 8px 30px 8px !important;
+    position: relative;
+    z-index: 1;
+}
 
-    .nav-sidebar .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 22px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 500;
-      color: #e0e0e0 !important;
-      transition: 0.25s ease-in-out;
-    }
+.main-sidebar .sidebar::-webkit-scrollbar {
+    width: 4px;
+}
 
-    .nav-sidebar .nav-icon {
-      width: 20px;
-      height: 20px;
-      font-size: 17px;
-      color: #ffffffcc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.main-sidebar .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-    /* hover link */
-    .nav-sidebar .nav-link:hover {
-      background: rgba(255, 255, 255, 0.15) !important;
-      color: #ffffff !important;
-    }
+.main-sidebar .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 10px;
+}
 
-    /* active link */
-    .nav-sidebar .nav-link.active {
-      background: rgba(255, 255, 255, 0.25) !important;
-      border-left: 4px solid #ffffff;
-      color: #ffffff !important;
-      padding-left: 18px;
-      font-weight: 600;
-    }
+.main-sidebar .sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
 
-    .nav-sidebar .nav-link.active .nav-icon {
-      color: #ffffff;
-    }
+/* Section Headers / Dividers */
+.nav-sidebar .nav-header {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.1px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 16px 14px 6px 14px !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
 
+.nav-sidebar .nav-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    margin-left: 10px;
+}
 
-    .nav-sidebar .right {
-      margin-left: auto;
-      font-size: 14px;
-      color: #ffffff;
-    }
+/* Nav Item Container */
+.nav-sidebar .nav-item {
+    margin-bottom: 3px;
+}
 
+/* Navigation Links (Base State) */
+.nav-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px !important;
+    margin: 2px 4px !important;
+    border-radius: 12px !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid transparent;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    background: transparent;
+}
 
-    .nav-treeview {
-      padding-left: 25px;
-      margin: 0 !important;
-    }
+.nav-sidebar .nav-link p {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 13.5px;
+    line-height: 1.3;
+}
 
-    .nav-treeview .nav-link {
-      margin: 4px 12px !important;
-      padding: 6px 10px !important;
-      border-radius: 8px;
-      font-size: 13px;
-      color: #e6e6e6 !important;
-    }
+/* Navigation Icons (Modern Glass Badge Style) */
+.nav-sidebar .nav-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 15px !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    transition: all 0.22s ease !important;
+    flex-shrink: 0;
+    margin-right: 0 !important;
+}
 
-    .nav-treeview .nav-link:hover {
-      background: rgba(255, 255, 255, 0.15) !important;
-      color: #ffffff !important;
-    }
+/* Hover Link State */
+.nav-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff !important;
+    transform: translateX(3px);
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.nav-sidebar .nav-link:hover .nav-icon {
+    background: rgba(255, 255, 255, 0.28) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Active Navigation Link (Modern High-Contrast White Card with Gradient Icon) */
+.nav-sidebar .nav-link.active {
+    background: #ffffff !important;
+    color: #1d66e9 !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(29, 102, 233, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.95) !important;
+    padding-left: 12px !important;
+    border-left: none !important;
+    transform: none !important;
+}
+
+.nav-sidebar .nav-link.active p {
+    color: #1d66e9 !important;
+    font-weight: 700 !important;
+}
+
+.nav-sidebar .nav-link.active .nav-icon {
+    background: linear-gradient(135deg, #2166e7 0%, #5045e9 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(80, 69, 233, 0.4) !important;
+}
+
+.nav-sidebar .nav-link.active .right {
+    color: #1d66e9 !important;
+}
+
+/* Open Parent Menu State */
+.nav-sidebar .menu-open > .nav-link:not(.active),
+.nav-sidebar .menu-is-opening > .nav-link:not(.active) {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Chevrons & Right Indicator */
+.nav-sidebar .right {
+    margin-left: auto;
+    font-size: 11.5px !important;
+    color: rgba(255, 255, 255, 0.75);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-item.menu-open > .nav-link > p > .right,
+.nav-item.menu-open > .nav-link > .right,
+.nav-item.menu-is-opening > .nav-link > p > .right,
+.nav-item.menu-is-opening > .nav-link > .right {
+    transform: rotate(-90deg);
+    color: #ffffff;
+}
+
+/* Submenu / Treeview (Level 1) */
+.nav-treeview {
+    padding-left: 12px !important;
+    margin: 4px 6px 6px 20px !important;
+    border-left: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+    list-style: none;
+}
+
+.nav-treeview .nav-item {
+    margin-bottom: 2px;
+}
+
+.nav-treeview .nav-link {
+    margin: 0 !important;
+    padding: 7px 11px !important;
+    border-radius: 9px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    background: transparent !important;
+    gap: 8px;
+}
+
+.nav-treeview .nav-link .nav-icon {
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    font-size: 7.5px !important;
+    border-radius: 5px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.nav-treeview .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    transform: translateX(3px);
+}
+
+.nav-treeview .nav-link:hover .nav-icon {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+.nav-treeview .nav-link.active {
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.nav-treeview .nav-link.active .nav-icon {
+    background: #ffffff !important;
+    color: #5045e9 !important;
+    border: none !important;
+}
+
+/* Submenu / Treeview (Level 2 Nested) */
+.nav-treeview .nav-treeview {
+    padding-left: 10px !important;
+    margin: 3px 0 3px 8px !important;
+    border-left: 1.5px dashed rgba(255, 255, 255, 0.25) !important;
+}
+
+.nav-treeview .nav-treeview .nav-link {
+    font-size: 12.2px !important;
+    padding: 5px 9px !important;
+}
+
+/* Logout / Danger Action Menu Link */
+.nav-sidebar .nav-link .text-danger,
+.nav-sidebar .nav-link.text-danger {
+    color: #fca5a5 !important;
+}
+
+.nav-sidebar .nav-link:has(.text-danger) {
+    margin-top: 8px !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.nav-sidebar .nav-link:has(.text-danger) .nav-icon {
+    background: rgba(239, 68, 68, 0.2) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #ff8a8a !important;
+}
+
+.nav-sidebar .nav-link:has(.text-danger):hover {
+    background: rgba(239, 68, 68, 0.26) !important;
+    border-color: rgba(239, 68, 68, 0.45) !important;
+    color: #ffffff !important;
+}
+
+.nav-sidebar .nav-link:has(.text-danger):hover .nav-icon {
+    background: #ef4444 !important;
+    color: #ffffff !important;
+    border-color: #ef4444 !important;
+}
+
+.nav-sidebar .nav-link:has(.text-danger):hover p,
+.nav-sidebar .nav-link:has(.text-danger):hover .text-danger {
+    color: #ffffff !important;
+}
+
+/* Sidebar Collapsed State (Mini Mode) */
+.sidebar-collapse .main-sidebar .brand-text {
+    display: none !important;
+}
+
+.sidebar-collapse .main-sidebar .brand-link {
+    justify-content: center;
+    padding: 10px 0 !important;
+}
+
+.sidebar-collapse .main-sidebar .brand-image {
+    margin-right: 0 !important;
+}
+
+.sidebar-collapse .nav-sidebar .nav-header {
+    display: none !important;
+}
+
+.sidebar-collapse .nav-sidebar .nav-link {
+    padding: 9px !important;
+    justify-content: center;
+    margin: 3px 6px !important;
+}
+
+.sidebar-collapse .nav-sidebar .nav-icon {
+    margin: 0 !important;
+}
 
 
 
