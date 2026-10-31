@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Editor</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .form-Control {
+      width: 100%;
+      max-width: 380px;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #ececec;
+    }
+
+    .form-Control form {
+      width: 100%;
+    }
+
+    .inputBox {
+      margin-bottom: 18px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 10px;
+      border: 1px solid #d8d8d8;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s;
+      background-color: #fafafa;
+    }
+
+    .input-field:focus {
+      border-color: #940000;
+      background-color: white;
+      box-shadow: 0 0 0 4px rgba(148, 0, 0, 0.08);
+    }
+
+    textarea.input-field {
+      resize: none;
+      height: 90px;
+    }
+
+    .buttons_upload {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px dashed #b7b7b7;
+      background-color: #fafafa;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #940000, #c40000);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(148, 0, 0, 0.2);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* GALLERY / THUMBNAILS */
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .gallery .thumb-wrap {
+      position: relative;
+    }
+
+    .gallery img.thumb {
+      width: 58px;
+      height: 58px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .gallery img.thumb:hover {
+      opacity: 0.85;
+    }
+
+    .gallery img.thumb.active {
+      border-color: #940000;
+      box-shadow: 0 0 0 2px rgba(148, 0, 0, 0.15);
+    }
+
+    .gallery .thumb-count {
+      text-align: center;
+      font-size: 11px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .imageCounter {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .main {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .whole {
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .EditImage {
+      height: 400px;
+      width: 600px;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    /* ROTATE CONTROLS */
+
+    .rotateBtns {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+
+    #rotateLeft,
+    #rotateRight {
+      position: static;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #333333;
+      border: 1px solid #d8d8d8;
+      font-size: 14px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    #rotateLeft:hover,
+    #rotateRight:hover {
+      background: #f7f7f7;
+      border-color: #940000;
+      color: #940000;
+      box-shadow: 0 4px 12px rgba(148, 0, 0, 0.12);
+    }
+
+    #rotateLeft:disabled,
+    #rotateRight:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      border-color: #d8d8d8;
+      color: #888;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* NORMAL PREVIEW STYLE */
+
+    .content {
+      position: absolute;
+      bottom: 1%;
+      left: 1%;
+      font-size: 0.8rem;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(2px);
+    }
+
+    .content p {
+      color: white;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .downloadBtns {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      margin-top: 14px;
+      max-width: 320px;
+    }
+
+    #Download,
+    #DownloadAll {
+      position: static;
+      border-radius: 10px;
+    }
+
+    /* DOWNLOAD MODE */
+
+    .download-mode .content {
+      left: 2px !important;
+      bottom: 2px !important;
+      background: rgba(255, 255, 255, 0.545) !important;
+      padding: 3px 6px 3px 3px !important;
+      border-radius: 0px !important;
+    }
+
+    .download-mode .content p {
+      color: black !important;
+      margin-bottom: 0px !important;
+      line-height: 1.1;
+      font-size: 12px;
+    }
+
+    .powerText {
+      position: absolute;
+      bottom: 1%;
+      right: 1%;
+      color: red;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      display: none;
+    }
+
+    .download-mode .powerText {
+      display: block;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-Control {
+        max-width: 100%;
+      }
+
+      .EditImage {
+        width: 100%;
+        max-width: 100%;
+        height: 320px;
+      }
+
+      .whole {
+        width: 100%;
+      }
+
+      .main {
+        width: 100%;
+      }
+
+      .rotateBtns,
+      .downloadBtns {
+        max-width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 468px) {
+      .EditImage {
+        height: 260px;
+      }
+
+      .content {
+        font-size: 0.72rem;
+        padding: 7px;
+      }
+
+      .input-field,
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="form-Control">
+
+      <form>
+
+        <!-- IMAGE -->
+
+        <div class="btns inputBox">
+          <input class="buttons_upload" type="file" id="imageAccept" accept="image/*" multiple>
+          <div class="gallery" id="gallery"></div>
+          <div class="imageCounter" id="imageCounter"></div>
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" id="latitude" type="text" placeholder="Enter Latitude">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="longitude" placeholder="Enter Longitude">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="Elevation" placeholder="Enter Elevation">
+        </div>
+
+        <div class="inputBox">
+          <input class="input-field" type="text" id="Accuracy" placeholder="Enter Accuracy">
+        </div>
+
+        <!-- DATE TIME -->
+
+        <div class="inputBox">
+          <input class="input-field" type="datetime-local" id="DateTime">
+        </div>
+
+        <!-- NOTE -->
+
+        <div class="inputBox">
+          <textarea class="input-field" id="Note" placeholder="Enter Note"></textarea>
+        </div>
+
+        <button type="submit">Convert</button>
+
+      </form>
+
+    </div>
+
+    <div class="main">
+
+      <div class="whole">
+
+        <div class="EditImage" id="setBack">
+
+          <div class="content"></div>
+
+          <!-- POWERED TEXT -->
+
+          <div class="powerText">
+            Powered by NoteCam
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ROTATION CONTROLS FOR SELECTED IMAGE -->
+      <div class="rotateBtns">
+        <button type="button" id="rotateLeft" onclick="rotateSelected(-90)">
+          &#x21BA; Rotate Left
+        </button>
+        <button type="button" id="rotateRight" onclick="rotateSelected(90)">
+          &#x21BB; Rotate Right
+        </button>
+      </div>
+
+      <div class="downloadBtns">
+        <button id="Download" onclick="downloadJPG()">
+          Download Image
+        </button>
+        <button id="DownloadAll" onclick="downloadAllJPG()">
+          Download All (ZIP)
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <script>
+
+    const form = document.querySelector("form");
+    const image = document.querySelector("#imageAccept");
+    const setBack = document.getElementById("setBack");
+    const divAdd = document.querySelector(".content");
+    const gallery = document.getElementById("gallery");
+    const imageCounter = document.getElementById("imageCounter");
+    const downloadAllBtn = document.getElementById("DownloadAll");
+    const rotateLeftBtn = document.getElementById("rotateLeft");
+    const rotateRightBtn = document.getElementById("rotateRight");
+
+    // STORE ORIGINAL AND CURRENT IMAGES AS DATA URLS
+    let rawImages = [];
+    let images = [];
+    let rotations = [];
+    let selectedIndex = 0;
+    let isRotating = false;
+
+    // INITIAL BUTTON STATES
+    rotateLeftBtn.disabled = true;
+    rotateRightBtn.disabled = true;
+    downloadAllBtn.disabled = true;
+
+    // IMAGE PREVIEW (MULTIPLE)
+
+    image.addEventListener("change", () => {
+
+      const files = Array.from(image.files);
+
+      if (files.length === 0) return;
+
+      rawImages = new Array(files.length);
+      images = new Array(files.length);
+      rotations = new Array(files.length).fill(0);
+      let loadedCount = 0;
+
+      files.forEach((file, idx) => {
+
+        let fileReader = new FileReader();
+
+        fileReader.readAsDataURL(file);
+
+        fileReader.onloadend = function () {
+
+          rawImages[idx] = fileReader.result;
+          images[idx] = fileReader.result;
+          loadedCount++;
+
+          if (loadedCount === files.length) {
+            renderGallery();
+            selectImage(0);
+          }
+
+        };
+
+      });
+
+    });
+
+    // RENDER THUMBNAIL GALLERY
+
+    function renderGallery() {
+
+      gallery.innerHTML = "";
+
+      images.forEach((src, idx) => {
+
+        const wrap = document.createElement("div");
+        wrap.className = "thumb-wrap";
+
+        const thumb = document.createElement("img");
+        thumb.src = src;
+        thumb.className = "thumb" + (idx === selectedIndex ? " active" : "");
+        thumb.title = `Image ${idx + 1}${rotations[idx] ? ` (${rotations[idx]}°)` : ""}`;
+
+        thumb.addEventListener("click", () => selectImage(idx));
+
+        wrap.appendChild(thumb);
+        gallery.appendChild(wrap);
+
+      });
+
+      const rotText = (images.length > 0 && rotations[selectedIndex])
+        ? ` (${rotations[selectedIndex]}°)`
+        : "";
+
+      imageCounter.textContent = images.length > 0
+        ? `${images.length} image${images.length > 1 ? "s" : ""} selected — showing #${selectedIndex + 1}${rotText}`
+        : "";
+
+      downloadAllBtn.disabled = images.length <= 1;
+      rotateLeftBtn.disabled = images.length === 0;
+      rotateRightBtn.disabled = images.length === 0;
+
+    }
+
+    // SELECT A SPECIFIC IMAGE INTO THE EDITOR
+
+    function selectImage(idx) {
+
+      if (!images[idx]) return;
+
+      selectedIndex = idx;
+
+      setBack.style.backgroundImage = `url('${images[idx]}')`;
+
+      renderGallery();
+
+    }
+
+    // ROTATE IMAGE USING OFFSCREEN CANVAS (PREVENTS COMPRESSION DEGRADATION)
+
+    function applyRotation(rawSrc, angle) {
+
+      return new Promise((resolve) => {
+
+        if (angle === 0) {
+          resolve(rawSrc);
+          return;
+        }
+
+        const img = new Image();
+
+        img.onload = function () {
+
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          if (angle === 90 || angle === 270) {
+            canvas.width = img.height;
+            canvas.height = img.width;
+          } else {
+            canvas.width = img.width;
+            canvas.height = img.height;
+          }
+
+          ctx.translate(canvas.width / 2, canvas.height / 2);
+          ctx.rotate((angle * Math.PI) / 180);
+          ctx.drawImage(img, -img.width / 2, -img.height / 2);
+
+          resolve(canvas.toDataURL("image/jpeg", 0.95));
+
+        };
+
+        img.src = rawSrc;
+
+      });
+
+    }
+
+    // ROTATE SELECTED IMAGE BY DEGREES (-90 or +90)
+
+    async function rotateSelected(degrees) {
+
+      if (isRotating) return;
+
+      if (images.length === 0 || !images[selectedIndex]) {
+        alert("Please select an image first.");
+        return;
+      }
+
+      isRotating = true;
+      rotateLeftBtn.disabled = true;
+      rotateRightBtn.disabled = true;
+
+      try {
+
+        rotations[selectedIndex] = (rotations[selectedIndex] + degrees) % 360;
+
+        if (rotations[selectedIndex] < 0) {
+          rotations[selectedIndex] += 360;
+        }
+
+        const rotatedSrc = await applyRotation(rawImages[selectedIndex], rotations[selectedIndex]);
+
+        images[selectedIndex] = rotatedSrc;
+
+        setBack.style.backgroundImage = `url('${rotatedSrc}')`;
+
+        renderGallery();
+
+      } catch (err) {
+        console.error("Rotation error:", err);
+      } finally {
+        isRotating = false;
+        rotateLeftBtn.disabled = false;
+        rotateRightBtn.disabled = false;
+      }
+
+    }
+
+    // FORMAT DATE TIME
+
+    function formatDateTime(dateTime) {
+
+      let [date, time] = dateTime.split("T");
+
+      let [year, month, day] = date.split("-");
+
+      return `${day}-${month}-${year} ${time}`;
+
+    }
+
+    // BUILD THE OVERLAY TEXT (SHARED BY ALL IMAGES)
+
+    function buildOverlay() {
+
+      const latitude = document.querySelector("#latitude").value;
+      const longitude = document.querySelector("#longitude").value;
+      const elevation = document.querySelector("#Elevation").value;
+      const accuracy = document.querySelector("#Accuracy").value;
+
+      const rawDateTime = document.querySelector("#DateTime").value;
+
+      const note = document.querySelector("#Note").value;
+
+      // ALL FIELDS ARE OPTIONAL NOW — IF NOTHING WAS FILLED AT ALL, JUST WARN
+
+      if (
+        latitude === "" &&
+        longitude === "" &&
+        elevation === "" &&
+        accuracy === "" &&
+        rawDateTime === "" &&
+        note === ""
+      ) {
+
+        alert("Please enter at least one detail.");
+        return false;
+
+      }
+
+      // CLEAR OLD DATA
+
+      divAdd.innerHTML = "";
+
+      // ONLY ADD A LINE FOR FIELDS THE USER ACTUALLY FILLED IN
+
+      if (latitude !== "") {
+        paragraphAppend(`Latitude: ${newLatLong(latitude)}`);
+      }
+
+      if (longitude !== "") {
+        paragraphAppend(`Longitude: ${newLatLong(longitude)}`);
+      }
+
+      if (elevation !== "") {
+        paragraphAppend(`Elevation: ${elevation}`);
+      }
+
+      if (accuracy !== "") {
+        paragraphAppend(`Accuracy: ${accuracy}`);
+      }
+
+      if (rawDateTime !== "") {
+        paragraphAppend(`Time: ${formatDateTime(rawDateTime)}`);
+      }
+
+      if (note !== "") {
+        paragraphAppend(`Note: ${note}`);
+      }
+
+      return true;
+
+    }
+
+    // FORM SUBMIT
+
+    form.addEventListener("submit", (e) => {
+
+      e.preventDefault();
+
+      buildOverlay();
+
+    });
+
+    // CREATE PARAGRAPH
+
+    function paragraphAppend(value) {
+
+      const p = document.createElement("p");
+
+      p.innerText = value;
+
+      divAdd.appendChild(p);
+
+    }
+
+    // LIMIT LAT LONG
+
+    function newLatLong(latLong) {
+
+      let latLongStr = latLong.toString().trim();
+
+      let newLat = "";
+
+      let count = 0;
+
+      for (let i of latLongStr) {
+
+        if (count === 9) {
+          break;
+        } else {
+          newLat += i;
+          count++;
+        }
+
+      }
+
+      return newLat;
+
+    }
+
+    // DOWNLOAD CURRENTLY SELECTED IMAGE
+
+    function downloadJPG() {
+
+      if (images.length === 0) {
+        alert("Please select an image first.");
+        return;
+      }
+
+      if (divAdd.innerHTML.trim() === "") {
+        alert("Please click Convert first.");
+        return;
+      }
+
+      let element = document.getElementById("setBack");
+
+      // ENABLE DOWNLOAD MODE
+
+      element.classList.add("download-mode");
+
+      html2canvas(element).then(function (canvas) {
+
+        let dataURL = canvas.toDataURL("image/jpeg");
+
+        let link = document.createElement("a");
+
+        link.href = dataURL;
+
+        link.download = `Image-${selectedIndex + 1}.jpg`;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        // REMOVE DOWNLOAD MODE
+
+        element.classList.remove("download-mode");
+
+      });
+
+    }
+
+    // WAIT FOR A GIVEN IMAGE TO ACTUALLY BE PAINTED AS BACKGROUND
+
+    function setBackgroundAndWait(src) {
+
+      return new Promise((resolve) => {
+
+        const img = new Image();
+
+        img.onload = function () {
+          setBack.style.backgroundImage = `url('${src}')`;
+          // small delay to let the browser apply/render the background
+          setTimeout(resolve, 50);
+        };
+
+        img.src = src;
+
+      });
+
+    }
+
+    // DOWNLOAD ALL SELECTED IMAGES AS A ZIP (SAME OVERLAY ON EACH)
+
+    async function downloadAllJPG() {
+
+      if (images.length === 0) {
+        alert("Please select images first.");
+        return;
+      }
+
+      if (divAdd.innerHTML.trim() === "") {
+        alert("Please click Convert first.");
+        return;
+      }
+
+      downloadAllBtn.disabled = true;
+      downloadAllBtn.textContent = "Preparing ZIP...";
+
+      const zip = new JSZip();
+      const element = document.getElementById("setBack");
+      const originalIndex = selectedIndex;
+
+      for (let i = 0; i < images.length; i++) {
+
+        await setBackgroundAndWait(images[i]);
+
+        element.classList.add("download-mode");
+
+        // html2canvas needs the class change to be reflected in a fresh render
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        const canvas = await html2canvas(element);
+
+        element.classList.remove("download-mode");
+
+        const dataURL = canvas.toDataURL("image/jpeg", 0.95);
+        const base64Data = dataURL.split(",")[1];
+
+        zip.file(`Image-${i + 1}.jpg`, base64Data, { base64: true });
+
+      }
+
+      // RESTORE ORIGINAL PREVIEW
+
+      selectedIndex = originalIndex;
+      setBack.style.backgroundImage = `url('${images[originalIndex]}')`;
+      renderGallery();
+
+      const content = await zip.generateAsync({ type: "blob" });
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(content);
+      link.download = "Images.zip";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      downloadAllBtn.disabled = images.length <= 1;
+      downloadAllBtn.textContent = "Download All (ZIP)";
+
+    }
+
+  </script>
+
+</body>
+
+</html>

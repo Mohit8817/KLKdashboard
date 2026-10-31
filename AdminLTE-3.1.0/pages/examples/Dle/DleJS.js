@@ -86,20 +86,36 @@ function initDynamicYear() {
 }
 
 /**
- * 1.4 Sidebar Treeview Helper
- * AdminLTE v3 treeview handles all levels of nested dropdowns and animations natively.
- * Safe helper to ensure treeview widget is initialized without throwing errors.
+ * 1.4 Enhanced Sidebar Multi-Level & Treeview Controller
+ * - Configures silky-smooth 240ms slide animations
+ * - Prevents unwanted page jumps on dropdown toggles / hash links
+ * - Ensures responsive, intuitive active menu states
  */
 function initSidebarMultiLevel() {
     if (typeof $ === 'undefined') return;
     try {
         if ($.fn && $.fn.Treeview) {
             $('[data-widget="treeview"]').each(function () {
-                if (!$(this).data('lte.treeview')) {
-                    $(this).Treeview();
+                const $tree = $(this);
+                if (!$tree.data('lte.treeview')) {
+                    $tree.Treeview({
+                        animationSpeed: 240,
+                        accordion: false
+                    });
                 }
             });
         }
+
+        // Prevent jump-to-top on treeview toggle anchors
+        $(document).off('click.dleSidebar').on('click.dleSidebar', '.nav-sidebar .nav-link', function (e) {
+            const $this = $(this);
+            const href = $this.attr('href');
+            const hasSubmenu = $this.next('.nav-treeview').length > 0;
+
+            if (hasSubmenu && (!href || href === '#' || href.startsWith('javascript:'))) {
+                e.preventDefault();
+            }
+        });
     } catch (e) {
         console.warn('Treeview initialization notice:', e);
     }

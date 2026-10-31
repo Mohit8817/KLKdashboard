@@ -599,10 +599,57 @@ body {
     color: #1d4ed8 !important;
 }
 
+/* Submenu Bullets & Micro-Indicators */
+.main-sidebar .sub-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background-color: #94a3b8 !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.main-sidebar .nav-link:hover .sub-bullet {
+    background-color: #2563eb !important;
+    transform: scale(1.3) !important;
+}
+
+.main-sidebar .nav-link.active .sub-bullet {
+    background-color: #2563eb !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25) !important;
+}
+
+.main-sidebar .sub-sub-bullet {
+    width: 4px !important;
+    height: 4px !important;
+    border-radius: 50% !important;
+    background-color: #cbd5e1 !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.main-sidebar .nav-link:hover .sub-sub-bullet {
+    background-color: #2563eb !important;
+    transform: scale(1.35) !important;
+}
+
+.main-sidebar .nav-link.active .sub-sub-bullet {
+    background-color: #2563eb !important;
+}
+
+/* Subtle Right Glide for Direct Links on Hover */
+.main-sidebar .nav-sidebar .nav-link:not(.active):hover .fa-angle-right.right {
+    transform: translateX(3px) !important;
+    color: #2563eb !important;
+}
+
 /* Sidebar Mini Mode Hover Expand */
 .sidebar-collapse .main-sidebar:hover .brand-text {
     display: inline-block !important;
 }
+
 
 
 

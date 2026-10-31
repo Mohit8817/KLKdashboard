@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLK DLE — Role & Permission (RBAC) API Documentation</title>
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #1557b0;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #202124;
+      --text-muted: #5f6368;
+      --border: #dadce0;
+      --code-bg: #f1f3f4;
+      --get: #1b73e8;
+      --post: #188038;
+      --put: #e37400;
+      --patch: #9334e6;
+      --delete: #d93025;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 30px 15px;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.12), 0 1px 2px rgba(60,64,67,0.24);
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 0;
+      color: #1a1a1a;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    p, li {
+      font-size: 0.96rem;
+      color: #3c4043;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f3f4;
+      font-weight: 600;
+      color: #202124;
+    }
+    tr:nth-child(even) { background-color: #fafbfc; }
+    tr:hover { background-color: #f8f9fa; }
+    code {
+      background-color: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.88em;
+      color: #d73a49;
+    }
+    pre {
+      background-color: #282c34;
+      color: #abb2bf;
+      border-radius: 6px;
+      padding: 16px;
+      overflow-x: auto;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-get { background: #e8f0fe; color: var(--get); border: 1px solid #c2e7ff; }
+    .badge-post { background: #ceead6; color: var(--post); border: 1px solid #a8dab5; }
+    .badge-put { background: #feefe3; color: var(--put); border: 1px solid #fedfc8; }
+    .badge-patch { background: #f3e8fd; color: var(--patch); border: 1px solid #e1c5fc; }
+    .badge-delete { background: #fce8e6; color: var(--delete); border: 1px solid #fad2cf; }
+    .badge-req { background: #e9ecef; color: #495057; font-size: 11px; }
+    .alert-box {
+      background: #e8f0fe;
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.94rem;
+    }
+    .endpoint-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .endpoint-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+    }
+    .meta-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; padding: 0; max-width: 100%; }
+      pre { white-space: pre-wrap; word-break: break-all; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>KLK DLE — Role & Permission (RBAC) API Documentation</h1>
+  <p>Complete technical documentation for all Role-Based Access Control (RBAC), Permission Catalog, User Role Assignment, Attendance, User Master, and External Integration Credential APIs in the <strong>KLK DLE</strong> project.</p>
+
+
+
+  <!-- SECTION 2 -->
+  <h2>1. System Permission Catalog Reference</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Permission Key</th>
+        <th>Module</th>
+        <th>User Capability</th>
+        <th>UI Assignable?</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>portal.rbac.manage</code></td>
+        <td><code>admin</code></td>
+        <td>Manage custom roles, permissions &amp; member assignments</td>
+        <td>❌ Restricted</td>
+        <td>Granted only to users with <code>users.role = 1</code> in database</td>
+      </tr>
+      <tr>
+        <td><code>portal.api.credentials.manage</code></td>
+        <td><code>admin</code></td>
+        <td>Manage external integration API credentials &amp; secrets</td>
+        <td>❌ Restricted</td>
+        <td>Granted only to users with <code>users.role = 1</code> in database</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.ssl_amc.read</code></td>
+        <td><code>bihar_amc</code></td>
+        <td>View Bihar SSL AMC records, views &amp; lists</td>
+        <td>✅ Yes</td>
+        <td>Read / View permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.ssl_amc.dashboard</code></td>
+        <td><code>bihar_amc</code></td>
+        <td>View Bihar SSL AMC dashboard metrics</td>
+        <td>Auto</td>
+        <td>Automatically granted whenever <code>read</code> is selected</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.ssl_amc.add</code></td>
+        <td><code>bihar_amc</code></td>
+        <td>Upload &amp; add Bihar SSL AMC documents</td>
+        <td>✅ Yes</td>
+        <td>Upload / Add permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.up.ssl_amc.read</code></td>
+        <td><code>up_amc</code></td>
+        <td>View UP SSL AMC records, views &amp; lists</td>
+        <td>✅ Yes</td>
+        <td>Read / View permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.up.ssl_amc.dashboard</code></td>
+        <td><code>up_amc</code></td>
+        <td>View UP SSL AMC dashboard metrics</td>
+        <td>Auto</td>
+        <td>Automatically granted whenever <code>read</code> is selected</td>
+      </tr>
+      <tr>
+        <td><code>portal.up.ssl_amc.add</code></td>
+        <td><code>up_amc</code></td>
+        <td>Upload &amp; add UP SSL AMC documents</td>
+        <td>✅ Yes</td> 
+        <td>Upload / Add permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.light_amc.read</code></td>
+        <td><code>bihar_light_amc</code></td>
+        <td>View Bihar Field Light AMC data</td>
+        <td>✅ Yes</td>
+        <td>Read / View permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.light_amc.add</code></td>
+        <td><code>bihar_light_amc</code></td>
+        <td>Submit Bihar Field Light AMC reports</td>
+        <td>✅ Yes</td>
+        <td>Field entry permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.up.light_amc.read</code></td>
+        <td><code>up_light_amc</code></td>
+        <td>View UP Field Light AMC data</td>
+        <td>✅ Yes</td>
+        <td>Read / View permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.up.light_amc.add</code></td>
+        <td><code>up_light_amc</code></td>
+        <td>Submit UP Field Light AMC reports</td>
+        <td>✅ Yes</td>
+        <td>Field entry permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.ula.read</code></td>
+        <td><code>bihar_ula</code></td>
+        <td>View Bihar ULA surveys &amp; download photos</td>
+        <td>✅ Yes</td>
+        <td>Read &amp; Download permission</td>
+      </tr>
+      <tr>
+        <td><code>portal.bihar.ula.add</code></td>
+        <td><code>bihar_ula</code></td>
+        <td>Submit Bihar ULA 1st &amp; 2nd visits</td>
+        <td>✅ Yes</td>
+        <td>Survey creation permission</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3 -->
+  <h2>3. Role &amp; Permission Management APIs</h2>
+  <p><strong>Base URL:</strong> <code>/api/portal/access</code> | <strong>Authentication:</strong> Bearer Token (JWT)</p>
+
+  <!-- Endpoint 1 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/permissions</span>
+    </div>
+    <p>Lists all assignable permissions in the catalog for role creation and editing.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "data": [
+    {
+      "id": 3,
+      "key": "portal.bihar.ssl_amc.read",
+      "label": "Bihar SSL AMC — view",
+      "module": "bihar_amc",
+      "description": "View Bihar SSL AMC data in this app."
+    },
+    {
+      "id": 5,
+      "key": "portal.bihar.ssl_amc.add",
+      "label": "Bihar SSL AMC — add",
+      "module": "bihar_amc",
+      "description": "Add / upload Bihar SSL AMC data in this app."
+    }
+  ],
+  "meta": { "total": 10 }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 2 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/roles</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Lists all custom roles created in the caller's company.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "data": [
+    {
+      "id": "1",
+      "company_id": "KLK-COMPANY-01",
+      "name": "Bihar Field Team",
+      "description": "Field inspections and uploads",
+      "user_count": 4,
+      "permission_keys": [
+        "portal.bihar.light_amc.read",
+        "portal.bihar.light_amc.add"
+      ],
+      "created_at": "2026-09-20T10:00:00.000Z",
+      "updated_at": "2026-09-20T10:00:00.000Z"
+    }
+  ]
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 3 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-post">POST</span>
+      <span class="endpoint-title">/api/portal/access/roles</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Creates a new custom role with designated permissions.</p>
+    <pre><code>// Request Body
+{
+  "name": "UP Field Supervisor",
+  "description": "Field inspections in UP",
+  "permission_keys": [
+    "portal.up.ssl_amc.read",
+    "portal.up.ssl_amc.add"
+  ]
+}
+
+// Response: 201 Created
+{
+  "success": true,
+  "message": "Role created.",
+  "data": {
+    "id": "2",
+    "name": "UP Field Supervisor",
+    "permission_keys": [
+      "portal.up.ssl_amc.read",
+      "portal.up.ssl_amc.add",
+      "portal.up.ssl_amc.dashboard"
+    ]
+  }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 4 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-put">PUT</span>
+      <span class="endpoint-title">/api/portal/access/roles/:id</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Updates an existing role's name, description, and permissions.</p>
+    <pre><code>// Request Body
+{
+  "name": "UP Senior Field Supervisor",
+  "description": "Updated description",
+  "permission_keys": [
+    "portal.up.ssl_amc.read",
+    "portal.up.ssl_amc.add",
+    "portal.up.light_amc.read"
+  ]
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 5 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-delete">DELETE</span>
+      <span class="endpoint-title">/api/portal/access/roles/:id</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Deletes a custom role by ID and unassigns it from members.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "message": "Role deleted."
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 6 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/roles/:id/users</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Returns the list of user IDs belonging to a role.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "data": {
+    "role_id": "2",
+    "user_ids": ["101", "105", "108"]
+  }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 7 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-put">PUT</span>
+      <span class="endpoint-title">/api/portal/access/roles/:id/users</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Replaces all members assigned to a role with a new array of user IDs.</p>
+    <pre><code>// Request Body
+{
+  "user_ids": ["101", "105", "109"]
+}
+
+// Response: 200 OK
+{
+  "success": true,
+  "message": "Role assigned to 3 user(s).",
+  "data": {
+    "user_ids": ["101", "105", "109"],
+    "member_count": 3
+  }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 8 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/users/:userId/roles</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Returns all roles assigned to a user.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "data": {
+    "user_id": "101",
+    "roles": [
+      {
+        "role_id": "1",
+        "role_name": "Bihar Field Team",
+        "permission_keys": [
+          "portal.bihar.light_amc.read",
+          "portal.bihar.light_amc.add"
+        ]
+      }
+    ],
+    "role_ids": ["1"]
+  }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 9 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-put">PUT</span>
+      <span class="endpoint-title">/api/portal/access/users/:userId/roles</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Updates the roles assigned to a specific user.</p>
+    <pre><code>// Request Body
+{
+  "role_ids": ["1", "2"]
+}
+
+// Response: 200 OK
+{
+  "success": true,
+  "message": "User roles updated.",
+  "data": [
+    {
+      "role_id": "1",
+      "role_name": "Bihar Field Team",
+      "permission_keys": ["portal.bihar.light_amc.read", "portal.bihar.light_amc.add"]
+    }
+  ]
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 10 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/me</span>
+    </div>
+    <p>Returns current authenticated user's permissions and RBAC management capability. Called upon user login.</p>
+    <pre><code>// Response: 200 OK
+{
+  "success": true,
+  "data": {
+    "user_id": "101",
+    "company_id": "KLK-COMPANY-01",
+    "permission_keys": [
+      "portal.bihar.ssl_amc.read",
+      "portal.bihar.ssl_amc.add"
+    ],
+    "can_manage_rbac": false
+  }
+}</code></pre>
+  </div>
+
+  <!-- Endpoint 11 -->
+  <div class="endpoint-card">
+    <div class="endpoint-header">
+      <span class="badge badge-get">GET</span>
+      <span class="endpoint-title">/api/portal/access/users</span>
+      <span class="badge badge-req">Admin Only</span>
+    </div>
+    <p>Lists company users for member assignment dropdowns. Accepts optional query <code>?search=</code>.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2>4. External Portal API Credentials APIs</h2>
+  <p><strong>Base URL:</strong> <code>/api/portal/access/api-credentials</code> | <strong>Authentication:</strong> Bearer Token (<code>users.role = 1</code>)</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint Path</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-get">GET</span></td>
+        <td><code>/api-credentials</code></td>
+        <td>List external API credentials for the company</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-post">POST</span></td>
+        <td><code>/api-credentials</code></td>
+        <td>Generate new API Key &amp; Secret (Scopes: <code>read</code>, <code>approve</code>, <code>all</code>)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-put">PUT</span></td>
+        <td><code>/api-credentials/:id</code></td>
+        <td>Update label, scopes, or active status</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-post">POST</span></td>
+        <td><code>/api-credentials/:id/rotate-secret</code></td>
+        <td>Rotate/change secret password</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-delete">DELETE</span></td>
+        <td><code>/api-credentials/:id</code></td>
+        <td>Revoke and delete API credential</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-get">GET</span></td>
+        <td><code>/api/portal/access/integration-catalog</code></td>
+        <td>Full API catalog and curl examples for admin</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-get">GET</span></td>
+        <td><code>/api/portal/integration/me</code></td>
+        <td>External caller self-discovery endpoint (Auth via <code>X-Portal-Api-Key</code> &amp; <code>X-Portal-Api-Secret</code>)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 5 -->
+  <h2>5. Business API Endpoints vs Required Permissions</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Endpoint</th>
+        <th>Method</th>
+        <th>Required JWT Permission</th>
+        <th>External Scope</th>
+        <th>Punch-In Required?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>/api/bihar/amc/get</code></td><td>GET</td><td><code>portal.bihar.ssl_amc.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/bihar/amc/view</code></td><td>GET</td><td><code>portal.bihar.ssl_amc.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/bihar/amc/store</code></td><td>POST</td><td><code>portal.bihar.ssl_amc.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+      <tr><td><code>/api/bihar/amc/update</code></td><td>POST</td><td><code>portal.bihar.ssl_amc.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+      <tr><td><code>/api/bihar/amc/approval/status</code></td><td>POST</td><td>External Key Only</td><td>approve / all</td><td>No</td></tr>
+      <tr><td><code>/api/up/amc/get</code></td><td>GET</td><td><code>portal.up.ssl_amc.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/up/amc/view</code></td><td>GET</td><td><code>portal.up.ssl_amc.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/up/amc/store</code></td><td>POST</td><td><code>portal.up.ssl_amc.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+      <tr><td><code>/api/up/amc/approval/status</code></td><td>POST</td><td>External Key Only</td><td>approve / all</td><td>No</td></tr>
+      <tr><td><code>/api/light-amc/get</code></td><td>GET</td><td><code>portal.[state].light_amc.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/light-amc/store</code></td><td>POST</td><td><code>portal.[state].light_amc.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+      <tr><td><code>/api/light-amc/approval/status</code></td><td>POST</td><td>External Key Only</td><td>approve / all</td><td>No</td></tr>
+      <tr><td><code>/api/bihar/ula/list</code></td><td>GET</td><td><code>portal.bihar.ula.read</code></td><td>read / all</td><td>No</td></tr>
+      <tr><td><code>/api/bihar/ula/store</code></td><td>POST</td><td><code>portal.bihar.ula.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+      <tr><td><code>/api/bihar/ula/:id/second-visit</code></td><td>PATCH</td><td><code>portal.bihar.ula.add</code></td><td>Field User Only</td><td>Yes</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 6 -->
+  <h2>6. Frontend API Client Routes Mapping (SDK Reference)</h2>
+  <p>The structured client routes object used across frontend services and Axios calls:</p>
+
+  <pre><code>export const API_ENDPOINTS = {
+  // Attendance Module
+  attendance: {
+    today: '/api/attendance/today',
+    month: '/api/attendance/month',
+    punchIn: '/api/attendance/punch-in',
+    punchOut: '/api/attendance/punch-out',
+  },
+
+  // User Master Module (Admin Only)
+  userMaster: {
+    users: '/api/user-master/users',
+    user: (id) => `/api/user-master/users/${id}`,
+  },
+
+  // Portal RBAC & Access Management Module
+  portal: {
+    permissions: '/api/portal/access/permissions',
+    roles: '/api/portal/access/roles',
+    role: (id) => `/api/portal/access/roles/${id}`,
+    roleMembers: (id) => `/api/portal/access/roles/${id}/users`,
+    users: '/api/portal/access/users',
+    userRoles: (userId) => `/api/portal/access/users/${userId}/roles`,
+    me: '/api/portal/access/me',
+    bootstrap: '/api/portal/access/bootstrap',
+    apiCredentials: '/api/portal/access/api-credentials',
+    apiCredential: (id) => `/api/portal/access/api-credentials/${id}`,
+    apiCredentialRotateSecret: (id) =>
+      `/api/portal/access/api-credentials/${id}/rotate-secret`,
+    integrationCatalog: '/api/portal/access/integration-catalog',
+  },
+
+  // External Portal Integration Profile
+  portalIntegration: {
+    me: '/api/portal/integration/me',
+  },
+
+  // Bihar ULA Surveys Module
+  biharUla: {
+    list: '/api/bihar/ula/list',
+    checkUnique: '/api/bihar/ula/check-unique',
+    store: '/api/bihar/ula/store',
+    view: (id) => `/api/bihar/ula/${id}`,
+    downloadImagesZip: (id) => `/api/bihar/ula/${id}/download-images`,
+    secondVisit: (id) => `/api/bihar/ula/${id}/second-visit`,
+  },
+};</code></pre>
+
+  <!-- SECTION 7 -->
+  <h2>7. Additional Core Modules Reference</h2>
+
+  <h3>7.1 Attendance APIs (<code>/api/attendance</code>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/attendance/today</code></td><td>Fetch today's punch in/out attendance status</td></tr>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/attendance/month</code></td><td>Fetch user's monthly attendance logs</td></tr>
+      <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/attendance/punch-in</code></td><td>Record user punch-in (includes GPS coordinates)</td></tr>
+      <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/attendance/punch-out</code></td><td>Record user punch-out (includes GPS coordinates)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 User Master APIs (<code>/api/user-master</code>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Auth / Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/user-master/users</code></td><td>Bearer + <code>users.role=1</code></td><td>List all company users with pagination &amp; search</td></tr>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/user-master/users/:id</code></td><td>Bearer + <code>users.role=1</code></td><td>Get user profile &amp; uploaded verification documents</td></tr>
+      <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/user-master/users</code></td><td>Bearer + <code>users.role=1</code></td><td>Create a new user with document uploads</td></tr>
+      <tr><td><span class="badge badge-put">PUT</span></td><td><code>/api/user-master/users/:id</code></td><td>Bearer + <code>users.role=1</code></td><td>Update existing user master details &amp; files</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 Bihar ULA Surveys APIs (<code>/api/bihar/ula</code>)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Path</th>
+        <th>Required Permission</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/bihar/ula/list</code></td><td><code>portal.bihar.ula.read</code></td><td>List surveys with filters</td></tr>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/bihar/ula/check-unique</code></td><td><code>portal.bihar.ula.add</code></td><td>Verify CA number / meter uniqueness</td></tr>
+      <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/bihar/ula/store</code></td><td><code>portal.bihar.ula.add</code></td><td>Submit 1st visit survey with photos</td></tr>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/bihar/ula/:id</code></td><td><code>portal.bihar.ula.read</code></td><td>View full survey details</td></tr>
+      <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/bihar/ula/:id/download-images</code></td><td><code>portal.bihar.ula.read</code></td><td>Download all survey photos as ZIP</td></tr>
+      <tr><td><span class="badge badge-patch">PATCH</span></td><td><code>/api/bihar/ula/:id/second-visit</code></td><td><code>portal.bihar.ula.add</code></td><td>Submit 2nd visit survey with photos</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+</html>
