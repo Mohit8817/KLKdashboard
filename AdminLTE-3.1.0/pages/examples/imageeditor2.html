@@ -156,21 +156,79 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1;
+      max-width: 720px;
+      width: 100%;
     }
 
     .whole {
       background: white;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #ececec;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     .EditImage {
-      height: 400px;
-      width: 600px;
       position: relative;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      display: inline-block;
+      line-height: 0;
+      max-width: 100%;
+      background-color: #1a1a1a;
       overflow: hidden;
+    }
+
+    #previewImg {
+      display: none;
+      max-width: 100%;
+      max-height: 520px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    .image-placeholder {
+      width: 580px;
+      height: 380px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fafafa;
+      color: #777;
+      gap: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px dashed #d8d8d8;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .image-placeholder:hover {
+      border-color: #940000;
+      background: #fff8f8;
+    }
+
+    .image-placeholder p {
+      font-size: 16px;
+      font-weight: 600;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .image-placeholder span {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.4;
     }
 
     /* ROTATE CONTROLS */
@@ -220,19 +278,34 @@
 
     .content {
       position: absolute;
-      bottom: 1%;
-      left: 1%;
-      font-size: 0.8rem;
-      padding: 10px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.25);
+      bottom: 8px;
+      left: 8px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(2px);
+      max-width: 75%;
+      word-break: break-word;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .content:empty {
+      display: none !important;
     }
 
     .content p {
       color: white;
-      margin-bottom: 3px;
-      line-height: 1.4;
+      margin-bottom: 2px;
+      line-height: 1.35;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
     }
 
     .downloadBtns {
@@ -252,33 +325,43 @@
     /* DOWNLOAD MODE */
 
     .download-mode .content {
-      left: 2px !important;
-      bottom: 2px !important;
-      background: rgba(255, 255, 255, 0.545) !important;
-      padding: 3px 6px 3px 3px !important;
+      left: 4px !important;
+      bottom: 4px !important;
+      background: rgba(255, 255, 255, 0.75) !important;
+      padding: 4px 8px !important;
       border-radius: 0px !important;
+      backdrop-filter: none !important;
     }
 
     .download-mode .content p {
       color: black !important;
+      font-weight: 600 !important;
       margin-bottom: 0px !important;
-      line-height: 1.1;
-      font-size: 12px;
+      line-height: 1.2 !important;
+      font-size: 12px !important;
     }
 
     .powerText {
       position: absolute;
-      bottom: 1%;
-      right: 1%;
+      bottom: 8px;
+      right: 8px;
       color: red;
-      font-size: 18px;
+      font-size: 16px;
       font-style: italic;
       font-weight: bold;
+      line-height: 1.2;
       display: none;
+      z-index: 5;
+      pointer-events: none;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     }
 
     .download-mode .powerText {
-      display: block;
+      display: block !important;
+      bottom: 6px !important;
+      right: 6px !important;
+      font-size: 16px !important;
+      text-shadow: none !important;
     }
 
     @media screen and (max-width: 768px) {
@@ -295,18 +378,21 @@
         max-width: 100%;
       }
 
-      .EditImage {
-        width: 100%;
-        max-width: 100%;
-        height: 320px;
-      }
-
       .whole {
         width: 100%;
       }
 
       .main {
         width: 100%;
+      }
+
+      #previewImg {
+        max-height: 420px;
+      }
+
+      .image-placeholder {
+        width: 100%;
+        height: 280px;
       }
 
       .rotateBtns,
@@ -316,13 +402,17 @@
     }
 
     @media screen and (max-width: 468px) {
-      .EditImage {
-        height: 260px;
+      #previewImg {
+        max-height: 320px;
+      }
+
+      .image-placeholder {
+        height: 220px;
       }
 
       .content {
         font-size: 0.72rem;
-        padding: 7px;
+        padding: 6px 8px;
       }
 
       .input-field,
@@ -389,6 +479,19 @@
 
         <div class="EditImage" id="setBack">
 
+          <img id="previewImg" alt="Preview Image" />
+
+          <!-- PLACEHOLDER WHEN NO IMAGE -->
+          <div id="imagePlaceholder" class="image-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p>No image selected</p>
+            <span>Click or choose images from the form</span>
+          </div>
+
           <div class="content"></div>
 
           <!-- POWERED TEXT -->
@@ -432,12 +535,20 @@
     const form = document.querySelector("form");
     const image = document.querySelector("#imageAccept");
     const setBack = document.getElementById("setBack");
+    const previewImg = document.getElementById("previewImg");
+    const placeholder = document.getElementById("imagePlaceholder");
     const divAdd = document.querySelector(".content");
     const gallery = document.getElementById("gallery");
     const imageCounter = document.getElementById("imageCounter");
     const downloadAllBtn = document.getElementById("DownloadAll");
     const rotateLeftBtn = document.getElementById("rotateLeft");
     const rotateRightBtn = document.getElementById("rotateRight");
+
+    if (placeholder) {
+      placeholder.addEventListener("click", () => {
+        image.click();
+      });
+    }
 
     // STORE ORIGINAL AND CURRENT IMAGES AS DATA URLS
     let rawImages = [];
@@ -450,6 +561,27 @@
     rotateLeftBtn.disabled = true;
     rotateRightBtn.disabled = true;
     downloadAllBtn.disabled = true;
+
+    // DISPLAY GIVEN IMAGE IN PREVIEWIMG AND WAIT FOR RENDERING
+    function setImageAndWait(src) {
+      return new Promise((resolve) => {
+        if (placeholder) placeholder.style.display = "none";
+        previewImg.style.display = "block";
+
+        if (previewImg.src === src && previewImg.complete && previewImg.naturalWidth > 0) {
+          requestAnimationFrame(() => setTimeout(resolve, 50));
+          return;
+        }
+
+        previewImg.onload = function () {
+          requestAnimationFrame(() => setTimeout(resolve, 50));
+        };
+        previewImg.onerror = function () {
+          resolve();
+        };
+        previewImg.src = src;
+      });
+    }
 
     // IMAGE PREVIEW (MULTIPLE)
 
@@ -532,7 +664,7 @@
 
       selectedIndex = idx;
 
-      setBack.style.backgroundImage = `url('${images[idx]}')`;
+      setImageAndWait(images[idx]);
 
       renderGallery();
 
@@ -605,7 +737,7 @@
 
         images[selectedIndex] = rotatedSrc;
 
-        setBack.style.backgroundImage = `url('${rotatedSrc}')`;
+        await setImageAndWait(rotatedSrc);
 
         renderGallery();
 
@@ -743,7 +875,7 @@
 
     // DOWNLOAD CURRENTLY SELECTED IMAGE
 
-    function downloadJPG() {
+    async function downloadJPG() {
 
       if (images.length === 0) {
         alert("Please select an image first.");
@@ -758,12 +890,32 @@
       let element = document.getElementById("setBack");
 
       // ENABLE DOWNLOAD MODE
-
       element.classList.add("download-mode");
 
-      html2canvas(element).then(function (canvas) {
+      // Calculate scale to maintain high resolution of the image
+      let naturalW = (previewImg && previewImg.naturalWidth) || element.offsetWidth;
+      let naturalH = (previewImg && previewImg.naturalHeight) || element.offsetHeight;
+      let maxDim = Math.max(naturalW, naturalH);
+      let targetW = naturalW;
+      if (maxDim > 4096) {
+        let reduction = 4096 / maxDim;
+        targetW = Math.round(naturalW * reduction);
+      }
+      let currentW = element.offsetWidth || 1;
+      let scale = targetW / currentW;
+      if (scale < 1.5) scale = 2;
 
-        let dataURL = canvas.toDataURL("image/jpeg");
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+
+      try {
+
+        const canvas = await html2canvas(element, {
+          scale: scale,
+          useCORS: true,
+          logging: false
+        });
+
+        let dataURL = canvas.toDataURL("image/jpeg", 0.95);
 
         let link = document.createElement("a");
 
@@ -777,31 +929,13 @@
 
         document.body.removeChild(link);
 
+      } catch (err) {
+        console.error("Download error:", err);
+        alert("Error generating image: " + err.message);
+      } finally {
         // REMOVE DOWNLOAD MODE
-
         element.classList.remove("download-mode");
-
-      });
-
-    }
-
-    // WAIT FOR A GIVEN IMAGE TO ACTUALLY BE PAINTED AS BACKGROUND
-
-    function setBackgroundAndWait(src) {
-
-      return new Promise((resolve) => {
-
-        const img = new Image();
-
-        img.onload = function () {
-          setBack.style.backgroundImage = `url('${src}')`;
-          // small delay to let the browser apply/render the background
-          setTimeout(resolve, 50);
-        };
-
-        img.src = src;
-
-      });
+      }
 
     }
 
@@ -826,43 +960,70 @@
       const element = document.getElementById("setBack");
       const originalIndex = selectedIndex;
 
-      for (let i = 0; i < images.length; i++) {
+      try {
 
-        await setBackgroundAndWait(images[i]);
+        for (let i = 0; i < images.length; i++) {
 
-        element.classList.add("download-mode");
+          downloadAllBtn.textContent = `Processing ${i + 1}/${images.length}...`;
 
-        // html2canvas needs the class change to be reflected in a fresh render
-        await new Promise((resolve) => requestAnimationFrame(resolve));
+          await setImageAndWait(images[i]);
 
-        const canvas = await html2canvas(element);
+          element.classList.add("download-mode");
 
+          let naturalW = (previewImg && previewImg.naturalWidth) || element.offsetWidth;
+          let naturalH = (previewImg && previewImg.naturalHeight) || element.offsetHeight;
+          let maxDim = Math.max(naturalW, naturalH);
+          let targetW = naturalW;
+          if (maxDim > 4096) {
+            let reduction = 4096 / maxDim;
+            targetW = Math.round(naturalW * reduction);
+          }
+          let currentW = element.offsetWidth || 1;
+          let scale = targetW / currentW;
+          if (scale < 1.5) scale = 2;
+
+          await new Promise((resolve) => requestAnimationFrame(resolve));
+
+          const canvas = await html2canvas(element, {
+            scale: scale,
+            useCORS: true,
+            logging: false
+          });
+
+          element.classList.remove("download-mode");
+
+          const dataURL = canvas.toDataURL("image/jpeg", 0.95);
+          const base64Data = dataURL.split(",")[1];
+
+          zip.file(`Image-${i + 1}.jpg`, base64Data, { base64: true });
+
+        }
+
+        const content = await zip.generateAsync({ type: "blob" });
+
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(content);
+        link.download = "Images.zip";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+      } catch (err) {
+        console.error("ZIP creation error:", err);
+        alert("Error creating ZIP: " + err.message);
+      } finally {
         element.classList.remove("download-mode");
 
-        const dataURL = canvas.toDataURL("image/jpeg", 0.95);
-        const base64Data = dataURL.split(",")[1];
+        // RESTORE ORIGINAL PREVIEW
+        selectedIndex = originalIndex;
+        if (images[originalIndex]) {
+          await setImageAndWait(images[originalIndex]);
+        }
+        renderGallery();
 
-        zip.file(`Image-${i + 1}.jpg`, base64Data, { base64: true });
-
+        downloadAllBtn.disabled = images.length <= 1;
+        downloadAllBtn.textContent = "Download All (ZIP)";
       }
-
-      // RESTORE ORIGINAL PREVIEW
-
-      selectedIndex = originalIndex;
-      setBack.style.backgroundImage = `url('${images[originalIndex]}')`;
-      renderGallery();
-
-      const content = await zip.generateAsync({ type: "blob" });
-
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(content);
-      link.download = "Images.zip";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      downloadAllBtn.disabled = images.length <= 1;
-      downloadAllBtn.textContent = "Download All (ZIP)";
 
     }
 

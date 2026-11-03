@@ -102,46 +102,113 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1;
+      max-width: 720px;
+      width: 100%;
     }
 
     .whole {
       background: white;
-      /* padding: 15px; */
-      /* border-radius: 18px; */
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      /* border: 1px solid #ececec; */
+      border: 1px solid #ececec;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     .EditImage {
-      height: 400px;
-      width: 600px;
-      /* border-radius: 14px; */
-      /* border: 2px solid #f0f0f0; */
       position: relative;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      display: inline-block;
+      line-height: 0;
+      max-width: 100%;
+      background-color: #1a1a1a;
       overflow: hidden;
-      /* background-color: #d8d8d8; */
+    }
+
+    #previewImg {
+      display: none;
+      max-width: 100%;
+      max-height: 520px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    .image-placeholder {
+      width: 580px;
+      height: 380px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fafafa;
+      color: #777;
+      gap: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 2px dashed #d8d8d8;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .image-placeholder:hover {
+      border-color: #940000;
+      background: #fff8f8;
+    }
+
+    .image-placeholder p {
+      font-size: 16px;
+      font-weight: 600;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .image-placeholder span {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.4;
     }
 
     /* NORMAL PREVIEW STYLE */
 
     .content {
       position: absolute;
-      bottom: 1%;
-      left: 1%;
-      font-size: 0.8rem;
-      padding: 10px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.25);
+      bottom: 8px;
+      left: 8px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(2px);
+      max-width: 75%;
+      word-break: break-word;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .content:empty {
+      display: none !important;
     }
 
     .content p {
       color: white;
-      margin-bottom: 3px;
-      line-height: 1.4;
+      margin-bottom: 2px;
+      line-height: 1.35;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
     }
 
     #Download {
@@ -154,34 +221,43 @@
     /* DOWNLOAD MODE */
 
     .download-mode .content {
-
-      left: 2px !important;
-      bottom: 2px !important;
-      background: rgba(255, 255, 255, 0.545) !important;
-      padding: 3px 6px 3px 3px !important;
+      left: 4px !important;
+      bottom: 4px !important;
+      background: rgba(255, 255, 255, 0.75) !important;
+      padding: 4px 8px !important;
       border-radius: 0px !important;
+      backdrop-filter: none !important;
     }
 
     .download-mode .content p {
       color: black !important;
+      font-weight: 600 !important;
       margin-bottom: 0px !important;
-      line-height: 1.1;
-      font-size: 12px;
+      line-height: 1.2 !important;
+      font-size: 12px !important;
     }
 
     .powerText {
       position: absolute;
-      bottom: 1%;
-      right: 1%;
+      bottom: 8px;
+      right: 8px;
       color: red;
-      font-size: 18px;
+      font-size: 16px;
       font-style: italic;
       font-weight: bold;
+      line-height: 1.2;
       display: none;
+      z-index: 5;
+      pointer-events: none;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
     }
 
     .download-mode .powerText {
-      display: block;
+      display: block !important;
+      bottom: 6px !important;
+      right: 6px !important;
+      font-size: 16px !important;
+      text-shadow: none !important;
     }
 
     @media screen and (max-width: 768px) {
@@ -199,12 +275,6 @@
         max-width: 100%;
       }
 
-      .EditImage {
-        width: 100%;
-        max-width: 100%;
-        height: 320px;
-      }
-
       .whole {
         width: 100%;
       }
@@ -212,17 +282,30 @@
       .main {
         width: 100%;
       }
+
+      #previewImg {
+        max-height: 420px;
+      }
+
+      .image-placeholder {
+        width: 100%;
+        height: 280px;
+      }
     }
 
     @media screen and (max-width: 468px) {
 
-      .EditImage {
-        height: 260px;
+      #previewImg {
+        max-height: 320px;
+      }
+
+      .image-placeholder {
+        height: 220px;
       }
 
       .content {
         font-size: 0.72rem;
-        padding: 7px;
+        padding: 6px 8px;
       }
 
       .input-field,
@@ -289,6 +372,19 @@
 
         <div class="EditImage" id="setBack">
 
+          <img id="previewImg" alt="Preview Image" />
+
+          <!-- PLACEHOLDER WHEN NO IMAGE -->
+          <div id="imagePlaceholder" class="image-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p>No image selected</p>
+            <span>Click or choose an image from the form</span>
+          </div>
+
           <div class="content"></div>
 
           <!-- POWERED TEXT -->
@@ -316,13 +412,21 @@
     const form = document.querySelector("form");
     const image = document.querySelector("#imageAccept");
     const setBack = document.getElementById("setBack");
+    const previewImg = document.getElementById("previewImg");
+    const placeholder = document.getElementById("imagePlaceholder");
     const divAdd = document.querySelector(".content");
+
+    if (placeholder) {
+      placeholder.addEventListener("click", () => {
+        image.click();
+      });
+    }
 
     // IMAGE PREVIEW
 
     image.addEventListener("change", () => {
 
-      if (image.files.length > 0) {
+      if (image.files && image.files.length > 0) {
 
         let fileReader = new FileReader();
 
@@ -330,7 +434,9 @@
 
         fileReader.onloadend = function () {
 
-          setBack.style.backgroundImage = `url('${fileReader.result}')`;
+          if (placeholder) placeholder.style.display = "none";
+          previewImg.style.display = "block";
+          previewImg.src = fileReader.result;
 
         };
 
@@ -439,17 +545,47 @@
 
     // DOWNLOAD IMAGE
 
-    function downloadJPG() {
+    async function downloadJPG() {
+
+      if (!image.files || image.files.length === 0 || !previewImg.src) {
+        alert("Please select an image first.");
+        return;
+      }
+
+      if (divAdd.innerHTML.trim() === "") {
+        alert("Please click Convert first.");
+        return;
+      }
 
       let element = document.getElementById("setBack");
 
       // ENABLE DOWNLOAD MODE
-
       element.classList.add("download-mode");
 
-      html2canvas(element).then(function (canvas) {
+      // Calculate scale to maintain high resolution of the image
+      let naturalW = (previewImg && previewImg.naturalWidth) || element.offsetWidth;
+      let naturalH = (previewImg && previewImg.naturalHeight) || element.offsetHeight;
+      let maxDim = Math.max(naturalW, naturalH);
+      let targetW = naturalW;
+      if (maxDim > 4096) {
+        let reduction = 4096 / maxDim;
+        targetW = Math.round(naturalW * reduction);
+      }
+      let currentW = element.offsetWidth || 1;
+      let scale = targetW / currentW;
+      if (scale < 1.5) scale = 2;
 
-        let dataURL = canvas.toDataURL("image/jpeg");
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+
+      try {
+
+        const canvas = await html2canvas(element, {
+          scale: scale,
+          useCORS: true,
+          logging: false
+        });
+
+        let dataURL = canvas.toDataURL("image/jpeg", 0.95);
 
         let link = document.createElement("a");
 
@@ -463,11 +599,13 @@
 
         document.body.removeChild(link);
 
+      } catch (err) {
+        console.error("Download error:", err);
+        alert("Error generating image: " + err.message);
+      } finally {
         // REMOVE DOWNLOAD MODE
-
         element.classList.remove("download-mode");
-
-      });
+      }
 
     }
 
